@@ -1,5 +1,5 @@
 --- 
-title: "PSYC4780 Course Notes"
+title: "Welcome!"
 author: "David J. Stanley"
 date: "`r Sys.Date()`"
 documentclass: krantz
@@ -28,16 +28,10 @@ lapply(c('xfun'), function(pkg) {
 })
 ```
 
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("header_4780.png")
+```
+
 # Preface {-}
 
 These notes are a resource for students in my PSYC*4780 class. The notes are a subset of material that I am creating for a public domain statistics book to be released sometime in the distant future.
-
-## Software information and conventions {-}
-
-I used the **knitr**\index{knitr} package [@xie2015] and the **bookdown**\index{bookdown} package [@R-bookdown] to compile my book. My R session information is shown below:
-
-```{r}
-xfun::session_info()
-```
-
-Package names are in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `knitr::knit('foo.Rmd')`). Function names are followed by parentheses (e.g., `bookdown::render_book()`).

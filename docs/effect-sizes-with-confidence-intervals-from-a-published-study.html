@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Effect sizes with confidence intervals from a published study | PSYC4780 Course Notes</title>
+  <title>Chapter 10 Effect sizes with confidence intervals from a published study | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 6060" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Effect sizes with confidence intervals from a published study | PSYC4780 Course Notes" />
+  <meta property="og:title" content="Chapter 10 Effect sizes with confidence intervals from a published study | Welcome!" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dstanley4/psyc6060bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Effect sizes with confidence intervals from a published study | PSYC4780 Course Notes" />
+  <meta name="twitter:title" content="Chapter 10 Effect sizes with confidence intervals from a published study | Welcome!" />
   
   <meta name="twitter:description" content="Course notes for PSYC 6060" />
   
@@ -134,9 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-information-and-conventions"><i class="fa fa-check"></i>Software information and conventions</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#a-focus-on-workflow"><i class="fa fa-check"></i><b>1.1</b> A focus on workflow</a></li>
@@ -390,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PSYC4780 Course Notes</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Welcome!</a>
           </h1>
         </div>
 
@@ -404,8 +402,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="correlations" class="section level2">
 <h2><span class="header-section-number">10.1</span> Correlations</h2>
 <p>Correlations are frequently reported in the literature. Less common, however, is the reporting of confidence intervals for those correlations. A confidence interval for a reported correlations (e.g., <span class="math inline">\(r\)</span> = .40) can be obtained if you also have the sample size (<span class="math inline">\(n\)</span> = 200) with the command below:</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb427-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb427-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb427-2"></a><span class="kw">ci.cc</span>(<span class="dt">r =</span> <span class="fl">.40</span>, <span class="dt">n =</span> <span class="dv">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb425-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb425-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb425-2"></a><span class="kw">ci.cc</span>(<span class="dt">r =</span> <span class="fl">.40</span>, <span class="dt">n =</span> <span class="dv">200</span>)</span></code></pre></div>
 <pre><code>## $Lower.Limit
 ## [1] 0.2766
 ## 
@@ -428,8 +426,8 @@ d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}
 <div id="reported-repeated-d-value-no-confidence-interval" class="section level3">
 <h3><span class="header-section-number">10.2.1</span> Reported repeated <span class="math inline">\(d\)</span>-value, no confidence interval</h3>
 <p>Consider a scenario where a study reports a repeated-measures <span class="math inline">\(d\)</span> = .50 and <span class="math inline">\(n\)</span> = 150. The 95% confidence interval for this <span class="math inline">\(d\)</span>-value (i.e., standardized mean difference) can be obtain with the command below.</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb429-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb429-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb429-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">.50</span>, <span class="dt">N =</span> <span class="dv">150</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb427-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb427-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb427-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">.50</span>, <span class="dt">N =</span> <span class="dv">150</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
 ## [1] 0.3295
@@ -458,8 +456,8 @@ d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}
 \end{aligned}
 \]</span></p>
 <p>We can get a confidence interval around this value with the code below.</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb432-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb432-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb432-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">.5</span>, <span class="dt">N =</span><span class="dv">150</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb430-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb430-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb430-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">.5</span>, <span class="dt">N =</span><span class="dv">150</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
 ## [1] 0.3295
@@ -483,8 +481,8 @@ d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}
 s_{diff} &amp; = s_1^2 + s_2^2 - 2(s_1)(s_2)r_{12}
 \end{aligned}
 \]</span></p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb435-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb435-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb435-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">.8</span>, <span class="dt">N =</span><span class="dv">100</span>) <span class="co"># dvalues]</span></span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb433-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb433-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb433-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">.8</span>, <span class="dt">N =</span><span class="dv">100</span>) <span class="co"># dvalues]</span></span></code></pre></div>
 <pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
 ## [1] 0.5731
@@ -511,9 +509,9 @@ n  &amp;= df + 1
 &amp;= 200
 \end{aligned}
 \]</span></p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb438-1"></a><span class="co"># t-value for repeated measures if </span></span>
-<span id="cb438-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb438-2"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb438-3"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb438-3"></a><span class="kw">ci.sm</span>(<span class="dt">ncp =</span> <span class="fl">8.23</span>, <span class="dt">N =</span> <span class="dv">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb436-1"></a><span class="co"># t-value for repeated measures if </span></span>
+<span id="cb436-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb436-2"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb436-3"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb436-3"></a><span class="kw">ci.sm</span>(<span class="dt">ncp =</span> <span class="fl">8.23</span>, <span class="dt">N =</span> <span class="dv">200</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
 ## [1] 0.4314
@@ -529,8 +527,8 @@ n  &amp;= df + 1
 <h2><span class="header-section-number">10.3</span> Independent Groups <span class="math inline">\(d\)</span>-value: Pooled Variance</h2>
 <div id="reported-d-value-no-confidence-interval" class="section level3">
 <h3><span class="header-section-number">10.3.1</span> Reported <span class="math inline">\(d\)</span>-value no confidence interval</h3>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb441-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-2"></a><span class="kw">ci.smd</span>(<span class="dt">sm =</span> <span class="fl">1.67</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb439-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb439-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb439-2"></a><span class="kw">ci.smd</span>(<span class="dt">sm =</span> <span class="fl">1.67</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 1.211
 ## 
@@ -542,16 +540,16 @@ n  &amp;= df + 1
 </div>
 <div id="using-cell-means" class="section level3">
 <h3><span class="header-section-number">10.3.2</span> Using cell means</h3>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb443-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-2"></a><span class="kw">smd</span>(<span class="dt">Mean.1 =</span> <span class="dv">5</span>,</span>
-<span id="cb443-3"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-3"></a>    <span class="dt">s.1 =</span> <span class="fl">1.2</span>, </span>
-<span id="cb443-4"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-4"></a>    <span class="dt">n.1 =</span> <span class="dv">50</span>, </span>
-<span id="cb443-5"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-5"></a>    <span class="dt">Mean.2 =</span> <span class="dv">3</span>, </span>
-<span id="cb443-6"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-6"></a>    <span class="dt">s.2 =</span> <span class="fl">1.2</span>, </span>
-<span id="cb443-7"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-7"></a>    <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb441-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-2"></a><span class="kw">smd</span>(<span class="dt">Mean.1 =</span> <span class="dv">5</span>,</span>
+<span id="cb441-3"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-3"></a>    <span class="dt">s.1 =</span> <span class="fl">1.2</span>, </span>
+<span id="cb441-4"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-4"></a>    <span class="dt">n.1 =</span> <span class="dv">50</span>, </span>
+<span id="cb441-5"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-5"></a>    <span class="dt">Mean.2 =</span> <span class="dv">3</span>, </span>
+<span id="cb441-6"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-6"></a>    <span class="dt">s.2 =</span> <span class="fl">1.2</span>, </span>
+<span id="cb441-7"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb441-7"></a>    <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## [1] 1.667</code></pre>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb445-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb445-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb445-2"></a><span class="kw">ci.smd</span>(<span class="dt">sm =</span> <span class="fl">1.67</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb443-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb443-2"></a><span class="kw">ci.smd</span>(<span class="dt">sm =</span> <span class="fl">1.67</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 1.211
 ## 
@@ -578,8 +576,8 @@ n_{group} &amp;= \frac{df + 2}{2}
 &amp;= 50
 \end{aligned}
 \]</span></p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb447-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb447-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb447-2"></a><span class="kw">ci.smd</span>(<span class="dt">ncp =</span> <span class="fl">8.3</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb445-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb445-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb445-2"></a><span class="kw">ci.smd</span>(<span class="dt">ncp =</span> <span class="fl">8.3</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 1.201
 ## 
@@ -591,8 +589,8 @@ n_{group} &amp;= \frac{df + 2}{2}
 </div>
 <div id="unequal-group-sizes" class="section level4">
 <h4><span class="header-section-number">10.3.2.2</span> Unequal group sizes</h4>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb449-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb449-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb449-2"></a><span class="kw">ci.smd</span>(<span class="dt">ncp =</span> <span class="fl">8.3</span>, <span class="dt">n.1 =</span> <span class="dv">65</span>, <span class="dt">n.2 =</span> <span class="dv">35</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb447-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb447-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb447-2"></a><span class="kw">ci.smd</span>(<span class="dt">ncp =</span> <span class="fl">8.3</span>, <span class="dt">n.1 =</span> <span class="dv">65</span>, <span class="dt">n.2 =</span> <span class="dv">35</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 1.259
 ## 
@@ -608,8 +606,8 @@ n_{group} &amp;= \frac{df + 2}{2}
 <h2><span class="header-section-number">10.4</span> Independent Groups <span class="math inline">\(d\)</span>-value: Control Group Variance</h2>
 <div id="reported-d-value-no-confidence-interval-1" class="section level3">
 <h3><span class="header-section-number">10.4.1</span> Reported <span class="math inline">\(d\)</span>-value no confidence interval</h3>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb451-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb451-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb451-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">smd.c =</span> <span class="fl">1.67</span>, <span class="dt">n.C =</span> <span class="dv">60</span>, <span class="dt">n.E =</span> <span class="dv">40</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb449-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb449-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb449-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">smd.c =</span> <span class="fl">1.67</span>, <span class="dt">n.C =</span> <span class="dv">60</span>, <span class="dt">n.E =</span> <span class="dv">40</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd.c
 ## [1] 1.165
 ## 
@@ -621,14 +619,14 @@ n_{group} &amp;= \frac{df + 2}{2}
 </div>
 <div id="using-cell-means-1" class="section level3">
 <h3><span class="header-section-number">10.4.2</span> Using cell means</h3>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb453-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb453-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb453-2"></a><span class="kw">smd.c</span>(<span class="dt">Mean.T =</span> <span class="dv">5</span>,</span>
-<span id="cb453-3"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb453-3"></a>    <span class="dt">Mean.C =</span> <span class="dv">3</span>, </span>
-<span id="cb453-4"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb453-4"></a>    <span class="dt">s.C =</span> <span class="fl">1.4</span>, </span>
-<span id="cb453-5"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb453-5"></a>    <span class="dt">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb451-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb451-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb451-2"></a><span class="kw">smd.c</span>(<span class="dt">Mean.T =</span> <span class="dv">5</span>,</span>
+<span id="cb451-3"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb451-3"></a>    <span class="dt">Mean.C =</span> <span class="dv">3</span>, </span>
+<span id="cb451-4"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb451-4"></a>    <span class="dt">s.C =</span> <span class="fl">1.4</span>, </span>
+<span id="cb451-5"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb451-5"></a>    <span class="dt">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## [1] 1.429</code></pre>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb455-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb455-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb455-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">smd.c =</span> <span class="fl">1.43</span>, <span class="dt">n.E =</span> <span class="dv">50</span>, <span class="dt">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb453-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb453-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb453-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">smd.c =</span> <span class="fl">1.43</span>, <span class="dt">n.E =</span> <span class="dv">50</span>, <span class="dt">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd.c
 ## [1] 0.942
 ## 
@@ -640,8 +638,8 @@ n_{group} &amp;= \frac{df + 2}{2}
 <div id="equal-group-sizes-1" class="section level4">
 <h4><span class="header-section-number">10.4.2.1</span> Equal group sizes</h4>
 <p>t(98) = 8.30 and equal sized groups</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb457-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb457-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb457-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">ncp =</span> <span class="fl">8.3</span>, <span class="dt">n.E =</span> <span class="dv">50</span>, <span class="dt">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb455-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb455-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb455-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">ncp =</span> <span class="fl">8.3</span>, <span class="dt">n.E =</span> <span class="dv">50</span>, <span class="dt">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd.c
 ## [1] 1.144
 ## 
@@ -653,8 +651,8 @@ n_{group} &amp;= \frac{df + 2}{2}
 </div>
 <div id="unequal-group-sizes-1" class="section level4">
 <h4><span class="header-section-number">10.4.2.2</span> Unequal group sizes</h4>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb459-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb459-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb459-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">ncp =</span> <span class="fl">8.3</span>, <span class="dt">n.E =</span> <span class="dv">40</span>, <span class="dt">n.C =</span> <span class="dv">60</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb457-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb457-2"><a href="effect-sizes-with-confidence-intervals-from-a-published-study.html#cb457-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">ncp =</span> <span class="fl">8.3</span>, <span class="dt">n.E =</span> <span class="dv">40</span>, <span class="dt">n.C =</span> <span class="dv">60</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd.c
 ## [1] 1.187
 ## 
