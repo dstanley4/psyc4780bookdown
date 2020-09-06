@@ -1,19 +1,20 @@
 --- 
-title: "Psychology 4780"
+title: "PSYC4780 Course Notes"
 author: "David J. Stanley"
 date: "`r Sys.Date()`"
 documentclass: krantz
-bibliography: [book.bib, packages.bib]
+bibliography:
+- book.bib
+- packages.bib
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
 lot: yes
 lof: yes
 site: bookdown::bookdown_site
-description: "A book in the style of a Chapman & Hall book."
-github-repo: yihui/bookdown-crc
+description: Course notes for PSYC 6060
+github-repo: dstanley4/psyc6060bookdown
 graphics: yes
-#cover-image: images/cover.jpg
 ---
 
 ```{r setup, include=FALSE}
@@ -29,15 +30,7 @@ lapply(c('xfun'), function(pkg) {
 
 # Preface {-}
 
-Hi there, this is my great book.
-
-## Why read this book {-}
-
-It is very important...
-
-## Structure of the book {-}
-
-Chapters \@ref(introduction) introduces a new topic, and ...
+These notes are a resource for students in my PSYC*4780 class. The notes are a subset of material that I am creating for a public domain statistics book to be released sometime in the distant future.
 
 ## Software information and conventions {-}
 
@@ -48,13 +41,3 @@ xfun::session_info()
 ```
 
 Package names are in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `knitr::knit('foo.Rmd')`). Function names are followed by parentheses (e.g., `bookdown::render_book()`).
-
-## Acknowledgments {-}
-
-A lot of people helped me when I was writing the book.
-
-```{block2, type='flushright', html.tag='p'}
-Frida Gomam  
-on the Mars
-```
-
