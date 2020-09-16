@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2020-09-10" />
+<meta name="date" content="2020-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -648,8 +648,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ t2_vomit      &lt;dbl&gt; 2, 1, 1, 2, 1, 2
 ## $ t2_aggression &lt;dbl&gt; -0.5, 0.5, -0.5, 0.5, -1.5, 1.5</code></pre>
 <p>Note that in the across() command above, we could also have used: starts_with(), contains(), matches(), or where().</p>
-<div id="mutate-across-rows" class="section level4">
-<h4><span class="header-section-number">2.5.3.1</span> mutate() across rows</h4>
+<div id="mutate-within-rows" class="section level4">
+<h4><span class="header-section-number">2.5.3.1</span> mutate() within rows</h4>
 <p>Researchers often want to average within rows and across columns to create a new column. That is, for each participant (i.e., rat in the current data) we might want to calculate a vomit score that is the average of the two time points (that we will call vomit_avg).</p>
 <p>To average within rows (and across columns) we use the rowwise() command to inform R of our intent. However, after we do the necessary calculations we have to shut off the rowwise() calculation state by using the ungroup() command. As well, when we are averaging within rows we have to use c_across() instead of across(). The commands below create a new column called vomit_avg which is the average of the vomit ratings across both times. As before, we also include na.rm = TRUE so the computer drops missing values (if present) when calculating the mean.</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="handling-data-with-the-tidyverse.html#cb130-1"></a>data_exp &lt;-<span class="st"> </span>data_exp <span class="op">%&gt;%</span><span class="st"> </span></span>
@@ -684,11 +684,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5        2        1       1.5
 ## 6        1        2       1.5</code></pre>
 </div>
+<div id="mutate-within-rows-using-column-names" class="section level4">
+<h4><span class="header-section-number">2.5.3.2</span> mutate() within rows using column names</h4>
+<p>Sometimes it can be difficult to use one of the advanced select commands to obtain the columns you need to average across. The advanced commands like ends_with() and starts_with() can sometimes include columns you don’t want. The command below is equivalent the one above, however, we explicitly name the variables we want to average across.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="handling-data-with-the-tidyverse.html#cb136-1"></a>data_exp &lt;-<span class="st"> </span>data_exp <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb136-2"><a href="handling-data-with-the-tidyverse.html#cb136-2"></a><span class="st">  </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb136-3"><a href="handling-data-with-the-tidyverse.html#cb136-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">vomit_avg =</span> <span class="kw">mean</span>( <span class="kw">c_across</span>(<span class="dt">cols =</span> <span class="kw">c</span>(t1_vomit, t2_vomit)),</span>
+<span id="cb136-4"><a href="handling-data-with-the-tidyverse.html#cb136-4"></a>                           <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb136-5"><a href="handling-data-with-the-tidyverse.html#cb136-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<p>You can use print() to confirm we get the same result:</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="handling-data-with-the-tidyverse.html#cb137-1"></a>data_exp <span class="op">%&gt;%</span></span>
+<span id="cb137-2"><a href="handling-data-with-the-tidyverse.html#cb137-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="kw">contains</span>(<span class="st">&quot;vomit&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb137-3"><a href="handling-data-with-the-tidyverse.html#cb137-3"></a><span class="st">  </span><span class="kw">print</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   t1_vomit t2_vomit vomit_avg
+##      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1        3        2       2.5
+## 2        2        1       1.5
+## 3        0        1       0.5
+## 4        3        2       2.5
+## 5        2        1       1.5
+## 6        1        2       1.5</code></pre>
+</div>
 <div id="mutate-for-factors" class="section level4">
-<h4><span class="header-section-number">2.5.3.2</span> mutate() for factors</h4>
+<h4><span class="header-section-number">2.5.3.3</span> mutate() for factors</h4>
 <p>It is critical that you indicate to R that categorical variables are in fact categorical variables. In R, categorical variables are referred to as factors. For humans, a factor like sex has three possible levels: female, male, intersex.</p>
 <p>An inspection of the glimpse() command output reveals that the sex column has the type character - as indicated by “chr”. Also notice, as you inspect this output, that we use words (e.g., female) to indicate the sex in the column rather than a number to represent a female participant (e.g., 2). This is the preferred, but less common, approach to entering data.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="handling-data-with-the-tidyverse.html#cb136-1"></a><span class="kw">glimpse</span>(data_exp)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="handling-data-with-the-tidyverse.html#cb139-1"></a><span class="kw">glimpse</span>(data_exp)</span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 7
 ## $ id            &lt;dbl&gt; 1, 2, 3, 4, 5, 6
@@ -700,10 +722,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ vomit_avg     &lt;dbl&gt; 2.5, 1.5, 0.5, 2.5, 1.5, 1.5</code></pre>
 <p>We need to convert the sex column to a factor in order for R to handle it appropriately in analyses. Failure to indicate the column is a factor could result in R conducting all the analyses and presenting incorrect results. Consequently, it is critical that we covert the column to a factor. Fortunately, that is easily done using the as_factor() command (there is also an as.factor command if as_factor won’t work for some reason).</p>
 <p>We convert the sex column to a factor with this code:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="handling-data-with-the-tidyverse.html#cb138-1"></a>data_exp &lt;-<span class="st"> </span>data_exp <span class="op">%&gt;%</span></span>
-<span id="cb138-2"><a href="handling-data-with-the-tidyverse.html#cb138-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sex =</span> <span class="kw">as_factor</span>(sex))</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="handling-data-with-the-tidyverse.html#cb141-1"></a>data_exp &lt;-<span class="st"> </span>data_exp <span class="op">%&gt;%</span></span>
+<span id="cb141-2"><a href="handling-data-with-the-tidyverse.html#cb141-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sex =</span> <span class="kw">as_factor</span>(sex))</span></code></pre></div>
 <p>You can confirm this worked with the glimpse() command:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="handling-data-with-the-tidyverse.html#cb139-1"></a><span class="kw">glimpse</span>(data_exp)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="handling-data-with-the-tidyverse.html#cb142-1"></a><span class="kw">glimpse</span>(data_exp)</span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 7
 ## $ id            &lt;dbl&gt; 1, 2, 3, 4, 5, 6
@@ -714,19 +736,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ t2_aggression &lt;dbl&gt; -0.5, 0.5, -0.5, 0.5, -1.5, 1.5
 ## $ vomit_avg     &lt;dbl&gt; 2.5, 1.5, 0.5, 2.5, 1.5, 1.5</code></pre>
 <p>If you entered your data using words for each level of sex (e.g., male, female) you’re done at this point. However, if you used numbers to represent each level of sex in your data, there is one more step. Imagine your data was entered in a poorly advised manner, such that 1 was used to indicate male, 2 was used to indicate female, and 3 was used to indicate intersex. If this was the case, you need to indicate to R what each of those values represent. We do that with the code below.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="handling-data-with-the-tidyverse.html#cb141-1"></a>data_exp &lt;-<span class="st"> </span>data_exp <span class="op">%&gt;%</span></span>
-<span id="cb141-2"><a href="handling-data-with-the-tidyverse.html#cb141-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sex =</span> <span class="kw">fct_recode</span>(sex,</span>
-<span id="cb141-3"><a href="handling-data-with-the-tidyverse.html#cb141-3"></a>                          <span class="dt">male =</span> <span class="st">&quot;1&quot;</span>,</span>
-<span id="cb141-4"><a href="handling-data-with-the-tidyverse.html#cb141-4"></a>                          <span class="dt">female =</span> <span class="st">&quot;2&quot;</span>,</span>
-<span id="cb141-5"><a href="handling-data-with-the-tidyverse.html#cb141-5"></a>                          <span class="dt">intersex =</span> <span class="st">&quot;3&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="handling-data-with-the-tidyverse.html#cb144-1"></a>data_exp &lt;-<span class="st"> </span>data_exp <span class="op">%&gt;%</span></span>
+<span id="cb144-2"><a href="handling-data-with-the-tidyverse.html#cb144-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sex =</span> <span class="kw">fct_recode</span>(sex,</span>
+<span id="cb144-3"><a href="handling-data-with-the-tidyverse.html#cb144-3"></a>                          <span class="dt">male =</span> <span class="st">&quot;1&quot;</span>,</span>
+<span id="cb144-4"><a href="handling-data-with-the-tidyverse.html#cb144-4"></a>                          <span class="dt">female =</span> <span class="st">&quot;2&quot;</span>,</span>
+<span id="cb144-5"><a href="handling-data-with-the-tidyverse.html#cb144-5"></a>                          <span class="dt">intersex =</span> <span class="st">&quot;3&quot;</span>))</span></code></pre></div>
 </div>
 </div>
 </div>
 <div id="using-help" class="section level2">
 <h2><span class="header-section-number">2.6</span> Using help</h2>
 <p>In order to become efficient at analyzing data using R, you will need to become adapt at reading and understanding the help files associated with each command. After you have activated a package using the library command (e.g., library(tidyverse)) you can access the help page for every command in that package. To access the help page simply type a question mark followed by the command you want to know how to use (no space between them). The code below brings up the help page for the select() command. Notice that we put the library() command first - just a reminder that this needs to be done prior to using help for that package. Try the commands below in the Console:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="handling-data-with-the-tidyverse.html#cb142-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb142-2"><a href="handling-data-with-the-tidyverse.html#cb142-2"></a>?select</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="handling-data-with-the-tidyverse.html#cb145-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb145-2"><a href="handling-data-with-the-tidyverse.html#cb145-2"></a>?select</span></code></pre></div>
 <p>Examine the page that appears on the Help tab in the panel in the lower right of your screen. Read through the help file comparing what you read there to what we have learned about the select command. Notice how the help file tells you about the argument that you sent into the select() command, and also what the select() command returns when it receives those commands. Pay particular attention to the examples near the bottom of the help page. At the very bottom of the help page you will see [Package dplyr version 1.0.0 Index]. This tells you the select() command is from the dplyr package (part of the tidyverse). Notice that the word “Index” is underlined. Click on the word Index. You will be presented with list of other commands in the dplyr package.</p>
 <p>As you become more experienced with R help pages, this is how you will learn to use new commands. Examine the help pages for the commands below by typing a question mark into the Console followed by the command name. Note that for filter and starts_with you will be presented with a menu instead of help page. This typically occurs because the command is in more than one package. If this does occur, read through the options you are presented with to try and figure out which one you wanted. Typically, you want the first option. If you’re not sure, try one. IF it’s not what you want, use the back arrow in the Help panel to go back and pick another one.</p>
 <ul>
@@ -746,9 +768,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="read.csv-and-data-frames" class="section level3">
 <h3><span class="header-section-number">2.7.2</span> read.csv() and data frames</h3>
 <p>When you read data into R using the command read.csv() (with a period) you load the data into a data frame (base R).</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="handling-data-with-the-tidyverse.html#cb143-1"></a>my_dataframe &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="handling-data-with-the-tidyverse.html#cb146-1"></a>my_dataframe &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
 <p>Notice that when you print a data frame it does not show you the number of rows or columns above the data like our example did with the okcupid_profiles data. Likewise, it does not show you the type of data in each column (e.g., dbl, fct, chr). It also presents all of your data rather than just the first few rows (as the tibble does). As a result, in the output below, we show only the first 10 rows of the output - because all the rows are printed in your Console with a data frame (too much to show here).</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="handling-data-with-the-tidyverse.html#cb144-1"></a><span class="kw">print</span>(my_dataframe)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="handling-data-with-the-tidyverse.html#cb147-1"></a><span class="kw">print</span>(my_dataframe)</span></code></pre></div>
 <pre><code>##    age              diet height                      pets
 ## 1   22 strictly anything     75 likes dogs and likes cats
 ## 2   35      mostly other     70 likes dogs and likes cats
@@ -775,7 +797,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="read_csv-and-tibbles" class="section level3">
 <h3><span class="header-section-number">2.7.3</span> read_csv() and tibbles</h3>
 <p>When you read data into R using the command read_csv() (with an underscore) you load the data into a tibble (tidyverse).</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="handling-data-with-the-tidyverse.html#cb146-1"></a>my_tibble &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="handling-data-with-the-tidyverse.html#cb149-1"></a>my_tibble &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   age = col_double(),
@@ -786,7 +808,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   status = col_character()
 ## )</code></pre>
 <p>The tibble is modern version of the data frame. Notice that when you print a tibble it DOES show you the number of rows and columns. As well, it shows you the type of data in each column. Importantly, the tibble only provides the first few rows of output so it doesn’t fill your screen.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="handling-data-with-the-tidyverse.html#cb148-1"></a><span class="kw">print</span>(my_tibble)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="handling-data-with-the-tidyverse.html#cb151-1"></a><span class="kw">print</span>(my_tibble)</span></code></pre></div>
 <pre><code>## # A tibble: 59,946 x 6
 ##      age diet         height pets              sex   status 
 ##    &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt;  
@@ -802,8 +824,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10    37 mostly anyt…     65 likes dogs and l… m     single 
 ## # … with 59,936 more rows</code></pre>
 <p>In short, you should always use tibbles (i.e., use read_csv() not read.csv()). The differences between data frames and tibbles run deeper than the superficial output provided here. On some rare occasions an old package or command may not work with a tibble so you need to make it a data frame. You can do so with the commands below. We will flag these rare occurances to you when they occur.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="handling-data-with-the-tidyverse.html#cb150-1"></a><span class="co"># Create a data frame from a tibble</span></span>
-<span id="cb150-2"><a href="handling-data-with-the-tidyverse.html#cb150-2"></a>new_dataframe &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(my_tibble)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="handling-data-with-the-tidyverse.html#cb153-1"></a><span class="co"># Create a data frame from a tibble</span></span>
+<span id="cb153-2"><a href="handling-data-with-the-tidyverse.html#cb153-2"></a>new_dataframe &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(my_tibble)</span></code></pre></div>
 
 </div>
 </div>

@@ -434,7 +434,7 @@ glimpse(data_exp)
 
 Note that in the across() command above, we could also have used: starts_with(), contains(), matches(), or where().
 
-#### mutate() across rows
+#### mutate() within rows
 
 Researchers often want to average within rows and across columns to create a new column. That is, for each participant (i.e., rat in the current data) we might want to calculate a vomit score that is the average of the two time points (that we will call vomit_avg).
 
@@ -461,6 +461,26 @@ print(data_exp)
 ```
 
 To see that the new column, vomit_avg, is the average of the other vomit columns we use the select command before print(). This prints only the relvant columns. When this is done, it's easy to see how the values in the vomit_avg column are the mean of the other two columns.
+
+```{r}
+data_exp %>%
+  select(contains("vomit")) %>%
+  print()
+```
+
+#### mutate() within rows using column names
+
+Sometimes it can be difficult to use one of the advanced select commands to obtain the columns you need to average across. The advanced commands like ends_with() and starts_with() can sometimes include columns you don't want. The command below is equivalent the one above, however, we explicitly name the variables we want to average across.
+
+```{r}
+data_exp <- data_exp %>% 
+  rowwise() %>% 
+  mutate(vomit_avg = mean( c_across(cols = c(t1_vomit, t2_vomit)),
+                           na.rm = TRUE)) %>%
+  ungroup()
+```
+
+You can use print() to confirm we get the same result:
 
 ```{r}
 data_exp %>%
