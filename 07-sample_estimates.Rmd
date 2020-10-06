@@ -105,10 +105,10 @@ Scenario: A researcher does not report a $d$-value or descriptive statistics. Fo
 
 ```{r}
 library(MBESS)
-ci.smd(ncp = 8.3, n.1 = 65, n.2 = 35) 
+ci.smd(ncp = 9.36, n.1 = 65, n.2 = 35) 
 ```
 
-The population effect ($\delta$) is unknown but our sample estimate is $d$ = 1.74. This value will differ from the population effect ($\delta$) due to sampling error. The confidence interval indicates that a plausible range for $\delta$ is 1.26 to 2.12.
+The population effect ($\delta$) is unknown but our sample estimate is $d$ = 1.96. This value will differ from the population effect ($\delta$) due to sampling error. The confidence interval, 95% CI [1.47, 2.45] indicates that a plausible range for $\delta$ is 1.47 to 2.45.
 
 
 #### $d$ denominator: Control group variance
