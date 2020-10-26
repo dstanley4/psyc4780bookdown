@@ -31,7 +31,7 @@ Conducting a sample size analysis requires a few pieces of information before yo
 
 2. Population-level effect size. To conduct a sample-size analysis you need an estimate of the population effect size you are trying to find. Most commonly, for theses, that means you needs a estimate of the population-level $d$-value (i.e., $\delta$) or population-level correlation ($\rho$) that you are trying to detect.
 
-Below we present the process for conducing a sample size analysis for the independent groups $t$-test, repeated measures $t$-test, andcorrelations. For each of these analyses we go through three steps:
+Below we present the process for conducting a sample size analysis for the independent groups $t$-test, repeated measures $t$-test, andcorrelations. For each of these analyses we go through three steps:
 
 1. Estimating the population effect size
 2. Determining the desired sample size for your study
