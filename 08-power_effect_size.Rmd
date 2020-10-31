@@ -1,5 +1,5 @@
 
-# Sample size analysis for NHST
+# NHST and sample size
 
 ## Required
 
@@ -44,7 +44,7 @@ As we review these steps for the analyses below we omit using subjective judgmen
 **Using a sample size of previous study**. One approach to sample size analysis is simply to use the sample size from a previous study conducted in that research area. This is the worst possible strategy for choosing a sample size. Richard Morey and Daniel Lakens [discuss](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwj3wvikhsPsAhVxk-AKHe5xCsYQFjAAegQIBRAC&url=https%3A%2F%2Fraw.githubusercontent.com%2Fricharddmorey%2Fpsychology_resolution%2Fmaster%2Fpaper%2Fresponse.pdf&usg=AOvVaw2-uqEGCGlGvLVlazweKRq2) how most study results in psychology are statistically unfalsifiable because the sample sizes (and corresponding power) are so low. Consequently, using a the sample size for your study based on past research is not advised. Doing so will most likely to result in a sample size that is so small any resulting findings will be untrustworthy and unfalsifiable. Conduct a proper sample size analysis.
 ```
 
-## Independent Groups $t$-test
+## Independent groups $t$-test
 
 ### Population effect size
 
@@ -325,7 +325,7 @@ print(d_critical)
 
 This indicates that with a sample size of 298 per group that only independent groups $d$-values greater than $d$ = 0.135 will be significant. 
 
-## Repeated Measures $t$-test
+## Repeated measures $t$-test
 
 ### Population effect size
 
@@ -871,6 +871,4 @@ print(r_critical)
 ```
 
 This indicates that with a sample size of 261 that only sample correlations greater than $r$ = .10 (rounded) will be significant. 
-
-## References
 

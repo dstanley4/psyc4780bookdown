@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Effect sizes from publications | Welcome!</title>
+  <title>Chapter 10 Precision and sample size | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 6060" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Effect sizes from publications | Welcome!" />
+  <meta property="og:title" content="Chapter 10 Precision and sample size | Welcome!" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dstanley4/psyc6060bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Effect sizes from publications | Welcome!" />
+  <meta name="twitter:title" content="Chapter 10 Precision and sample size | Welcome!" />
   
   <meta name="twitter:description" content="Course notes for PSYC 6060" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sampling-precision.html"/>
-<link rel="next" href="nhst-and-sample-size.html"/>
+<link rel="prev" href="equivalence-tests-and-sample-size.html"/>
+<link rel="next" href="starting-your-research.html"/>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -439,10 +439,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="effect-sizes-from-publications" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> Effect sizes from publications</h1>
+<div id="precision-and-sample-size" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Precision and sample size</h1>
 <div id="required" class="section level2">
-<h2><span class="header-section-number">7.1</span> Required</h2>
+<h2><span class="header-section-number">10.1</span> Required</h2>
 <p>The following CRAN packages must be installed:</p>
 <table>
 <thead>
@@ -455,341 +455,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>MBESS</td>
 </tr>
 <tr class="even">
-<td>cocor</td>
+<td>TOSTER</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="objective" class="section level2">
-<h2><span class="header-section-number">7.2</span> Objective</h2>
-<p>In this chapter we focus on obtaining effect size estimates (e.g., correlation or standardized mean difference) from published articles. Often studies do not report effect sizes (e.g., <span class="math inline">\(d\)</span>-values) or if they do, they don’t report the confidence interval for that effect. We will learn more about confidence intervals in a future chapter, but for now, think of a confidence interval for a study/sample effect (e.g., <span class="math inline">\(d\)</span>-value) as providing a plausible range of values for the population parameter (e.g., <span class="math inline">\(\delta\)</span>). Below we learn the R commands needed to obtain effect sizes with confidence intervals from published articles.</p>
-<p>The ability to obtain effect size estimate from articles will be come extraordinarily important later in the course. Specifically, when it is time to engage in sample size planning (e.g., for your thesis) you will need to obtain estimates of the effects you are interested in from past research. The commands in this chapter will help you to do so.</p>
+<div id="overview" class="section level2">
+<h2><span class="header-section-number">10.2</span> Overview</h2>
+<p>In the previous two chapter, we reviewed the sample size planning using the traditional NHST approach as well as equivalence testing. In this chapter, we focus on determining the appropriate sample size for your study using the precision approach. Specifically, we review determining the desiredd sample size based on the effect size and desired confidence interval width.
+## Precision</p>
+<p>A confidence interval provides an interval estimate of the population parameter. If you took multiple samples from a population and constructed a confidence interval for each sample the confidence intervals would likely all be different. More specifically, each confidence interval is likely to have a different range and width. Over a large number of samples 95% of the confidence intervals would overlap with the population parameter.</p>
+<p>Interpretation of confidence intervals can be challenging. <strong>Prior</strong> to collecting your data we say there is a 95% chance a constructed confidence interval will overlap with the population parameter. Once you have collected your data and obtained the end points for your sample confidence interval - interpretation is more difficult. Indeed, a specific interval will either overlap with the population parameter or not; unfortunately, you don’t know which is the case. Consequently, once you have a specific confidence interval with end points, based on your data, you should only interpret it as plausible range of values for the population parameter - don’t associate the 95% probability with interpretting the confidence interval once you have constructed it.</p>
+<p>Imagine you are about to conduct a correlation study (<em>N</em> = 100) and you plan to construct a confidence interval around that correlation. At this point, prior to data collection, there is a 95% chance that the confidence interval you construct around the sample correlation will overlap with the population correlation (i.e., the population parameter). You collect your data and find <span class="math inline">\(r\)</span> = .35, 95% CI [.16, .51]. Now that you have a specific confidence interval how do you interpret it? You can say the confidence interval is plausible range of the values for the population correlation. You should <strong>not</strong> say there is a 95% chance that population correlation is in the .16 to .51 range. Why not? Once the data is collected and you have a specific interval with end points (e.g., .16 to .51) statisticians think of the interval as overlapping with the population correlation (a probability of 1.00) or not (a probability of 0). Thus, once you have a specific interval, after data collection, the probability that it contains the population parmater is 1.00 or 0 - you just don’t know which. So a convienient way to think about the range is by using the word <strong>plausible</strong> which is not associated with a probability. We simply say the confidence interval uses sample data to provide a plausible range of values for the population parameter (e.g., population correlation).</p>
+<p>Using confidence intervals for research can, from one perspective, be a fundamental shift in your thinking about how to interpret results. Null hypothesis significance testing allows for a simplistic conclusion - the population effect size may not be exactly zero. This is a form fo categorical decision making: effect / no effect. In contrast, the using confidence intervals to interpret your data is an <strong>estimation</strong> approach: How large is the effect and how uncertain is my estimate of the effect size? Moreover, using the estimation approach makes it a small jumpt to drawing scientific conclusions using meta-analysis <span class="citation">(see Schmidt and Hunter <a href="#ref-schmidt2014methods" role="doc-biblioref">2014</a>)</span>. You can learn more about confidence interval / estimation approach by checking out this video <a href="https://www.psychologicalscience.org/members/new-statistics">workshop</a>. Alternatively, you can check out these general articles <span class="citation">Cumming (<a href="#ref-cumming2009inference" role="doc-biblioref">2009</a>)</span>, <span class="citation">Cumming (<a href="#ref-cumming2014new" role="doc-biblioref">2014</a>)</span>, <span class="citation">Calin-Jageman and Cumming (<a href="#ref-calin2019new" role="doc-biblioref">2019</a><a href="#ref-calin2019new" role="doc-biblioref">b</a>)</span>. <span class="citation">Calin-Jageman and Cumming (<a href="#ref-calin2019estimation" role="doc-biblioref">2019</a><a href="#ref-calin2019estimation" role="doc-biblioref">a</a>)</span>.</p>
+<p>There are two parts to planning using precision:</p>
+<ol style="list-style-type: decimal">
+<li><p>Determining the effect size of interest (reviewed in previous chapters on smallest effect size of interest).</p></li>
+<li><p>Indicating the desired width of the confidence interval.</p></li>
+</ol>
+<p>Unfortunately, there is little consensus of how to pick the desired width of the confidence interval. Our sense is that the width of the confidence interval should not be larger than the effect size. That, is your uncertainty should not be larger than the effect itself. For example, if you specified a smallest size of interest as <span class="math inline">\(\delta\)</span> = 0.40 then you would specify a width of 0.40 as well. Likewise, with correlations, if you specified a smallest effect size of interest as <span class="math inline">\(r\)</span> = .30 then you would indicate a desired with of .30 as well.</p>
+<p>More stringent advise was offered, indirectly by Geoff Cumming, on social media:</p>
+<p><img src="ch_precision_sample_size/images/precision_tweet.png" width="40%" /></p>
+<p>Below I present a series of example for determine the sample size for you study using the less stringent approach of setting the confidence interval width to be the same as the effect size.</p>
+<p>You can read more about planning for precision in <span class="citation">Rothman and Greenland (<a href="#ref-rothman2018planning" role="doc-biblioref">2018</a>)</span>.</p>
+<div id="precision-independent-t-test" class="section level3">
+<h3><span class="header-section-number">10.2.1</span> Precision Independent t-test</h3>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="precision-and-sample-size.html#cb380-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb380-2"><a href="precision-and-sample-size.html#cb380-2"></a></span>
+<span id="cb380-3"><a href="precision-and-sample-size.html#cb380-3"></a><span class="kw">ss.aipe.smd</span>(<span class="dt">delta =</span> <span class="fl">0.40</span>,</span>
+<span id="cb380-4"><a href="precision-and-sample-size.html#cb380-4"></a>            <span class="dt">width =</span> <span class="fl">0.40</span>)</span></code></pre></div>
+<pre><code>## [1] 196</code></pre>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="precision-and-sample-size.html#cb382-1"></a><span class="co"># Returns sample size per group</span></span></code></pre></div>
 </div>
-<div id="estimating-delta" class="section level2">
-<h2><span class="header-section-number">7.3</span> Estimating <span class="math inline">\(\delta\)</span></h2>
-<div id="independent-groups" class="section level3">
-<h3><span class="header-section-number">7.3.1</span> Independent Groups</h3>
-<p>When conducting an independent-groups <em>t</em>-test there are a few different ways to calculate <span class="math inline">\(d\)</span>-values. We focus on two approaches in this chapter. First, researchers may assume that any intervention (e.g., control group vs. experimental group) will only affect group means (and not group standard deviations / variances). This is the most common scenario. When researchers have this belief they use a <em>pooled variance</em> approach to calculating the <span class="math inline">\(d\)</span>-value. That is, the variances of the two groups are pooled (i.e., averaged) to create the denominator for the <span class="math inline">\(d\)</span>-value. Second, researchers may assume that the intervention (e.g., control group vs. experimental group) will affect both group means and standard deviations/variances. This is a less common situation. When researchers have this belief they use one group (e.g., a control group) as the frame of reference for the comparison. That is, the standard deviation for a single group (e.g., the control group) is used as the denominator for the <span class="math inline">\(d\)</span>-value.</p>
-<div id="d-denominator-pooled-variance" class="section level4">
-<h4><span class="header-section-number">7.3.1.1</span> <span class="math inline">\(d\)</span> denominator: Pooled variance</h4>
-<div id="reported-d-value-no-confidence-interval" class="section level5">
-<h5><span class="header-section-number">7.3.1.1.1</span> Reported <span class="math inline">\(d\)</span>-value no confidence interval</h5>
-<p>Scenario: A researcher reports a <span class="math inline">\(d\)</span>-value of 1.67 in their article and that each condition has 50 people. The researcher believed that the intervention would only influence means and not standard deviations and used a pooled-variance <span class="math inline">\(d\)</span>-value. They did not report a confidence interval. We can calculate a confidence interval for the independent groups <span class="math inline">\(d\)</span>-value (pooled variance) with the command below:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="effect-sizes-from-publications.html#cb268-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb268-2"><a href="effect-sizes-from-publications.html#cb268-2"></a><span class="kw">ci.smd</span>(<span class="dt">sm =</span> <span class="fl">1.67</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
-<pre><code>## $Lower.Conf.Limit.smd
-## [1] 1.211
-## 
-## $smd
-## [1] 1.67
-## 
-## $Upper.Conf.Limit.smd
-## [1] 2.123</code></pre>
-<p>The population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate is <span class="math inline">\(d\)</span> = 1.67, 95% CI [1.21, 2.12]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 1.21 to 2.12.</p>
+<div id="precision-repeated-t-test" class="section level3">
+<h3><span class="header-section-number">10.2.2</span> Precision Repeated t-test</h3>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="precision-and-sample-size.html#cb383-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb383-2"><a href="precision-and-sample-size.html#cb383-2"></a></span>
+<span id="cb383-3"><a href="precision-and-sample-size.html#cb383-3"></a><span class="kw">ss.aipe.sm</span>(<span class="dt">sm =</span> <span class="fl">0.40</span>,</span>
+<span id="cb383-4"><a href="precision-and-sample-size.html#cb383-4"></a>            <span class="dt">width =</span> <span class="fl">0.40</span>)</span></code></pre></div>
+<pre><code>## [1] 104</code></pre>
 </div>
-<div id="using-cell-means-only" class="section level5">
-<h5><span class="header-section-number">7.3.1.1.2</span> Using cell means only</h5>
-<p>Scenario: A researcher does not report a <span class="math inline">\(d\)</span>-value but indicates the descriptive statistics for the groups. For the first group <span class="math inline">\(M\)</span> = 5.00, <span class="math inline">\(SD\)</span> = 1.20, and <span class="math inline">\(n\)</span> = 50. For the second group, <span class="math inline">\(M\)</span> = 3.00, <span class="math inline">\(SD\)</span> = 1.00, and <span class="math inline">\(n\)</span> = 50. We can calculate the standardized mean difference (i.e., independent groups <span class="math inline">\(d\)</span>-value) using the command below:</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="effect-sizes-from-publications.html#cb270-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb270-2"><a href="effect-sizes-from-publications.html#cb270-2"></a><span class="kw">smd</span>(<span class="dt">Mean.1 =</span> <span class="dv">5</span>,</span>
-<span id="cb270-3"><a href="effect-sizes-from-publications.html#cb270-3"></a>    <span class="dt">s.1 =</span> <span class="fl">1.2</span>, </span>
-<span id="cb270-4"><a href="effect-sizes-from-publications.html#cb270-4"></a>    <span class="dt">n.1 =</span> <span class="dv">50</span>, </span>
-<span id="cb270-5"><a href="effect-sizes-from-publications.html#cb270-5"></a>    <span class="dt">Mean.2 =</span> <span class="dv">3</span>, </span>
-<span id="cb270-6"><a href="effect-sizes-from-publications.html#cb270-6"></a>    <span class="dt">s.2 =</span> <span class="fl">1.0</span>, </span>
-<span id="cb270-7"><a href="effect-sizes-from-publications.html#cb270-7"></a>    <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
-<pre><code>## [1] 1.811</code></pre>
-<p>Our sample estimate of <span class="math inline">\(\delta\)</span> is <span class="math inline">\(d\)</span> = 1.81. The 95% confidence interval is obtained below:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="effect-sizes-from-publications.html#cb272-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb272-2"><a href="effect-sizes-from-publications.html#cb272-2"></a><span class="kw">ci.smd</span>(<span class="dt">sm =</span> <span class="fl">1.81</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
-<pre><code>## $Lower.Conf.Limit.smd
-## [1] 1.34
-## 
-## $smd
-## [1] 1.81
-## 
-## $Upper.Conf.Limit.smd
-## [1] 2.273</code></pre>
-<p>The population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate is <span class="math inline">\(d\)</span> = 1.81, 95% CI [1.34, 2.27]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 1.34 to 2.27.</p>
-</div>
-<div id="t-equal-group-sizes" class="section level5">
-<h5><span class="header-section-number">7.3.1.1.3</span> t: Equal group sizes</h5>
-<p>Scenario: A researcher does not report a <span class="math inline">\(d\)</span>-value, descriptive statistics, or n per group. Fortunately, the researcher did report the <span class="math inline">\(t\)</span>-value, <span class="math inline">\(t\)</span>(98) = 8.30, and the fact that the groups were the same size. After reading the article you believe the intervention is only likely to affect the means of the groups and not the variances - so a pooled variance term for the denominator of the <span class="math inline">\(d\)</span>-value is appropriate. We can use the information provided to calculate a <span class="math inline">\(d\)</span>-value and confidence interval.</p>
-<p>To calculate the <span class="math inline">\(d\)</span>-value we need to know the number of people per group. We can obtain that information from the degrees of freedom (98) using the formula below.</p>
-<p><span class="math display">\[
-\begin{aligned}
-df &amp;= n_1 + n_2 - 2
-\end{aligned}
-\]</span></p>
-<p>Because the two groups were the same size we just use <span class="math inline">\(n\)</span> instead of <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span>. We know <span class="math inline">\(df\)</span> = 98:</p>
-<p><span class="math display">\[
-\begin{aligned}
-98 &amp;= n + n - 2\\
-98 &amp;= 2n - 2\\
-98 + 2 &amp;= 2n \\
-100 &amp;= 2n \\
-\frac{100}{2} &amp;= n \\
-50 &amp;= n \\
-\end{aligned}
-\]</span></p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="effect-sizes-from-publications.html#cb274-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb274-2"><a href="effect-sizes-from-publications.html#cb274-2"></a><span class="kw">ci.smd</span>(<span class="dt">ncp =</span> <span class="fl">8.30</span>, <span class="dt">n.1 =</span> <span class="dv">50</span>, <span class="dt">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
-<pre><code>## $Lower.Conf.Limit.smd
-## [1] 1.201
-## 
-## $smd
-## [1] 1.66
-## 
-## $Upper.Conf.Limit.smd
-## [1] 2.112</code></pre>
-<p>The population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate is <span class="math inline">\(d\)</span> = 1.66, 95% CI [1.20, 2.11]. This <span class="math inline">\(d\)</span>-value value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 1.20 to 2.11.</p>
-</div>
-<div id="t-unequal-group-sizes" class="section level5">
-<h5><span class="header-section-number">7.3.1.1.4</span> t: Unequal group sizes</h5>
-<p>Scenario: A researcher does not report a <span class="math inline">\(d\)</span>-value or descriptive statistics. Fortunately, the researcher did report the <span class="math inline">\(t\)</span>-value, <span class="math inline">\(t\)</span>(98) = 9.36, and the fact that the groups had 65 and 35 people. After reading the article you believe the intervention is only likely to affect the means of the groups and not the variances - so a pooled variance term for the denominator of the <span class="math inline">\(d\)</span>-value is appropriate. We can use the information provided to calculate a <span class="math inline">\(d\)</span>-value and confidence interval.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="effect-sizes-from-publications.html#cb276-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb276-2"><a href="effect-sizes-from-publications.html#cb276-2"></a><span class="kw">ci.smd</span>(<span class="dt">ncp =</span> <span class="fl">9.36</span>, <span class="dt">n.1 =</span> <span class="dv">65</span>, <span class="dt">n.2 =</span> <span class="dv">35</span>) </span></code></pre></div>
-<pre><code>## $Lower.Conf.Limit.smd
-## [1] 1.465
-## 
-## $smd
-## [1] 1.962
-## 
-## $Upper.Conf.Limit.smd
-## [1] 2.453</code></pre>
-<p>The population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate is <span class="math inline">\(d\)</span> = 1.96. This value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval, 95% CI [1.47, 2.45] indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 1.47 to 2.45.</p>
-</div>
-</div>
-<div id="d-denominator-control-group-variance" class="section level4">
-<h4><span class="header-section-number">7.3.1.2</span> <span class="math inline">\(d\)</span> denominator: Control group variance</h4>
-<p>In this section we focus on calculating the <span class="math inline">\(d\)</span>-value when the researcher of the published article has used the standard deviation of a single group as the denominator for the <span class="math inline">\(d\)</span>-value. This is usually done when the researcher believes an experimental intervention will influence both group means and group standard deviations. Researcher who use this approach will hopefully have made it clear what they have done. If you’re not sure what a researcher has done I suggest using the pooled variance approach for the denominator above.</p>
-<div id="reported-d-value-no-confidence-interval-1" class="section level5">
-<h5><span class="header-section-number">7.3.1.2.1</span> Reported <span class="math inline">\(d\)</span>-value no confidence interval</h5>
-<p>Scenario: A researcher reports a <span class="math inline">\(d\)</span>-value of 0.85 in their article and that each condition has 50 people. The researcher believed that the intervention would influence both means and standard deviations. Therefore, when they calculated the <span class="math inline">\(d\)</span>-value they used the standard deviation of a single group (the control group). We can calculate a confidence interval for the independent groups <span class="math inline">\(d\)</span>-value (control group variance) with the command below:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="effect-sizes-from-publications.html#cb278-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb278-2"><a href="effect-sizes-from-publications.html#cb278-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">smd.c =</span> <span class="fl">0.85</span>, <span class="dt">n.C =</span> <span class="dv">50</span>, <span class="dt">n.E =</span> <span class="dv">50</span>) </span></code></pre></div>
-<pre><code>## $Lower.Conf.Limit.smd.c
-## [1] 0.4199
-## 
-## $smd.c
-## [1] 0.85
-## 
-## $Upper.Conf.Limit.smd.c
-## [1] 1.273</code></pre>
-<p>The population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate is <span class="math inline">\(d\)</span> = 0.85, 95% CI [0.42, 1.27]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 0.42 to 1.27.</p>
-</div>
-<div id="using-cell-means" class="section level5">
-<h5><span class="header-section-number">7.3.1.2.2</span> Using cell means</h5>
-<p>Scenario: A researcher does not report a <span class="math inline">\(d\)</span>-value but indicates the descriptive statistics for the groups. For the experimental group <span class="math inline">\(M\)</span> = 5.00, <span class="math inline">\(SD\)</span> = 1.20, and <span class="math inline">\(n\)</span> = 50. For the control group, <span class="math inline">\(M\)</span> = 3.00, <span class="math inline">\(SD\)</span> = 1.40, and <span class="math inline">\(n\)</span> = 50. After reading the article you believe that intervention might well influence both means and standard deviations. Therefore, you think a control group standard deviation should be the frame of reference for the <span class="math inline">\(d\)</span>-value. You can calculate the standardized mean difference (i.e., independent groups <span class="math inline">\(d\)</span>-value) using the command below:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="effect-sizes-from-publications.html#cb280-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb280-2"><a href="effect-sizes-from-publications.html#cb280-2"></a><span class="kw">smd.c</span>(<span class="dt">Mean.T =</span> <span class="dv">5</span>,</span>
-<span id="cb280-3"><a href="effect-sizes-from-publications.html#cb280-3"></a>    <span class="dt">Mean.C =</span> <span class="dv">3</span>, </span>
-<span id="cb280-4"><a href="effect-sizes-from-publications.html#cb280-4"></a>    <span class="dt">s.C =</span> <span class="fl">1.4</span>, </span>
-<span id="cb280-5"><a href="effect-sizes-from-publications.html#cb280-5"></a>    <span class="dt">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
-<pre><code>## [1] 1.429</code></pre>
-<p>The confidence interval can be obtained with the command:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="effect-sizes-from-publications.html#cb282-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb282-2"><a href="effect-sizes-from-publications.html#cb282-2"></a><span class="kw">ci.smd.c</span>(<span class="dt">smd.c =</span> <span class="fl">1.43</span>, <span class="dt">n.E =</span> <span class="dv">50</span>, <span class="dt">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
-<pre><code>## $Lower.Conf.Limit.smd.c
-## [1] 0.942
-## 
-## $smd.c
-## [1] 1.43
-## 
-## $Upper.Conf.Limit.smd.c
-## [1] 1.908</code></pre>
-<p>The population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate is <span class="math inline">\(d\)</span> = 1.43, 95% CI [0.94, 1.91]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 0.94 to 1.91.</p>
-</div>
-</div>
-</div>
-<div id="repeated-measures" class="section level3">
-<h3><span class="header-section-number">7.3.2</span> Repeated Measures</h3>
-<p>For a repeated measures design, different <span class="math inline">\(d\)</span>-values can be reported. We focus on the formula below for repeated measures <span class="math inline">\(d\)</span>-values. In this formula the symbol, <span class="math inline">\(\bar{x}_{diff}\)</span>, indicates the mean of the column of differences between the two times. Likewise, <span class="math inline">\(s_{diff}\)</span>, is used to indicate the standard deviation of the column of differences.</p>
-<p><span class="math display">\[
-\begin{aligned}
-d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}
-\end{aligned}
-\]</span></p>
-<div id="reported-repeated-d-value-no-confidence-interval" class="section level4">
-<h4><span class="header-section-number">7.3.2.1</span> Reported repeated <span class="math inline">\(d\)</span>-value, no confidence interval</h4>
-<p>Scenario: A researcher reports a repeated-measures <span class="math inline">\(d\)</span> = .50 and <span class="math inline">\(n\)</span> = 150. The 95% confidence interval for this <span class="math inline">\(d\)</span>-value (i.e., standardized mean difference) can be obtained with the command below.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="effect-sizes-from-publications.html#cb284-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb284-2"><a href="effect-sizes-from-publications.html#cb284-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">.50</span>, <span class="dt">N =</span> <span class="dv">150</span>) </span></code></pre></div>
-<pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
-<pre><code>## $Lower.Conf.Limit.Standardized.Mean
-## [1] 0.3295
-## 
-## $Standardized.Mean
-## [1] 0.5
-## 
-## $Upper.Conf.Limit.Standardized.Mean
-## [1] 0.669</code></pre>
-<p>In this repeated measures design the population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate of weight loss is <span class="math inline">\(d = 0.50\)</span>, 95% CI [0.33, 0.67]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 0.33 to 0.67.</p>
-</div>
-<div id="using-repeated-measures-mean-difference" class="section level4">
-<h4><span class="header-section-number">7.3.2.2</span> Using repeated measures mean difference</h4>
-<p>Scenario: A researcher reports a repeated-measures design on weight loss but does not report the <span class="math inline">\(d\)</span>-value or confidence interval. He does report, however, that weights decreased on average by 3.00 lbs, SD = 6.00.</p>
-<p>In order to understand what the M = 3.00 lbs, SD = 6.00 refers to, consider the following situation. The participants “weigh in” at time 1. They diet for three months. Then they “weight out” at time 2. There are now two columns (time1, time2) with weight information - one participant per row. We can create a third column, called diff, by subtracting time 1 weight from time 2 weights. That is, diff = time 2 weight - time 1 weight. The new diff column indicates how the weights for each person have changed over the diet. The mean of the diff column is <span class="math inline">\(\bar{x}_{diff}\)</span> = 3.00 and the standard deviation of the diff column is <span class="math inline">\(s_{diff}\)</span> = 6.00.</p>
-<p>This information can be used in the formula below:</p>
-<p><span class="math display">\[
-\begin{aligned}
-d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}\\
-&amp;= \frac{-3.00}{6.00} \\
-&amp;= -.50
-\end{aligned}
-\]</span>
-We tend to always report <span class="math inline">\(d\)</span>-values as positive values so <span class="math inline">\(d\)</span> = .50. We can get a confidence interval around this value with the code below.</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="effect-sizes-from-publications.html#cb287-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb287-2"><a href="effect-sizes-from-publications.html#cb287-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">.5</span>, <span class="dt">N =</span><span class="dv">150</span>) </span></code></pre></div>
-<pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
-<pre><code>## $Lower.Conf.Limit.Standardized.Mean
-## [1] 0.3295
-## 
-## $Standardized.Mean
-## [1] 0.5
-## 
-## $Upper.Conf.Limit.Standardized.Mean
-## [1] 0.669</code></pre>
-<p>In this repeated measures design the population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate of weight loss is <span class="math inline">\(d = 0.50\)</span>, 95% CI [0.33, 0.67]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 0.33 to 0.67.</p>
-</div>
-<div id="using-repeated-measures-cell-information" class="section level4">
-<h4><span class="header-section-number">7.3.2.3</span> Using repeated measures cell information</h4>
-<p>Scenario: A researcher reports a repeated-measures design on weight loss but does not report the <span class="math inline">\(d\)</span>-value, mean difference, or standard deviation for the differences. He does, however, report mean and standard deviation for before and after the weight loss program. As well, he reports the correlation between before diet weights and after diet weights. The mean weight before the diet was M = 140 lbs, SD = 5 whereas after the diet the mean weight was 132 lbs, SD = 6. The correlation between time 1 and time 2 weights was <span class="math inline">\(r\)</span> =.80.</p>
-<p>In order to understand what the M = 140 lbs, SD = 5 refers to, consider the following situation. The participants “weigh in” at time 1. They diet for three months. Then they “weight out” at time 2. There are now two columns (time1, time2) with weight information. We can create a third column, called diff, by subtracting time 1 weight from time 2 weights. That is, diff = time 2 weight - time 1 weight. The new diff column indicates how the weights for each person have changed over the diet.</p>
-<p>The researcher reports descriptive statistics (M, SD) for the time 1 and time 2 columns but nothing about the diff column. We can, however, figure the the mean of the diff column, <span class="math inline">\(bar{x}_{diff}\)</span>, and the standard deviation of the diff column, <span class="math inline">\(s_{diff}\)</span>, from the information provided.</p>
-<p>Recall the formula for repeated measures <span class="math inline">\(d\)</span>-value:</p>
-<p><span class="math display">\[
-\begin{aligned}
-d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}
-\end{aligned}
-\]</span></p>
-<p>We can obtain the numerator easily:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\bar{x}_{diff} &amp; = \bar{x}_1 - \bar{x}_2 \\
-&amp;= 140 - 132 \\
-&amp;= 8 \\
-\end{aligned}
-\]</span>
-Obtaining the values for the denominator is a bit more complicated. We can calculate <span class="math inline">\(s_{diff}\)</span> but it requires the standard deviations of the before weights (<span class="math inline">\(s_1\)</span> = 5) and the after weights (<span class="math inline">\(s_1\)</span> = 6) - as well as the correlation between the two times (<span class="math inline">\(r\)</span> = .80).</p>
-<p>We begin by calculating <span class="math inline">\(s_{diff}^2\)</span> which is variance of the column of differences differences:</p>
-<p><span class="math display">\[
-\begin{aligned}
-s_{diff}^2 &amp; = s_1^2 + s_2^2 + 2(s_1)(s_2)r_{12} \\
-&amp; = 5^2  + 6^2 + 2(5)(6)(.80)\\
-&amp; = 25  + 36 + 48\\
-&amp; = 109
-\end{aligned}
-\]</span></p>
-<p>We obtain <span class="math inline">\(s_{diff}\)</span> by taking the square root of <span class="math inline">\(s_{diff}^2\)</span>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-s_{diff} &amp; = \sqrt{s_{diff}^2} \\
-&amp; = \sqrt{109}\\
-&amp; = 10.44031
-\end{aligned}
-\]</span></p>
-<p>Then we calculate the <span class="math inline">\(d\)</span>-value using the numerator and denominator we calculated:</p>
-<p><span class="math display">\[
-\begin{aligned}
-d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}\\
-&amp; = \frac{8}{10.44031} \\
-&amp; = 0.7662608\\
-&amp; = 0.77\\
-\end{aligned}
-\]</span>
-The <span class="math inline">\(d\)</span>-value is 0.77 but we need a confidence interval:</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="effect-sizes-from-publications.html#cb290-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb290-2"><a href="effect-sizes-from-publications.html#cb290-2"></a><span class="kw">ci.sm</span>(<span class="dt">sm =</span> <span class="fl">0.77</span>, <span class="dt">N =</span><span class="dv">100</span>) </span></code></pre></div>
-<pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
-<pre><code>## $Lower.Conf.Limit.Standardized.Mean
-## [1] 0.5451
-## 
-## $Standardized.Mean
-## [1] 0.77
-## 
-## $Upper.Conf.Limit.Standardized.Mean
-## [1] 0.9918</code></pre>
-<p>In this repeated measures design the population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate of weight loss is <span class="math inline">\(d\)</span> = 0.77, 95% CI [0.55, 0.99]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 0.55 to 0.99.</p>
-</div>
-<div id="using-repeated-measures-t-value" class="section level4">
-<h4><span class="header-section-number">7.3.2.4</span> Using repeated measures <span class="math inline">\(t\)</span>-value</h4>
-<p>Scenario: A researcher reports a repeated-measures but does not report a d-value, mean difference with SD, or even the sample size. He does, however, report that t(40) = 6.23. The 95% confidence interval for this <span class="math inline">\(d\)</span>-value (i.e., standardized mean difference) can be obtained with the command below.</p>
-<p><span class="math display">\[
-\begin{aligned}
-df &amp;= N - 1 \\
-40 &amp;= N - 1\\
-40 + 1 &amp;= N\\
-41 &amp;= N
-\end{aligned}
-\]</span></p>
-<p>We can use the N and <span class="math inline">\(t\)</span>-value to calculate the <span class="math inline">\(d\)</span>-value and CI using the command:</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="effect-sizes-from-publications.html#cb293-1"></a><span class="co"># t-value for repeated measures if </span></span>
-<span id="cb293-2"><a href="effect-sizes-from-publications.html#cb293-2"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb293-3"><a href="effect-sizes-from-publications.html#cb293-3"></a><span class="kw">ci.sm</span>(<span class="dt">ncp =</span> <span class="fl">6.23</span>, <span class="dt">N =</span> <span class="dv">41</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
-<pre><code>## $Lower.Conf.Limit.Standardized.Mean
-## [1] 0.5962
-## 
-## $Standardized.Mean
-## [1] 0.973
-## 
-## $Upper.Conf.Limit.Standardized.Mean
-## [1] 1.341</code></pre>
-<p>In this repeated measures design the population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate of weight loss is <span class="math inline">\(d\)</span> = 0.97, 95% CI [0.60, 1.34]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 0.60 to 1.34.</p>
-</div>
-</div>
-</div>
-<div id="estimating-rho" class="section level2">
-<h2><span class="header-section-number">7.4</span> Estimating <span class="math inline">\(\rho\)</span></h2>
-<div id="a-single-correlation" class="section level3">
-<h3><span class="header-section-number">7.4.1</span> A single correlation</h3>
-<p>Correlations are frequently reported in the literature. Less common, however, is the reporting of confidence intervals for those correlations. A confidence interval for a reported correlations (e.g., <span class="math inline">\(r\)</span> = .40) can be obtained if you also have the sample size (<span class="math inline">\(n\)</span> = 200) with the command below:</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="effect-sizes-from-publications.html#cb296-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb296-2"><a href="effect-sizes-from-publications.html#cb296-2"></a><span class="kw">ci.cc</span>(<span class="dt">r =</span> <span class="fl">.40</span>, <span class="dt">n =</span> <span class="dv">200</span>)</span></code></pre></div>
-<pre><code>## $Lower.Limit
-## [1] 0.2766
-## 
-## $Estimated.Correlation
-## [1] 0.4
-## 
-## $Upper.Limit
-## [1] 0.5104</code></pre>
-<p>From this output you see that <span class="math inline">\(r\)</span> = .40, 95% CI [.28, .51]. The population effect (<span class="math inline">\(\rho\)</span>) is unknown but our sample estimate of the population correlation is <span class="math inline">\(r = .30\)</span>, 95% CI [.28, .51]. This sample correlation will differ from the population correlation (<span class="math inline">\(\rho\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\rho\)</span> is .28 to .51.</p>
-</div>
-<div id="difference-between-two-correlations" class="section level3">
-<h3><span class="header-section-number">7.4.2</span> Difference between two correlations</h3>
-<p>Sometimes a researcher will conduct two studies in the same article and compare the correlations.</p>
-<p>Scenario: A researcher reports in Study 1 he found that <span class="math inline">\(r\)</span> = .32, N = 300. But in Study 2 the he found a correlation of <span class="math inline">\(r\)</span> = .51, N = 400. You want to know the difference between the correlations and a confidence interval for that difference.</p>
-<p><span class="math display">\[
-\begin{aligned}
-\Delta r  &amp;= r_2 - r_1 \\
-&amp;= .51 - .32 \\
-&amp;= .19
-\end{aligned}
-\]</span>
-You can obtain a confidence interval for this difference between correlations using the code below. Note, however, that this code applies only when the two correlations are from different samples. If the correlations are from the same sample the code is more complex but possible - see the cocor package documentation for details. The code for obtaining the confidence interval for the difference between these two correlations from different samples is below. Examine the last part of the output labeled zou2007.</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="effect-sizes-from-publications.html#cb298-1"></a><span class="kw">library</span>(cocor)</span>
-<span id="cb298-2"><a href="effect-sizes-from-publications.html#cb298-2"></a><span class="kw">cocor.indep.groups</span>(<span class="dt">r1.jk =</span> <span class="fl">.51</span>, <span class="dt">r2.hm =</span> <span class="fl">.32</span>, <span class="dt">n1 =</span> <span class="dv">300</span>, <span class="dt">n2 =</span> <span class="dv">400</span>)</span></code></pre></div>
-<pre><code>## 
-##   Results of a comparison of two correlations based on independent groups
-## 
-## Comparison between r1.jk = 0.51 and r2.hm = 0.32
-## Difference: r1.jk - r2.hm = 0.19
-## Group sizes: n1 = 300, n2 = 400
-## Null hypothesis: r1.jk is equal to r2.hm
-## Alternative hypothesis: r1.jk is not equal to r2.hm (two-sided)
-## Alpha: 0.05
-## 
-## fisher1925: Fisher&#39;s z (1925)
-##   z = 3.0120, p-value = 0.0026
-##   Null hypothesis rejected
-## 
-## zou2007: Zou&#39;s (2007) confidence interval
-##   95% confidence interval for r1.jk - r2.hm: 0.0668 0.3105
-##   Null hypothesis rejected (Interval does not include 0)</code></pre>
-<p>From this output you see that in Study 1 <span class="math inline">\(r\)</span> = .32 and in Study 2 <span class="math inline">\(r\)</span> = .51. The difference between the correlations <span class="math inline">\(\Delta r\)</span> = .19, 95% CI [.07, .31]. Both population correlations are unknown as is the difference between the population correlations. We have a sample estimate of the difference between the two population correlations, <span class="math inline">\(\Delta r\)</span> = .19, and the confidence interval indicates that difference between the population correlations may plausibly be as small as .07 or as large as .31.</p>
+<div id="precision-correlation" class="section level3">
+<h3><span class="header-section-number">10.2.3</span> Precision Correlation</h3>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="precision-and-sample-size.html#cb385-1"></a><span class="kw">library</span>(MBESS)</span>
+<span id="cb385-2"><a href="precision-and-sample-size.html#cb385-2"></a>rho &lt;-<span class="st"> </span><span class="fl">.30</span></span>
+<span id="cb385-3"><a href="precision-and-sample-size.html#cb385-3"></a>rho2 &lt;-<span class="st"> </span>rho <span class="op">*</span><span class="st"> </span>rho</span>
+<span id="cb385-4"><a href="precision-and-sample-size.html#cb385-4"></a></span>
+<span id="cb385-5"><a href="precision-and-sample-size.html#cb385-5"></a><span class="kw">ss.aipe.R2</span>(<span class="dt">Population.R2 =</span> rho2, </span>
+<span id="cb385-6"><a href="precision-and-sample-size.html#cb385-6"></a>           <span class="dt">width =</span> rho2,</span>
+<span id="cb385-7"><a href="precision-and-sample-size.html#cb385-7"></a>           <span class="dt">p =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;The approximate sample size is given below; you should consider using the additional&quot;
+## [1] &quot;argument &#39;verify.ss=TRUE&#39; to ensure the exact sample size value is obtained.&quot;</code></pre>
+<pre><code>## $Required.Sample.Size
+## [1] 565</code></pre>
 
 </div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-calin2019estimation">
+<p>Calin-Jageman, Robert J, and Geoff Cumming. 2019a. “Estimation for Better Inference in Neuroscience.” <em>Eneuro</em> 6 (4).</p>
+</div>
+<div id="ref-calin2019new">
+<p>Calin-Jageman, Robert J, and Geoff Cumming. 2019b. “The New Statistics for Better Science: Ask How Much, How Uncertain, and What Else Is Known.” <em>The American Statistician</em> 73 (sup1): 271–80.</p>
+</div>
+<div id="ref-cumming2009inference">
+<p>Cumming, Geoff. 2009. “Inference by Eye: Reading the Overlap of Independent Confidence Intervals.” <em>Statistics in Medicine</em> 28 (2): 205–20.</p>
+</div>
+<div id="ref-cumming2014new">
+<p>Cumming, Geoff. 2014. “The New Statistics: Why and How.” <em>Psychological Science</em> 25 (1): 7–29.</p>
+</div>
+<div id="ref-rothman2018planning">
+<p>Rothman, Kenneth J, and Sander Greenland. 2018. “Planning Study Size Based on Precision Rather Than Power.” <em>Epidemiology</em> 29 (5): 599–603.</p>
+</div>
+<div id="ref-schmidt2014methods">
+<p>Schmidt, Frank L, and John E Hunter. 2014. <em>Methods of Meta-Analysis: Correcting Error and Bias in Research Findings</em>. Sage.</p>
 </div>
 </div>
             </section>
@@ -797,8 +538,8 @@ You can obtain a confidence interval for this difference between correlations us
           </div>
         </div>
       </div>
-<a href="sampling-precision.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="nhst-and-sample-size.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="equivalence-tests-and-sample-size.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="starting-your-research.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
@@ -829,7 +570,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/07-sample_estimates.Rmd",
+"link": "https://github.com/yihui/bookdown-crc/edit/master/10-precision_sample_size.Rmd",
 "text": "Edit"
 },
 "history": {
