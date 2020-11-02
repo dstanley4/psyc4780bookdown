@@ -9,9 +9,9 @@ The following CRAN packages must be installed:
 |MBESS              |
 |TOSTER             |
 
-## Interpretting non-significant findings
+## Interpreting non-significant findings
 
-A common problem in the psychological literature is the interpretation of non-significant effects. As [Kirk]@kirk1996practical] notes "some researchers mistakenly interpret a failure to reject the null hypothesis as evidence for accepting it". Indeed, it unfortunately common to see an incorrect sentences like the following examples based on fictitious data: "The difference between the mean IQ's for males and females was non-significant, $t$(98) = 12.247, *p*  = .458, indicating that males and females have, on average, the same intelligence." Or alternatively an incorrect sentence like: "The correlation between height and IQ was non-significant, $r$ = .15, *p* = .854, indicating that height was not related to IQ." Both of these sentences are statistically incorrect because the conclusions do not follow from the reported statistics.
+A common problem in the psychological literature is the interpretation of non-significant effects. As [Kirk]@kirk1996practical] notes "some researchers mistakenly interpret a failure to reject the null hypothesis as evidence for accepting it". Indeed, it is unfortunately common to see an incorrect sentences like the following examples based on fictitious data: "The difference between the mean IQ's for males and females was non-significant, $t$(98) = 12.247, *p*  = .458, indicating that males and females have, on average, the same intelligence." Or alternatively an incorrect sentence like: "The correlation between height and IQ was non-significant, $r$ = .15, *p* = .854, indicating that height was not related to IQ." Both of these sentences are statistically incorrect because the conclusions do not follow from the reported statistics.
 
 The tendency for researchers to incorrectly conclude that there is no effect, when $p$ > .05, is particularly troubling (and ubiquitous) when interpreting the interaction in an ANOVA. For example, consider a 2 (sex) by 2 (occasion) between/within ANOVA where the dependent variable is reaction time. Imagine there is a significant sex x occasion interaction. The significant interaction indicates the relation between occasion and response time depends on the level of sex. The researcher describes this significant interaction by comparing the reaction times of males and females at occasion 1 and then again at occasion 2: "A comparison of the mean reaction of times of males and females at occasion 1, $t$(28) = 1.06, $p$ = .300, revealed no difference in reaction time. In contrast, at occasion 2, there was a difference in the mean reaction times of males and females, t(28) =  2.15, $p$ = .040. Thus, reaction time were the same, on average, for males and females at occasion 1 but not occasion 2." In this example the researcher erred in the their interpretation of the results at occasion 1. Specifically, the researcher incorrectly concluded at occasion 1 that the reaction time for males and females was the same because $p$ > .05. That type of conclusion is not possible for p > .05 in a standard paired comparison / $t$-test.
 
@@ -33,13 +33,13 @@ You can use an equivalent test when you want to conclude there is not effect or 
 ### Correlation
 
 
-* You calculate a correlation and expect to find a relation between the two variables. Unexpectedly, the hypothesized relation is non-significant. A this point you can't draw much of a conclusion. You can say didn't find evidence for a relation but you cannot say you found evidence of no relation. An equivalence test could allow you to conclude there is no relation between the two variables.
+* You calculate a correlation and expect to find a relation between the two variables. Unexpectedly, the hypothesized relation is non-significant. At this point you can't draw much of a conclusion. You can say you didn't find evidence for a relation but you cannot say you found evidence of no relation. An equivalence test could allow you to conclude there is no relation between the two variables.
 
 * For theoretical reasons the purpose of your study may be to provide evidence that there is no relation between two variables (e.g., video game use and violent behaviors).
 
 ## Possible Outcomes
 
-[@lakens2018equivalence] review how a variety of outcomes from an equivalence test. These are easiest to understand in the context of a t-test with two groups. You could find the two groups are:
+[@lakens2018equivalence] review a variety of outcomes from an equivalence test. These are easiest to understand in the context of a t-test with two groups. You could find the two groups are:
 
 1. Not statistically equivalent and not statistically different
 
@@ -56,12 +56,12 @@ To avoid an ambiguous outcome from an equivalence test make sure you conduct a s
 
 ## What is an equivalence test
 
-A equivalence test is just a pair of one-sided $t$-tests that are used to establish an effect fall within a specified range of effect sizes bounding zero. That is, an equivalence test is used to indicate if an effect/relation is close enough to zero to be considered zero for practical purposes.
+An equivalence test is just a pair of one-sided $t$-tests that are used to establish if an effect falls within a specified range of effect sizes bounding zero. That is, an equivalence test is used to indicate if an effect/relation is close enough to zero to be considered zero for practical purposes.
 
 
 ## Defining a zero effect
 
-How do decide how to zero is close enough to be practically zero? You already did so in the the previous chapter on "NHST and sample size". In that chapter you reviewed various ways of determining the smallest effect size of interest (SESOI). Any effect below the SESOI is logically close enough to zero to, for practical purposes, be zero. However, I encourage you to review [@lakens2018equivalence] so see the full discussion on this issue. 
+How do you decide how close to zero is close enough to be practically zero? You already did so in the the previous chapter on "NHST and sample size". In that chapter you reviewed various ways of determining the smallest effect size of interest (SESOI). Any effect below the SESOI is logically close enough to zero to, for practical purposes, be zero. However, I encourage you to review [@lakens2018equivalence] to see the full discussion on this issue. 
 
 For now, the most important aspect of conducting an equivalence test is the fact that you need to determine the smallest effect size of interest **prior** to data collection - to avoid equivalence testing being a fancy form of intentional or unintentional **[$p$-hacking](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002106)**. Take note of this point -- a recent [article](https://psyarxiv.com/3v7hx) indicated that approximately 25% of researchers have engaged in at least one form of $p$-hacking in the just last 12 months.
 
