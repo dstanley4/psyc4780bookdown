@@ -39,7 +39,7 @@ You can use an equivalent test when you want to conclude there is not effect or 
 
 ## Possible Outcomes
 
-[@lakens2018equivalence] review a variety of outcomes from an equivalence test. These are easiest to understand in the context of a t-test with two groups. You could find the two groups are:
+[@lakens2018equivalence] review a variety of outcomes from an equivalence test. These are easiest to understand in the context of a *t*-test with two groups. You could find the two groups are:
 
 1. Not statistically equivalent and not statistically different
 
@@ -236,7 +236,7 @@ Notice how much clearer and stronger this results section is with the inclusion 
 
 ## Sample sizes for equivalence testing
 
-### Independent t-test
+### Independent *t*-test
 
 #### Standardized units
 
@@ -263,7 +263,7 @@ powerTOSTtwo.raw(alpha = 0.05,
 ```
 
 
-### Repeated t-test
+### Repeated *t*-test
 
 #### Standardized units
 

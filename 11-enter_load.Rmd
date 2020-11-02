@@ -275,7 +275,7 @@ There are many ways to save data, but the CSV data is one of the better ones bec
 
 ## Experiment: Between 
 
-This section outlines a workflow appropriate for when you plan to a conduct independent-groups t-test or a between-participants ANOVA.
+This section outlines a workflow appropriate for when you plan to a conduct independent-groups *t*-test or a between-participants ANOVA.
 
 To Begin:
 

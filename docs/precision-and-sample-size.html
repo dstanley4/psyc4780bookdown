@@ -354,8 +354,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.9" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#equivalence-correlation"><i class="fa fa-check"></i><b>9.9</b> Equivalence Correlation</a></li>
 <li class="chapter" data-level="9.10" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#sample-sizes-for-equivalence-testing"><i class="fa fa-check"></i><b>9.10</b> Sample sizes for equivalence testing</a><ul>
-<li class="chapter" data-level="9.10.1" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#independent-t-test"><i class="fa fa-check"></i><b>9.10.1</b> Independent t-test</a></li>
-<li class="chapter" data-level="9.10.2" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#repeated-t-test"><i class="fa fa-check"></i><b>9.10.2</b> Repeated t-test</a></li>
+<li class="chapter" data-level="9.10.1" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#independent-t-test"><i class="fa fa-check"></i><b>9.10.1</b> Independent <em>t</em>-test</a></li>
+<li class="chapter" data-level="9.10.2" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#repeated-t-test"><i class="fa fa-check"></i><b>9.10.2</b> Repeated <em>t</em>-test</a></li>
 <li class="chapter" data-level="9.10.3" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#correlation-1"><i class="fa fa-check"></i><b>9.10.3</b> Correlation</a></li>
 </ul></li>
 </ul></li>
@@ -363,8 +363,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#required"><i class="fa fa-check"></i><b>10.1</b> Required</a></li>
 <li class="chapter" data-level="10.2" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#overview"><i class="fa fa-check"></i><b>10.2</b> Overview</a></li>
 <li class="chapter" data-level="10.3" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision"><i class="fa fa-check"></i><b>10.3</b> Precision</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision-independent-t-test"><i class="fa fa-check"></i><b>10.3.1</b> Precision Independent t-test</a></li>
-<li class="chapter" data-level="10.3.2" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision-repeated-t-test"><i class="fa fa-check"></i><b>10.3.2</b> Precision Repeated t-test</a></li>
+<li class="chapter" data-level="10.3.1" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision-independent-t-test"><i class="fa fa-check"></i><b>10.3.1</b> Precision Independent <em>t</em>-test</a></li>
+<li class="chapter" data-level="10.3.2" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision-repeated-t-test"><i class="fa fa-check"></i><b>10.3.2</b> Precision Repeated <em>t</em>-test</a></li>
 <li class="chapter" data-level="10.3.3" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision-correlation"><i class="fa fa-check"></i><b>10.3.3</b> Precision Correlation</a></li>
 </ul></li>
 </ul></li>
@@ -482,7 +482,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Below I present a series of examples for determining the sample size for your study using the less stringent approach of setting the confidence interval width to be the same as the effect size.</p>
 <p>You can read more about planning for precision in <span class="citation">Rothman and Greenland (<a href="#ref-rothman2018planning" role="doc-biblioref">2018</a>)</span>.</p>
 <div id="precision-independent-t-test" class="section level3">
-<h3><span class="header-section-number">10.3.1</span> Precision Independent t-test</h3>
+<h3><span class="header-section-number">10.3.1</span> Precision Independent <em>t</em>-test</h3>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="precision-and-sample-size.html#cb380-1"></a><span class="kw">library</span>(MBESS)</span>
 <span id="cb380-2"><a href="precision-and-sample-size.html#cb380-2"></a></span>
 <span id="cb380-3"><a href="precision-and-sample-size.html#cb380-3"></a><span class="kw">ss.aipe.smd</span>(<span class="dt">delta =</span> <span class="fl">0.40</span>,</span>
@@ -491,7 +491,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="precision-and-sample-size.html#cb382-1"></a><span class="co"># Returns sample size per group</span></span></code></pre></div>
 </div>
 <div id="precision-repeated-t-test" class="section level3">
-<h3><span class="header-section-number">10.3.2</span> Precision Repeated t-test</h3>
+<h3><span class="header-section-number">10.3.2</span> Precision Repeated <em>t</em>-test</h3>
 <div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="precision-and-sample-size.html#cb383-1"></a><span class="kw">library</span>(MBESS)</span>
 <span id="cb383-2"><a href="precision-and-sample-size.html#cb383-2"></a></span>
 <span id="cb383-3"><a href="precision-and-sample-size.html#cb383-3"></a><span class="kw">ss.aipe.sm</span>(<span class="dt">sm =</span> <span class="fl">0.40</span>,</span>

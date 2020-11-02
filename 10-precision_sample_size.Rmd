@@ -42,7 +42,7 @@ Below I present a series of examples for determining the sample size for your st
 
 You can read more about planning for precision in @rothman2018planning.
 
-### Precision Independent t-test
+### Precision Independent *t*-test
 
 ```{r}
 library(MBESS)
@@ -55,7 +55,7 @@ ss.aipe.smd(delta = 0.40,
 ```
 
 
-### Precision Repeated t-test
+### Precision Repeated *t*-test
 
 ```{r}
 library(MBESS)
