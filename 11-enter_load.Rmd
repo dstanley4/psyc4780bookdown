@@ -24,7 +24,7 @@ The following CRAN packages must be installed:
 | Required CRAN Packages |
 |-------------------|
 |apaTables          |
-|HMisc              |
+|Hmisc              |
 |janitor            |
 |psych              |
 |skimr              |
