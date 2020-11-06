@@ -245,7 +245,7 @@ library(TOSTER)
 
 powerTOSTtwo(alpha = 0.05,
              statistical_power = 0.90,
-             low_eqbound_d = 0.40,
+             low_eqbound_d = -0.40,
              high_eqbound_d = 0.40)
 ```
 
@@ -257,7 +257,7 @@ library(TOSTER)
 powerTOSTtwo.raw(alpha = 0.05,
                  statistical_power = 0.90,
                  sdpooled = 2.50,
-                 low_eqbound = 1,
+                 low_eqbound = -1,
                  high_eqbound = 1)
             
 ```
