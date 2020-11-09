@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Precision and sample size | Welcome!</title>
+  <title>Chapter 12 Positive Predictive Value | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 6060" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Precision and sample size | Welcome!" />
+  <meta property="og:title" content="Chapter 12 Positive Predictive Value | Welcome!" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dstanley4/psyc6060bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Precision and sample size | Welcome!" />
+  <meta name="twitter:title" content="Chapter 12 Positive Predictive Value | Welcome!" />
   
   <meta name="twitter:description" content="Course notes for PSYC 6060" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="equivalence-tests-and-sample-size.html"/>
-<link rel="next" href="starting-your-research.html"/>
+<link rel="prev" href="starting-your-research.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -466,10 +466,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="precision-and-sample-size" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> Precision and sample size</h1>
+<div id="positive-predictive-value" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Positive Predictive Value</h1>
 <div id="required" class="section level2">
-<h2><span class="header-section-number">10.1</span> Required</h2>
+<h2><span class="header-section-number">12.1</span> Required</h2>
 <p>The following CRAN packages must be installed:</p>
 <table>
 <thead>
@@ -479,7 +479,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td>MBESS</td>
+<td>pwr</td>
 </tr>
 <tr class="even">
 <td>TOSTER</td>
@@ -488,78 +488,344 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 <div id="overview" class="section level2">
-<h2><span class="header-section-number">10.2</span> Overview</h2>
-<p>In the previous two chapter, we reviewed the sample size planning using the traditional NHST approach as well as equivalence testing. In this chapter, we focus on determining the appropriate sample size for your study using the precision approach. Specifically, we review determining the desired sample size based on the effect size and desired confidence interval width.</p>
+<h2><span class="header-section-number">12.2</span> Overview</h2>
+<p>At this point you’ve learned to be cautious when it comes to interpreting <span class="math inline">\(p\)</span>-values. But so far, that’s been more of a qualitative form of caution. In this section we attempt to make it a more quantitative form of caution. Specifically, we introduce you to the concept of positive predictive values (PPV) in the context of interpreting significant <em>p</em>-values. The PPV statistic provides us with an estimate of how likely it is there really is an effect when a <em>p</em>-value is significant. The approach for this chapter was inspired by a <a href="https://dirnagl.com/2014/09/22/p-value-vs-positive-predictive-value/">blog</a> post.</p>
 </div>
-<div id="precision" class="section level2">
-<h2><span class="header-section-number">10.3</span> Precision</h2>
-<p>A confidence interval provides an interval estimate of the population parameter. If you took multiple samples from a population and constructed a confidence interval for each sample the confidence intervals would likely all be different. More specifically, each confidence interval is likely to have a different range and width. Over a large number of samples 95% of the confidence intervals would overlap with the population parameter.</p>
-<p>Interpretation of confidence intervals can be challenging. <strong>Prior</strong> to collecting your data we say there is a 95% chance a constructed confidence interval will overlap with the population parameter. Once you have collected your data and obtained the end points for your sample confidence interval - interpretation is more difficult. Indeed, a specific interval will either overlap with the population parameter or not; unfortunately, you don’t know which is the case. Consequently, once you have a specific confidence interval with end points, based on your data, you should only interpret it as plausible range of values for the population parameter - don’t associate the 95% probability with interpretting the confidence interval once you have constructed it.</p>
-<p>Imagine you are about to conduct a correlation study (<em>N</em> = 100) and you plan to construct a confidence interval around that correlation. At this point, prior to data collection, there is a 95% chance that the confidence interval you construct around the sample correlation will overlap with the population correlation (i.e., the population parameter). You collect your data and find <span class="math inline">\(r\)</span> = .35, 95% CI [.16, .51]. Now that you have a specific confidence interval how do you interpret it? You can say the confidence interval is plausible range of the values for the population correlation. You should <strong>not</strong> say there is a 95% chance that population correlation is in the .16 to .51 range. Why not? Once the data is collected and you have a specific interval with end points (e.g., .16 to .51) statisticians think of the interval as overlapping with the population correlation (a probability of 1.00) or not (a probability of 0). Thus, once you have a specific interval, after data collection, the probability that it contains the population parmater is 1.00 or 0 - you just don’t know which. So a convienient way to think about the range is by using the word <strong>plausible</strong> which is not associated with a probability. We simply say the confidence interval uses sample data to provide a plausible range of values for the population parameter (e.g., population correlation).</p>
-<p>Using confidence intervals for research can, from one perspective, be a fundamental shift in your thinking about how to interpret results. Null hypothesis significance testing allows for a simplistic conclusion - the population effect size may not be exactly zero. This is a form fo categorical decision making: effect / no effect. In contrast, the using confidence intervals to interpret your data is an <strong>estimation</strong> approach: How large is the effect and how uncertain is my estimate of the effect size? Moreover, using the estimation approach makes it a small jump to drawing scientific conclusions using meta-analysis <span class="citation">(see Schmidt and Hunter <a href="#ref-schmidt2014methods" role="doc-biblioref">2014</a>)</span>. You can learn more about confidence interval / estimation approach by checking out this video <a href="https://www.psychologicalscience.org/members/new-statistics">workshop</a>. Alternatively, you can check out these general articles <span class="citation">Cumming (<a href="#ref-cumming2009inference" role="doc-biblioref">2009</a>)</span>, <span class="citation">Cumming (<a href="#ref-cumming2014new" role="doc-biblioref">2014</a>)</span>, <span class="citation">Calin-Jageman and Cumming (<a href="#ref-calin2019new" role="doc-biblioref">2019</a><a href="#ref-calin2019new" role="doc-biblioref">b</a>)</span>. <span class="citation">Calin-Jageman and Cumming (<a href="#ref-calin2019estimation" role="doc-biblioref">2019</a><a href="#ref-calin2019estimation" role="doc-biblioref">a</a>)</span>.</p>
-<p>There are two parts to planning using precision:</p>
-<ol style="list-style-type: decimal">
-<li><p>Determining the effect size of interest (reviewed in previous chapters on smallest effect size of interest).</p></li>
-<li><p>Indicating the desired width of the confidence interval.</p></li>
-</ol>
-<p>Unfortunately, there is little consensus of how to pick the desired width of the confidence interval. Our sense is that the width of the confidence interval should not be larger than the effect size. That, is your uncertainty should not be larger than the effect itself. For example, if you specified a smallest size of interest as <span class="math inline">\(\delta\)</span> = 0.40 then you would specify a width of 0.40 as well. Likewise, with correlations, if you specified a smallest effect size of interest as <span class="math inline">\(r\)</span> = .30 then you would indicate a desired with of .30 as well.</p>
-<p>More stringent advise was offered, indirectly by Geoff Cumming, on social media:</p>
-<p><img src="ch_precision_sample_size/images/precision_tweet.png" width="40%" /></p>
-<p>Below I present a series of examples for determining the sample size for your study using the less stringent approach of setting the confidence interval width to be the same as the effect size.</p>
-<p>You can read more about planning for precision in <span class="citation">Rothman and Greenland (<a href="#ref-rothman2018planning" role="doc-biblioref">2018</a>)</span>.</p>
-<div id="precision-independent-t-test" class="section level3">
-<h3><span class="header-section-number">10.3.1</span> Precision Independent <em>t</em>-test</h3>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="precision-and-sample-size.html#cb380-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb380-2"><a href="precision-and-sample-size.html#cb380-2"></a></span>
-<span id="cb380-3"><a href="precision-and-sample-size.html#cb380-3"></a><span class="kw">ss.aipe.smd</span>(<span class="dt">delta =</span> <span class="fl">0.40</span>,</span>
-<span id="cb380-4"><a href="precision-and-sample-size.html#cb380-4"></a>            <span class="dt">width =</span> <span class="fl">0.40</span>)</span></code></pre></div>
-<pre><code>## [1] 196</code></pre>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="precision-and-sample-size.html#cb382-1"></a><span class="co"># Returns sample size per group</span></span></code></pre></div>
+<div id="informal-explanation" class="section level2">
+<h2><span class="header-section-number">12.3</span> Informal explanation</h2>
+<div id="many-hypotheses" class="section level3">
+<h3><span class="header-section-number">12.3.1</span> Many hypotheses</h3>
+<p>When you conduct an experiment to determine if an effect exists you start off fairly confident that the effect is there - otherwise you would not invest the time and money to run the study. Unfortunately only a minority of hypotheses are true. A recent examination of pre-registered studies determined that just over 40% of research hypotheses are true <span class="citation">(Scheel, Schijen, and Lakens <a href="#ref-scheel2020excess" role="doc-biblioref">2020</a>)</span>. Which correspondingly implies that approximately 60% of research hypotheses are false. That is, approximately 60% of studies fail to find the desired effect.</p>
+<p>One way to think about this finding is by imagining 1000 hypothesis as per Figure <a href="positive-predictive-value.html#fig:ppvfig1">12.1</a>. In this figure there are 1000 squares. Each square represents an hypothesis worthy of being tested. We’ve shaded the squares to indicate which hypotheses are true or false. Specifically, 40% of the 1000 hypotheses (i.e., 400 squares) are shaded green to indicate the hypotheses are true. In contrast, 60% of the 1000 hypotheses (i.e., 600 squares) are shaded yellow to indicate the hypotheses are false.</p>
+<div class="figure"><span id="fig:ppvfig1"></span>
+<img src="ch_ppv/images/fig1.png" alt="One-thousand hypotheses represented as squares. True hypotheses are indicated by the color green. False hypotheses are indicated by the color yellow." width="90%" />
+<p class="caption">
+FIGURE 12.1: One-thousand hypotheses represented as squares. True hypotheses are indicated by the color green. False hypotheses are indicated by the color yellow.
+</p>
 </div>
-<div id="precision-repeated-t-test" class="section level3">
-<h3><span class="header-section-number">10.3.2</span> Precision Repeated <em>t</em>-test</h3>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="precision-and-sample-size.html#cb383-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb383-2"><a href="precision-and-sample-size.html#cb383-2"></a></span>
-<span id="cb383-3"><a href="precision-and-sample-size.html#cb383-3"></a><span class="kw">ss.aipe.sm</span>(<span class="dt">sm =</span> <span class="fl">0.40</span>,</span>
-<span id="cb383-4"><a href="precision-and-sample-size.html#cb383-4"></a>            <span class="dt">width =</span> <span class="fl">0.40</span>)</span></code></pre></div>
-<pre><code>## [1] 104</code></pre>
 </div>
-<div id="precision-correlation" class="section level3">
-<h3><span class="header-section-number">10.3.3</span> Precision Correlation</h3>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="precision-and-sample-size.html#cb385-1"></a><span class="kw">library</span>(MBESS)</span>
-<span id="cb385-2"><a href="precision-and-sample-size.html#cb385-2"></a>rho &lt;-<span class="st"> </span><span class="fl">.30</span></span>
-<span id="cb385-3"><a href="precision-and-sample-size.html#cb385-3"></a>rho2 &lt;-<span class="st"> </span>rho <span class="op">*</span><span class="st"> </span>rho</span>
-<span id="cb385-4"><a href="precision-and-sample-size.html#cb385-4"></a></span>
-<span id="cb385-5"><a href="precision-and-sample-size.html#cb385-5"></a><span class="kw">ss.aipe.R2</span>(<span class="dt">Population.R2 =</span> rho2, </span>
-<span id="cb385-6"><a href="precision-and-sample-size.html#cb385-6"></a>           <span class="dt">width =</span> rho2,</span>
-<span id="cb385-7"><a href="precision-and-sample-size.html#cb385-7"></a>           <span class="dt">p =</span> <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;The approximate sample size is given below; you should consider using the additional&quot;
-## [1] &quot;argument &#39;verify.ss=TRUE&#39; to ensure the exact sample size value is obtained.&quot;</code></pre>
-<pre><code>## $Required.Sample.Size
-## [1] 565</code></pre>
+<div id="type-i-error" class="section level3">
+<h3><span class="header-section-number">12.3.2</span> Type I Error</h3>
+<p>Even when an hypothesis is false there still a chance we will obtain a significant result (i.e., <span class="math inline">\(p\)</span> &lt; .05). More specifically, we will obtain a significant result 5% of the time when the null hypothesis is true and there is no effect (i.e., <span class="math inline">\(\alpha = .05\)</span>). In terms of our example, this means that of the 600 false hypotheses, we would obtain a significant result for 30 of them (i.e., .05 * 600 = 30). These 30 false positive significance tests are illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig2">12.2</a> below.</p>
+<div class="figure"><span id="fig:ppvfig2"></span>
+<img src="ch_ppv/images/fig2.png" alt="False positive significance tests. False hypotheses for which the researcher obtained a significant result are indicated by dark green squares." width="90%" />
+<p class="caption">
+FIGURE 12.2: False positive significance tests. False hypotheses for which the researcher obtained a significant result are indicated by dark green squares.
+</p>
+</div>
+</div>
+<div id="power" class="section level3">
+<h3><span class="header-section-number">12.3.3</span> Power</h3>
+<p>Unfortunately, even when an hypothesis is true we won’t always obtain a significant <em>p</em>-value. Low sample sizes in psychology are common. As a result most studies in psychology only have a 30% chance of finding an effect if there is one. That is, the typical value for statistical power in psychology is around .30. This typical statistical power level is illustrated in the context of our example in Figure <a href="positive-predictive-value.html#fig:ppvfig3">12.3</a> below. In this figure, hypotheses that were true but obtained non-significant <em>p</em>-values are indicated by red squares. In contrast, the hypotheses that were true and obtained significant <em>p</em>-values are indicated by green squares; there are 120 green squares.</p>
+<div class="figure"><span id="fig:ppvfig3"></span>
+<img src="ch_ppv/images/fig3.png" alt="True positive signficance tests. True hypotheses for which the researcher obtained a significant result are indicated by green squares. True hypotheses for which the researcher obtained a non-significant result are indicated by red squares." width="90%" />
+<p class="caption">
+FIGURE 12.3: True positive signficance tests. True hypotheses for which the researcher obtained a significant result are indicated by green squares. True hypotheses for which the researcher obtained a non-significant result are indicated by red squares.
+</p>
+</div>
+</div>
+<div id="calculating-ppv" class="section level3">
+<h3><span class="header-section-number">12.3.4</span> Calculating PPV</h3>
+<p>You can see from the blue outline in Figure <a href="positive-predictive-value.html#fig:ppvfig4">12.4</a>, below, that there two ways to obtain a significant <em>p</em>-value. Specifically, you can obtain a significant <em>p</em>-value when the null hypothesis is true (a false positive <em>p</em>-value). As well, you can obtain a significant <em>p</em>-value when the null hypothesis is false (a true positive <em>p</em>-value). As a researcher, when we obtain a significant <em>p</em>-value we don’t know if it’s a true-positive or a false-positive. We calculate PPV to determine how likely it is there is an effect when the <em>p</em>-value is significant.</p>
+<div class="figure"><span id="fig:ppvfig4"></span>
+<img src="ch_ppv/images/fig4.png" alt="xx" width="90%" />
+<p class="caption">
+FIGURE 12.4: xx
+</p>
+</div>
+<p>As illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig5">12.5</a>, below, the positive predictive value (PPV) is simply the ratio of the true-positive <em>p</em>-values over all the <em>p</em>-values (true positive or true negative).</p>
+<div class="figure" style="text-align: center"><span id="fig:ppvfig5"></span>
+<img src="ch_ppv/images/fig5.png" alt="Graphical illustration of the PPV formula." width="40%" />
+<p class="caption">
+FIGURE 12.5: Graphical illustration of the PPV formula.
+</p>
+</div>
+<p>Placing numbers into the equation:</p>
+<p><span class="math display">\[
+\begin{align}
+PPV &amp;= \frac{120 }{120  + 30} \\
+&amp;= \frac{120}{150} \\
+&amp;= 0.80
+\end{align}
+\]</span></p>
+<p>We see that the positive predictive value is .80 in this circumstance. That is, if we obtain a significant <em>p</em>-value there is an 80% chance there really is an effect.</p>
+</div>
+</div>
+<div id="formal-explanation" class="section level2">
+<h2><span class="header-section-number">12.4</span> Formal explanation</h2>
+<p>A more formal explanation of PPV can be made by thinking in terms of the area of square that is 1.0 units by 1.0 units. The length of each side corresponds a length of 1.0 because probabilities range from 0 to 1.0. Indeed, we can represent the probability of an hypothesis being true, P(effect), or false, P(no effect), along the right edge of the square. This is illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig6">12.6</a> below.</p>
+<div class="figure"><span id="fig:ppvfig6"></span>
+<img src="ch_ppv/images/fig6.png" alt="Representing probabilities on a square" width="90%" />
+<p class="caption">
+FIGURE 12.6: Representing probabilities on a square
+</p>
+</div>
+<div id="no-effect" class="section level3">
+<h3><span class="header-section-number">12.4.1</span> No effect</h3>
+<p>Likewise, we can indicate the probability of a Type I Error on the diagram as well. Specifically, <span class="math inline">\(\alpha = .05\)</span> is the distance, moving right to left, from the top right corner of the square. This is illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig7">12.7</a> below.</p>
+<div class="figure"><span id="fig:ppvfig7"></span>
+<img src="ch_ppv/images/fig7.png" alt="Representing Type I Error on the square" width="90%" />
+<p class="caption">
+FIGURE 12.7: Representing Type I Error on the square
+</p>
+</div>
+<p>So far the probability of there being no effect, P(no effect), was indicated by a length (.600). Likewise, the probability of there being a Type I Error was indicated by a length (.05).</p>
+<p><span class="math display">\[
+\begin{align}
+P(\text{no effect}) &amp;= 0.600 \\
+P(\text{Type I Error}) &amp;= 0.05 \\
+\end{align}
+\]</span></p>
+<p>We can use these together to determine the dark green area (nearly black area) on Figure <a href="positive-predictive-value.html#fig:ppvfig7">12.7</a> which represents the joint probability of there being no effect and obtaining a Type I Error. You can see the probability .030 is similar to the count of 30 we had for this area in the informal explanation.</p>
+<p><span class="math display">\[
+\begin{align}
+P(\text{no effect} \cap \text{Type I Error}) &amp;= P(\text{Type I Error})P(\text{no effect})  \\
+&amp;= (\alpha) P(\text{no effect}) \\
+&amp;= (.05)(.600) \\
+&amp;= 0.030
+\end{align}
+\]</span></p>
+</div>
+<div id="effect" class="section level3">
+<h3><span class="header-section-number">12.4.2</span> Effect</h3>
+<p>So far the probability of there being an effect, P(effect), was indicated by a length (.400). Likewise, the probability of finding that effect (i.e., power) can be indicated by a length (.30) as per Figure <a href="positive-predictive-value.html#fig:ppvfig8">12.8</a> below.</p>
+<div class="figure"><span id="fig:ppvfig8"></span>
+<img src="ch_ppv/images/fig8.png" alt="Representing power on the square" width="90%" />
+<p class="caption">
+FIGURE 12.8: Representing power on the square
+</p>
+</div>
+<p>In this figure there are two important distances that represent probabilities as indicated below. Note that we often refer to power using the notation <span class="math inline">\(1 - \beta\)</span>.</p>
+<p><span class="math display">\[
+\begin{align}
+P(\text{effect}) &amp;= 0.400 \\
+(1 - \beta) &amp;= 0.30 \\
+\end{align}
+\]</span></p>
+<p>We can use these together to determine the dark green area on the figure which represents the joint probability of there being an effect and obtaining a significant <em>p</em>-value. You can see the joint probability .030, below, is similar to the count of 30 we had for this area in the informal explanation.</p>
+<p><span class="math display">\[
+\begin{align}
+P(\text{effect} \cap \text{sig. p-value}) &amp;= (1 - \beta)P(\text{effect})\\
+&amp;= (.30)(.400) \\
+&amp;= 0.120
+\end{align}
+\]</span></p>
+</div>
+<div id="calculation" class="section level3">
+<h3><span class="header-section-number">12.4.3</span> Calculation</h3>
+<p>We can then calculate positive predictive value using the same logic as the informal case - but using formal equations. You can see in the equations below that some probabilities (.030, .120, and .150) correspond to the counts (30, 120, and 150) from the informal explanation above.</p>
+<p><span class="math display">\[
+\begin{align}
+PPV &amp;= \frac{P(\text{effect} \cap \text{sig. p-value})}{P(\text{effect} \cap \text{sig. p-value}) + P(\text{no effect} \cap \text{sig. p-value})} \\
+&amp;= \frac{(1 - \beta)P(\text{effect})}{(1 - \beta)P(\text{effect}) + \alpha P(\text{no effect})}\\
+&amp;= \frac{(.30)(.400)}{(.30)(.400) + (.05)(.600)}\\
+&amp;= \frac{0.120}{0.120 + 0.030}\\
+&amp;= \frac{0.120}{0.150}\\
+&amp;= 0.80\\
+\end{align}
+\]</span></p>
+<p>Thus, the positive predictive value is .80. This indicates that if you obtain a significant <em>p</em>-value in your study there is an 80% chance there really is an effect.</p>
+</div>
+<div id="alternative-calculation" class="section level3">
+<h3><span class="header-section-number">12.4.4</span> Alternative calculation</h3>
+<p>You might also see positive predictive values expressed using an odds ratio (OR). This can create confusion - but it’s important to realize this alternative version of the formula is just an algebraic rearrangement. You can see this alternative version of the formula below and note that you obtain the same answer.</p>
+<p><span class="math display">\[
+\begin{align}
+PPV &amp;= \frac{(1 - \beta)(OR)}{(1 - \beta)(OR) + \alpha}\\
+&amp;= \frac{(1 - \beta)(\frac{P(\text{effect})}{P(\text{no effect})})}{(1 - \beta)(\frac{P(\text{effect})}{P(\text{no effect})}) + \alpha}\\
+&amp;= \frac{(.30)(\frac{.400}{.600})}{(.30)(\frac{.400}{.600}) + \alpha}\\
+&amp;= \frac{(.30)(0.6666667)}{(.30)(0.6666667) + .05}\\
+&amp;= \frac{.20}{.20 + .05}\\
+&amp;= 0.80\\
+\end{align}
+\]</span></p>
+</div>
+<div id="touchstone" class="section level3">
+<h3><span class="header-section-number">12.4.5</span> Touchstone</h3>
+<p>You may, or may not, have noticed something familiar when we started working with the square as means of describing the numbers required for the positive predictive value calculation. Specifically, the square is very similar to the standard 2 x 2 table used to represents Type I Errors (false positives) and Type II Errors (false negatives). In Figure <a href="positive-predictive-value.html#fig:ppvfig9">12.9</a> I’ve placed a colour coded version of this table so that you can see the similarities with the calculation approach used above.</p>
+<div class="figure"><span id="fig:ppvfig9"></span>
+<img src="ch_ppv/images/fig9.png" alt="Table illustrating Type I (false positives) and Type II Errors (false negatives)." width="90%" />
+<p class="caption">
+FIGURE 12.9: Table illustrating Type I (false positives) and Type II Errors (false negatives).
+</p>
+</div>
+</div>
+</div>
+<div id="calculating-power-for-your-study" class="section level2">
+<h2><span class="header-section-number">12.5</span> Calculating power for your study</h2>
+<p>Although we do a sample size analysis before collecting data - we are often are unable to obtain the desired sample size. We can determine the consequences of failing to obtain the desired sample size by calculating positive predictive value. The first stepping in doing so is calculating the power for your study based on the number of participants you actually obtained.</p>
+<p>To calculate the power for your study you need to use the same estimate of the population effect size that you used in original sample size analysis. You merely enter that same smallest effect size of interest (i.e., population level effect) and your obtained sample size into the R functions and it will return the power for your study - based on the sample size you actually obtained.</p>
+<p>The examples below all illustrate a population-level effect (i.e., smallest effect size of interest from the original power analysis) and the obtained sample size. Check out the next section to see how to use this information to calculate the positive predictive value for your study.</p>
+<div id="power-independent-groups-t-test" class="section level3">
+<h3><span class="header-section-number">12.5.1</span> Power independent groups <span class="math inline">\(t\)</span>-test</h3>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="positive-predictive-value.html#cb548-1"></a><span class="kw">library</span>(pwr)</span>
+<span id="cb548-2"><a href="positive-predictive-value.html#cb548-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
+<span id="cb548-3"><a href="positive-predictive-value.html#cb548-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
+<span id="cb548-4"><a href="positive-predictive-value.html#cb548-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
+<span id="cb548-5"><a href="positive-predictive-value.html#cb548-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
+<span id="cb548-6"><a href="positive-predictive-value.html#cb548-6"></a>pop_d &lt;-<span class="st"> </span><span class="fl">.24</span></span>
+<span id="cb548-7"><a href="positive-predictive-value.html#cb548-7"></a>sample_size_per_group &lt;-<span class="st"> </span><span class="dv">25</span></span>
+<span id="cb548-8"><a href="positive-predictive-value.html#cb548-8"></a></span>
+<span id="cb548-9"><a href="positive-predictive-value.html#cb548-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.t.test</span>(<span class="dt">d =</span> pop_d, </span>
+<span id="cb548-10"><a href="positive-predictive-value.html#cb548-10"></a>                      <span class="dt">n =</span> sample_size_per_group,</span>
+<span id="cb548-11"><a href="positive-predictive-value.html#cb548-11"></a>                      <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>,</span>
+<span id="cb548-12"><a href="positive-predictive-value.html#cb548-12"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
+<p>Then we need to print our power / sample size analysis:</p>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="positive-predictive-value.html#cb549-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 25
+##               d = 0.24
+##       sig.level = 0.05
+##           power = 0.2095
+##     alternative = greater
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>This analysis reveals that a) if we assume the population effect size is .24 (<span class="math inline">\(\delta = .24\)</span>) and b) use a sample size of 25 per group, then our resulting power is 0.21. That is, if an effect exists, we have a 21% chance of finding it.</p>
+</div>
+<div id="power-repeated-measures-t-test" class="section level3">
+<h3><span class="header-section-number">12.5.2</span> Power repeated measures <span class="math inline">\(t\)</span>-test</h3>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="positive-predictive-value.html#cb551-1"></a><span class="kw">library</span>(pwr)</span>
+<span id="cb551-2"><a href="positive-predictive-value.html#cb551-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
+<span id="cb551-3"><a href="positive-predictive-value.html#cb551-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
+<span id="cb551-4"><a href="positive-predictive-value.html#cb551-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
+<span id="cb551-5"><a href="positive-predictive-value.html#cb551-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
+<span id="cb551-6"><a href="positive-predictive-value.html#cb551-6"></a>pop_d &lt;-<span class="st"> </span><span class="fl">.17</span></span>
+<span id="cb551-7"><a href="positive-predictive-value.html#cb551-7"></a>n &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb551-8"><a href="positive-predictive-value.html#cb551-8"></a></span>
+<span id="cb551-9"><a href="positive-predictive-value.html#cb551-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.t.test</span>(<span class="dt">d =</span> pop_d, </span>
+<span id="cb551-10"><a href="positive-predictive-value.html#cb551-10"></a>                      <span class="dt">n =</span> n,</span>
+<span id="cb551-11"><a href="positive-predictive-value.html#cb551-11"></a>                      <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>,</span>
+<span id="cb551-12"><a href="positive-predictive-value.html#cb551-12"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
+<p>Then we need to print our power / sample size analysis:</p>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="positive-predictive-value.html#cb552-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
+<pre><code>## 
+##      Paired t test power calculation 
+## 
+##               n = 30
+##               d = 0.17
+##       sig.level = 0.05
+##           power = 0.2311
+##     alternative = greater
+## 
+## NOTE: n is number of *pairs*</code></pre>
+<p>This analysis reveals that a) if we assume the population effect size for our repeated measures <span class="math inline">\(t\)</span>-test is 0.17 (<span class="math inline">\(\delta = 0.17\)</span>) and b) we have a sample size of 30, then our resulting power is 0.23. That is, if an effect exists, we have a 23% chance of finding it.</p>
+</div>
+<div id="power-correlations" class="section level3">
+<h3><span class="header-section-number">12.5.3</span> Power correlations</h3>
+<p>#260 to #100</p>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="positive-predictive-value.html#cb554-1"></a><span class="kw">library</span>(pwr)</span>
+<span id="cb554-2"><a href="positive-predictive-value.html#cb554-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
+<span id="cb554-3"><a href="positive-predictive-value.html#cb554-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
+<span id="cb554-4"><a href="positive-predictive-value.html#cb554-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
+<span id="cb554-5"><a href="positive-predictive-value.html#cb554-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
+<span id="cb554-6"><a href="positive-predictive-value.html#cb554-6"></a>pop_r &lt;-<span class="st"> </span><span class="fl">.18</span></span>
+<span id="cb554-7"><a href="positive-predictive-value.html#cb554-7"></a>n &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb554-8"><a href="positive-predictive-value.html#cb554-8"></a></span>
+<span id="cb554-9"><a href="positive-predictive-value.html#cb554-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.r.test</span>(<span class="dt">r =</span> pop_r, </span>
+<span id="cb554-10"><a href="positive-predictive-value.html#cb554-10"></a>                      <span class="dt">n =</span> n,</span>
+<span id="cb554-11"><a href="positive-predictive-value.html#cb554-11"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
+<p>Then we need to print our power / sample size analysis:</p>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="positive-predictive-value.html#cb555-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
+<pre><code>## 
+##      approximate correlation power calculation (arctangh transformation) 
+## 
+##               n = 100
+##               r = 0.18
+##       sig.level = 0.05
+##           power = 0.5623
+##     alternative = greater</code></pre>
+<p>This analysis reveals that a) if we assume the population correlation is .18 (<span class="math inline">\(\rho = .18\)</span>) and b) we use a sample size of 100, then our resulting power is 0.56. That is, if an effect exists, we have a 56% chance of finding it.</p>
+</div>
+<div id="equivalence-independent-t-test" class="section level3">
+<h3><span class="header-section-number">12.5.4</span> Equivalence independent <em>t</em>-test</h3>
+<div id="standardized-units" class="section level4">
+<h4><span class="header-section-number">12.5.4.1</span> Standardized units</h4>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="positive-predictive-value.html#cb557-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb557-2"><a href="positive-predictive-value.html#cb557-2"></a>n_per_group =<span class="st"> </span><span class="dv">40</span></span>
+<span id="cb557-3"><a href="positive-predictive-value.html#cb557-3"></a><span class="kw">powerTOSTtwo</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb557-4"><a href="positive-predictive-value.html#cb557-4"></a>             <span class="dt">N  =</span> n_per_group,</span>
+<span id="cb557-5"><a href="positive-predictive-value.html#cb557-5"></a>             <span class="dt">low_eqbound_d =</span> <span class="fl">-0.40</span>,</span>
+<span id="cb557-6"><a href="positive-predictive-value.html#cb557-6"></a>             <span class="dt">high_eqbound_d =</span> <span class="fl">0.40</span>)</span></code></pre></div>
+<pre><code>## The statistical power is 11.51 % for equivalence bounds of -0.4 and 0.4 .</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## [1] 0.1151</code></pre>
+</div>
+<div id="raw-units" class="section level4">
+<h4><span class="header-section-number">12.5.4.2</span> Raw units</h4>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="positive-predictive-value.html#cb561-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb561-2"><a href="positive-predictive-value.html#cb561-2"></a>n_per_group =<span class="st"> </span><span class="dv">40</span></span>
+<span id="cb561-3"><a href="positive-predictive-value.html#cb561-3"></a></span>
+<span id="cb561-4"><a href="positive-predictive-value.html#cb561-4"></a><span class="kw">powerTOSTtwo.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb561-5"><a href="positive-predictive-value.html#cb561-5"></a>                 <span class="dt">N  =</span> n_per_group,</span>
+<span id="cb561-6"><a href="positive-predictive-value.html#cb561-6"></a>                 <span class="dt">sdpooled =</span> <span class="fl">2.50</span>,</span>
+<span id="cb561-7"><a href="positive-predictive-value.html#cb561-7"></a>                 <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
+<span id="cb561-8"><a href="positive-predictive-value.html#cb561-8"></a>                 <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## The statistical power is 11.51 % for equivalence bounds of -1 and 1 .</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## [1] 0.1151</code></pre>
+</div>
+</div>
+<div id="equivalence-repeated-t-test" class="section level3">
+<h3><span class="header-section-number">12.5.5</span> Equivalence repeated <em>t</em>-test</h3>
+<div id="standardized-units-1" class="section level4">
+<h4><span class="header-section-number">12.5.5.1</span> Standardized units</h4>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="positive-predictive-value.html#cb565-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb565-2"><a href="positive-predictive-value.html#cb565-2"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb565-3"><a href="positive-predictive-value.html#cb565-3"></a><span class="kw">powerTOSTpaired</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb565-4"><a href="positive-predictive-value.html#cb565-4"></a>                <span class="dt">N =</span> n,</span>
+<span id="cb565-5"><a href="positive-predictive-value.html#cb565-5"></a>                <span class="dt">low_eqbound_dz =</span> <span class="fl">-0.6325</span>,</span>
+<span id="cb565-6"><a href="positive-predictive-value.html#cb565-6"></a>                <span class="dt">high_eqbound_dz =</span> <span class="fl">0.6325</span>)</span></code></pre></div>
+<pre><code>## The statistical power is 27.79 % for equivalence bounds of -0.6325 and 0.6325 .</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## [1] 0.2779</code></pre>
+</div>
+<div id="raw-units-1" class="section level4">
+<h4><span class="header-section-number">12.5.5.2</span> Raw units</h4>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="positive-predictive-value.html#cb569-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb569-2"><a href="positive-predictive-value.html#cb569-2"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb569-3"><a href="positive-predictive-value.html#cb569-3"></a><span class="kw">powerTOSTpaired.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb569-4"><a href="positive-predictive-value.html#cb569-4"></a>                    <span class="dt">N =</span> n,</span>
+<span id="cb569-5"><a href="positive-predictive-value.html#cb569-5"></a>                    <span class="dt">sdif =</span> <span class="fl">1.581</span>,</span>
+<span id="cb569-6"><a href="positive-predictive-value.html#cb569-6"></a>                    <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
+<span id="cb569-7"><a href="positive-predictive-value.html#cb569-7"></a>                    <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## The statistical power is 27.79 % for equivalence bounds of -1 and 1 .</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## [1] 0.2779</code></pre>
+</div>
+</div>
+<div id="equivalence-correlation" class="section level3">
+<h3><span class="header-section-number">12.5.6</span> Equivalence correlation</h3>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="positive-predictive-value.html#cb573-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb573-2"><a href="positive-predictive-value.html#cb573-2"></a>n &lt;-<span class="st"> </span><span class="dv">75</span></span>
+<span id="cb573-3"><a href="positive-predictive-value.html#cb573-3"></a><span class="kw">powerTOSTr</span>(<span class="dt">alpha =</span> <span class="fl">.05</span>,</span>
+<span id="cb573-4"><a href="positive-predictive-value.html#cb573-4"></a>           <span class="dt">N =</span> n,</span>
+<span id="cb573-5"><a href="positive-predictive-value.html#cb573-5"></a>           <span class="dt">low_eqbound_r =</span> <span class="fl">-.20</span>, </span>
+<span id="cb573-6"><a href="positive-predictive-value.html#cb573-6"></a>           <span class="dt">high_eqbound_r =</span> <span class="fl">.20</span>)</span></code></pre></div>
+<pre><code>## The statistical power is 6.09 % for equivalence bounds of -0.2 and 0.2 .</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## [1] 0.06086</code></pre>
+</div>
+</div>
+<div id="calculating-ppv-for-your-study" class="section level2">
+<h2><span class="header-section-number">12.6</span> Calculating PPV for your study</h2>
+<p>To calculate PPV for your study you simply use the previously presented formula for positive predictive value. Imagine that you conducted an independents groups t-test and determined your power was .21 you would calculate positive predictive value as below. You may assume the probability of your hypothesis being true is .400.</p>
+<p><span class="math display">\[
+\begin{align}
+PPV &amp;= \frac{(1 - \beta)P(\text{effect})}{(1 - \beta)P(\text{effect}) + \alpha P(\text{no effect})}\\
+&amp;= \frac{(.21)(.400)}{(.21)(.400) + (.05)(.600)}\\
+&amp;= 0.74\\
+\end{align}
+\]</span></p>
+<p>Thus, if you obtained a significant <em>p</em>-value in this scenario there is only a 74% chance there really is an effect.</p>
 
-</div>
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-calin2019estimation">
-<p>Calin-Jageman, Robert J, and Geoff Cumming. 2019a. “Estimation for Better Inference in Neuroscience.” <em>Eneuro</em> 6 (4).</p>
-</div>
-<div id="ref-calin2019new">
-<p>Calin-Jageman, Robert J, and Geoff Cumming. 2019b. “The New Statistics for Better Science: Ask How Much, How Uncertain, and What Else Is Known.” <em>The American Statistician</em> 73 (sup1): 271–80.</p>
-</div>
-<div id="ref-cumming2009inference">
-<p>Cumming, Geoff. 2009. “Inference by Eye: Reading the Overlap of Independent Confidence Intervals.” <em>Statistics in Medicine</em> 28 (2): 205–20.</p>
-</div>
-<div id="ref-cumming2014new">
-<p>Cumming, Geoff. 2014. “The New Statistics: Why and How.” <em>Psychological Science</em> 25 (1): 7–29.</p>
-</div>
-<div id="ref-rothman2018planning">
-<p>Rothman, Kenneth J, and Sander Greenland. 2018. “Planning Study Size Based on Precision Rather Than Power.” <em>Epidemiology</em> 29 (5): 599–603.</p>
-</div>
-<div id="ref-schmidt2014methods">
-<p>Schmidt, Frank L, and John E Hunter. 2014. <em>Methods of Meta-Analysis: Correcting Error and Bias in Research Findings</em>. Sage.</p>
+<div id="ref-scheel2020excess">
+<p>Scheel, Anne M, Mitchell Schijen, and Daniël Lakens. 2020. “An Excess of Positive Results: Comparing the Standard Psychology Literature with Registered Reports.”</p>
 </div>
 </div>
             </section>
@@ -567,8 +833,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="equivalence-tests-and-sample-size.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="starting-your-research.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="starting-your-research.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
@@ -599,7 +865,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/10-precision_sample_size.Rmd",
+"link": "https://github.com/yihui/bookdown-crc/edit/master/12-ppv.Rmd",
 "text": "Edit"
 },
 "history": {
