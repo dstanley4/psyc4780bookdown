@@ -13,7 +13,7 @@ The following CRAN packages must be installed:
 
 ## Overview
 
-At this point you've learned to be cautious when it comes to interpreting $p$-values. But so far, that's been more of a qualitative form of caution. In this section we attempt to make it a more quantitative form of caution. Specifically, we introduce you to the concept of positive predictive values (PPV) in the context of interpreting significant *p*-values. The PPV statistic provides us with an estimate of how likely it is there really is an effect when a *p*-value is significant. The approach for this chapter was inspired by a [blog](https://dirnagl.com/2014/09/22/p-value-vs-positive-predictive-value/) post.
+At this point you've learned to be cautious when it comes to interpreting $p$-values. But so far, that's been more of a qualitative form of caution. In this section we attempt to make it a more quantitative form of caution. Specifically, we introduce you to the concept of positive predictive values (PPV) in the context of interpreting significant *p*-values. The PPV statistic provides us with an estimate of how likely it is there really is an effect when a *p*-value is significant. The approach for this chapter was inspired by a [blog](https://dirnagl.com/2014/09/22/p-value-vs-positive-predictive-value/) post. I strongly encourage you to watch [this video](https://youtu.be/7daQRvRO-NE) by the Center for Open Science on the consequences of low statistical power.
 
 
 ## Informal explanation
@@ -258,7 +258,6 @@ This analysis reveals that a) if we assume the population effect size for our re
 
 ### Power correlations
 
-#260 to #100
 ```{r}
 library(pwr)
 # Based on the previous study modify the settings below.

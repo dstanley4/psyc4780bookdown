@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2020-11-09" />
+<meta name="date" content="2020-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -489,7 +489,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="overview" class="section level2">
 <h2><span class="header-section-number">12.2</span> Overview</h2>
-<p>At this point you’ve learned to be cautious when it comes to interpreting <span class="math inline">\(p\)</span>-values. But so far, that’s been more of a qualitative form of caution. In this section we attempt to make it a more quantitative form of caution. Specifically, we introduce you to the concept of positive predictive values (PPV) in the context of interpreting significant <em>p</em>-values. The PPV statistic provides us with an estimate of how likely it is there really is an effect when a <em>p</em>-value is significant. The approach for this chapter was inspired by a <a href="https://dirnagl.com/2014/09/22/p-value-vs-positive-predictive-value/">blog</a> post.</p>
+<p>At this point you’ve learned to be cautious when it comes to interpreting <span class="math inline">\(p\)</span>-values. But so far, that’s been more of a qualitative form of caution. In this section we attempt to make it a more quantitative form of caution. Specifically, we introduce you to the concept of positive predictive values (PPV) in the context of interpreting significant <em>p</em>-values. The PPV statistic provides us with an estimate of how likely it is there really is an effect when a <em>p</em>-value is significant. The approach for this chapter was inspired by a <a href="https://dirnagl.com/2014/09/22/p-value-vs-positive-predictive-value/">blog</a> post. I strongly encourage you to watch <a href="https://youtu.be/7daQRvRO-NE">this video</a> by the Center for Open Science on the consequences of low statistical power.</p>
 </div>
 <div id="informal-explanation" class="section level2">
 <h2><span class="header-section-number">12.3</span> Informal explanation</h2>
@@ -714,7 +714,6 @@ FIGURE 12.9: Table illustrating Type I (false positives) and Type II Errors (fal
 </div>
 <div id="power-correlations" class="section level3">
 <h3><span class="header-section-number">12.5.3</span> Power correlations</h3>
-<p>#260 to #100</p>
 <div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="positive-predictive-value.html#cb554-1"></a><span class="kw">library</span>(pwr)</span>
 <span id="cb554-2"><a href="positive-predictive-value.html#cb554-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
 <span id="cb554-3"><a href="positive-predictive-value.html#cb554-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
