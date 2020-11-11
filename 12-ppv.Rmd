@@ -18,11 +18,12 @@ At this point you've learned to be cautious when it comes to interpreting $p$-va
 
 ## Informal explanation
 
-### Many hypotheses
+### Probability of an effect
 
-When you conduct an experiment to determine if an effect exists you start off fairly confident that the effect is there - otherwise you would not invest the time and money to run the study. Unfortunately only a minority of hypotheses are true. A recent examination of pre-registered studies determined that just over 40% of research hypotheses are true [@scheel2020excess]. Which correspondingly implies that approximately 60% of research hypotheses are false. That is, approximately 60% of studies fail to find the desired effect. 
+When you conduct an experiment to determine if an effect exists you start off fairly confident that the effect is there - otherwise you would not invest the time and money to run the study. But some research hypotheses will be true and others will not be true. One way to think about this is by imagining 1000 hypothesis as per Figure \@ref(fig:ppvfig1). In this figure there are 1000 squares. Each square represents an hypothesis worth testing. Just like the real world some hypotheses are true and some are false. We've shaded the squares to indicate which hypotheses are true or false. More specifically, we shaded 40% of the 1000 hypotheses (i.e., 600) green to indicate they are true (i.e., there is an effect). In contrast, we shaded 60% of the 1000 hypotheses (i.e., 600) yellow to indicate they are false (i.e., there is no effect).
 
-One way to think about this finding is by imagining 1000 hypothesis as per Figure \@ref(fig:ppvfig1). In this figure there are 1000 squares. Each square represents an hypothesis worthy of being tested. We've shaded the squares to indicate which hypotheses are true or false. Specifically, 40% of the 1000 hypotheses (i.e., 400 squares) are shaded green to indicate the hypotheses are true. In contrast, 60% of the 1000 hypotheses (i.e., 600 squares) are shaded yellow to indicate the hypotheses are false.  
+Why did we pick the percentage of hypotheses that are true in Figure \@ref(fig:ppvfig1) to be 40%? We did so because 40% could well correspond to the number of hypotheses that are true in psychology research overall. It's difficult to assess the number of hypotheses that are true in psychology given that there is a tendency for only significant effects to be published. However, we can examine pre-registered studies to obtain an estimate of the percentage of hypotheses that are true. With pre-registration scientists register their hypotheses before they collect their data. Consequently looking at the percentage of pre-registered hypotheses that are true may be a reasonable estimate of the percentage of hypotheses that are true in general. Fortunately, a recent study examined a large set of  pre-registered studies and determined that just over 40% of research hypotheses are true [@scheel2020excess]. This finding correspondingly implies that approximately 60% of research hypotheses are false. That is, approximately 60% of studies fail to find the desired effect. We used these percentages to shade Figure \@ref(fig:ppvfig1). More specifically, we used these numbers to indicate P(effect) = .400 and the P(no effect) = .600.
+
 
 ```{r ppvfig1, echo = FALSE, out.width = "90%", fig.scap = "One-thousand hypotheses represented as squares.", fig.cap="One-thousand hypotheses represented as squares. True hypotheses are indicated by the color green. False hypotheses are indicated by the color yellow."}
 knitr::include_graphics("ch_ppv/images/fig1.png")
@@ -51,7 +52,7 @@ knitr::include_graphics("ch_ppv/images/fig3.png")
 You can see from the blue outline in Figure \@ref(fig:ppvfig4), below, that there two ways to obtain a significant *p*-value. Specifically, you can obtain a significant *p*-value when the null hypothesis is true (a false positive *p*-value). As well, you can obtain a significant *p*-value when the null hypothesis is false (a true positive *p*-value). As a researcher, when we obtain a significant *p*-value we don't know if it's a true-positive or a false-positive. We calculate PPV to determine how likely it is there is an effect when the *p*-value is significant.
 
 
-```{r ppvfig4, echo = FALSE, out.width = "90%", fig.cap = "xx"}
+```{r ppvfig4, echo = FALSE, out.width = "90%", fig.cap = "Illustrating there are two ways to obtain a significant effect."}
 knitr::include_graphics("ch_ppv/images/fig4.png")
 ```
 

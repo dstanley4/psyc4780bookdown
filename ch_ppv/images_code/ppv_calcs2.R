@@ -135,7 +135,7 @@ areaplot2 = ggplot(data = noeffect_squares, aes(x = x, y = y)) +
   annotate(geom = "text", x = -.5, y = 14, label = "hypothesis", hjust = 1, size = 5) +
   annotate(geom = "text", x = -.5, y = 13.2, label = "is true", hjust = 1, size = 5) +
   annotate(geom = "text", x = -5, y = 16, label = "Population-level Reality", hjust = 1, angle = 90, size = 7) +
-  annotate(geom = "text", x = 19.5, y = 14, label = "Type I Error, False Positive", size = 5, colour = "white", angle = 90) +
+  annotate(geom = "text", x = 19.5, y = 14, label = "False Positive", size = 5, colour = "white", angle = 90) +
   annotate(geom = "text", x = 9, y = 15, label = "True Negative", size = 5, colour = "white") +
   annotate(geom = "text", x = 9, y = 14, label = "(Correct Decision)", size = 5, colour = "white") +
   coord_fixed() +
@@ -155,7 +155,7 @@ areaplot3 = ggplot(data = noeffect_squares, aes(x = x, y = y)) +
   annotate(geom = "text", x = -.5, y = 14, label = "hypothesis", hjust = 1, size = 5) +
   annotate(geom = "text", x = -.5, y = 13.2, label = "is true", hjust = 1, size = 5) +
   annotate(geom = "text", x = -5, y = 16, label = "Population-level Reality", hjust = 1, angle = 90, size = 7) +
-  annotate(geom = "text", x = 19.5, y = 14, label = "Type I Error, False Positive", size = 5, colour = "white", angle = 90) +
+  annotate(geom = "text", x = 19.5, y = 14, label = "False Positive", size = 5, colour = "white", angle = 90) +
   annotate(geom = "text", x = 7, y = 5, label = "False Negative", size = 5, colour = "white") +
   annotate(geom = "text", x = 17, y = 5, label = "True Positive", size = 5, colour = "white") +
   annotate(geom = "text", x = 17, y = 4, label = "(Correct Decision)", size = 5, colour = "white") +
