@@ -13,6 +13,8 @@ The following CRAN packages must be installed:
 
 ## Overview
 
+Typically when students learn about p-values and Null Hypothesis Significance testing then tend to pair a two ideas. Specifically, they tend to pair a significant $p$-value with the idea there is an effect. The purpose of this section is to unpair those two ideas. Specifically, a significant $p$-value only indicates that there **may** be an effect.
+
 At this point you've learned to be cautious when it comes to interpreting $p$-values. But so far, that's been more of a qualitative form of caution. In this section we attempt to make it a more quantitative form of caution. Specifically, we introduce you to the concept of positive predictive values (PPV) in the context of interpreting significant *p*-values. The PPV statistic provides us with an estimate of how likely it is there really is an effect when a *p*-value is significant. The approach for this chapter was inspired by a [blog](https://dirnagl.com/2014/09/22/p-value-vs-positive-predictive-value/) post. I strongly encourage you to watch [this video](https://youtu.be/7daQRvRO-NE) by the Center for Open Science on the consequences of low statistical power.
 
 
@@ -103,13 +105,14 @@ P(\text{Type I Error}) &= 0.05 \\
 \end{align}
 $$
 
-We can use these together to determine the dark green area (nearly black area) on Figure \@ref(fig:ppvfig7) which represents the joint probability of there being no effect and obtaining a Type I Error. You can see the probability .030 is similar to the count of 30 we had for this area in the informal explanation.
+We can use these together to determine the dark green **area** (nearly black area) on Figure \@ref(fig:ppvfig7) which represents the joint probability of there being no effect and obtaining a Type I Error. The $\cap$ symbol indicates "and" which implies you need to multiply the two values.
+
+You can see the probability .030 is similar to the count of 30 we had for this area in the informal explanation.
 
 
 $$
 \begin{align}
-P(\text{no effect} \cap \text{Type I Error}) &= P(\text{Type I Error})P(\text{no effect})  \\
-&= (\alpha) P(\text{no effect}) \\
+P(\text{Type I Error} \cap \text{no effect} ) &= (\alpha) \cap P(\text{no effect}) \\
 &= (.05)(.600) \\
 &= 0.030
 \end{align}
@@ -140,7 +143,7 @@ We can use these together to determine the dark green area on the figure which r
 
 $$
 \begin{align}
-P(\text{effect} \cap \text{sig. p-value}) &= (1 - \beta)P(\text{effect})\\
+P(\text{power}  \cap \text{effect}) &= (1 - \beta) \cap P(\text{effect})\\
 &= (.30)(.400) \\
 &= 0.120
 \end{align}

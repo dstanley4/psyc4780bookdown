@@ -1,0 +1,31 @@
+
+# Open Science Preregistration
+
+## Overview
+
+It's helpful to distinguish between preregistration and registered reports. This week we see a series of video that describe each of these approaches  One of the most population options for preregistering a study is to use the Open Science Framework (OSF) which was created by the Center for Open Science (COS). In this video you obtain an overview of preregistration and the OSF. Click on the still image from the video to play it.
+
+[![Watch the video](https://img.youtube.com/vi/9YuNGB3vNOw/hqdefault.jpg)](https://youtu.be/9YuNGB3vNOw)
+
+## Daniel Simmons Interview
+
+Daniel Simmons provides information about registered reports. Pay particular attention to the problems associated finding an unexpected effect in a data set and then trying to test an hypothesis related to that effect with the same data. Click on the still image from the video to play it.
+
+[![Watch the video](https://img.youtube.com/vi/LYfZr5poCkQ/hqdefault.jpg)](https://youtu.be/LYfZr5poCkQ)
+
+## Preregistration Impact
+
+Learn about the statistical impact of preregistration in this video. As in the previous video, pay particular attention to the problems associated finding an unexpected effect in a data set and then trying to test an hypothesis related to that effect with the same data. Click on the still image from the video to play it.
+
+[![Watch the video](https://img.youtube.com/vi/-fz_kZvlWpw/hqdefault.jpg)](https://youtu.be/-fz_kZvlWpw)
+
+## Preregistration Details
+
+In this video you will learn the "nuts and bolts" of preregistration using the OSF. Click on the still image from the video to play it.
+
+[![Watch the video](https://img.youtube.com/vi/8QK2-udwoK8/hqdefault.jpg)](https://youtu.be/8QK2-udwoK8)
+
+
+## Learn more
+
+Learn more about preregistration at this [website](https://www.cos.io/initiatives/prereg).
