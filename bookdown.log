@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  3 SEP 2020 10:17
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.4.16)  16 NOV 2020 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1037,23 +1037,8 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip90
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count293
-) (./bookdown.aux
-
-LaTeX Warning: Label `objective' multiply defined.
-
-
-LaTeX Warning: Label `notation' multiply defined.
-
-
-LaTeX Warning: Label `key-points' multiply defined.
-
-
-LaTeX Warning: Label `overview' multiply defined.
-
-
-LaTeX Warning: Label `required' multiply defined.
-
 )
+No file bookdown.aux.
 \openout1 = `bookdown.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 208.
@@ -1355,6 +1340,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 208.
 LaTeX Info: Redefining \pageref on input line 208.
 LaTeX Info: Redefining \nameref on input line 208.
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -1476,50 +1464,17 @@ Underfull \hbox (badness 10000) detected at line 231
 []
  []
 
-(./bookdown.toc
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.01236pt on input line 7.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 4.98074pt on input line 7.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 7.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00015pt on input line 7.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.01247pt on input line 7.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 4.9808pt on input line 7.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99985pt on input line 7.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.01224pt on input line 7.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.98067pt on input line 7.
-LaTeX Font Info:    Try loading font information for U+msa on input line 7.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 7.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
+\tf@toc=\write5
+\openout5 = `bookdown.toc'.
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
 [3
 
-] [4] [5] [6])
-\tf@toc=\write5
-\openout5 = `bookdown.toc'.
-
-[7]
+]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1556,7 +1511,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[8
+[4
 
 ]
 Underfull \vbox (badness 10000) detected at line 233
@@ -1602,10 +1557,188 @@ Underfull \hbox (badness 10000) detected at line 233
 
 Package hyperref Warning: bookmark level for unknown fm defaults to 0.
 
-(./bookdown.lot)
 \tf@lot=\write6
 \openout6 = `bookdown.lot'.
 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[5
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[6
+
+]
+Underfull \vbox (badness 10000) detected at line 234
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 234
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 234
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 234
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 234
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 234
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 234
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 234
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 234
+[]
+ []
+
+\tf@lof=\write7
+\openout7 = `bookdown.lof'.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[7
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[8
+
+]
+Underfull \vbox (badness 10000) detected at line 236
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 236
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 236
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 236
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 236
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 236
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 236
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 236
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 236
+[]
+ []
+
+File: header_4780.ai Graphic file (type pdf)
+<use header_4780.ai>
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1653,181 +1786,53 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [10
 
 ]
-Underfull \vbox (badness 10000) detected at line 234
+Underfull \vbox (badness 10000) detected at line 244
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 234
+Overfull \hbox (336.25pt too wide) detected at line 244
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 234
+Underfull \vbox (badness 10000) detected at line 244
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 234
+Overfull \hbox (336.25pt too wide) detected at line 244
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 234
+Underfull \vbox (badness 10000) detected at line 244
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 234
+Overfull \hbox (336.25pt too wide) detected at line 244
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 234
+Underfull \vbox (badness 10000) detected at line 244
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 234
+Overfull \hbox (336.25pt too wide) detected at line 244
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 234
+Underfull \hbox (badness 10000) detected at line 244
 []
  []
 
-(./bookdown.lof
+
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
 [11
 
-])
-\tf@lof=\write7
-\openout7 = `bookdown.lof'.
-
-[12]
-Underfull \vbox (badness 10000) detected at line 236
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 236
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 236
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 236
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 236
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 236
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 236
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 236
-[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 236
-[]
- []
-
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 255.
-
-Overfull \hbox (94.0pt too wide) in paragraph at lines 276--276
-[]\TU/lmtt/m/n/10 ## Locale: en_CA.UTF-8 / en_CA.UTF-8 / en_CA.UTF-8 / C / en_C
-A.UTF-8 / en_CA.UTF-8[] 
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[13
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
-[]\TU/lmr/m/n/10 Package names are in bold text (e.g., \TU/lmr/bx/n/10 rmarkdow
-n\TU/lmr/m/n/10 ), and in-
- []
-
-
-Underfull \hbox (badness 4467) in paragraph at lines 278--279
-\TU/lmr/m/n/10 line code and filenames are formatted in a typewriter font (e.g.
-,
- []
-
-
-Underfull \hbox (badness 2608) in paragraph at lines 278--279
-\TU/lmtt/m/n/10 knitr::knit([]foo.Rmd[])\TU/lmr/m/n/10 ). Function names are fo
-llowed by parenthe-
- []
-
-[14]
-Underfull \vbox (badness 10000) detected at line 281
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 281
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 281
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 281
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 281
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 281
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 281
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 281
-[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 281
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[15
-
-
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1865,68 +1870,103 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[16
+[12
 
 ]
-Underfull \vbox (badness 10000) detected at line 289
+Underfull \vbox (badness 10000) detected at line 252
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 289
+Overfull \hbox (336.25pt too wide) detected at line 252
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 289
+Underfull \vbox (badness 10000) detected at line 252
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 289
+Overfull \hbox (336.25pt too wide) detected at line 252
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 289
+Underfull \vbox (badness 10000) detected at line 252
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 289
+Overfull \hbox (336.25pt too wide) detected at line 252
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 289
+Underfull \vbox (badness 10000) detected at line 252
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 289
+Overfull \hbox (336.25pt too wide) detected at line 252
 []
  []
 
 Chapter 1.
 
-Overfull \hbox (55.60002pt too wide) in paragraph at lines 307--317
+LaTeX Warning: Reference `tab:appstore' on page 1 undefined on input line 264.
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.01236pt on input line 270.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 4.98074pt on input line 270.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 270.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00015pt on input line 270.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.01247pt on input line 270.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 4.9808pt on input line 270.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99985pt on input line 270.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.01224pt on input line 270.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.98067pt on input line 270.
+LaTeX Font Info:    Try loading font information for U+msa on input line 270.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 270.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+Overfull \hbox (55.60002pt too wide) in paragraph at lines 270--280
  [][] 
  []
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 322.
+(Font)              scaled to size 8.0pt on input line 285.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 322.
+(Font)              scaled to size 6.0pt on input line 285.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 322.
+(Font)              scaled to size 5.0pt on input line 285.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00012pt on input line 322.
+(Font)              scaled to size 8.00012pt on input line 285.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00009pt on input line 322.
+(Font)              scaled to size 6.00009pt on input line 285.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00008pt on input line 322.
+(Font)              scaled to size 5.00008pt on input line 285.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99988pt on input line 322.
+(Font)              scaled to size 7.99988pt on input line 285.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99991pt on input line 322.
+(Font)              scaled to size 5.99991pt on input line 285.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99992pt on input line 322.
+(Font)              scaled to size 4.99992pt on input line 285.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1936,493 +1976,344 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \hbox (badness 10000) detected at line 332
+Underfull \hbox (badness 10000) detected at line 295
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 332
+Underfull \hbox (badness 10000) detected at line 295
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 334
+Underfull \hbox (badness 10000) detected at line 297
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 334
+Underfull \hbox (badness 10000) detected at line 297
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 336
+Underfull \hbox (badness 10000) detected at line 299
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 336
+Underfull \hbox (badness 10000) detected at line 299
 [][][]
  []
+
+
+LaTeX Warning: Reference `fig:join' on page 2 undefined on input line 299.
 
 File: ch_introduction/images/screenshot_join.png Graphic file (type bmp)
 <ch_introduction/images/screenshot_join.png>
 
-Underfull \hbox (badness 10000) detected at line 348
+Underfull \hbox (badness 10000) detected at line 311
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 348
+Underfull \hbox (badness 10000) detected at line 311
 [][][]
  []
+
+
+LaTeX Warning: Reference `fig:welcome' on page 2 undefined on input line 311.
 
 File: ch_introduction/images/screenshot_welcome.png Graphic file (type bmp)
 <ch_introduction/images/screenshot_welcome.png>
 
-Underfull \hbox (badness 10000) detected at line 360
+Underfull \hbox (badness 10000) detected at line 323
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 360
+Underfull \hbox (badness 10000) detected at line 323
 [][][]
  []
+
+
+LaTeX Warning: Reference `fig:assignment' on page 2 undefined on input line 323
+.
 
 File: ch_introduction/images/screenshot_assignment.png Graphic file (type bmp)
 <ch_introduction/images/screenshot_assignment.png>
 
-Underfull \hbox (badness 10000) detected at line 372
+Underfull \hbox (badness 10000) detected at line 335
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 372
+Underfull \hbox (badness 10000) detected at line 335
 [][][]
  []
 
 [2] [3]
+
+LaTeX Warning: Reference `fig:interface' on page 4 undefined on input line 341.
+
+
 File: ch_introduction/images/screenshot_interface.png Graphic file (type bmp)
 <ch_introduction/images/screenshot_interface.png>
-[4] [5] [6]
+[4]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 354.
+[5] [6]
+File: ch_introduction/images/future_self_2x.png Graphic file (type bmp)
+<ch_introduction/images/future_self_2x.png>
+[7]
 File: ch_introduction/images/iso8601.png Graphic file (type bmp)
 <ch_introduction/images/iso8601.png>
-[7] [8] [9] [10] [11] [12] [13]
-Underfull \hbox (badness 10000) detected at line 742
+[8]
+Overfull \hbox (241.0pt too wide) in paragraph at lines 487--487
+[]\TU/lmtt/m/n/10 ## -- Attaching packages ------------------------------------
+------------------------------ tidyverse 1.3.0 --[] 
+ []
+
+[9]
+Overfull \hbox (241.0pt too wide) in paragraph at lines 500--500
+[]\TU/lmtt/m/n/10 ## -- Conflicts ---------------------------------------------
+------------------------ tidyverse_conflicts() --[] 
+ []
+
+[10] [11] [12] [13]
+Underfull \hbox (badness 10000) detected at line 707
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 742
+Underfull \hbox (badness 10000) detected at line 707
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 744
+Underfull \hbox (badness 10000) detected at line 709
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 744
+Underfull \hbox (badness 10000) detected at line 709
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 746
+Underfull \hbox (badness 10000) detected at line 711
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 746
+Underfull \hbox (badness 10000) detected at line 711
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 748
+Underfull \hbox (badness 10000) detected at line 713
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 748
+Underfull \hbox (badness 10000) detected at line 713
 [][][]
  []
+
+[14]
+
+LaTeX Warning: Reference `fig:sourcebutton' on page 15 undefined on input line 
+716.
 
 File: ch_introduction/images/screenshot_source.png Graphic file (type bmp)
 <ch_introduction/images/screenshot_source.png>
-[14]
-Underfull \hbox (badness 10000) detected at line 784
+[15]
+Underfull \hbox (badness 10000) detected at line 749
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 784
+Underfull \hbox (badness 10000) detected at line 749
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 786
+Underfull \hbox (badness 10000) detected at line 751
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 786
+Underfull \hbox (badness 10000) detected at line 751
 [][][]
  []
 
 File: images/caution.png Graphic file (type bmp)
 <images/caution.png>
-[15]
-Underfull \hbox (badness 10000) detected at line 822
+[16]
+Underfull \hbox (badness 10000) detected at line 787
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 822
+Underfull \hbox (badness 10000) detected at line 787
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 824
+Underfull \hbox (badness 10000) detected at line 789
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 824
+Underfull \hbox (badness 10000) detected at line 789
 [][][]
  []
 
-[16] [17] [18] [19] [20]
-Underfull \vbox (badness 10000) detected at line 1055
- []
+[17] [18] [19] [20] [21]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1055
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1055
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1055
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1055
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1055
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1055
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1055
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[22
+
+]
+Underfull \vbox (badness 10000) detected at line 1020
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1020
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1020
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1020
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1020
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1020
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1020
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1020
 []
  []
 
 Chapter 2.
 
+Package longtable Warning: Column widths have changed
+(longtable)                in table 2.1 on input line 1035.
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[21
+[23
 
-
-] [22] [23] [24] [25] [26] [27]
-Overfull \hbox (25.75pt too wide) in paragraph at lines 1391--1391
+] [24] [25] [26] [27] [28] [29]
+Overfull \hbox (25.75pt too wide) in paragraph at lines 1356--1356
 []\TU/lmtt/m/n/10 ## []summarise()[] ungrouping output (override with [].groups
 [] argument)[] 
  []
 
 
-Overfull \hbox (73.0pt too wide) in paragraph at lines 1414--1414
+Overfull \hbox (73.0pt too wide) in paragraph at lines 1379--1379
 []\TU/lmtt/m/n/10 ## []summarise()[] regrouping output by []sex[] (override wit
 h [].groups[] argument)[] 
  []
 
-[28] [29] [30] [31] [32] [33] [34] [35] [36]
-Underfull \hbox (badness 1237) in paragraph at lines 1847--1848
+[30] [31] [32] [33] [34] [35] [36] [37] [38]
+Underfull \hbox (badness 1237) in paragraph at lines 1812--1813
 []\TU/lmr/m/n/10 Note that in the across() command above, we could also have us
 ed:
  []
 
-[37] [38] [39] [40] [41] [42] [43] [44]
-Underfull \vbox (badness 10000) detected at line 2124
+[39] [40] [41] [42] [43] [44] [45] [46]
+Underfull \vbox (badness 10000) detected at line 2126
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2124
+Overfull \hbox (336.25pt too wide) detected at line 2126
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2124
+Underfull \vbox (badness 10000) detected at line 2126
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2124
+Overfull \hbox (336.25pt too wide) detected at line 2126
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2124
+Underfull \vbox (badness 10000) detected at line 2126
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2124
+Overfull \hbox (336.25pt too wide) detected at line 2126
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2124
+Underfull \vbox (badness 10000) detected at line 2126
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2124
+Overfull \hbox (336.25pt too wide) detected at line 2126
 []
  []
 
 Chapter 3.
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
+LaTeX Warning: Reference `fig:notationdata' on page 47 undefined on input line 
+2133.
 
-[45
-
-
-] [46]
-File: ch_enter_load/images/screenshot_metapsychology.png Graphic file (type bmp
-)
-<ch_enter_load/images/screenshot_metapsychology.png>
-[47]
-File: ch_enter_load/images/pipeline.ai Graphic file (type pdf)
-<use ch_enter_load/images/pipeline.ai>
-[48]
-Underfull \hbox (badness 10000) detected at line 2225
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2225
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2227
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2227
-[][][]
- []
-
-[49] [50] [51] [52] [53] [54] [55] [56] [57]
-Underfull \hbox (badness 10000) detected at line 2429
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2429
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2441
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2441
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2443
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2443
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2451
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2451
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2453
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2453
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2455
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2455
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2457
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2457
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2459
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2459
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2461
- [][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 2461
-[][][]
- []
-
-[58]
-File: ch_enter_load/images/screenshot_data_between.png Graphic file (type bmp)
-<ch_enter_load/images/screenshot_data_between.png>
-[59]
-File: ch_enter_load/images/screenshot_csv_between.png Graphic file (type bmp)
-<ch_enter_load/images/screenshot_csv_between.png>
-[60] [61] [62] [63]
-Overfull \vbox (1.08008pt too high) detected at line 2712
- []
-
-[64] [65] [66] [67] [68] [69] [70]
-Underfull \hbox (badness 10000) in paragraph at lines 3043--3044
-[]\TU/lmr/m/n/10 You now have two data sets analytic_data_within and ana-
- []
-
-[71] [72] [73] [74] [75] [76] [77] [78]
-Underfull \hbox (badness 3735) in paragraph at lines 3387--3388
-[]\TU/lmr/m/n/10 You now have two data sets analytic_data_within_nway and ana-
- []
-
-[79]
-Underfull \hbox (badness 6825) in paragraph at lines 3447--3448
-[]\TU/lmr/m/n/10 Remove empty row and columns from your data using the re-
- []
-
-
-Underfull \hbox (badness 4108) in paragraph at lines 3447--3448
-\TU/lmr/m/n/10 move_empty_cols() and remove_empty_rows(), respectively. As well
-,
- []
-
-[80] [81] [82] [83] [84] [85] [86] [87]
-File: images/caution.png Graphic file (type bmp)
-<images/caution.png>
-[88]
-Underfull \hbox (badness 5331) in paragraph at lines 3845--3846
-[]\TU/lmr/m/n/10 Likewise, we want to make a job_sat scale and plan to select
- []
-
-
-Underfull \hbox (badness 1859) in paragraph at lines 3845--3846
-\TU/lmr/m/n/10 items using starts_with(“jobsat”). The code and output below usi
-ng
- []
-
-[89]
-Underfull \hbox (badness 10000) in paragraph at lines 3902--3903
-[]\TU/lmr/m/n/10 You now have two data sets analytic_data_survey and ana-
- []
-
-
-Underfull \hbox (badness 2080) in paragraph at lines 3902--3903
-\TU/lmr/m/n/10 lytic_data_survey_items. You can calculate descriptive statistic
-s, cor-
- []
-
-[90]
-Underfull \hbox (badness 5711) in paragraph at lines 3955--3956
-[]\TU/lmr/m/n/10 Remove empty rows and columns from your data using the re-
- []
-
-
-Underfull \hbox (badness 2653) in paragraph at lines 3955--3956
-\TU/lmr/m/n/10 move_empty(“rows”) and remove_empty(“cols”), respectively. As we
-ll,
- []
-
-[91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102]
-File: ch_enter_load/images/desc_apa.png Graphic file (type bmp)
-<ch_enter_load/images/desc_apa.png>
-[103] [104] [105] [106]
-Underfull \vbox (badness 10000) detected at line 4597
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 4597
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4597
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 4597
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4597
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 4597
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4597
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 4597
-[]
- []
-
-Chapter 4.
 File: ch_populations/images/screenshot_data_n6.png Graphic file (type bmp)
 <ch_populations/images/screenshot_data_n6.png>
 
@@ -2430,239 +2321,347 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[107
+[47
 
 
-] [108] [109]
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 4695.
+] [48] [49]
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 4695.
+(Font)              scaled to size 11.0pt on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.69997pt on input line 4695.
+(Font)              scaled to size 7.69997pt on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 4695.
+(Font)              scaled to size 5.5pt on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 11.00017pt on input line 4695.
+(Font)              scaled to size 11.00017pt on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.70007pt on input line 4695.
+(Font)              scaled to size 7.70007pt on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.50008pt on input line 4695.
+(Font)              scaled to size 5.50008pt on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.99983pt on input line 4695.
+(Font)              scaled to size 10.99983pt on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.69984pt on input line 4695.
+(Font)              scaled to size 7.69984pt on input line 2224.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.49991pt on input line 4695.
+(Font)              scaled to size 5.49991pt on input line 2224.
+
+LaTeX Warning: Reference `eq:popmeanch4' on page 50 undefined on input line 222
+8.
+
+
+LaTeX Warning: Reference `fig:meancookie' on page 50 undefined on input line 22
+47.
+
 File: ch_populations/images/cookie.ai Graphic file (type pdf)
 <use ch_populations/images/cookie.ai>
-[110] [111] [112] [113] [114] [115]
+[50] [51]
+
+LaTeX Warning: Reference `fig:meancookie' on page 52 undefined on input line 22
+96.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.1 on input line 2317.
+
+
+LaTeX Warning: Reference `eq:popvarch4' on page 52 undefined on input line 2319
+.
+
+[52] [53]
+
+LaTeX Warning: Reference `eq:popsdch4' on page 54 undefined on input line 2357.
+
+
+[54]
+
+LaTeX Warning: Reference `fig:popvisual3' on page 55 undefined on input line 23
+98.
+
+
+LaTeX Warning: Reference `fig:popvisual3' on page 55 undefined on input line 23
+98.
+
+
+LaTeX Warning: Reference `fig:popvisual3' on page 55 undefined on input line 23
+98.
+
+
+LaTeX Warning: Reference `fig:popvisual3' on page 55 undefined on input line 23
+98.
+
+[55]
 File: ch_populations/images/popvisual.png Graphic file (type bmp)
 <ch_populations/images/popvisual.png>
-[116] [117] [118]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 2405.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.00018pt on input line 2405.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99982pt on input line 2405.
+[56] [57]
+
+LaTeX Warning: Reference `eq:popsmdch4' on page 58 undefined on input line 2447
+.
+
+[58]
+
+LaTeX Warning: Reference `fig:dex1' on page 59 undefined on input line 2470.
+
 File: ch_populations/images/dvalue_ex1.png Graphic file (type bmp)
 <ch_populations/images/dvalue_ex1.png>
+
+LaTeX Warning: Reference `fig:dex2' on page 59 undefined on input line 2479.
+
 File: ch_populations/images/dvalue_ex2.png Graphic file (type bmp)
 <ch_populations/images/dvalue_ex2.png>
-[119] [120] [121]
+[59] [60]
+
+LaTeX Warning: Reference `fig:dex3' on page 61 undefined on input line 2488.
+
+[61]
 File: ch_populations/images/dvalue_ex3.png Graphic file (type bmp)
 <ch_populations/images/dvalue_ex3.png>
-[122] [123]
-Underfull \hbox (badness 10000) in paragraph at lines 4990--4990
+
+LaTeX Warning: Reference `eq:popsmdcontrolch4' on page 62 undefined on input li
+ne 2497.
+
+[62]
+
+LaTeX Warning: Reference `eq:popsmddiffch4' on page 63 undefined on input line 
+2509.
+
+[63]
+
+Package natbib Warning: Citation `cohen1988' on page 64 undefined on input line
+ 2519.
+
+
+LaTeX Warning: Reference `fig:dex4' on page 64 undefined on input line 2519.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2519--2519
 [][][][]$[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [
 ] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][] [] [] [] [] [] 
 [] [] [] [] [] [] [][] [] [] [] [] [] [][] [][] [][] [] [] [] [] [] [] [][] [][
 ]
  []
 
+
+Package natbib Warning: Citation `schafer2019meaningfulness' on page 64 undefin
+ed on input line 2519.
+
 File: ch_populations/images/dvalue_ex4.png Graphic file (type bmp)
 <ch_populations/images/dvalue_ex4.png>
-[124] [125] [126]
-File: ch_populations/images/rho_example.png Graphic file (type bmp)
-<ch_populations/images/rho_example.png>
-[127]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.2 on input line 2538.
+
+[64]
+
+LaTeX Warning: Reference `eq:poprho4' on page 65 undefined on input line 2545.
+
+
+Package natbib Warning: Citation `lee1988thirteen' on page 65 undefined on inpu
+t line 2545.
+
+[65]
+
+LaTeX Warning: Reference `fig:datarex' on page 66 undefined on input line 2552.
+
+
 File: ch_populations/images/datarex.png Graphic file (type bmp)
 <ch_populations/images/datarex.png>
-[128]
-Underfull \hbox (badness 10000) detected at line 5071
+
+LaTeX Warning: Reference `fig:rhoplot' on page 66 undefined on input line 2573.
+
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.3 on input line 2584.
+
+File: ch_populations/images/rho_example.png Graphic file (type bmp)
+<ch_populations/images/rho_example.png>
+[66]
+Underfull \hbox (badness 10000) detected at line 2600
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5071
+Underfull \hbox (badness 10000) detected at line 2600
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5073
+Underfull \hbox (badness 10000) detected at line 2602
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5073
+Underfull \hbox (badness 10000) detected at line 2602
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5075
+Underfull \hbox (badness 10000) detected at line 2604
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5075
+Underfull \hbox (badness 10000) detected at line 2604
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5077
+Underfull \hbox (badness 10000) detected at line 2606
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5077
+Underfull \hbox (badness 10000) detected at line 2606
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5079
+Underfull \hbox (badness 10000) detected at line 2608
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5079
+Underfull \hbox (badness 10000) detected at line 2608
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5081
+Underfull \hbox (badness 10000) detected at line 2610
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5081
+Underfull \hbox (badness 10000) detected at line 2610
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5083
+Underfull \hbox (badness 10000) detected at line 2612
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5083
+Underfull \hbox (badness 10000) detected at line 2612
 [][][]
  []
 
-[129]
-Underfull \hbox (badness 10000) detected at line 5085
+[67]
+Underfull \hbox (badness 10000) detected at line 2614
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5085
+Underfull \hbox (badness 10000) detected at line 2614
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5087
+Underfull \hbox (badness 10000) detected at line 2616
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5087
+Underfull \hbox (badness 10000) detected at line 2616
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5089
+Underfull \hbox (badness 10000) detected at line 2618
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5089
+Underfull \hbox (badness 10000) detected at line 2618
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5098
+Underfull \hbox (badness 10000) detected at line 2627
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5098
+Underfull \hbox (badness 10000) detected at line 2627
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 5100
+[68]
+Underfull \hbox (badness 10000) detected at line 2629
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5100
+Underfull \hbox (badness 10000) detected at line 2629
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5102
+Underfull \hbox (badness 10000) detected at line 2631
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5102
+Underfull \hbox (badness 10000) detected at line 2631
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5111
+Underfull \hbox (badness 10000) detected at line 2640
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5111
+Underfull \hbox (badness 10000) detected at line 2640
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5113
+Underfull \hbox (badness 10000) detected at line 2642
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5113
+Underfull \hbox (badness 10000) detected at line 2642
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5115
+Underfull \hbox (badness 10000) detected at line 2644
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5115
+Underfull \hbox (badness 10000) detected at line 2644
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5117
+Underfull \hbox (badness 10000) detected at line 2646
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5117
+Underfull \hbox (badness 10000) detected at line 2646
 [][][]
  []
 
-[130]
-Underfull \hbox (badness 10000) detected at line 5119
+
+Underfull \hbox (badness 10000) detected at line 2648
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5119
+Underfull \hbox (badness 10000) detected at line 2648
 [][][]
  []
 
-[131]
+[69]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2699,41 +2698,320 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[132
+[70
 
 ]
-Underfull \vbox (badness 10000) detected at line 5123
+Underfull \vbox (badness 10000) detected at line 2652
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5123
+Overfull \hbox (336.25pt too wide) detected at line 2652
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5123
+Underfull \vbox (badness 10000) detected at line 2652
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5123
+Overfull \hbox (336.25pt too wide) detected at line 2652
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5123
+Underfull \vbox (badness 10000) detected at line 2652
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5123
+Overfull \hbox (336.25pt too wide) detected at line 2652
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5123
+Underfull \vbox (badness 10000) detected at line 2652
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5123
+Overfull \hbox (336.25pt too wide) detected at line 2652
+[]
+ []
+
+Chapter 4.
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.1 on input line 2666.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[71
+
+] [72] [73]
+File: bookdown_files/figure-latex/unnamed-chunk-108-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-108-1.pdf>
+[74]
+File: bookdown_files/figure-latex/unnamed-chunk-109-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-109-1.pdf>
+[75]
+File: bookdown_files/figure-latex/unnamed-chunk-110-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-110-1.pdf>
+[76]
+File: bookdown_files/figure-latex/unnamed-chunk-111-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-111-1.pdf>
+
+LaTeX Warning: Reference `fig:showmap' on page 77 undefined on input line 2881.
+
+
+File: ch_graphing/images/mapping.ai Graphic file (type pdf)
+<use ch_graphing/images/mapping.ai>
+[77]
+
+LaTeX Warning: Reference `fig:addfill' on page 78 undefined on input line 2890.
+
+
+[78]
+File: bookdown_files/figure-latex/unnamed-chunk-112-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-112-1.pdf>
+File: ch_graphing/images/mapping_fill.ai Graphic file (type pdf)
+<use ch_graphing/images/mapping_fill.ai>
+[79]
+File: bookdown_files/figure-latex/unnamed-chunk-113-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-113-1.pdf>
+[80]
+File: bookdown_files/figure-latex/unnamed-chunk-114-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-114-1.pdf>
+[81]
+Underfull \hbox (badness 1038) in paragraph at lines 2961--2962
+\TU/lmr/m/n/10 Use theme_classic() to make the graph apear in APA style. We use
+
+ []
+
+File: bookdown_files/figure-latex/unnamed-chunk-115-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-115-1.pdf>
+[82]
+File: bookdown_files/figure-latex/unnamed-chunk-116-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-116-1.pdf>
+[83]
+File: bookdown_files/figure-latex/unnamed-chunk-118-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-118-1.pdf>
+File: ch_graphing/images/convincing.png Graphic file (type bmp)
+<ch_graphing/images/convincing.png>
+[84]
+File: bookdown_files/figure-latex/unnamed-chunk-121-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-121-1.pdf>
+[85]
+Overfull \vbox (1.13004pt too high) detected at line 3131
+ []
+
+[86]
+File: bookdown_files/figure-latex/unnamed-chunk-122-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-122-1.pdf>
+[87]
+File: bookdown_files/figure-latex/unnamed-chunk-123-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-123-1.pdf>
+
+Underfull \hbox (badness 1127) in paragraph at lines 3170--3171
+[]\TU/lmr/bx/n/10 Important\TU/lmr/m/n/10 : The theme command must come after t
+he theme_classic
+ []
+
+
+Underfull \hbox (badness 1383) in paragraph at lines 3170--3171
+\TU/lmr/m/n/10 command. Otherwise, theme_classic will undo the work done by the
+
+ []
+
+[88]
+File: bookdown_files/figure-latex/unnamed-chunk-124-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-124-1.pdf>
+[89]
+File: bookdown_files/figure-latex/unnamed-chunk-125-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-125-1.pdf>
+[90]
+File: bookdown_files/figure-latex/unnamed-chunk-127-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-127-1.pdf>
+[91]
+File: bookdown_files/figure-latex/unnamed-chunk-129-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-129-1.pdf>
+[92]
+File: ch_graphing/images/custom_order.png Graphic file (type bmp)
+<ch_graphing/images/custom_order.png>
+[93]
+File: ch_graphing/images/custom_order2.png Graphic file (type bmp)
+<ch_graphing/images/custom_order2.png>
+[94]
+File: ch_graphing/images/base_color_graph.png Graphic file (type bmp)
+<ch_graphing/images/base_color_graph.png>
+[95] [96]
+File: ch_graphing/images/logo_color_graph.png Graphic file (type bmp)
+<ch_graphing/images/logo_color_graph.png>
+[97]
+File: ch_graphing/images/emoji_table.png Graphic file (type bmp)
+<ch_graphing/images/emoji_table.png>
+File: ch_graphing/images/emoji_graph.png Graphic file (type bmp)
+<ch_graphing/images/emoji_graph.png>
+[98]
+
+Package natbib Warning: Citation `margulis2005photoshop' on page 99 undefined o
+n input line 3507.
+
+File: ch_graphing/images/nocolorcomparison.png Graphic file (type bmp)
+<ch_graphing/images/nocolorcomparison.png>
+
+LaTeX Warning: Reference `fig:colorcomparison' on page 99 undefined on input li
+ne 3513.
+
+
+LaTeX Warning: Reference `fig:colorcomparison' on page 99 undefined on input li
+ne 3513.
+
+
+LaTeX Warning: Reference `fig:colorcomparison' on page 99 undefined on input li
+ne 3513.
+
+[99]
+
+LaTeX Warning: Reference `fig:colorpal' on page 100 undefined on input line 352
+1.
+
+File: ch_graphing/images/colors_all.png Graphic file (type bmp)
+<ch_graphing/images/colors_all.png>
+[100]
+
+LaTeX Warning: Reference `fig:colorpal' on page 101 undefined on input line 353
+6.
+
+
+LaTeX Warning: Reference `fig:colorspalthree' on page 101 undefined on input li
+ne 3545.
+
+File: ch_graphing/images/colors_3.png Graphic file (type bmp)
+<ch_graphing/images/colors_3.png>
+[101]
+
+LaTeX Warning: Reference `fig:colorspalthree' on page 102 undefined on input li
+ne 3556.
+
+[102]
+File: ch_graphing/images/emoji_graph4.png Graphic file (type bmp)
+<ch_graphing/images/emoji_graph4.png>
+[103]
+
+LaTeX Warning: Reference `fig:pairedpal' on page 104 undefined on input line 36
+01.
+
+File: ch_graphing/images/pairedpalette.png Graphic file (type bmp)
+<ch_graphing/images/pairedpalette.png>
+File: ch_graphing/images/emoji_graph5.png Graphic file (type bmp)
+<ch_graphing/images/emoji_graph5.png>
+[104]
+
+LaTeX Warning: Reference `fig:colorcomparison2' on page 105 undefined on input 
+line 3637.
+
+
+LaTeX Warning: Reference `fig:colorcomparison2' on page 105 undefined on input 
+line 3637.
+
+File: ch_graphing/images/nocolorcomparison2.png Graphic file (type bmp)
+<ch_graphing/images/nocolorcomparison2.png>
+[105]
+File: ch_graphing/images/emoji_graph2.png Graphic file (type bmp)
+<ch_graphing/images/emoji_graph2.png>
+[106] [107]
+File: ch_graphing/images/emoji_graph3.png Graphic file (type bmp)
+<ch_graphing/images/emoji_graph3.png>
+[108] [109]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[110
+
+]
+Underfull \vbox (badness 10000) detected at line 3745
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 3745
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3745
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 3745
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3745
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 3745
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3745
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 3745
 []
  []
 
@@ -2743,46 +3021,282 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[133
+[111
 
-] [134]
-Underfull \hbox (badness 2980) in paragraph at lines 5183--5184
+] [112]
+Underfull \hbox (badness 2980) in paragraph at lines 3805--3806
 []\TU/lmr/m/n/10 Next, we create a large population with 100,000 people using t
 he
  []
 
-[135] [136]
+[113]
+
+LaTeX Warning: Reference `eq:popmeanch5' on page 114 undefined on input line 38
+46.
+
+
+LaTeX Warning: Reference `eq:popmeanch5' on page 114 undefined on input line 38
+53.
+
+
+LaTeX Warning: Reference `eq:samplemeanch5' on page 114 undefined on input line
+ 3868.
+
+
+LaTeX Warning: Reference `eq:popmeanch5' on page 114 undefined on input line 38
+68.
+
+
+LaTeX Warning: Reference `eq:samplemeanch5' on page 114 undefined on input line
+ 3868.
+
+[114]
+
+LaTeX Warning: Reference `eq:samplemeanmeanch5' on page 115 undefined on input 
+line 3875.
+
+
+LaTeX Warning: Reference `fig:showbias' on page 115 undefined on input line 388
+2.
+
 File: ch_samples/images/sampling_accuracy.ai Graphic file (type pdf)
 <use ch_samples/images/sampling_accuracy.ai>
-[137] [138]
+[115] [116]
 File: ch_samples/images/sampling_dist.ai Graphic file (type pdf)
 <use ch_samples/images/sampling_dist.ai>
-[139] [140] [141] [142] [143]
+
+LaTeX Warning: Reference `fig:bothdist' on page 117 undefined on input line 393
+6.
+
+[117]
+
+LaTeX Warning: Reference `eq:samplemeanch5' on page 118 undefined on input line
+ 3956.
+
+
+LaTeX Warning: Reference `eq:popmeanch5' on page 118 undefined on input line 39
+56.
+
+
+LaTeX Warning: Reference `eq:popvarch5' on page 118 undefined on input line 396
+1.
+
+[118]
+
+LaTeX Warning: Reference `eq:popvarch5' on page 119 undefined on input line 396
+8.
+
+[119]
+
+LaTeX Warning: Reference `eq:samplevarn1ch5' on page 120 undefined on input lin
+e 4011.
+
+
+LaTeX Warning: Reference `eq:samplevarn1ch5' on page 120 undefined on input lin
+e 4018.
+
+
+LaTeX Warning: Reference `eq:samplevarn1ch5' on page 120 undefined on input lin
+e 4018.
+
+[120]
+
+LaTeX Warning: Reference `eq:popsdch5' on page 121 undefined on input line 4040
+.
+
+
+LaTeX Warning: Reference `eq:samplesd1ch5' on page 121 undefined on input line 
+4047.
+
+
+LaTeX Warning: Reference `eq:popsmdch5' on page 121 undefined on input line 405
+7.
+
+[121]
+
+LaTeX Warning: Reference `fig:sexpop' on page 122 undefined on input line 4118.
+
+
 File: ch_samples/images/sex_pops.png Graphic file (type bmp)
 <ch_samples/images/sex_pops.png>
-[144] [145] [146] [147]
+
+LaTeX Warning: Reference `eq:samplesmdch5' on page 122 undefined on input line 
+4133.
+
+
+LaTeX Warning: Reference `eq:samplesmdch5' on page 122 undefined on input line 
+4133.
+
+
+LaTeX Warning: Reference `eq:popsmdch5' on page 122 undefined on input line 413
+3.
+
+[122]
+
+LaTeX Warning: Reference `eq:samplesmdch5' on page 123 undefined on input line 
+4140.
+
+
+LaTeX Warning: Reference `eq:samplesmdch5' on page 123 undefined on input line 
+4140.
+
+
+LaTeX Warning: Reference `eq:samplesmdunbiasedch5' on page 123 undefined on inp
+ut line 4140.
+
+
+LaTeX Warning: Reference `eq:samplesmdch5' on page 123 undefined on input line 
+4147.
+
+
+LaTeX Warning: Reference `eq:samplesmdunbiasedch5' on page 123 undefined on inp
+ut line 4147.
+
+
+LaTeX Warning: Reference `eq:popsmdch5' on page 123 undefined on input line 415
+2.
+
+[123]
+
+LaTeX Warning: Reference `fig:pool1' on page 124 undefined on input line 4178.
+
+
+LaTeX Warning: Reference `fig:pool2' on page 124 undefined on input line 4178.
+
+[124] [125]
 File: ch_samples/images/pool1.png Graphic file (type bmp)
 <ch_samples/images/pool1.png>
 File: ch_samples/images/pool2.png Graphic file (type bmp)
 <ch_samples/images/pool2.png>
-[148]
+[126]
 File: ch_samples/images/pool3.png Graphic file (type bmp)
 <ch_samples/images/pool3.png>
-[149]
-Underfull \hbox (badness 3449) in paragraph at lines 5639--5640
+
+LaTeX Warning: Reference `eq:poolvarequalch5' on page 127 undefined on input li
+ne 4198.
+
+
+LaTeX Warning: Reference `eq:poolvarch5' on page 127 undefined on input line 42
+05.
+
+
+LaTeX Warning: Reference `eq:poolvarequalch5' on page 127 undefined on input li
+ne 4205.
+
+
+LaTeX Warning: Reference `eq:poolvarch5' on page 127 undefined on input line 42
+05.
+
+
+LaTeX Warning: Reference `eq:poolvarch5' on page 127 undefined on input line 42
+20.
+
+[127]
+
+LaTeX Warning: Reference `eq:samplesmdunbiasedch5' on page 128 undefined on inp
+ut line 4242.
+
+
+Underfull \hbox (badness 3449) in paragraph at lines 4257--4258
 \TU/lmr/m/n/10 Sample-level $[][]$-values, calculated above, often differ from 
 the
  []
 
-[150] [151]
+[128] [129]
 File: ch_samples/images/d_dist.png Graphic file (type bmp)
 <ch_samples/images/d_dist.png>
-[152] [153]
-Overfull \hbox (30.0pt too wide) in paragraph at lines 5824--5824
+[130]
+
+LaTeX Warning: Reference `eq:sampler5' on page 131 undefined on input line 4357
+.
+
+
+Package natbib Warning: Citation `schmidt2014methods' on page 131 undefined on 
+input line 4364.
+
+[131]
+
+LaTeX Warning: Reference `fig:rdistplot' on page 132 undefined on input line 44
+22.
+
+[132]
+
+LaTeX Warning: Reference `fig:rdistplot' on page 133 undefined on input line 44
+60.
+
+
+LaTeX Warning: Reference `fig:rdistplot' on page 133 undefined on input line 44
+60.
+
+[133]
+File: ch_samples/images/r_sampling_dist_edit.png Graphic file (type bmp)
+<ch_samples/images/r_sampling_dist_edit.png>
+[134] [135]
+Overfull \hbox (30.0pt too wide) in paragraph at lines 4595--4595
 |  
  []
 
-[154] [155]
+
+Underfull \hbox (badness 10000) detected at line 4603
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4603
+[][][]
+ []
+
+[136]
+Underfull \hbox (badness 10000) detected at line 4605
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4605
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4607
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4607
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4609
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4609
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4611
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4611
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4613
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4613
+[][][]
+ []
+
+[137]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2819,45 +3333,53 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[156
+[138
 
 ]
-Underfull \vbox (badness 10000) detected at line 5845
+Underfull \vbox (badness 10000) detected at line 4617
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5845
+Overfull \hbox (336.25pt too wide) detected at line 4617
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5845
+Underfull \vbox (badness 10000) detected at line 4617
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5845
+Overfull \hbox (336.25pt too wide) detected at line 4617
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5845
+Underfull \vbox (badness 10000) detected at line 4617
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5845
+Overfull \hbox (336.25pt too wide) detected at line 4617
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5845
+Underfull \vbox (badness 10000) detected at line 4617
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 5845
+Overfull \hbox (336.25pt too wide) detected at line 4617
 []
  []
 
 Chapter 6.
+
+LaTeX Warning: Reference `fig:showbias2' on page 139 undefined on input line 46
+22.
+
+
+LaTeX Warning: Reference `fig:showbias2' on page 139 undefined on input line 46
+24.
+
 File: ch_samples_precision/images/sampling_accuracy.png Graphic file (type bmp)
 
 <ch_samples_precision/images/sampling_accuracy.png>
@@ -2866,57 +3388,294 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[157
+[139
 
-] [158] [159] [160]
+] [140] [141] [142]
+
+LaTeX Warning: Reference `fig:bothdist2' on page 143 undefined on input line 47
+62.
+
 File: ch_samples_precision/images/sampling_dist.ai Graphic file (type pdf)
 <use ch_samples_precision/images/sampling_dist.ai>
-[161] [162]
-Underfull \hbox (badness 10000) detected at line 6063
+
+LaTeX Warning: Reference `eq:samplesechnext' on page 143 undefined on input lin
+e 4771.
+
+
+LaTeX Warning: Reference `eq:samplevarchnext' on page 143 undefined on input li
+ne 4780.
+
+
+LaTeX Warning: Reference `eq:samplesechnext' on page 143 undefined on input lin
+e 4780.
+
+[143] [144] [145]
+Underfull \hbox (badness 10000) detected at line 4839
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6063
+Underfull \hbox (badness 10000) detected at line 4839
 [][][]
  []
 
-[163]
-Underfull \hbox (badness 10000) detected at line 6065
+
+Underfull \hbox (badness 10000) detected at line 4841
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6065
+Underfull \hbox (badness 10000) detected at line 4841
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6067
+Underfull \hbox (badness 10000) detected at line 4843
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6067
+Underfull \hbox (badness 10000) detected at line 4843
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6069
+Underfull \hbox (badness 10000) detected at line 4845
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 6069
+Underfull \hbox (badness 10000) detected at line 4845
 [][][]
  []
 
-[164] [165] [166] [167] [168] [169]
+
+LaTeX Warning: Reference `eq:samplevarchnext' on page 146 undefined on input li
+ne 4845.
+
+
+LaTeX Warning: Reference `eq:samplevar2chnext' on page 146 undefined on input l
+ine 4850.
+
+
+LaTeX Warning: Reference `eq:samplevar2chnext' on page 146 undefined on input l
+ine 4850.
+
+
+Package natbib Warning: Citation `hays1994' on page 146 undefined on input line
+ 4850.
+
+
+LaTeX Warning: Reference `eq:samplevar2chnext' on page 146 undefined on input l
+ine 4859.
+
+[146]
+
+LaTeX Warning: Reference `eq:samplevar2chnext' on page 147 undefined on input l
+ine 4887.
+
+
+LaTeX Warning: Reference `eq:samplevar2estchnext' on page 147 undefined on inpu
+t line 4889.
+
+[147] [148] [149] [150]
+
+LaTeX Warning: Reference `eq:samplevar2chnext' on page 151 undefined on input l
+ine 4995.
+
+
+LaTeX Warning: Reference `eq:samplevar2estchnext' on page 151 undefined on inpu
+t line 4995.
+
+[151]
+
+LaTeX Warning: Reference `fig:threedist' on page 152 undefined on input line 50
+10.
+
 File: ch_samples_precision/images/sampling_mdist.ai Graphic file (type pdf)
 <use ch_samples_precision/images/sampling_mdist.ai>
-[170] [171] [172]
+[152] [153]
+
+LaTeX Warning: Reference `fig:ddistributions' on page 154 undefined on input li
+ne 5037.
+
+
+LaTeX Warning: Reference `fig:ddistributions' on page 154 undefined on input li
+ne 5037.
+
+
+LaTeX Warning: Reference `fig:ddistributions' on page 154 undefined on input li
+ne 5037.
+
+
+LaTeX Warning: Reference `fig:ddistributions' on page 154 undefined on input li
+ne 5039.
+
+
+LaTeX Warning: Reference `fig:ddistributions' on page 154 undefined on input li
+ne 5042.
+
+[154]
 File: ch_samples_precision/images/d_distribs2.png Graphic file (type bmp)
 <ch_samples_precision/images/d_distribs2.png>
+[155]
+
+LaTeX Warning: Reference `fig:dvalueskew' on page 156 undefined on input line 5
+057.
+
+
+LaTeX Warning: Reference `fig:dvalueskew' on page 156 undefined on input line 5
+057.
+
+
+LaTeX Warning: Reference `fig:dvalueskew' on page 156 undefined on input line 5
+057.
+
+
+LaTeX Warning: Reference `fig:dvalueskew' on page 156 undefined on input line 5
+057.
+
+
+LaTeX Warning: Reference `fig:dvalueskew' on page 156 undefined on input line 5
+057.
+
+File: ch_samples_precision/images/d_sampling_dist_delta_vary.ai Graphic file (t
+ype pdf)
+<use ch_samples_precision/images/d_sampling_dist_delta_vary.ai>
+
+LaTeX Warning: Reference `fig:ddistributions' on page 156 undefined on input li
+ne 5065.
+
+
+LaTeX Warning: Reference `fig:ddistributions' on page 156 undefined on input li
+ne 5065.
+
+[156]
+
+LaTeX Warning: Reference `fig:rvaluen' on page 157 undefined on input line 5084
+.
+
+
+LaTeX Warning: Reference `fig:rvaluen' on page 157 undefined on input line 5084
+.
+
+
+LaTeX Warning: Reference `fig:rvaluen' on page 157 undefined on input line 5084
+.
+
+[157]
+File: ch_samples_precision/images/r_sampling_dist_n_vary.ai Graphic file (type 
+pdf)
+<use ch_samples_precision/images/r_sampling_dist_n_vary.ai>
+
+LaTeX Warning: Reference `fig:rvalueskew' on page 158 undefined on input line 5
+094.
+
+
+LaTeX Warning: Reference `fig:rvalueskew' on page 158 undefined on input line 5
+094.
+
+
+LaTeX Warning: Reference `fig:rvalueskew' on page 158 undefined on input line 5
+094.
+
+
+LaTeX Warning: Reference `fig:rvalueskew' on page 158 undefined on input line 5
+094.
+
+[158]
+File: ch_samples_precision/images/r_sampling_dist_rho_vary.ai Graphic file (typ
+e pdf)
+<use ch_samples_precision/images/r_sampling_dist_rho_vary.ai>
+
+LaTeX Warning: Reference `fig:rvaluen' on page 159 undefined on input line 5102
+.
+
+
+LaTeX Warning: Reference `fig:rvaluen' on page 159 undefined on input line 5102
+.
+
+[159] [160]
+Underfull \vbox (badness 10000) detected at line 5114
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 5114
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 5114
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 5114
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 5114
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 5114
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 5114
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 5114
+[]
+ []
+
+Chapter 7.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[161
+
+
+] [162] [163] [164] [165] [166]
+Overfull \hbox (57.25pt too wide) in paragraph at lines 5384--5384
+[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
+are given as:"[] 
+ []
+
+[167]
+Overfull \hbox (57.25pt too wide) in paragraph at lines 5426--5426
+[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
+are given as:"[] 
+ []
+
+[168] [169]
+Overfull \hbox (57.25pt too wide) in paragraph at lines 5511--5511
+[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
+are given as:"[] 
+ []
+
+[170]
+Overfull \hbox (57.25pt too wide) in paragraph at lines 5552--5552
+[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
+are given as:"[] 
+ []
+
+[171] [172]
+Overfull \hbox (62.5pt too wide) in paragraph at lines 5636--5636
+[]\TU/lmtt/m/n/10 ##   Results of a comparison of two correlations based on ind
+ependent groups[] 
+ []
+
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 5636--5636
+[]\TU/lmtt/m/n/10 ## Alternative hypothesis: r1.jk is not equal to r2.hm (two-s
+ided)[] 
+ []
+
 [173]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2957,42 +3716,54 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [174
 
 ]
-Underfull \vbox (badness 10000) detected at line 6258
+Underfull \vbox (badness 10000) detected at line 5641
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6258
+Overfull \hbox (336.25pt too wide) detected at line 5641
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6258
+Underfull \vbox (badness 10000) detected at line 5641
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6258
+Overfull \hbox (336.25pt too wide) detected at line 5641
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6258
+Underfull \vbox (badness 10000) detected at line 5641
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6258
+Overfull \hbox (336.25pt too wide) detected at line 5641
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6258
+Underfull \vbox (badness 10000) detected at line 5641
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6258
+Overfull \hbox (336.25pt too wide) detected at line 5641
 []
  []
 
-Chapter 7.
+Chapter 8.
+
+Package natbib Warning: Citation `button2013power' on page 175 undefined on inp
+ut line 5665.
+
+
+Package natbib Warning: Citation `szucs2017empirical' on page 175 undefined on 
+input line 5665.
+
+
+Package natbib Warning: Citation `dumas2017low' on page 175 undefined on input 
+line 5665.
+
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -3001,227 +3772,189 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [175
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+Package natbib Warning: Citation `szucs2017empirical' on page 176 undefined on 
+input line 5667.
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+[176]
+Underfull \hbox (badness 10000) detected at line 5679
+ [][]
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \hbox (badness 10000) detected at line 5679
+[][][]
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \hbox (badness 10000) in paragraph at lines 5679--5679
+[][][][]$[] [] [][] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][] [] [] [] [] [
+] [][] [] [] [] [] [] [] [][] [][] [] [] [] [] [] [] [] [] [][] [][]
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \hbox (badness 10000) detected at line 5681
+ [][]
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[176
-
-]
-Underfull \vbox (badness 10000) detected at line 6261
+Underfull \hbox (badness 10000) detected at line 5681
+[][][]
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6261
-[]
+Underfull \hbox (badness 10000) detected at line 5690
+ [][]
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6261
+Underfull \hbox (badness 10000) detected at line 5690
+[][][]
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6261
-[]
+Underfull \hbox (badness 10000) detected at line 5692
+ [][]
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6261
+Underfull \hbox (badness 10000) detected at line 5692
+[][][]
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6261
-[]
+Underfull \hbox (badness 10000) detected at line 5694
+ [][]
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6261
+Underfull \hbox (badness 10000) detected at line 5694
+[][][]
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 6261
-[]
+Package natbib Warning: Citation `hemphill2003interpreting' on page 177 undefin
+ed on input line 5697.
+
+
+Package natbib Warning: Citation `lakens2018equivalence' on page 177 undefined 
+on input line 5697.
+
+[177]
+File: images/caution.png Graphic file (type bmp)
+<images/caution.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 5700--5700
+[][][][]$[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [
+] [] [] [] [] [] [] [][] [] [] [] [] [] [] [] [][] [] [] [] [] [] [][] [] [] []
+ [] [] [] [] [] [] [][] [] [] [] [] [] [] [] [] [] [] [] [] []
  []
 
-Chapter 8.
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
+Underfull \hbox (badness 10000) in paragraph at lines 5700--5700
+[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][] [] [] [] [] [] [] [] []
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
  []
 
-[177
 
-] [178] [179]
-File: bookdown_files/figure-latex/unnamed-chunk-261-1.pdf Graphic file (type pd
+Underfull \hbox (badness 10000) in paragraph at lines 5700--5700
+[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [
+] [] [] [] [] [] [] [] [] [] [][] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+ []
+
+
+Package natbib Warning: Citation `perugini2014safeguard' on page 178 undefined 
+on input line 5712.
+
+[178]
+
+Package natbib Warning: Citation `simonsohn2015small' on page 179 undefined on 
+input line 5739.
+
+
+Overfull \vbox (0.56004pt too high) detected at line 5761
+ []
+
+[179]
+
+Package natbib Warning: Citation `lakens2018equivalence' on page 180 undefined 
+on input line 5780.
+
+[180] [181]
+File: bookdown_files/figure-latex/unnamed-chunk-238-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-261-1.pdf>
-[180]
-File: bookdown_files/figure-latex/unnamed-chunk-262-1.pdf Graphic file (type pd
+<use bookdown_files/figure-latex/unnamed-chunk-238-1.pdf>
+[182] [183] [184]
+File: bookdown_files/figure-latex/unnamed-chunk-240-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-262-1.pdf>
-[181]
-File: bookdown_files/figure-latex/unnamed-chunk-263-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-263-1.pdf>
-[182]
-File: bookdown_files/figure-latex/unnamed-chunk-264-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-264-1.pdf>
-File: ch_graphing/images/mapping.ai Graphic file (type pdf)
-<use ch_graphing/images/mapping.ai>
-[183] [184]
-File: bookdown_files/figure-latex/unnamed-chunk-265-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-265-1.pdf>
-File: ch_graphing/images/mapping_fill.ai Graphic file (type pdf)
-<use ch_graphing/images/mapping_fill.ai>
-[185]
-File: bookdown_files/figure-latex/unnamed-chunk-266-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-266-1.pdf>
-[186]
-File: bookdown_files/figure-latex/unnamed-chunk-267-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-267-1.pdf>
+<use bookdown_files/figure-latex/unnamed-chunk-240-1.pdf>
+[185] [186]
+
+Package natbib Warning: Citation `perugini2014safeguard' on page 187 undefined 
+on input line 6084.
+
 [187]
-Underfull \hbox (badness 1038) in paragraph at lines 6569--6570
-\TU/lmr/m/n/10 Use theme_classic() to make the graph apear in APA style. We use
-
+Overfull \hbox (57.25pt too wide) in paragraph at lines 6097--6097
+[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
+are given as:"[] 
  []
 
-File: bookdown_files/figure-latex/unnamed-chunk-268-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-268-1.pdf>
 [188]
-File: bookdown_files/figure-latex/unnamed-chunk-269-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-269-1.pdf>
+
+Package natbib Warning: Citation `simonsohn2015small' on page 189 undefined on 
+input line 6115.
+
 [189]
-File: bookdown_files/figure-latex/unnamed-chunk-271-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-271-1.pdf>
-File: ch_graphing/images/convincing.png Graphic file (type bmp)
-<ch_graphing/images/convincing.png>
-[190]
-File: bookdown_files/figure-latex/unnamed-chunk-274-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-274-1.pdf>
-[191]
-Overfull \vbox (1.13004pt too high) detected at line 6739
- []
 
-[192]
-File: bookdown_files/figure-latex/unnamed-chunk-275-1.pdf Graphic file (type pd
+Package natbib Warning: Citation `lakens2018equivalence' on page 190 undefined 
+on input line 6156.
+
+[190] [191]
+File: bookdown_files/figure-latex/unnamed-chunk-248-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-275-1.pdf>
-[193]
-File: bookdown_files/figure-latex/unnamed-chunk-276-1.pdf Graphic file (type pd
+<use bookdown_files/figure-latex/unnamed-chunk-248-1.pdf>
+[192] [193]
+File: bookdown_files/figure-latex/unnamed-chunk-250-1.pdf Graphic file (type pd
 f)
-<use bookdown_files/figure-latex/unnamed-chunk-276-1.pdf>
+<use bookdown_files/figure-latex/unnamed-chunk-250-1.pdf>
+[194] [195]
 
-Underfull \hbox (badness 1127) in paragraph at lines 6778--6779
-[]\TU/lmr/bx/n/10 Important\TU/lmr/m/n/10 : The theme command must come after t
-he theme_classic
- []
+Package natbib Warning: Citation `perugini2014safeguard' on page 196 undefined 
+on input line 6458.
 
-
-Underfull \hbox (badness 1383) in paragraph at lines 6778--6779
-\TU/lmr/m/n/10 command. Otherwise, theme_classic will undo the work done by the
-
- []
-
-[194]
-File: bookdown_files/figure-latex/unnamed-chunk-277-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-277-1.pdf>
-[195]
-File: bookdown_files/figure-latex/unnamed-chunk-278-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-278-1.pdf>
 [196]
-File: bookdown_files/figure-latex/unnamed-chunk-280-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-280-1.pdf>
+
+Package natbib Warning: Citation `simonsohn2015small' on page 197 undefined on 
+input line 6485.
+
 [197]
-File: bookdown_files/figure-latex/unnamed-chunk-282-1.pdf Graphic file (type pd
-f)
-<use bookdown_files/figure-latex/unnamed-chunk-282-1.pdf>
-[198]
-File: ch_graphing/images/custom_order.png Graphic file (type bmp)
-<ch_graphing/images/custom_order.png>
-[199]
-File: ch_graphing/images/custom_order2.png Graphic file (type bmp)
-<ch_graphing/images/custom_order2.png>
+Overfull \hbox (57.25pt too wide) in paragraph at lines 6516--6516
+[]\TU/lmtt/m/n/10 ##      approximate correlation power calculation (arctangh t
+ransformation)[] 
+ []
+
+
+Package natbib Warning: Citation `lakens2018equivalence' on page 198 undefined 
+on input line 6523.
+
+[198] [199]
+Overfull \hbox (57.25pt too wide) in paragraph at lines 6613--6613
+[]\TU/lmtt/m/n/10 ##      approximate correlation power calculation (arctangh t
+ransformation)[] 
+ []
+
 [200]
-File: ch_graphing/images/base_color_graph.png Graphic file (type bmp)
-<ch_graphing/images/base_color_graph.png>
+File: bookdown_files/figure-latex/unnamed-chunk-258-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-258-1.pdf>
 [201] [202]
-File: ch_graphing/images/logo_color_graph.png Graphic file (type bmp)
-<ch_graphing/images/logo_color_graph.png>
-[203]
-File: ch_graphing/images/emoji_table.png Graphic file (type bmp)
-<ch_graphing/images/emoji_table.png>
-File: ch_graphing/images/emoji_graph.png Graphic file (type bmp)
-<ch_graphing/images/emoji_graph.png>
-[204]
-File: ch_graphing/images/nocolorcomparison.png Graphic file (type bmp)
-<ch_graphing/images/nocolorcomparison.png>
-[205]
-File: ch_graphing/images/colors_all.png Graphic file (type bmp)
-<ch_graphing/images/colors_all.png>
-[206]
-File: ch_graphing/images/colors_3.png Graphic file (type bmp)
-<ch_graphing/images/colors_3.png>
-[207] [208]
-File: ch_graphing/images/emoji_graph4.png Graphic file (type bmp)
-<ch_graphing/images/emoji_graph4.png>
-[209]
-File: ch_graphing/images/pairedpalette.png Graphic file (type bmp)
-<ch_graphing/images/pairedpalette.png>
-File: ch_graphing/images/emoji_graph5.png Graphic file (type bmp)
-<ch_graphing/images/emoji_graph5.png>
-[210]
-File: ch_graphing/images/nocolorcomparison2.png Graphic file (type bmp)
-<ch_graphing/images/nocolorcomparison2.png>
-[211]
-File: ch_graphing/images/emoji_graph2.png Graphic file (type bmp)
-<ch_graphing/images/emoji_graph2.png>
-[212] [213]
-File: ch_graphing/images/emoji_graph3.png Graphic file (type bmp)
-<ch_graphing/images/emoji_graph3.png>
-[214] [215]
+File: bookdown_files/figure-latex/unnamed-chunk-260-1.pdf Graphic file (type pd
+f)
+<use bookdown_files/figure-latex/unnamed-chunk-260-1.pdf>
+[203] [204] [205]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -3258,248 +3991,706 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[216
+[206
 
 ]
-Underfull \vbox (badness 10000) detected at line 7353
+Underfull \vbox (badness 10000) detected at line 6801
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7353
+Overfull \hbox (336.25pt too wide) detected at line 6801
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7353
+Underfull \vbox (badness 10000) detected at line 6801
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7353
+Overfull \hbox (336.25pt too wide) detected at line 6801
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7353
+Underfull \vbox (badness 10000) detected at line 6801
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7353
+Overfull \hbox (336.25pt too wide) detected at line 6801
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7353
+Underfull \vbox (badness 10000) detected at line 6801
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7353
+Overfull \hbox (336.25pt too wide) detected at line 6801
 []
  []
 
 Chapter 9.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 7383.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.00018pt on input line 7383.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99982pt on input line 7383.
+
+Package natbib Warning: Citation `kirk1996practical' on page 207 undefined on i
+nput line 6821.
+
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[217
+[207
 
 ]
-Overfull \hbox (57.25pt too wide) in paragraph at lines 7409--7409
-[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
-are given as:"[] 
+
+Package natbib Warning: Citation `lakens2018equivalence' on page 208 undefined 
+on input line 6827.
+
+[208]
+
+Package natbib Warning: Citation `lakens2018equivalence' on page 209 undefined 
+on input line 6857.
+
+
+Underfull \hbox (badness 10000) detected at line 6862
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6862
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6864
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6864
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6866
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6866
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6868
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6868
+[][][]
+ []
+
+[209]
+
+Package natbib Warning: Citation `lakens2018equivalence' on page 210 undefined 
+on input line 6883.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6885--6885
+[][][][]$[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [
+] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [][] [] [] [] [] 
+[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
+ []
+
+[210]
+File: ch_equivalence/images/diamond.jpg Graphic file (type bmp)
+<ch_equivalence/images/diamond.jpg>
+
+Package natbib Warning: Citation `lakens2018equivalence' on page 211 undefined 
+on input line 6894.
+
+[211] [212] [213] [214]
+Underfull \hbox (badness 1603) in paragraph at lines 7057--7058
+[]\TU/lmr/m/n/10 The relation between academic performance and self-esteem was 
+non-
+ []
+
+[215]
+Overfull \hbox (314.5pt too wide) in paragraph at lines 7083--7083
+[]\TU/lmtt/m/n/10 ## The required sample size to achieve 90 % power with equiva
+lence bounds of -0.4 and 0.4 is 136 per group, or 272 in total.[] 
+ []
+
+
+Overfull \hbox (304.0pt too wide) in paragraph at lines 7110--7110
+[]\TU/lmtt/m/n/10 ## The required sample size to achieve 90 % power with equiva
+lence bounds of -1 and 1 is 135.3 per group, or 272 in total.[] 
+ []
+
+[216]
+Overfull \hbox (225.25pt too wide) in paragraph at lines 7139--7139
+[]\TU/lmtt/m/n/10 ## The required sample size to achieve 90 % power with equiva
+lence bounds of -0.6325 and 0.6325 is 28 pairs[] 
+ []
+
+
+Overfull \hbox (172.75pt too wide) in paragraph at lines 7166--7166
+[]\TU/lmtt/m/n/10 ## The required sample size to achieve 90 % power with equiva
+lence bounds of -1 and 1 is 28 pairs[] 
+ []
+
+
+Overfull \vbox (0.8901pt too high) detected at line 7188
+ []
+
+[217]
+Overfull \hbox (235.75pt too wide) in paragraph at lines 7192--7192
+[]\TU/lmtt/m/n/10 ## The required sample size to achieve 90 % power with equiva
+lence bounds of -0.2 and 0.2 is 267 observations[] 
  []
 
 [218]
-Overfull \hbox (57.25pt too wide) in paragraph at lines 7456--7456
-[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
-are given as:"[] 
- []
-
-[219]
-Overfull \hbox (57.25pt too wide) in paragraph at lines 7495--7495
-[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
-are given as:"[] 
+Underfull \vbox (badness 10000) detected at line 7203
  []
 
 
-Overfull \hbox (57.25pt too wide) in paragraph at lines 7537--7537
-[]\TU/lmtt/m/n/10 ## [1] "The 0.95 confidence limits for the standardized mean 
-are given as:"[] 
- []
-
-[220] [221] [222] [223] [224]
-Underfull \vbox (badness 10000) detected at line 7782
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 7782
+Overfull \hbox (336.25pt too wide) detected at line 7203
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7782
+Underfull \vbox (badness 10000) detected at line 7203
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7782
+Overfull \hbox (336.25pt too wide) detected at line 7203
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7782
+Underfull \vbox (badness 10000) detected at line 7203
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7782
+Overfull \hbox (336.25pt too wide) detected at line 7203
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7782
+Underfull \vbox (badness 10000) detected at line 7203
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 7782
+Overfull \hbox (336.25pt too wide) detected at line 7203
 []
  []
 
-Appendix A.
-(./bookdown.bbl
+Chapter 10.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[225
-
+[219
 
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package natbib Warning: Citation `schmidt2014methods' on page 220 undefined on 
+input line 7234.
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Package natbib Warning: Citation `cumming2009inference' on page 220 undefined o
+n input line 7234.
+
+
+Package natbib Warning: Citation `cumming2014new' on page 220 undefined on inpu
+t line 7234.
+
+
+Package natbib Warning: Citation `calin2019new' on page 220 undefined on input 
+line 7234.
+
+
+Package natbib Warning: Citation `calin2019estimation' on page 220 undefined on
+ input line 7234.
+
+
+Underfull \hbox (badness 10000) detected at line 7241
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7241
+[][][]
+ []
+
+[220]
+Underfull \hbox (badness 10000) detected at line 7243
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7243
+[][][]
+ []
+
+File: ch_precision_sample_size/images/precision_tweet.png Graphic file (type bm
+p)
+<ch_precision_sample_size/images/precision_tweet.png>
+
+Package natbib Warning: Citation `rothman2018planning' on page 221 undefined on
+ input line 7254.
+
+[221]
+Overfull \hbox (151.75pt too wide) in paragraph at lines 7312--7312
+[]\TU/lmtt/m/n/10 ## [1] "The approximate sample size is given below; you shoul
+d consider using the additional"[] 
+ []
+
+
+Overfull \hbox (109.75pt too wide) in paragraph at lines 7312--7312
+[]\TU/lmtt/m/n/10 ## [1] "argument []verify.ss=TRUE[] to ensure the exact sampl
+e size value is obtained."[] 
+ []
+
+[222]
+Underfull \vbox (badness 10000) detected at line 7320
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 7320
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 7320
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 7320
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 7320
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 7320
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 7320
+ []
 
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
+Overfull \hbox (336.25pt too wide) detected at line 7320
 []
  []
+
+Chapter 11.
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 11.1 on input line 7338.
+
+
+Package natbib Warning: Citation `cos2015' on page 223 undefined on input line 
+7361.
+
+
+Package natbib Warning: Citation `baker2016' on page 223 undefined on input lin
+e 7361.
+
+
+Package natbib Warning: Citation `simmons2011' on page 223 undefined on input l
+ine 7361.
+
+
+Package natbib Warning: Citation `miyakawa2020' on page 223 undefined on input 
+line 7361.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[226
+[223
+
 
 ]
-Underfull \vbox (badness 10000) detected at line 1
+
+Package natbib Warning: Citation `patil2019' on page 224 undefined on input lin
+e 7363.
+
+
+Package natbib Warning: Citation `patil2019' on page 224 undefined on input lin
+e 7363.
+
+
+LaTeX Warning: Reference `fig:metapsychology' on page 224 undefined on input li
+ne 7369.
+
+File: ch_enter_load/images/screenshot_metapsychology.png Graphic file (type bmp
+)
+<ch_enter_load/images/screenshot_metapsychology.png>
+[224]
+
+LaTeX Warning: Reference `fig:pipeline' on page 225 undefined on input line 739
+8.
+
+[225]
+File: ch_enter_load/images/pipeline.ai Graphic file (type pdf)
+<use ch_enter_load/images/pipeline.ai>
+
+Package natbib Warning: Citation `tidy-data' on page 226 undefined on input lin
+e 7413.
+
+[226]
+Underfull \hbox (badness 10000) detected at line 7418
+ [][]
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1
+Underfull \hbox (badness 10000) detected at line 7418
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7420
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7420
+[][][]
+ []
+
+[227]
+
+LaTeX Warning: Reference `tab:betweenex' on page 228 undefined on input line 74
+25.
+
+
+LaTeX Warning: Reference `tab:withinex' on page 228 undefined on input line 744
+5.
+
+[228] [229] [230]
+
+LaTeX Warning: Reference `tab:withinex' on page 231 undefined on input line 753
+6.
+
+
+LaTeX Warning: Reference `tab:withinex' on page 231 undefined on input line 753
+6.
+
+
+LaTeX Warning: Reference `tab:withintidyex' on page 231 undefined on input line
+ 7536.
+
+
+LaTeX Warning: Reference `tab:withinex' on page 231 undefined on input line 753
+8.
+
+
+LaTeX Warning: Reference `tab:withintidyex' on page 231 undefined on input line
+ 7538.
+
+[231] [232]
+
+Package natbib Warning: Citation `meyer1993commitment' on page 233 undefined on
+ input line 7580.
+
+[233] [234]
+
+Package natbib Warning: Citation `keur2020' on page 235 undefined on input line
+ 7610.
+
+[235]
+Underfull \hbox (badness 10000) detected at line 7622
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7622
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7634
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7634
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7636
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7636
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7644
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7644
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7646
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7646
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7648
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7648
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7650
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7650
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7652
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7652
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7654
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7654
+[][][]
+ []
+
+[236]
+
+LaTeX Warning: Reference `fig:spreadsheetbetween' on page 237 undefined on inpu
+t line 7677.
+
+File: ch_enter_load/images/screenshot_data_between.png Graphic file (type bmp)
+<ch_enter_load/images/screenshot_data_between.png>
+
+LaTeX Warning: Reference `fig:spreadsheetbetween' on page 237 undefined on inpu
+t line 7683.
+
+
+LaTeX Warning: Reference `fig:csvsheetbetween' on page 237 undefined on input l
+ine 7683.
+
+[237]
+File: ch_enter_load/images/screenshot_csv_between.png Graphic file (type bmp)
+<ch_enter_load/images/screenshot_csv_between.png>
+[238] [239] [240] [241]
+Overfull \vbox (1.08008pt too high) detected at line 7905
+ []
+
+[242] [243] [244] [245] [246] [247] [248]
+Underfull \hbox (badness 10000) in paragraph at lines 8236--8237
+[]\TU/lmr/m/n/10 You now have two data sets analytic_data_within and ana-
+ []
+
+[249] [250] [251] [252] [253] [254] [255] [256]
+Underfull \hbox (badness 3735) in paragraph at lines 8580--8581
+[]\TU/lmr/m/n/10 You now have two data sets analytic_data_within_nway and ana-
+ []
+
+[257]
+Underfull \hbox (badness 6825) in paragraph at lines 8640--8641
+[]\TU/lmr/m/n/10 Remove empty row and columns from your data using the re-
+ []
+
+
+Underfull \hbox (badness 4108) in paragraph at lines 8640--8641
+\TU/lmr/m/n/10 move_empty_cols() and remove_empty_rows(), respectively. As well
+,
+ []
+
+[258] [259] [260] [261] [262] [263] [264] [265]
+File: images/caution.png Graphic file (type bmp)
+<images/caution.png>
+[266]
+Underfull \hbox (badness 5331) in paragraph at lines 9038--9039
+[]\TU/lmr/m/n/10 Likewise, we want to make a job_sat scale and plan to select
+ []
+
+
+Underfull \hbox (badness 1859) in paragraph at lines 9038--9039
+\TU/lmr/m/n/10 items using starts_with(“jobsat”). The code and output below usi
+ng
+ []
+
+[267]
+Underfull \hbox (badness 10000) in paragraph at lines 9095--9096
+[]\TU/lmr/m/n/10 You now have two data sets analytic_data_survey and ana-
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 9095--9096
+\TU/lmr/m/n/10 lytic_data_survey_items. You can calculate descriptive statistic
+s, cor-
+ []
+
+[268]
+Underfull \hbox (badness 5711) in paragraph at lines 9148--9149
+[]\TU/lmr/m/n/10 Remove empty rows and columns from your data using the re-
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 9148--9149
+\TU/lmr/m/n/10 move_empty(“rows”) and remove_empty(“cols”), respectively. As we
+ll,
+ []
+
+[269] [270] [271] [272] [273] [274] [275] [276] [277] [278] [279] [280]
+
+LaTeX Warning: Reference `fig:descapa' on page 281 undefined on input line 9668
+.
+
+File: ch_enter_load/images/desc_apa.png Graphic file (type bmp)
+<ch_enter_load/images/desc_apa.png>
+[281] [282] [283] [284]
+Underfull \vbox (badness 10000) detected at line 9790
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 9790
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1
+Underfull \vbox (badness 10000) detected at line 9790
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1
+Overfull \hbox (336.25pt too wide) detected at line 9790
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1
+Underfull \vbox (badness 10000) detected at line 9790
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1
+Overfull \hbox (336.25pt too wide) detected at line 9790
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1
+Underfull \vbox (badness 10000) detected at line 9790
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1
+Overfull \hbox (336.25pt too wide) detected at line 9790
 []
  []
 
+Chapter 12.
 
-Underfull \hbox (badness 10000) detected at line 1
-[]
- []
+LaTeX Warning: Reference `fig:ppvfig1' on page 285 undefined on input line 9820
+.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[227
-
-]) [228] (./bookdown.ind
-Underfull \hbox (badness 10000) detected at line 1
-[]
- []
+[285
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
+]
 
-[229
-
+LaTeX Warning: Reference `fig:ppvfig1' on page 286 undefined on input line 9822
+.
 
 
+Package natbib Warning: Citation `scheel2020excess' on page 286 undefined on in
+put line 9822.
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 7793.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 7793.
-(./bookdown.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 7793.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 7793.
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Reference `fig:ppvfig1' on page 286 undefined on input line 9822
+.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 7793.
- ) 
+File: ch_ppv/images/fig1.ai Graphic file (type pdf)
+<use ch_ppv/images/fig1.ai>
+
+LaTeX Warning: Reference `fig:ppvfig2' on page 286 undefined on input line 9831
+.
+
+File: ch_ppv/images/fig2.ai Graphic file (type pdf)
+<use ch_ppv/images/fig2.ai>
+
+LaTeX Warning: Reference `fig:ppvfig3' on page 286 undefined on input line 9840
+.
+
+[286] [287]
+File: ch_ppv/images/fig3.ai Graphic file (type pdf)
+<use ch_ppv/images/fig3.ai>
+
+LaTeX Warning: Reference `fig:ppvfig4' on page 288 undefined on input line 9849
+.
+
+File: ch_ppv/images/fig4.ai Graphic file (type pdf)
+<use ch_ppv/images/fig4.ai>
+
+LaTeX Warning: Reference `fig:ppvfig5' on page 288 undefined on input line 9855
+.
+
+File: ch_ppv/images/fig5.ai Graphic file (type pdf)
+<use ch_ppv/images/fig5.ai>
+[288]
+
+! Package amsmath Error: Erroneous nesting of equation structures;
+(amsmath)                trying to recover with `aligned'.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9873 \end{align}
+                   
 Here is how much of TeX's memory you used:
- 28811 strings out of 492970
- 526227 string characters out of 6133938
- 771855 words of memory out of 5000000
- 32420 multiletter control sequences out of 15000+600000
- 540524 words of font info for 105 fonts, out of 8000000 for 9000
+ 28685 strings out of 492970
+ 524737 string characters out of 6133938
+ 757505 words of memory out of 5000000
+ 32284 multiletter control sequences out of 15000+600000
+ 540540 words of font info for 107 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 61i,10n,117p,10403b,667s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,10n,117p,10403b,790s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bookdown.pdf (245 pages).
+Output written on bookdown.pdf (300 pages).

@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2020-11-15" />
+<meta name="date" content="2020-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -541,7 +541,7 @@ FIGURE 12.3: True positive signficance tests. True hypotheses for which the rese
 FIGURE 12.4: Illustrating there are two ways to obtain a significant effect.
 </p>
 </div>
-<p>As illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig5">12.5</a>, below, the positive predictive value (PPV) is simply the ratio of the true-positive <em>p</em>-values over all the <em>p</em>-values (true positive or true negative).</p>
+<p>As illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig5">12.5</a>, below, the positive predictive value (PPV) is simply the proportion of statistically significant hypotheses that are true positives.</p>
 <div class="figure" style="text-align: center"><span id="fig:ppvfig5"></span>
 <img src="ch_ppv/images/fig5.png" alt="Graphical illustration of the PPV formula." width="40%" />
 <p class="caption">
@@ -661,7 +661,7 @@ FIGURE 12.9: Table illustrating conclusion errors.
 </div>
 <div id="calculating-power-for-your-study" class="section level2">
 <h2><span class="header-section-number">12.5</span> Calculating power for your study</h2>
-<p>Although we do a sample size analysis before collecting data - we are often are unable to obtain the desired sample size. We can determine the consequences of failing to obtain the desired sample size by calculating positive predictive value. The first stepping in doing so is calculating the power for your study based on the number of participants you actually obtained.</p>
+<p>Although we do a sample size analysis before collecting data - we are often are unable to obtain the desired sample size. We can determine the consequences of failing to obtain the desired sample size by calculating positive predictive value. The first step in doing so is calculating the power for your study based on the number of participants you actually obtained.</p>
 <p>To calculate the power for your study you need to use the same estimate of the population effect size that you used in original sample size analysis. You merely enter that same smallest effect size of interest (i.e., population level effect) and your obtained sample size into the R functions and it will return the power for your study - based on the sample size you actually obtained.</p>
 <p>The examples below all illustrate a population-level effect (i.e., smallest effect size of interest from the original power analysis) and the obtained sample size. Check out the next section to see how to use this information to calculate the positive predictive value for your study.</p>
 <div id="power-independent-groups-t-test" class="section level3">

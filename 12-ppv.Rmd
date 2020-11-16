@@ -59,8 +59,7 @@ knitr::include_graphics("ch_ppv/images/fig4.png")
 ```
 
 
-As illustrated in Figure \@ref(fig:ppvfig5), below, the positive predictive value (PPV) is simply the ratio of the true-positive *p*-values over all the *p*-values (true positive or true negative). 
-
+As illustrated in Figure \@ref(fig:ppvfig5), below, the positive predictive value (PPV) is simply the proportion of statistically significant hypotheses that are true positives. 
 
 ```{r ppvfig5, echo = FALSE, out.width = "40%", fig.align='center', fig.cap = "Graphical illustration of the PPV formula."}
 knitr::include_graphics("ch_ppv/images/fig5.png")
@@ -198,7 +197,7 @@ knitr::include_graphics("ch_ppv/images/fig9.png")
 
 ## Calculating power for your study
 
-Although we do a sample size analysis before collecting data - we are often are unable to obtain the desired sample size. We can determine the consequences of failing to obtain the desired sample size by calculating positive predictive value. The first stepping in doing so is calculating the power for your study based on the number of participants you actually obtained.
+Although we do a sample size analysis before collecting data - we are often are unable to obtain the desired sample size. We can determine the consequences of failing to obtain the desired sample size by calculating positive predictive value. The first step in doing so is calculating the power for your study based on the number of participants you actually obtained.
 
 To calculate the power for your study you need to use the same estimate of the population effect size that you used in original sample size analysis. You merely enter that same smallest effect size of interest (i.e., population level effect) and your obtained sample size into the R functions and it will return the power for your study - based on the sample size you actually obtained.
 
