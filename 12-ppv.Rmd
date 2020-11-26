@@ -69,11 +69,11 @@ knitr::include_graphics("ch_ppv/images/fig5.png")
 Placing numbers into the equation:
 
 $$
-\begin{align}
+\begin{aligned}
 PPV &= \frac{120 }{120  + 30} \\
 &= \frac{120}{150} \\
 &= 0.80
-\end{align}
+\end{aligned}
 $$
 
 We see that the positive predictive value is .80 in this circumstance. That is, if we obtain a significant *p*-value there is an 80% chance there really is an effect.
@@ -98,10 +98,10 @@ knitr::include_graphics("ch_ppv/images/fig7.png")
 So far the probability of there being no effect, P(no effect), was indicated by a length (.600). Likewise, the probability of there being a Type I Error was indicated by a length (.05). 
 
 $$
-\begin{align}
+\begin{aligned}
 P(\text{no effect}) &= 0.600 \\
 P(\text{Type I Error}) &= 0.05 \\
-\end{align}
+\end{aligned}
 $$
 
 We can use these together to determine the dark green **area** (nearly black area) on Figure \@ref(fig:ppvfig7) which represents the joint probability of there being no effect and obtaining a Type I Error. The $\cap$ symbol indicates "and" which implies you need to multiply the two values.
@@ -110,11 +110,11 @@ You can see the probability .030 is similar to the count of 30 we had for this a
 
 
 $$
-\begin{align}
+\begin{aligned}
 P(\text{Type I Error} \cap \text{no effect} ) &= (\alpha) \cap P(\text{no effect}) \\
 &= (.05)(.600) \\
 &= 0.030
-\end{align}
+\end{aligned}
 $$
 
 ### Effect
@@ -131,21 +131,21 @@ In this figure there are two important distances that represent probabilities as
 
 
 $$
-\begin{align}
+\begin{aligned}
 P(\text{effect}) &= 0.400 \\
 (1 - \beta) &= 0.30 \\
-\end{align}
+\end{aligned}
 $$
 
 We can use these together to determine the dark green area on the figure which represents the joint probability of there being an effect and obtaining a significant *p*-value. You can see the joint probability .030, below, is similar to the count of 30 we had for this area in the informal explanation.
 
 
 $$
-\begin{align}
+\begin{aligned}
 P(\text{power}  \cap \text{effect}) &= (1 - \beta) \cap P(\text{effect})\\
 &= (.30)(.400) \\
 &= 0.120
-\end{align}
+\end{aligned}
 $$
 
 ### Calculation
@@ -153,14 +153,14 @@ $$
 We can then calculate positive predictive value using the same logic as the informal case - but using formal equations. You can see in the equations below that some probabilities (.030, .120, and .150) correspond to the counts (30, 120, and 150) from the informal explanation above.
 
 $$
-\begin{align}
+\begin{aligned}
 PPV &= \frac{P(\text{effect} \cap \text{sig. p-value})}{P(\text{effect} \cap \text{sig. p-value}) + P(\text{no effect} \cap \text{sig. p-value})} \\
 &= \frac{(1 - \beta)P(\text{effect})}{(1 - \beta)P(\text{effect}) + \alpha P(\text{no effect})}\\
 &= \frac{(.30)(.400)}{(.30)(.400) + (.05)(.600)}\\
 &= \frac{0.120}{0.120 + 0.030}\\
 &= \frac{0.120}{0.150}\\
 &= 0.80\\
-\end{align}
+\end{aligned}
 $$
 
 Thus, the positive predictive value is .80. This indicates that if you obtain a significant *p*-value in your study there is an 80% chance there really is an effect.
@@ -171,14 +171,14 @@ Thus, the positive predictive value is .80. This indicates that if you obtain a 
 You might also see positive predictive values expressed using an odds ratio (OR). This can create confusion - but it's important to realize this alternative version of the formula is just an algebraic rearrangement. You can see this alternative version of the formula below and note that you obtain the same answer.
 
 $$
-\begin{align}
+\begin{aligned}
 PPV &= \frac{(1 - \beta)(OR)}{(1 - \beta)(OR) + \alpha}\\
 &= \frac{(1 - \beta)(\frac{P(\text{effect})}{P(\text{no effect})})}{(1 - \beta)(\frac{P(\text{effect})}{P(\text{no effect})}) + \alpha}\\
 &= \frac{(.30)(\frac{.400}{.600})}{(.30)(\frac{.400}{.600}) + \alpha}\\
 &= \frac{(.30)(0.6666667)}{(.30)(0.6666667) + .05}\\
 &= \frac{.20}{.20 + .05}\\
 &= 0.80\\
-\end{align}
+\end{aligned}
 $$
 
 
@@ -356,11 +356,11 @@ powerTOSTr(alpha = .05,
 To calculate PPV for your study you simply use the previously presented formula for positive predictive value. Imagine that you conducted an independents groups t-test and determined your power was .21 you would calculate positive predictive value as below. You may assume the probability of your hypothesis being true is .400.
 
 $$
-\begin{align}
+\begin{aligned}
 PPV &= \frac{(1 - \beta)P(\text{effect})}{(1 - \beta)P(\text{effect}) + \alpha P(\text{no effect})}\\
 &= \frac{(.21)(.400)}{(.21)(.400) + (.05)(.600)}\\
 &= 0.74\\
-\end{align}
+\end{aligned}
 $$
 
 Thus, if you obtained a significant *p*-value in this scenario there is only a 74% chance there really is an effect.
