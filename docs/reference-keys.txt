@@ -458,3 +458,17 @@ determine-degrees-of-freedom-1
 determine-f2
 calculate-power
 power-obtained-sr2
+moderated-multiple-regression
+overview-8
+scenario
+overview-9
+no-interaction
+interaction
+comparison
+fastinteraction
+graphing-in-3d
+unformatted-2d-graph
+tables
+formatted-2d-graph
+saving-1
+powersample-size-analysis
