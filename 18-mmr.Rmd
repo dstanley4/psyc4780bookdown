@@ -213,7 +213,7 @@ If you examine a large number of studies involving moderated multiple regression
 
 2. Estimate the overall $R^2$ value for your study.
 
-3. Plug both of those values into the [sample size calculation](https://dstanley4.github.io/psyc6060bookdown/sample-size-for-multiple-regression.html#sample-size-using-sr2) provided in the multiple regression lecture.
+3. Plug both of those values into the [sample size calculation](https://dstanley4.github.io/psyc4780bookdown/sample-size-for-multiple-regression.html#sample-size-using-sr2) provided in the multiple regression lecture.
 
 
 
