@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2020-12-27" />
+<meta name="date" content="2021-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -180,7 +180,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="introduction.html"><a href="introduction.html#a-few-key-points-about"><i class="fa fa-check"></i><b>1.11</b> A few key points about</a><ul>
 <li class="chapter" data-level="1.11.1" data-path="introduction.html"><a href="introduction.html#lists"><i class="fa fa-check"></i><b>1.11.1</b> Lists</a></li>
 </ul></li>
-<li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.12</b> That’s it!</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.12</b> Revisiting read_csv()</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.13</b> That’s it!</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Handling Data with the Tidyverse</a><ul>
 <li class="chapter" data-level="2.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#required"><i class="fa fa-check"></i><b>2.1</b> Required</a></li>
@@ -763,20 +764,20 @@ FIGURE 12.9: Table illustrating conclusion errors.
 <p>The examples below all illustrate a population-level effect (i.e., smallest effect size of interest from the original power analysis) and the obtained sample size. Check out the next section to see how to use this information to calculate the positive predictive value for your study.</p>
 <div id="power-independent-groups-t-test" class="section level3">
 <h3><span class="header-section-number">12.5.1</span> Power independent groups <span class="math inline">\(t\)</span>-test</h3>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="positive-predictive-value.html#cb547-1"></a><span class="kw">library</span>(pwr)</span>
-<span id="cb547-2"><a href="positive-predictive-value.html#cb547-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
-<span id="cb547-3"><a href="positive-predictive-value.html#cb547-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
-<span id="cb547-4"><a href="positive-predictive-value.html#cb547-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
-<span id="cb547-5"><a href="positive-predictive-value.html#cb547-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
-<span id="cb547-6"><a href="positive-predictive-value.html#cb547-6"></a>pop_d &lt;-<span class="st"> </span><span class="fl">.24</span></span>
-<span id="cb547-7"><a href="positive-predictive-value.html#cb547-7"></a>sample_size_per_group &lt;-<span class="st"> </span><span class="dv">25</span></span>
-<span id="cb547-8"><a href="positive-predictive-value.html#cb547-8"></a></span>
-<span id="cb547-9"><a href="positive-predictive-value.html#cb547-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.t.test</span>(<span class="dt">d =</span> pop_d, </span>
-<span id="cb547-10"><a href="positive-predictive-value.html#cb547-10"></a>                      <span class="dt">n =</span> sample_size_per_group,</span>
-<span id="cb547-11"><a href="positive-predictive-value.html#cb547-11"></a>                      <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>,</span>
-<span id="cb547-12"><a href="positive-predictive-value.html#cb547-12"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="positive-predictive-value.html#cb548-1"></a><span class="kw">library</span>(pwr)</span>
+<span id="cb548-2"><a href="positive-predictive-value.html#cb548-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
+<span id="cb548-3"><a href="positive-predictive-value.html#cb548-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
+<span id="cb548-4"><a href="positive-predictive-value.html#cb548-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
+<span id="cb548-5"><a href="positive-predictive-value.html#cb548-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
+<span id="cb548-6"><a href="positive-predictive-value.html#cb548-6"></a>pop_d &lt;-<span class="st"> </span><span class="fl">.24</span></span>
+<span id="cb548-7"><a href="positive-predictive-value.html#cb548-7"></a>sample_size_per_group &lt;-<span class="st"> </span><span class="dv">25</span></span>
+<span id="cb548-8"><a href="positive-predictive-value.html#cb548-8"></a></span>
+<span id="cb548-9"><a href="positive-predictive-value.html#cb548-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.t.test</span>(<span class="dt">d =</span> pop_d, </span>
+<span id="cb548-10"><a href="positive-predictive-value.html#cb548-10"></a>                      <span class="dt">n =</span> sample_size_per_group,</span>
+<span id="cb548-11"><a href="positive-predictive-value.html#cb548-11"></a>                      <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>,</span>
+<span id="cb548-12"><a href="positive-predictive-value.html#cb548-12"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
 <p>Then we need to print our power / sample size analysis:</p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="positive-predictive-value.html#cb548-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="positive-predictive-value.html#cb549-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -791,20 +792,20 @@ FIGURE 12.9: Table illustrating conclusion errors.
 </div>
 <div id="power-repeated-measures-t-test" class="section level3">
 <h3><span class="header-section-number">12.5.2</span> Power repeated measures <span class="math inline">\(t\)</span>-test</h3>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="positive-predictive-value.html#cb550-1"></a><span class="kw">library</span>(pwr)</span>
-<span id="cb550-2"><a href="positive-predictive-value.html#cb550-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
-<span id="cb550-3"><a href="positive-predictive-value.html#cb550-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
-<span id="cb550-4"><a href="positive-predictive-value.html#cb550-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
-<span id="cb550-5"><a href="positive-predictive-value.html#cb550-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
-<span id="cb550-6"><a href="positive-predictive-value.html#cb550-6"></a>pop_d &lt;-<span class="st"> </span><span class="fl">.17</span></span>
-<span id="cb550-7"><a href="positive-predictive-value.html#cb550-7"></a>n &lt;-<span class="st"> </span><span class="dv">30</span></span>
-<span id="cb550-8"><a href="positive-predictive-value.html#cb550-8"></a></span>
-<span id="cb550-9"><a href="positive-predictive-value.html#cb550-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.t.test</span>(<span class="dt">d =</span> pop_d, </span>
-<span id="cb550-10"><a href="positive-predictive-value.html#cb550-10"></a>                      <span class="dt">n =</span> n,</span>
-<span id="cb550-11"><a href="positive-predictive-value.html#cb550-11"></a>                      <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>,</span>
-<span id="cb550-12"><a href="positive-predictive-value.html#cb550-12"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="positive-predictive-value.html#cb551-1"></a><span class="kw">library</span>(pwr)</span>
+<span id="cb551-2"><a href="positive-predictive-value.html#cb551-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
+<span id="cb551-3"><a href="positive-predictive-value.html#cb551-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
+<span id="cb551-4"><a href="positive-predictive-value.html#cb551-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
+<span id="cb551-5"><a href="positive-predictive-value.html#cb551-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
+<span id="cb551-6"><a href="positive-predictive-value.html#cb551-6"></a>pop_d &lt;-<span class="st"> </span><span class="fl">.17</span></span>
+<span id="cb551-7"><a href="positive-predictive-value.html#cb551-7"></a>n &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb551-8"><a href="positive-predictive-value.html#cb551-8"></a></span>
+<span id="cb551-9"><a href="positive-predictive-value.html#cb551-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.t.test</span>(<span class="dt">d =</span> pop_d, </span>
+<span id="cb551-10"><a href="positive-predictive-value.html#cb551-10"></a>                      <span class="dt">n =</span> n,</span>
+<span id="cb551-11"><a href="positive-predictive-value.html#cb551-11"></a>                      <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>,</span>
+<span id="cb551-12"><a href="positive-predictive-value.html#cb551-12"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
 <p>Then we need to print our power / sample size analysis:</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="positive-predictive-value.html#cb551-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="positive-predictive-value.html#cb552-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
 <pre><code>## 
 ##      Paired t test power calculation 
 ## 
@@ -819,19 +820,19 @@ FIGURE 12.9: Table illustrating conclusion errors.
 </div>
 <div id="power-correlations" class="section level3">
 <h3><span class="header-section-number">12.5.3</span> Power correlations</h3>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="positive-predictive-value.html#cb553-1"></a><span class="kw">library</span>(pwr)</span>
-<span id="cb553-2"><a href="positive-predictive-value.html#cb553-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
-<span id="cb553-3"><a href="positive-predictive-value.html#cb553-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
-<span id="cb553-4"><a href="positive-predictive-value.html#cb553-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
-<span id="cb553-5"><a href="positive-predictive-value.html#cb553-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
-<span id="cb553-6"><a href="positive-predictive-value.html#cb553-6"></a>pop_r &lt;-<span class="st"> </span><span class="fl">.18</span></span>
-<span id="cb553-7"><a href="positive-predictive-value.html#cb553-7"></a>n &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb553-8"><a href="positive-predictive-value.html#cb553-8"></a></span>
-<span id="cb553-9"><a href="positive-predictive-value.html#cb553-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.r.test</span>(<span class="dt">r =</span> pop_r, </span>
-<span id="cb553-10"><a href="positive-predictive-value.html#cb553-10"></a>                      <span class="dt">n =</span> n,</span>
-<span id="cb553-11"><a href="positive-predictive-value.html#cb553-11"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="positive-predictive-value.html#cb554-1"></a><span class="kw">library</span>(pwr)</span>
+<span id="cb554-2"><a href="positive-predictive-value.html#cb554-2"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
+<span id="cb554-3"><a href="positive-predictive-value.html#cb554-3"></a><span class="co"># For alternative: use &quot;greater&quot; for one-sided </span></span>
+<span id="cb554-4"><a href="positive-predictive-value.html#cb554-4"></a><span class="co"># and &quot;two.sided&quot; for two-sided test</span></span>
+<span id="cb554-5"><a href="positive-predictive-value.html#cb554-5"></a>alternative &lt;-<span class="st"> &quot;greater&quot;</span></span>
+<span id="cb554-6"><a href="positive-predictive-value.html#cb554-6"></a>pop_r &lt;-<span class="st"> </span><span class="fl">.18</span></span>
+<span id="cb554-7"><a href="positive-predictive-value.html#cb554-7"></a>n &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb554-8"><a href="positive-predictive-value.html#cb554-8"></a></span>
+<span id="cb554-9"><a href="positive-predictive-value.html#cb554-9"></a>pwr_out &lt;-<span class="st"> </span><span class="kw">pwr.r.test</span>(<span class="dt">r =</span> pop_r, </span>
+<span id="cb554-10"><a href="positive-predictive-value.html#cb554-10"></a>                      <span class="dt">n =</span> n,</span>
+<span id="cb554-11"><a href="positive-predictive-value.html#cb554-11"></a>                      <span class="dt">alternative =</span> alternative)</span></code></pre></div>
 <p>Then we need to print our power / sample size analysis:</p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="positive-predictive-value.html#cb554-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="positive-predictive-value.html#cb555-1"></a><span class="kw">print</span>(pwr_out)</span></code></pre></div>
 <pre><code>## 
 ##      approximate correlation power calculation (arctangh transformation) 
 ## 
@@ -846,26 +847,26 @@ FIGURE 12.9: Table illustrating conclusion errors.
 <h3><span class="header-section-number">12.5.4</span> Equivalence independent <em>t</em>-test</h3>
 <div id="standardized-units-5" class="section level4">
 <h4><span class="header-section-number">12.5.4.1</span> Standardized units</h4>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="positive-predictive-value.html#cb556-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb556-2"><a href="positive-predictive-value.html#cb556-2"></a>n_per_group =<span class="st"> </span><span class="dv">40</span></span>
-<span id="cb556-3"><a href="positive-predictive-value.html#cb556-3"></a><span class="kw">powerTOSTtwo</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
-<span id="cb556-4"><a href="positive-predictive-value.html#cb556-4"></a>             <span class="dt">N  =</span> n_per_group,</span>
-<span id="cb556-5"><a href="positive-predictive-value.html#cb556-5"></a>             <span class="dt">low_eqbound_d =</span> <span class="fl">-0.40</span>,</span>
-<span id="cb556-6"><a href="positive-predictive-value.html#cb556-6"></a>             <span class="dt">high_eqbound_d =</span> <span class="fl">0.40</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="positive-predictive-value.html#cb557-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb557-2"><a href="positive-predictive-value.html#cb557-2"></a>n_per_group =<span class="st"> </span><span class="dv">40</span></span>
+<span id="cb557-3"><a href="positive-predictive-value.html#cb557-3"></a><span class="kw">powerTOSTtwo</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb557-4"><a href="positive-predictive-value.html#cb557-4"></a>             <span class="dt">N  =</span> n_per_group,</span>
+<span id="cb557-5"><a href="positive-predictive-value.html#cb557-5"></a>             <span class="dt">low_eqbound_d =</span> <span class="fl">-0.40</span>,</span>
+<span id="cb557-6"><a href="positive-predictive-value.html#cb557-6"></a>             <span class="dt">high_eqbound_d =</span> <span class="fl">0.40</span>)</span></code></pre></div>
 <pre><code>## The statistical power is 11.51 % for equivalence bounds of -0.4 and 0.4 .</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 0.1151</code></pre>
 </div>
 <div id="raw-units-4" class="section level4">
 <h4><span class="header-section-number">12.5.4.2</span> Raw units</h4>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="positive-predictive-value.html#cb560-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb560-2"><a href="positive-predictive-value.html#cb560-2"></a>n_per_group =<span class="st"> </span><span class="dv">40</span></span>
-<span id="cb560-3"><a href="positive-predictive-value.html#cb560-3"></a></span>
-<span id="cb560-4"><a href="positive-predictive-value.html#cb560-4"></a><span class="kw">powerTOSTtwo.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
-<span id="cb560-5"><a href="positive-predictive-value.html#cb560-5"></a>                 <span class="dt">N  =</span> n_per_group,</span>
-<span id="cb560-6"><a href="positive-predictive-value.html#cb560-6"></a>                 <span class="dt">sdpooled =</span> <span class="fl">2.50</span>,</span>
-<span id="cb560-7"><a href="positive-predictive-value.html#cb560-7"></a>                 <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
-<span id="cb560-8"><a href="positive-predictive-value.html#cb560-8"></a>                 <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="positive-predictive-value.html#cb561-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb561-2"><a href="positive-predictive-value.html#cb561-2"></a>n_per_group =<span class="st"> </span><span class="dv">40</span></span>
+<span id="cb561-3"><a href="positive-predictive-value.html#cb561-3"></a></span>
+<span id="cb561-4"><a href="positive-predictive-value.html#cb561-4"></a><span class="kw">powerTOSTtwo.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb561-5"><a href="positive-predictive-value.html#cb561-5"></a>                 <span class="dt">N  =</span> n_per_group,</span>
+<span id="cb561-6"><a href="positive-predictive-value.html#cb561-6"></a>                 <span class="dt">sdpooled =</span> <span class="fl">2.50</span>,</span>
+<span id="cb561-7"><a href="positive-predictive-value.html#cb561-7"></a>                 <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
+<span id="cb561-8"><a href="positive-predictive-value.html#cb561-8"></a>                 <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## The statistical power is 11.51 % for equivalence bounds of -1 and 1 .</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 0.1151</code></pre>
@@ -875,25 +876,25 @@ FIGURE 12.9: Table illustrating conclusion errors.
 <h3><span class="header-section-number">12.5.5</span> Equivalence repeated <em>t</em>-test</h3>
 <div id="standardized-units-6" class="section level4">
 <h4><span class="header-section-number">12.5.5.1</span> Standardized units</h4>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="positive-predictive-value.html#cb564-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb564-2"><a href="positive-predictive-value.html#cb564-2"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb564-3"><a href="positive-predictive-value.html#cb564-3"></a><span class="kw">powerTOSTpaired</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
-<span id="cb564-4"><a href="positive-predictive-value.html#cb564-4"></a>                <span class="dt">N =</span> n,</span>
-<span id="cb564-5"><a href="positive-predictive-value.html#cb564-5"></a>                <span class="dt">low_eqbound_dz =</span> <span class="fl">-0.6325</span>,</span>
-<span id="cb564-6"><a href="positive-predictive-value.html#cb564-6"></a>                <span class="dt">high_eqbound_dz =</span> <span class="fl">0.6325</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="positive-predictive-value.html#cb565-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb565-2"><a href="positive-predictive-value.html#cb565-2"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb565-3"><a href="positive-predictive-value.html#cb565-3"></a><span class="kw">powerTOSTpaired</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb565-4"><a href="positive-predictive-value.html#cb565-4"></a>                <span class="dt">N =</span> n,</span>
+<span id="cb565-5"><a href="positive-predictive-value.html#cb565-5"></a>                <span class="dt">low_eqbound_dz =</span> <span class="fl">-0.6325</span>,</span>
+<span id="cb565-6"><a href="positive-predictive-value.html#cb565-6"></a>                <span class="dt">high_eqbound_dz =</span> <span class="fl">0.6325</span>)</span></code></pre></div>
 <pre><code>## The statistical power is 27.79 % for equivalence bounds of -0.6325 and 0.6325 .</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 0.2779</code></pre>
 </div>
 <div id="raw-units-5" class="section level4">
 <h4><span class="header-section-number">12.5.5.2</span> Raw units</h4>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="positive-predictive-value.html#cb568-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb568-2"><a href="positive-predictive-value.html#cb568-2"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb568-3"><a href="positive-predictive-value.html#cb568-3"></a><span class="kw">powerTOSTpaired.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
-<span id="cb568-4"><a href="positive-predictive-value.html#cb568-4"></a>                    <span class="dt">N =</span> n,</span>
-<span id="cb568-5"><a href="positive-predictive-value.html#cb568-5"></a>                    <span class="dt">sdif =</span> <span class="fl">1.581</span>,</span>
-<span id="cb568-6"><a href="positive-predictive-value.html#cb568-6"></a>                    <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
-<span id="cb568-7"><a href="positive-predictive-value.html#cb568-7"></a>                    <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="positive-predictive-value.html#cb569-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb569-2"><a href="positive-predictive-value.html#cb569-2"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb569-3"><a href="positive-predictive-value.html#cb569-3"></a><span class="kw">powerTOSTpaired.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb569-4"><a href="positive-predictive-value.html#cb569-4"></a>                    <span class="dt">N =</span> n,</span>
+<span id="cb569-5"><a href="positive-predictive-value.html#cb569-5"></a>                    <span class="dt">sdif =</span> <span class="fl">1.581</span>,</span>
+<span id="cb569-6"><a href="positive-predictive-value.html#cb569-6"></a>                    <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
+<span id="cb569-7"><a href="positive-predictive-value.html#cb569-7"></a>                    <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## The statistical power is 27.79 % for equivalence bounds of -1 and 1 .</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 0.2779</code></pre>
@@ -901,12 +902,12 @@ FIGURE 12.9: Table illustrating conclusion errors.
 </div>
 <div id="equivalence-correlation-1" class="section level3">
 <h3><span class="header-section-number">12.5.6</span> Equivalence correlation</h3>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="positive-predictive-value.html#cb572-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb572-2"><a href="positive-predictive-value.html#cb572-2"></a>n &lt;-<span class="st"> </span><span class="dv">75</span></span>
-<span id="cb572-3"><a href="positive-predictive-value.html#cb572-3"></a><span class="kw">powerTOSTr</span>(<span class="dt">alpha =</span> <span class="fl">.05</span>,</span>
-<span id="cb572-4"><a href="positive-predictive-value.html#cb572-4"></a>           <span class="dt">N =</span> n,</span>
-<span id="cb572-5"><a href="positive-predictive-value.html#cb572-5"></a>           <span class="dt">low_eqbound_r =</span> <span class="fl">-.20</span>, </span>
-<span id="cb572-6"><a href="positive-predictive-value.html#cb572-6"></a>           <span class="dt">high_eqbound_r =</span> <span class="fl">.20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="positive-predictive-value.html#cb573-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb573-2"><a href="positive-predictive-value.html#cb573-2"></a>n &lt;-<span class="st"> </span><span class="dv">75</span></span>
+<span id="cb573-3"><a href="positive-predictive-value.html#cb573-3"></a><span class="kw">powerTOSTr</span>(<span class="dt">alpha =</span> <span class="fl">.05</span>,</span>
+<span id="cb573-4"><a href="positive-predictive-value.html#cb573-4"></a>           <span class="dt">N =</span> n,</span>
+<span id="cb573-5"><a href="positive-predictive-value.html#cb573-5"></a>           <span class="dt">low_eqbound_r =</span> <span class="fl">-.20</span>, </span>
+<span id="cb573-6"><a href="positive-predictive-value.html#cb573-6"></a>           <span class="dt">high_eqbound_r =</span> <span class="fl">.20</span>)</span></code></pre></div>
 <pre><code>## The statistical power is 6.09 % for equivalence bounds of -0.2 and 0.2 .</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 0.06086</code></pre>

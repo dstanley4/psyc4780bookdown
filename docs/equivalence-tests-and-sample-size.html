@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2020-12-27" />
+<meta name="date" content="2021-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -180,7 +180,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="introduction.html"><a href="introduction.html#a-few-key-points-about"><i class="fa fa-check"></i><b>1.11</b> A few key points about</a><ul>
 <li class="chapter" data-level="1.11.1" data-path="introduction.html"><a href="introduction.html#lists"><i class="fa fa-check"></i><b>1.11.1</b> Lists</a></li>
 </ul></li>
-<li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.12</b> That’s it!</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.12</b> Revisiting read_csv()</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.13</b> That’s it!</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Handling Data with the Tidyverse</a><ul>
 <li class="chapter" data-level="2.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#required"><i class="fa fa-check"></i><b>2.1</b> Required</a></li>
@@ -645,28 +646,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="raw-units" class="section level3">
 <h3><span class="header-section-number">9.7.1</span> Raw units</h3>
 <p>After you collect your data (<em>N</em> = 50) you have ratings for old Shreddies (<em>M</em> = 12.1, <em>SD</em> = 2.50) and new Diamond Shreddies (<em>M</em> = 11.9, <em>SD</em> = 2.50). Because the same people taste both cereals you also have a correlation between the two taste ratings of <span class="math inline">\(r\)</span> = .80. You run the R-code below to conduct the equivalence test.</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="equivalence-tests-and-sample-size.html#cb352-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb352-2"><a href="equivalence-tests-and-sample-size.html#cb352-2"></a></span>
-<span id="cb352-3"><a href="equivalence-tests-and-sample-size.html#cb352-3"></a><span class="kw">TOSTpaired.raw</span>(<span class="dt">m1 =</span> <span class="fl">12.1</span>,</span>
-<span id="cb352-4"><a href="equivalence-tests-and-sample-size.html#cb352-4"></a>        <span class="dt">sd1 =</span> <span class="fl">2.5</span>,</span>
-<span id="cb352-5"><a href="equivalence-tests-and-sample-size.html#cb352-5"></a>        <span class="dt">m2 =</span> <span class="fl">11.9</span>,</span>
-<span id="cb352-6"><a href="equivalence-tests-and-sample-size.html#cb352-6"></a>        <span class="dt">sd2 =</span> <span class="fl">2.5</span>,</span>
-<span id="cb352-7"><a href="equivalence-tests-and-sample-size.html#cb352-7"></a>        <span class="dt">r12 =</span> <span class="fl">.8</span>,</span>
-<span id="cb352-8"><a href="equivalence-tests-and-sample-size.html#cb352-8"></a>        <span class="dt">n =</span> <span class="dv">50</span>,</span>
-<span id="cb352-9"><a href="equivalence-tests-and-sample-size.html#cb352-9"></a>        <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
-<span id="cb352-10"><a href="equivalence-tests-and-sample-size.html#cb352-10"></a>        <span class="dt">high_eqbound =</span> <span class="dv">1</span>,</span>
-<span id="cb352-11"><a href="equivalence-tests-and-sample-size.html#cb352-11"></a>        <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="equivalence-tests-and-sample-size.html#cb353-1"></a>Equivalence Test Result<span class="op">:</span></span>
-<span id="cb353-2"><a href="equivalence-tests-and-sample-size.html#cb353-2"></a>The equivalence test was significant, <span class="kw">t</span>(<span class="dv">49</span>) =<span class="st"> </span><span class="fl">-3.578</span>, p =<span class="st"> </span><span class="fl">0.000396</span>, </span>
-<span id="cb353-3"><a href="equivalence-tests-and-sample-size.html#cb353-3"></a>given equivalence bounds of <span class="fl">-1.000</span> and <span class="fl">1.000</span> (on a raw scale) and an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
-<span id="cb353-4"><a href="equivalence-tests-and-sample-size.html#cb353-4"></a></span>
-<span id="cb353-5"><a href="equivalence-tests-and-sample-size.html#cb353-5"></a>Null Hypothesis Test Result<span class="op">:</span></span>
-<span id="cb353-6"><a href="equivalence-tests-and-sample-size.html#cb353-6"></a>The null hypothesis test was non<span class="op">-</span>significant, </span>
-<span id="cb353-7"><a href="equivalence-tests-and-sample-size.html#cb353-7"></a><span class="kw">t</span>(<span class="dv">49</span>) =<span class="st"> </span><span class="fl">0.894</span>, p =<span class="st"> </span><span class="fl">0.375</span>, given an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
-<span id="cb353-8"><a href="equivalence-tests-and-sample-size.html#cb353-8"></a></span>
-<span id="cb353-9"><a href="equivalence-tests-and-sample-size.html#cb353-9"></a>Based on the equivalence test and the null<span class="op">-</span>hypothesis test combined, </span>
-<span id="cb353-10"><a href="equivalence-tests-and-sample-size.html#cb353-10"></a>we can conclude that the observed effect is statistically not different</span>
-<span id="cb353-11"><a href="equivalence-tests-and-sample-size.html#cb353-11"></a>from zero and statistically equivalent to zero.</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="equivalence-tests-and-sample-size.html#cb353-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb353-2"><a href="equivalence-tests-and-sample-size.html#cb353-2"></a></span>
+<span id="cb353-3"><a href="equivalence-tests-and-sample-size.html#cb353-3"></a><span class="kw">TOSTpaired.raw</span>(<span class="dt">m1 =</span> <span class="fl">12.1</span>,</span>
+<span id="cb353-4"><a href="equivalence-tests-and-sample-size.html#cb353-4"></a>        <span class="dt">sd1 =</span> <span class="fl">2.5</span>,</span>
+<span id="cb353-5"><a href="equivalence-tests-and-sample-size.html#cb353-5"></a>        <span class="dt">m2 =</span> <span class="fl">11.9</span>,</span>
+<span id="cb353-6"><a href="equivalence-tests-and-sample-size.html#cb353-6"></a>        <span class="dt">sd2 =</span> <span class="fl">2.5</span>,</span>
+<span id="cb353-7"><a href="equivalence-tests-and-sample-size.html#cb353-7"></a>        <span class="dt">r12 =</span> <span class="fl">.8</span>,</span>
+<span id="cb353-8"><a href="equivalence-tests-and-sample-size.html#cb353-8"></a>        <span class="dt">n =</span> <span class="dv">50</span>,</span>
+<span id="cb353-9"><a href="equivalence-tests-and-sample-size.html#cb353-9"></a>        <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
+<span id="cb353-10"><a href="equivalence-tests-and-sample-size.html#cb353-10"></a>        <span class="dt">high_eqbound =</span> <span class="dv">1</span>,</span>
+<span id="cb353-11"><a href="equivalence-tests-and-sample-size.html#cb353-11"></a>        <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="equivalence-tests-and-sample-size.html#cb354-1"></a>Equivalence Test Result<span class="op">:</span></span>
+<span id="cb354-2"><a href="equivalence-tests-and-sample-size.html#cb354-2"></a>The equivalence test was significant, <span class="kw">t</span>(<span class="dv">49</span>) =<span class="st"> </span><span class="fl">-3.578</span>, p =<span class="st"> </span><span class="fl">0.000396</span>, </span>
+<span id="cb354-3"><a href="equivalence-tests-and-sample-size.html#cb354-3"></a>given equivalence bounds of <span class="fl">-1.000</span> and <span class="fl">1.000</span> (on a raw scale) and an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
+<span id="cb354-4"><a href="equivalence-tests-and-sample-size.html#cb354-4"></a></span>
+<span id="cb354-5"><a href="equivalence-tests-and-sample-size.html#cb354-5"></a>Null Hypothesis Test Result<span class="op">:</span></span>
+<span id="cb354-6"><a href="equivalence-tests-and-sample-size.html#cb354-6"></a>The null hypothesis test was non<span class="op">-</span>significant, </span>
+<span id="cb354-7"><a href="equivalence-tests-and-sample-size.html#cb354-7"></a><span class="kw">t</span>(<span class="dv">49</span>) =<span class="st"> </span><span class="fl">0.894</span>, p =<span class="st"> </span><span class="fl">0.375</span>, given an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
+<span id="cb354-8"><a href="equivalence-tests-and-sample-size.html#cb354-8"></a></span>
+<span id="cb354-9"><a href="equivalence-tests-and-sample-size.html#cb354-9"></a>Based on the equivalence test and the null<span class="op">-</span>hypothesis test combined, </span>
+<span id="cb354-10"><a href="equivalence-tests-and-sample-size.html#cb354-10"></a>we can conclude that the observed effect is statistically not different</span>
+<span id="cb354-11"><a href="equivalence-tests-and-sample-size.html#cb354-11"></a>from zero and statistically equivalent to zero.</span></code></pre></div>
 <p>We can then report that:</p>
 <p>A repeated measures <span class="math inline">\(t\)</span>-test indicated that the mean taste ratings for old Shreddies (<em>M</em> = 12.1, <em>SD</em> = 2.50) and new Diamond Shreddies (<em>M</em> = 11.9, <em>SD</em> = 2.50) were not significantly different, <span class="math inline">\(d\)</span> = 0.13, 95% CI [-0.15, 0.40], <span class="math inline">\(t\)</span>(49) = 0.984, <span class="math inline">\(p\)</span> = 0.375. Prior to conducting analyses we established that a raw difference in the -1 to +1 range (the smallest possible change on the scale) would, for practical purposes, be considered equivalent to zero. The equivalence test was significant <span class="math inline">\(t\)</span>(49) = -3.578, <span class="math inline">\(p\)</span> &lt; .001 indicating the means for the two conditions were equivalent. Thus, we can conclude that the taste ratings of the two types of Shreddies are not statistically different and that they are statistically equivalent.</p>
 <p>Note that the <span class="math inline">\(d\)</span>-value with 95% CI was obtained with the MBESS command: ci.sm(ncp = 0.894, N = 50)</p>
@@ -674,17 +675,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="standardized-units-1" class="section level3">
 <h3><span class="header-section-number">9.7.2</span> Standardized units</h3>
 <p>You could also have run this test by indicating the smallest effect size of interest using standardized effect size (i.e., a repeated measures <span class="math inline">\(d\)</span>-value). The code below produces a result identical to the above code. We simply indicate the range of values that count as practically equivalent to zero using <span class="math inline">\(d\)</span>-values.</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="equivalence-tests-and-sample-size.html#cb354-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb354-2"><a href="equivalence-tests-and-sample-size.html#cb354-2"></a></span>
-<span id="cb354-3"><a href="equivalence-tests-and-sample-size.html#cb354-3"></a><span class="kw">TOSTpaired</span>(<span class="dt">m1 =</span> <span class="fl">12.1</span>,</span>
-<span id="cb354-4"><a href="equivalence-tests-and-sample-size.html#cb354-4"></a>        <span class="dt">sd1 =</span> <span class="fl">2.5</span>,</span>
-<span id="cb354-5"><a href="equivalence-tests-and-sample-size.html#cb354-5"></a>        <span class="dt">m2 =</span> <span class="fl">11.9</span>,</span>
-<span id="cb354-6"><a href="equivalence-tests-and-sample-size.html#cb354-6"></a>        <span class="dt">sd2 =</span> <span class="fl">2.5</span>,</span>
-<span id="cb354-7"><a href="equivalence-tests-and-sample-size.html#cb354-7"></a>        <span class="dt">r12 =</span> <span class="fl">.8</span>,</span>
-<span id="cb354-8"><a href="equivalence-tests-and-sample-size.html#cb354-8"></a>        <span class="dt">n =</span> <span class="dv">50</span>,</span>
-<span id="cb354-9"><a href="equivalence-tests-and-sample-size.html#cb354-9"></a>        <span class="dt">low_eqbound_dz =</span> <span class="fl">-0.6325</span>,</span>
-<span id="cb354-10"><a href="equivalence-tests-and-sample-size.html#cb354-10"></a>        <span class="dt">high_eqbound_dz =</span> <span class="fl">0.6325</span>,</span>
-<span id="cb354-11"><a href="equivalence-tests-and-sample-size.html#cb354-11"></a>        <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="equivalence-tests-and-sample-size.html#cb355-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb355-2"><a href="equivalence-tests-and-sample-size.html#cb355-2"></a></span>
+<span id="cb355-3"><a href="equivalence-tests-and-sample-size.html#cb355-3"></a><span class="kw">TOSTpaired</span>(<span class="dt">m1 =</span> <span class="fl">12.1</span>,</span>
+<span id="cb355-4"><a href="equivalence-tests-and-sample-size.html#cb355-4"></a>        <span class="dt">sd1 =</span> <span class="fl">2.5</span>,</span>
+<span id="cb355-5"><a href="equivalence-tests-and-sample-size.html#cb355-5"></a>        <span class="dt">m2 =</span> <span class="fl">11.9</span>,</span>
+<span id="cb355-6"><a href="equivalence-tests-and-sample-size.html#cb355-6"></a>        <span class="dt">sd2 =</span> <span class="fl">2.5</span>,</span>
+<span id="cb355-7"><a href="equivalence-tests-and-sample-size.html#cb355-7"></a>        <span class="dt">r12 =</span> <span class="fl">.8</span>,</span>
+<span id="cb355-8"><a href="equivalence-tests-and-sample-size.html#cb355-8"></a>        <span class="dt">n =</span> <span class="dv">50</span>,</span>
+<span id="cb355-9"><a href="equivalence-tests-and-sample-size.html#cb355-9"></a>        <span class="dt">low_eqbound_dz =</span> <span class="fl">-0.6325</span>,</span>
+<span id="cb355-10"><a href="equivalence-tests-and-sample-size.html#cb355-10"></a>        <span class="dt">high_eqbound_dz =</span> <span class="fl">0.6325</span>,</span>
+<span id="cb355-11"><a href="equivalence-tests-and-sample-size.html#cb355-11"></a>        <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="equivalence---independent-groups" class="section level2">
@@ -692,66 +693,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="raw-units-1" class="section level3">
 <h3><span class="header-section-number">9.8.1</span> Raw units</h3>
 <p>You could also have run this study as an independent groups <span class="math inline">\(t\)</span>-test where different people received each type of cereal. In this case, the R-code would be as below. Note the output in this case provides an ambiguous outcome: “the observed effect is statistically not different from zero and statistically not equivalent to zero” due to our small sample size. Thus, the primary finding from this study is that we should have used a larger number of participants.</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="equivalence-tests-and-sample-size.html#cb355-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb355-2"><a href="equivalence-tests-and-sample-size.html#cb355-2"></a></span>
-<span id="cb355-3"><a href="equivalence-tests-and-sample-size.html#cb355-3"></a></span>
-<span id="cb355-4"><a href="equivalence-tests-and-sample-size.html#cb355-4"></a><span class="kw">TOSTtwo.raw</span>(<span class="dt">m1 =</span> <span class="fl">12.1</span>,</span>
-<span id="cb355-5"><a href="equivalence-tests-and-sample-size.html#cb355-5"></a>        <span class="dt">sd1 =</span> <span class="fl">2.5</span>,</span>
-<span id="cb355-6"><a href="equivalence-tests-and-sample-size.html#cb355-6"></a>        <span class="dt">m2 =</span> <span class="fl">11.9</span>,</span>
-<span id="cb355-7"><a href="equivalence-tests-and-sample-size.html#cb355-7"></a>        <span class="dt">sd2 =</span> <span class="fl">2.5</span>,</span>
-<span id="cb355-8"><a href="equivalence-tests-and-sample-size.html#cb355-8"></a>        <span class="dt">n1 =</span> <span class="dv">50</span>,</span>
-<span id="cb355-9"><a href="equivalence-tests-and-sample-size.html#cb355-9"></a>        <span class="dt">n2 =</span> <span class="dv">50</span>,</span>
-<span id="cb355-10"><a href="equivalence-tests-and-sample-size.html#cb355-10"></a>        <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
-<span id="cb355-11"><a href="equivalence-tests-and-sample-size.html#cb355-11"></a>        <span class="dt">high_eqbound =</span> <span class="dv">1</span>,</span>
-<span id="cb355-12"><a href="equivalence-tests-and-sample-size.html#cb355-12"></a>        <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="equivalence-tests-and-sample-size.html#cb356-1"></a>Equivalence Test Result<span class="op">:</span></span>
-<span id="cb356-2"><a href="equivalence-tests-and-sample-size.html#cb356-2"></a>The equivalence test was non<span class="op">-</span>significant, <span class="kw">t</span>(<span class="dv">98</span>) =<span class="st"> </span><span class="fl">-1.600</span>, p =<span class="st"> </span><span class="fl">0.0564</span>, </span>
-<span id="cb356-3"><a href="equivalence-tests-and-sample-size.html#cb356-3"></a>given equivalence bounds of <span class="fl">-1.000</span> and <span class="fl">1.000</span> (on a raw scale) and an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
-<span id="cb356-4"><a href="equivalence-tests-and-sample-size.html#cb356-4"></a></span>
-<span id="cb356-5"><a href="equivalence-tests-and-sample-size.html#cb356-5"></a>Null Hypothesis Test Result<span class="op">:</span></span>
-<span id="cb356-6"><a href="equivalence-tests-and-sample-size.html#cb356-6"></a>The null hypothesis test was non<span class="op">-</span>significant, </span>
-<span id="cb356-7"><a href="equivalence-tests-and-sample-size.html#cb356-7"></a><span class="kw">t</span>(<span class="dv">98</span>) =<span class="st"> </span><span class="fl">0.400</span>, p =<span class="st"> </span><span class="fl">0.690</span>, given an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
-<span id="cb356-8"><a href="equivalence-tests-and-sample-size.html#cb356-8"></a></span>
-<span id="cb356-9"><a href="equivalence-tests-and-sample-size.html#cb356-9"></a>Based on the equivalence test and the null<span class="op">-</span>hypothesis test combined,</span>
-<span id="cb356-10"><a href="equivalence-tests-and-sample-size.html#cb356-10"></a>we can conclude that the observed effect is statistically not different</span>
-<span id="cb356-11"><a href="equivalence-tests-and-sample-size.html#cb356-11"></a>from zero and statistically not equivalent to zero.</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="equivalence-tests-and-sample-size.html#cb356-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb356-2"><a href="equivalence-tests-and-sample-size.html#cb356-2"></a></span>
+<span id="cb356-3"><a href="equivalence-tests-and-sample-size.html#cb356-3"></a></span>
+<span id="cb356-4"><a href="equivalence-tests-and-sample-size.html#cb356-4"></a><span class="kw">TOSTtwo.raw</span>(<span class="dt">m1 =</span> <span class="fl">12.1</span>,</span>
+<span id="cb356-5"><a href="equivalence-tests-and-sample-size.html#cb356-5"></a>        <span class="dt">sd1 =</span> <span class="fl">2.5</span>,</span>
+<span id="cb356-6"><a href="equivalence-tests-and-sample-size.html#cb356-6"></a>        <span class="dt">m2 =</span> <span class="fl">11.9</span>,</span>
+<span id="cb356-7"><a href="equivalence-tests-and-sample-size.html#cb356-7"></a>        <span class="dt">sd2 =</span> <span class="fl">2.5</span>,</span>
+<span id="cb356-8"><a href="equivalence-tests-and-sample-size.html#cb356-8"></a>        <span class="dt">n1 =</span> <span class="dv">50</span>,</span>
+<span id="cb356-9"><a href="equivalence-tests-and-sample-size.html#cb356-9"></a>        <span class="dt">n2 =</span> <span class="dv">50</span>,</span>
+<span id="cb356-10"><a href="equivalence-tests-and-sample-size.html#cb356-10"></a>        <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
+<span id="cb356-11"><a href="equivalence-tests-and-sample-size.html#cb356-11"></a>        <span class="dt">high_eqbound =</span> <span class="dv">1</span>,</span>
+<span id="cb356-12"><a href="equivalence-tests-and-sample-size.html#cb356-12"></a>        <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="equivalence-tests-and-sample-size.html#cb357-1"></a>Equivalence Test Result<span class="op">:</span></span>
+<span id="cb357-2"><a href="equivalence-tests-and-sample-size.html#cb357-2"></a>The equivalence test was non<span class="op">-</span>significant, <span class="kw">t</span>(<span class="dv">98</span>) =<span class="st"> </span><span class="fl">-1.600</span>, p =<span class="st"> </span><span class="fl">0.0564</span>, </span>
+<span id="cb357-3"><a href="equivalence-tests-and-sample-size.html#cb357-3"></a>given equivalence bounds of <span class="fl">-1.000</span> and <span class="fl">1.000</span> (on a raw scale) and an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
+<span id="cb357-4"><a href="equivalence-tests-and-sample-size.html#cb357-4"></a></span>
+<span id="cb357-5"><a href="equivalence-tests-and-sample-size.html#cb357-5"></a>Null Hypothesis Test Result<span class="op">:</span></span>
+<span id="cb357-6"><a href="equivalence-tests-and-sample-size.html#cb357-6"></a>The null hypothesis test was non<span class="op">-</span>significant, </span>
+<span id="cb357-7"><a href="equivalence-tests-and-sample-size.html#cb357-7"></a><span class="kw">t</span>(<span class="dv">98</span>) =<span class="st"> </span><span class="fl">0.400</span>, p =<span class="st"> </span><span class="fl">0.690</span>, given an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
+<span id="cb357-8"><a href="equivalence-tests-and-sample-size.html#cb357-8"></a></span>
+<span id="cb357-9"><a href="equivalence-tests-and-sample-size.html#cb357-9"></a>Based on the equivalence test and the null<span class="op">-</span>hypothesis test combined,</span>
+<span id="cb357-10"><a href="equivalence-tests-and-sample-size.html#cb357-10"></a>we can conclude that the observed effect is statistically not different</span>
+<span id="cb357-11"><a href="equivalence-tests-and-sample-size.html#cb357-11"></a>from zero and statistically not equivalent to zero.</span></code></pre></div>
 </div>
 <div id="standardized-units-2" class="section level3">
 <h3><span class="header-section-number">9.8.2</span> Standardized units</h3>
 <p>The R-code again for using standardized effect sizes:</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="equivalence-tests-and-sample-size.html#cb357-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb357-2"><a href="equivalence-tests-and-sample-size.html#cb357-2"></a></span>
-<span id="cb357-3"><a href="equivalence-tests-and-sample-size.html#cb357-3"></a><span class="kw">TOSTtwo</span>(<span class="dt">m1 =</span> <span class="fl">12.1</span>,</span>
-<span id="cb357-4"><a href="equivalence-tests-and-sample-size.html#cb357-4"></a>        <span class="dt">sd1 =</span> <span class="fl">2.5</span>,</span>
-<span id="cb357-5"><a href="equivalence-tests-and-sample-size.html#cb357-5"></a>        <span class="dt">m2 =</span> <span class="fl">11.9</span>,</span>
-<span id="cb357-6"><a href="equivalence-tests-and-sample-size.html#cb357-6"></a>        <span class="dt">sd2 =</span> <span class="fl">2.5</span>,</span>
-<span id="cb357-7"><a href="equivalence-tests-and-sample-size.html#cb357-7"></a>        <span class="dt">n1 =</span> <span class="dv">50</span>,</span>
-<span id="cb357-8"><a href="equivalence-tests-and-sample-size.html#cb357-8"></a>        <span class="dt">n2 =</span> <span class="dv">50</span>,</span>
-<span id="cb357-9"><a href="equivalence-tests-and-sample-size.html#cb357-9"></a>        <span class="dt">low_eqbound_d =</span> <span class="fl">-0.4</span>,</span>
-<span id="cb357-10"><a href="equivalence-tests-and-sample-size.html#cb357-10"></a>        <span class="dt">high_eqbound_d =</span> <span class="fl">0.4</span>,</span>
-<span id="cb357-11"><a href="equivalence-tests-and-sample-size.html#cb357-11"></a>        <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="equivalence-tests-and-sample-size.html#cb358-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb358-2"><a href="equivalence-tests-and-sample-size.html#cb358-2"></a></span>
+<span id="cb358-3"><a href="equivalence-tests-and-sample-size.html#cb358-3"></a><span class="kw">TOSTtwo</span>(<span class="dt">m1 =</span> <span class="fl">12.1</span>,</span>
+<span id="cb358-4"><a href="equivalence-tests-and-sample-size.html#cb358-4"></a>        <span class="dt">sd1 =</span> <span class="fl">2.5</span>,</span>
+<span id="cb358-5"><a href="equivalence-tests-and-sample-size.html#cb358-5"></a>        <span class="dt">m2 =</span> <span class="fl">11.9</span>,</span>
+<span id="cb358-6"><a href="equivalence-tests-and-sample-size.html#cb358-6"></a>        <span class="dt">sd2 =</span> <span class="fl">2.5</span>,</span>
+<span id="cb358-7"><a href="equivalence-tests-and-sample-size.html#cb358-7"></a>        <span class="dt">n1 =</span> <span class="dv">50</span>,</span>
+<span id="cb358-8"><a href="equivalence-tests-and-sample-size.html#cb358-8"></a>        <span class="dt">n2 =</span> <span class="dv">50</span>,</span>
+<span id="cb358-9"><a href="equivalence-tests-and-sample-size.html#cb358-9"></a>        <span class="dt">low_eqbound_d =</span> <span class="fl">-0.4</span>,</span>
+<span id="cb358-10"><a href="equivalence-tests-and-sample-size.html#cb358-10"></a>        <span class="dt">high_eqbound_d =</span> <span class="fl">0.4</span>,</span>
+<span id="cb358-11"><a href="equivalence-tests-and-sample-size.html#cb358-11"></a>        <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="equivalence-correlation" class="section level2">
 <h2><span class="header-section-number">9.9</span> Equivalence Correlation</h2>
 <p>Imagine we are interested in conducting a study to prove our theory that there is a strong positive relation between academic performance and self-esteem. Prior to conducing the study we determined our smallest effect size of interest was .20. A traditional sample size analysis (with a desire for 90% power) indicated we should use a sample size of 210 (for a one-sided test). However, we also conducted a sample size analysis for an equivalence test, in case the correlation was non-significant, which suggested a larger sample size of 267. Consequently, we collected data from 267 students.</p>
 <p>Our study found <span class="math inline">\(r\)</span> = .09, <span class="math inline">\(p\)</span> = 0.071 (one-tailed). This non-significant difference means there is little to conclude from this study. We can’t say there is a relation due to the non-significance. But, we also can’t say there is no relation. Fortunately, because we established our smallest effect size of interest prior to looking at our data we can run an equivalence test with the code below.</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="equivalence-tests-and-sample-size.html#cb358-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb358-2"><a href="equivalence-tests-and-sample-size.html#cb358-2"></a><span class="kw">TOSTr</span>(<span class="dt">n =</span> <span class="dv">267</span>,</span>
-<span id="cb358-3"><a href="equivalence-tests-and-sample-size.html#cb358-3"></a>      <span class="dt">r =</span> <span class="fl">.09</span>,</span>
-<span id="cb358-4"><a href="equivalence-tests-and-sample-size.html#cb358-4"></a>      <span class="dt">low_eqbound_r =</span> <span class="fl">-.20</span>,</span>
-<span id="cb358-5"><a href="equivalence-tests-and-sample-size.html#cb358-5"></a>      <span class="dt">high_eqbound_r =</span> <span class="fl">.20</span>, </span>
-<span id="cb358-6"><a href="equivalence-tests-and-sample-size.html#cb358-6"></a>      <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="equivalence-tests-and-sample-size.html#cb359-1"></a>Equivalence Test Result<span class="op">:</span></span>
-<span id="cb359-2"><a href="equivalence-tests-and-sample-size.html#cb359-2"></a>The equivalence test was significant, p =<span class="st"> </span><span class="fl">0.0338</span>, </span>
-<span id="cb359-3"><a href="equivalence-tests-and-sample-size.html#cb359-3"></a>given equivalence bounds of <span class="fl">-0.200</span> and <span class="fl">0.200</span> and an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
-<span id="cb359-4"><a href="equivalence-tests-and-sample-size.html#cb359-4"></a></span>
-<span id="cb359-5"><a href="equivalence-tests-and-sample-size.html#cb359-5"></a>Null Hypothesis Test Result<span class="op">:</span></span>
-<span id="cb359-6"><a href="equivalence-tests-and-sample-size.html#cb359-6"></a>The null hypothesis test was non<span class="op">-</span>significant, p =<span class="st"> </span><span class="fl">0.142</span>, given an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
-<span id="cb359-7"><a href="equivalence-tests-and-sample-size.html#cb359-7"></a></span>
-<span id="cb359-8"><a href="equivalence-tests-and-sample-size.html#cb359-8"></a>Based on the equivalence test and the null<span class="op">-</span>hypothesis test combined, </span>
-<span id="cb359-9"><a href="equivalence-tests-and-sample-size.html#cb359-9"></a>we can conclude that the observed effect is statistically not different</span>
-<span id="cb359-10"><a href="equivalence-tests-and-sample-size.html#cb359-10"></a>from zero and statistically equivalent to zero.</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="equivalence-tests-and-sample-size.html#cb359-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb359-2"><a href="equivalence-tests-and-sample-size.html#cb359-2"></a><span class="kw">TOSTr</span>(<span class="dt">n =</span> <span class="dv">267</span>,</span>
+<span id="cb359-3"><a href="equivalence-tests-and-sample-size.html#cb359-3"></a>      <span class="dt">r =</span> <span class="fl">.09</span>,</span>
+<span id="cb359-4"><a href="equivalence-tests-and-sample-size.html#cb359-4"></a>      <span class="dt">low_eqbound_r =</span> <span class="fl">-.20</span>,</span>
+<span id="cb359-5"><a href="equivalence-tests-and-sample-size.html#cb359-5"></a>      <span class="dt">high_eqbound_r =</span> <span class="fl">.20</span>, </span>
+<span id="cb359-6"><a href="equivalence-tests-and-sample-size.html#cb359-6"></a>      <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="equivalence-tests-and-sample-size.html#cb360-1"></a>Equivalence Test Result<span class="op">:</span></span>
+<span id="cb360-2"><a href="equivalence-tests-and-sample-size.html#cb360-2"></a>The equivalence test was significant, p =<span class="st"> </span><span class="fl">0.0338</span>, </span>
+<span id="cb360-3"><a href="equivalence-tests-and-sample-size.html#cb360-3"></a>given equivalence bounds of <span class="fl">-0.200</span> and <span class="fl">0.200</span> and an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
+<span id="cb360-4"><a href="equivalence-tests-and-sample-size.html#cb360-4"></a></span>
+<span id="cb360-5"><a href="equivalence-tests-and-sample-size.html#cb360-5"></a>Null Hypothesis Test Result<span class="op">:</span></span>
+<span id="cb360-6"><a href="equivalence-tests-and-sample-size.html#cb360-6"></a>The null hypothesis test was non<span class="op">-</span>significant, p =<span class="st"> </span><span class="fl">0.142</span>, given an alpha of <span class="dv">0</span>.<span class="fl">05.</span></span>
+<span id="cb360-7"><a href="equivalence-tests-and-sample-size.html#cb360-7"></a></span>
+<span id="cb360-8"><a href="equivalence-tests-and-sample-size.html#cb360-8"></a>Based on the equivalence test and the null<span class="op">-</span>hypothesis test combined, </span>
+<span id="cb360-9"><a href="equivalence-tests-and-sample-size.html#cb360-9"></a>we can conclude that the observed effect is statistically not different</span>
+<span id="cb360-10"><a href="equivalence-tests-and-sample-size.html#cb360-10"></a>from zero and statistically equivalent to zero.</span></code></pre></div>
 <p>Because we conducted the equivalence test we can write a clear results section.</p>
 <p>The relation between academic performance and self-esteem was non-significant, <span class="math inline">\(r\)</span> = .09, 95% CI [-.03, .21], <span class="math inline">\(p\)</span> = 0.071 (one-sided). A follow up equivalence test (based on our apriori smallest effect size of interest, <span class="math inline">\(\rho\)</span> = .20) was significant, <span class="math inline">\(p\)</span> = 0.034, which indicates that for practical purposes the relation was equivalent to zero. That is, the observed correlation, <span class="math inline">\(r\)</span> = .09, was not statistically different from zero and it was statistically equivalent to zero.</p>
 <p>Notice how much clearer and stronger this results section is with the inclusion of an equivalence test. Note that the 95% CI for the correlation was obtained with the MBESS command: ci.cc(r = .09, n = 267)</p>
@@ -762,25 +763,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">9.10.1</span> Independent <em>t</em>-test</h3>
 <div id="standardized-units-3" class="section level4">
 <h4><span class="header-section-number">9.10.1.1</span> Standardized units</h4>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="equivalence-tests-and-sample-size.html#cb360-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb360-2"><a href="equivalence-tests-and-sample-size.html#cb360-2"></a></span>
-<span id="cb360-3"><a href="equivalence-tests-and-sample-size.html#cb360-3"></a><span class="kw">powerTOSTtwo</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
-<span id="cb360-4"><a href="equivalence-tests-and-sample-size.html#cb360-4"></a>             <span class="dt">statistical_power =</span> <span class="fl">0.90</span>,</span>
-<span id="cb360-5"><a href="equivalence-tests-and-sample-size.html#cb360-5"></a>             <span class="dt">low_eqbound_d =</span> <span class="fl">-0.40</span>,</span>
-<span id="cb360-6"><a href="equivalence-tests-and-sample-size.html#cb360-6"></a>             <span class="dt">high_eqbound_d =</span> <span class="fl">0.40</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="equivalence-tests-and-sample-size.html#cb361-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb361-2"><a href="equivalence-tests-and-sample-size.html#cb361-2"></a></span>
+<span id="cb361-3"><a href="equivalence-tests-and-sample-size.html#cb361-3"></a><span class="kw">powerTOSTtwo</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb361-4"><a href="equivalence-tests-and-sample-size.html#cb361-4"></a>             <span class="dt">statistical_power =</span> <span class="fl">0.90</span>,</span>
+<span id="cb361-5"><a href="equivalence-tests-and-sample-size.html#cb361-5"></a>             <span class="dt">low_eqbound_d =</span> <span class="fl">-0.40</span>,</span>
+<span id="cb361-6"><a href="equivalence-tests-and-sample-size.html#cb361-6"></a>             <span class="dt">high_eqbound_d =</span> <span class="fl">0.40</span>)</span></code></pre></div>
 <pre><code>## The required sample size to achieve 90 % power with equivalence bounds of -0.4 and 0.4 is 136 per group, or 272 in total.</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 135.3</code></pre>
 </div>
 <div id="raw-units-2" class="section level4">
 <h4><span class="header-section-number">9.10.1.2</span> Raw units</h4>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="equivalence-tests-and-sample-size.html#cb364-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb364-2"><a href="equivalence-tests-and-sample-size.html#cb364-2"></a></span>
-<span id="cb364-3"><a href="equivalence-tests-and-sample-size.html#cb364-3"></a><span class="kw">powerTOSTtwo.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
-<span id="cb364-4"><a href="equivalence-tests-and-sample-size.html#cb364-4"></a>                 <span class="dt">statistical_power =</span> <span class="fl">0.90</span>,</span>
-<span id="cb364-5"><a href="equivalence-tests-and-sample-size.html#cb364-5"></a>                 <span class="dt">sdpooled =</span> <span class="fl">2.50</span>,</span>
-<span id="cb364-6"><a href="equivalence-tests-and-sample-size.html#cb364-6"></a>                 <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
-<span id="cb364-7"><a href="equivalence-tests-and-sample-size.html#cb364-7"></a>                 <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="equivalence-tests-and-sample-size.html#cb365-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb365-2"><a href="equivalence-tests-and-sample-size.html#cb365-2"></a></span>
+<span id="cb365-3"><a href="equivalence-tests-and-sample-size.html#cb365-3"></a><span class="kw">powerTOSTtwo.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb365-4"><a href="equivalence-tests-and-sample-size.html#cb365-4"></a>                 <span class="dt">statistical_power =</span> <span class="fl">0.90</span>,</span>
+<span id="cb365-5"><a href="equivalence-tests-and-sample-size.html#cb365-5"></a>                 <span class="dt">sdpooled =</span> <span class="fl">2.50</span>,</span>
+<span id="cb365-6"><a href="equivalence-tests-and-sample-size.html#cb365-6"></a>                 <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
+<span id="cb365-7"><a href="equivalence-tests-and-sample-size.html#cb365-7"></a>                 <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## The required sample size to achieve 90 % power with equivalence bounds of -1 and 1 is 135.3 per group, or 272 in total.</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 135.3</code></pre>
@@ -790,25 +791,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">9.10.2</span> Repeated <em>t</em>-test</h3>
 <div id="standardized-units-4" class="section level4">
 <h4><span class="header-section-number">9.10.2.1</span> Standardized units</h4>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="equivalence-tests-and-sample-size.html#cb368-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb368-2"><a href="equivalence-tests-and-sample-size.html#cb368-2"></a></span>
-<span id="cb368-3"><a href="equivalence-tests-and-sample-size.html#cb368-3"></a><span class="kw">powerTOSTpaired</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
-<span id="cb368-4"><a href="equivalence-tests-and-sample-size.html#cb368-4"></a>                <span class="dt">statistical_power =</span> <span class="fl">0.90</span>,</span>
-<span id="cb368-5"><a href="equivalence-tests-and-sample-size.html#cb368-5"></a>                <span class="dt">low_eqbound_dz =</span> <span class="fl">-0.6325</span>,</span>
-<span id="cb368-6"><a href="equivalence-tests-and-sample-size.html#cb368-6"></a>                <span class="dt">high_eqbound_dz =</span> <span class="fl">0.6325</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="equivalence-tests-and-sample-size.html#cb369-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb369-2"><a href="equivalence-tests-and-sample-size.html#cb369-2"></a></span>
+<span id="cb369-3"><a href="equivalence-tests-and-sample-size.html#cb369-3"></a><span class="kw">powerTOSTpaired</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb369-4"><a href="equivalence-tests-and-sample-size.html#cb369-4"></a>                <span class="dt">statistical_power =</span> <span class="fl">0.90</span>,</span>
+<span id="cb369-5"><a href="equivalence-tests-and-sample-size.html#cb369-5"></a>                <span class="dt">low_eqbound_dz =</span> <span class="fl">-0.6325</span>,</span>
+<span id="cb369-6"><a href="equivalence-tests-and-sample-size.html#cb369-6"></a>                <span class="dt">high_eqbound_dz =</span> <span class="fl">0.6325</span>)</span></code></pre></div>
 <pre><code>## The required sample size to achieve 90 % power with equivalence bounds of -0.6325 and 0.6325 is 28 pairs</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 27.05</code></pre>
 </div>
 <div id="raw-units-3" class="section level4">
 <h4><span class="header-section-number">9.10.2.2</span> Raw units</h4>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="equivalence-tests-and-sample-size.html#cb372-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb372-2"><a href="equivalence-tests-and-sample-size.html#cb372-2"></a></span>
-<span id="cb372-3"><a href="equivalence-tests-and-sample-size.html#cb372-3"></a><span class="kw">powerTOSTpaired.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
-<span id="cb372-4"><a href="equivalence-tests-and-sample-size.html#cb372-4"></a>                    <span class="dt">statistical_power =</span> <span class="fl">0.90</span>,</span>
-<span id="cb372-5"><a href="equivalence-tests-and-sample-size.html#cb372-5"></a>                    <span class="dt">sdif =</span> <span class="fl">1.581</span>,</span>
-<span id="cb372-6"><a href="equivalence-tests-and-sample-size.html#cb372-6"></a>                    <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
-<span id="cb372-7"><a href="equivalence-tests-and-sample-size.html#cb372-7"></a>                    <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="equivalence-tests-and-sample-size.html#cb373-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb373-2"><a href="equivalence-tests-and-sample-size.html#cb373-2"></a></span>
+<span id="cb373-3"><a href="equivalence-tests-and-sample-size.html#cb373-3"></a><span class="kw">powerTOSTpaired.raw</span>(<span class="dt">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb373-4"><a href="equivalence-tests-and-sample-size.html#cb373-4"></a>                    <span class="dt">statistical_power =</span> <span class="fl">0.90</span>,</span>
+<span id="cb373-5"><a href="equivalence-tests-and-sample-size.html#cb373-5"></a>                    <span class="dt">sdif =</span> <span class="fl">1.581</span>,</span>
+<span id="cb373-6"><a href="equivalence-tests-and-sample-size.html#cb373-6"></a>                    <span class="dt">low_eqbound =</span> <span class="dv">-1</span>,</span>
+<span id="cb373-7"><a href="equivalence-tests-and-sample-size.html#cb373-7"></a>                    <span class="dt">high_eqbound =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## The required sample size to achieve 90 % power with equivalence bounds of -1 and 1 is 28 pairs</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 27.05</code></pre>
@@ -816,12 +817,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="correlation-1" class="section level3">
 <h3><span class="header-section-number">9.10.3</span> Correlation</h3>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="equivalence-tests-and-sample-size.html#cb376-1"></a><span class="kw">library</span>(TOSTER)</span>
-<span id="cb376-2"><a href="equivalence-tests-and-sample-size.html#cb376-2"></a></span>
-<span id="cb376-3"><a href="equivalence-tests-and-sample-size.html#cb376-3"></a><span class="kw">powerTOSTr</span>(<span class="dt">alpha =</span> <span class="fl">.05</span>,</span>
-<span id="cb376-4"><a href="equivalence-tests-and-sample-size.html#cb376-4"></a>           <span class="dt">statistical_power =</span> <span class="fl">.90</span>,</span>
-<span id="cb376-5"><a href="equivalence-tests-and-sample-size.html#cb376-5"></a>           <span class="dt">low_eqbound_r =</span> <span class="fl">-.20</span>, </span>
-<span id="cb376-6"><a href="equivalence-tests-and-sample-size.html#cb376-6"></a>           <span class="dt">high_eqbound_r =</span> <span class="fl">.20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="equivalence-tests-and-sample-size.html#cb377-1"></a><span class="kw">library</span>(TOSTER)</span>
+<span id="cb377-2"><a href="equivalence-tests-and-sample-size.html#cb377-2"></a></span>
+<span id="cb377-3"><a href="equivalence-tests-and-sample-size.html#cb377-3"></a><span class="kw">powerTOSTr</span>(<span class="dt">alpha =</span> <span class="fl">.05</span>,</span>
+<span id="cb377-4"><a href="equivalence-tests-and-sample-size.html#cb377-4"></a>           <span class="dt">statistical_power =</span> <span class="fl">.90</span>,</span>
+<span id="cb377-5"><a href="equivalence-tests-and-sample-size.html#cb377-5"></a>           <span class="dt">low_eqbound_r =</span> <span class="fl">-.20</span>, </span>
+<span id="cb377-6"><a href="equivalence-tests-and-sample-size.html#cb377-6"></a>           <span class="dt">high_eqbound_r =</span> <span class="fl">.20</span>)</span></code></pre></div>
 <pre><code>## The required sample size to achieve 90 % power with equivalence bounds of -0.2 and 0.2 is 267 observations</code></pre>
 <pre><code>## </code></pre>
 <pre><code>## [1] 266.3</code></pre>

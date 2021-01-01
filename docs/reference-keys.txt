@@ -108,6 +108,7 @@ a-few-key-points-about
 vector-of-numbers
 vector-of-characters
 lists
+revisiting-read_csv
 thats-it
 handling-data-with-the-tidyverse
 required

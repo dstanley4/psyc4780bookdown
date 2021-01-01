@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2020-12-27" />
+<meta name="date" content="2021-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -180,7 +180,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="introduction.html"><a href="introduction.html#a-few-key-points-about"><i class="fa fa-check"></i><b>1.11</b> A few key points about</a><ul>
 <li class="chapter" data-level="1.11.1" data-path="introduction.html"><a href="introduction.html#lists"><i class="fa fa-check"></i><b>1.11.1</b> Lists</a></li>
 </ul></li>
-<li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.12</b> That’s it!</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.12</b> Revisiting read_csv()</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.13</b> That’s it!</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Handling Data with the Tidyverse</a><ul>
 <li class="chapter" data-level="2.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#required"><i class="fa fa-check"></i><b>2.1</b> Required</a></li>
@@ -618,11 +619,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You may also find the <a href="https://github.com/crsh/papaja">papaja package</a> helpful - and an easy way to use rmarkdown. It is a based on the rmarkdown extension called bookdown. This package is specifically designed to make it easy to use rmarkdown/bookdown to maka an APA style paper. Indeed that’s the basis for the odd package name: <strong>Preparing APA Journal Articles</strong> (papaja).</p>
 <p>I suggest you read the extensive papaja (documentation)[<a href="https://crsh.github.io/papaja_man/introduction.html" class="uri">https://crsh.github.io/papaja_man/introduction.html</a>]. It will be worth your while!</p>
 <p>The only slight complication with papaja is the fact it is not on the CRAN and can’t be installed in the usual way. But it’s still straight forward. You can install papaja with the commands below - taken from the papaja website.</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="research-tools.html#cb576-1"></a><span class="co"># Install devtools package if necessary</span></span>
-<span id="cb576-2"><a href="research-tools.html#cb576-2"></a><span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;devtools&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb576-3"><a href="research-tools.html#cb576-3"></a></span>
-<span id="cb576-4"><a href="research-tools.html#cb576-4"></a><span class="co"># Install the stable development verions from GitHub</span></span>
-<span id="cb576-5"><a href="research-tools.html#cb576-5"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="research-tools.html#cb577-1"></a><span class="co"># Install devtools package if necessary</span></span>
+<span id="cb577-2"><a href="research-tools.html#cb577-2"></a><span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;devtools&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb577-3"><a href="research-tools.html#cb577-3"></a></span>
+<span id="cb577-4"><a href="research-tools.html#cb577-4"></a><span class="co"># Install the stable development verions from GitHub</span></span>
+<span id="cb577-5"><a href="research-tools.html#cb577-5"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</span></code></pre></div>
 <p>Indeed, once papaja is installed - you simply have to select the APA template before you enter your rmarkdown, as illustrated below:</p>
 <p><img src="ch_tools/images/papaja_template.png" width="60%" /></p>
 </div>
