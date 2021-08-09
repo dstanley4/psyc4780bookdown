@@ -1,4 +1,4 @@
-id,age,sex,eye_color,t1_esteem1,t1_esteem2,t1_esteem3,t1_esteem4,t1_esteem5_rev15,t1_jobsat1,t1_jobsat2_rev15,t1_jobsat3,t1_jobsat4,t1_jobsat5,t2_esteem1,t2_esteem2,t2_esteem3,t2_esteem4,t2_esteem5_rev15,t2_jobsat1,t2_jobsat2_rev15,t2_jobsat3,t2_jobsat4,t2_jobsat5
+id,age,sex,eye_color,t1_esteem1_likert5,t1_esteem2_likert5,t1_esteem3_likert5,t1_esteem4_likert5,t1_esteem5__likert5rev,t1_jobsat1_likert5,t1_jobsat2_likert5rev,t1_jobsat3_likert5,t1_jobsat4_likert5,t1_jobsat5_likert5,t2_esteem1_likert5,t2_esteem2_likert5,t2_esteem3_likert5,t2_esteem4_likert5,t2_esteem5_likert5rev,t2_jobsat1_likert5,t2_jobsat2_likert5rev5,t2_jobsat3_likert5,t2_jobsat4_likert5,t2_jobsat5_likert5
 1,23,male,blue,3,2,4,3,2,3,1,3,NA,5,4,3,5,4,3,4,2,4,3,6
 2,22,female,brown,4,3,4,4,2,5,1,NA,5,NA,5,4,5,5,3,6,2,3,6,3
 3,18,male,hazel,4,3,4,4,2,4,1,3,5,5,5,4,5,5,3,5,2,4,6,6

@@ -7,16 +7,16 @@ library(tidyverse)
 ## Required Packages
 
 
-The data files below are used in this chapter. The files are available at: https://github.com/dstanley4/psyc4780bookdown
+The data files below are used in this chapter. The files are available at: https://github.com/dstanley4/psyc6060bookdown
 
 
 | Required Data |
 |-------------------|
-|data_ex_between.csv |
-|data_ex_within.csv |
-|data_food.csv |
-|data_item_scoring.csv |
-|data_item_time.csv |
+|[data_ex_between.csv](data_ex_between.csv)|
+|[data_ex_within.csv](data_ex_within.csv) |
+|[data_food.csv](data_food.csv) |
+|[data_item_scoring.csv](data_item_scoring.csv) |
+|[data_item_time.csv](data_item_scoring.csv) |
 
 
 The following CRAN packages must be installed:
@@ -169,27 +169,31 @@ To make your life easier down the road, it is critical you set up your spreadshe
 
 * Avoid short decontextualized variable names like q1, q2, q3, etc.
 
-* Do use moderate length column names. Aim to achieve a unique prefix for related columns so that those columns can be selected using the starts_with() command discussed in the previous chapter. Be sure to avoid short two or three letter prefixes for item names. Instead, use unique moderate length item prefixes so that it will easy to select those columns using start_with() such that you don't accidentally get additionally columns you don't want - that have a similar prefix. See the Likert-type item section below for additional details.
+* Do use moderate length column names. Aim to achieve a unique prefix for related columns so that those columns can be selected using the starts_with() command discussed in the previous chapter. Be sure to avoid short two or three letter prefixes for item names. Instead, use unique moderate length item prefixes so that it will easy to select those columns using start_with() such that you don't accidentally get additionally columns you don't want - that have a similar prefix. 
+
+* Likert items. Be sure to indicate the following information in the name of each Likert item or you will make your life substantially more complicated when you start to analyze your data. The information to include: a) the name of the measure, b) the item number for the measure, c) that it is a Likert item, d) the number of Likert response options, and e) whether the item is reverse keyed. That's five things to include in each Likert item name. But it's easy to do so. Consider two "affective commitment" items, the 2nd and 3rd items on scale. Both items use a 5-point Likert response format. However, item 3 is reverse keyed. **Names that conform to this convention are: aff_com3_likert5, aff_com3_likert5rev.**  Usiing this naming convention ensure you can easily select and convert the items later. You can select by "likert5", "likert5rev" or select by "aff_com".
 
 * If you have a column name that represents the levels of two repeated measures variables only use the underscore character to separate the levels of the different variables. See within-participant ANOVA section below for details.
 
 ### Likert-type items
 
-A Likert-type item is typically composed of a statement with which participants are asked to agree or disagree. For example, participants could be asked to indicate the extent to which they agree with a number of statements such as "I like my job". Then tey would be presented with response scale such as: 1 - Strongly Disagree, 2 - Moderately Disagree, 3 - Neutral, 4, Moderately Agree, 5 - Strongly Agree. A common question is, how should I enter the data?
+A Likert-type item is typically composed of a statement with which participants are asked to agree or disagree. For example, participants could be asked to indicate the extent to which they agree with a number of statements such as "I like my job". Then they would be presented with response scale such as: 1 - Strongly Disagree, 2 - Moderately Disagree, 3 - Neutral, 4, Moderately Agree, 5 - Strongly Agree. A common question is, how should I enter the data?
 
-* **Enter numeric responses not labels**. You should enter the numeric value for each item response (e.g., 5) into your data - not the label (e.g., Strongly Agree). The labels associated with each value can be applied later in a script, if needed.
+**Export texst responses not numbers** Software such as Qualtrics gives you the option of exporting the label (e.g., "Strongly Agree") or a value (e.g., 1). Make sure you export the text lable ("Strongly Agree). That way, the data file stands alone - and doesn't require additional knowledge to know what "1" means. You can easily convert the labels to numbers later.
 
 * **High numbers should be associated with more of the construct being measured.** When designing your survey or data collection tools, it is important that you set the response options appropriately. If your scale measures job satisfaction, it is important that you collect data in a manner that ensures high numbers on the job satisfaction scale indicate high levels of job satisfaction. Therefore, assigning numbers makes sense using the 5-point scale: 1 - Strongly Disagree, 2 - Moderately Disagree, 3 - Neutral, 4, Moderately Agree, 5 - Strongly Agree. With this approach high response numbers indicate more job satisfaction. However, using the opposite scale would not make sense: 1 - Strongly Agree, 2 - Moderately Agree, 3 - Neutral, 4, Moderately Disagree, 5 - Strongly Disagree. With this opposite scale high numbers on a job satisfaction scale would indicate lower levels of job satisfaction - a very confusing situation. Avoid this situation, assign numbers so that higher numbers are associated with more of the construct being measured. 
 
 * **Use appropriate item names.** As described in the naming convention section, use moderate length names with different labels for each subscale.
 
-* **Use moderate length column names unique to each subscale**. Imagine you have a survey with an 18-item commitment scale [@meyer1993commitment] composed of three 6-item subscales: affective, normative, and continuance commitment. It would be a poor choice to prefix the labels of all 18 columns in your data with "commit" such that the names would be commit1, commit2, commit3, etc. The problem with this approach is that it fails to distinguish among the three subscales in naming convention; making it impossible to select the items for a single subscale using starts_with(). A better, but still poor choice for a naming convention would be use use a two letter prefix for the three scale such ac, nc, and cc. This would result in names for the columns like ac1, ac2, ac3, etc. This is an improvement because you could apparently (but likely not) select the columns using starts_with("ac"). The problem with these short names is that there could be many columns in data set that start with "ac" beside the affective commitment items. You might want to select the affective commitment items using starts_with("ac"); but you would get all the affective commitment item columns; but also all the columns measuring other variables that also start with "ac". Therefore, it's a good idea to use a moderate length unique prefix for column names. For example, you might use prefixes like affectcom, normcom, and contincom for the three subscales. This would create column names like affectcom1, affectcom2, affectcom3, etc. These column prefixes are unlikely to be duplicated in other places in your column name conventions making it easy to select those columns using a command like starts_with("affectcom").
+* **Use moderate length column names unique to each subscale**. Imagine you have a survey with an 18-item commitment scale [@meyer1993commitment] composed of three 6-item subscales: affective, normative, and continuance commitment. It would be a poor choice to prefix the labels of all 18 columns in your data with "commit" such that the names would be commit1, commit2, commit3, etc. The problem with this approach is that it fails to distinguish among the three subscales in naming convention; making it impossible to select the items for a single subscale using starts_with(). A better, but still poor choice for a naming convention would be use use a two letter prefix for the three scale such ac, nc, and cc. This would result in names for the columns like ac1, ac2, ac3, etc. This is an improvement because you could apparently (but likely not) select the columns using starts_with("ac"). The problem with these short names is that there could be many columns in data set that start with "ac" beside the affective commitment items. You might want to select the affective commitment items using starts_with("ac"); but you would get all the affective commitment item columns; but also all the columns measuring other variables that also start with "ac". Therefore, it's a good idea to use a moderate length unique prefix for column names. For example, you might use prefixes like affect_com, norm_com, and contin_com for the three subscales. But see below because you need to include more than this in each name. 
+
+* **Indicate these 5 things in each Likert item name.** Be sure to indicate the following information in the name of each Likert item or you will make your life substantially more complicated when you start to analyze your data. The information to include: a) the name of the measure, b) the item number for the measure, c) that it is a Likert item, d) the number of Likert response options, and e) whether the item is reverse keyed. That's five things to include in each Likert item name. But it's easy to do so. Consider two "affective commitment" items, the 2nd and 3rd items on scale. Both items use a 5-point Likert response format. However, item 3 is reverse keyed. **Names that conform to this convention are: aff_com3_likert5, aff_com3_likert5rev.**  Usiing this naming convention ensure you can easily select and convert the items later. You can select by "likert5", "likert5rev" or select by "aff_com".
 
 **Indicate in the item name if the item is reversed keyed. ** Sometimes with Likert-type items, an item is reverse keyed. For example, on a job satisfaction scale, participants will typically respond to items that reflect job satisfaction using the scale: 1 - Strongly Disagree, 2 - Moderately Disagree, 3 - Neutral, 4, Moderately Agree, 5 - Strongly Agree. Higher numbers indicate more job satisfaction. Sometimes, however, some items will use the same 1 to 5 response scale but be worded in the opposite manner such as "I hate my job". Responding with a 5 to this item would indicate high job *dissatisfaction*. But the columns for job satisfaction items should have high values indicate job satisfaction not job dissatifaction. Consequently, we flag the names of columns with reversed responses (i.e., reverse-key items) so that we know to treat those column differently later. Columns with reverse-keyed items need to be processed by a script so that the values are flipped and scored in the right direction. The procedure for doing so is outlined in the next point.  
 
- **Indicate in the item name the range for reverse-key items.** If an item is reverse keyed, the process for the flipping the scores depends upon the range of a scale. Although 5-point scales are common, any number of points are possible. The process for correcting a reverse-key item depends upon: 1) the number of points on the scale, and 2) the range of the points on the scale. The reverse-key item correction process is different for an item that uses a 5-point scale ranging from 1 to 5 versus from 0 to 4. Both are 5-point scales but your correction process will be different. Therefore, for reverse-key items add a suffix at the end of each item name that indicates an item is reverse keyed and the range of the item. For example, if the third job satisfaction item was reversed keyed on scale using a 1 to 5 response format you might name the item: jobsat3_rev15. The suffix "_rev15" indicates the item is reverse keyed and the range of responses used on the item is 1 to 5. Be sure to set up your survey with this naming convention when you collect your data.
+ **Indicate in the item name the range for reverse-key items.** If an item is reverse keyed, the process for the flipping the scores depends upon the range of a scale. Although 5-point scales are common, any number of points are possible. The process for correcting a reverse-key item depends upon: 1) the number of points on the scale, and 2) the range of the points on the scale. The reverse-key item correction process is different for an item that uses a 5-point scale ranging from 1 to 5 versus from 0 to 4. Both are 5-point scales but your correction process will be different. Therefore, for reverse-key items add a suffix at the end of each item name that indicates an item is reverse keyed and the range of the item. For example, if the third job satisfaction item was reversed keyed on scale using a 1 to 5 response format you might name the item: job_sat3_likert5rev. The suffix "_likert5rev" indicates the item is Likert item that is reverse keyed and the range of responses used on the item is 1 to 5. Be sure to set up your survey with this naming convention when you collect your data.
 
-* If you collect items over multiple time points use a prefix with a short code to indicate the time followed by an underscore. For example, if you had a multi-item self-esteem scale you might call the column for the first time "t1_esteem1_rev15". This indicate that you have for time 1 (t1), the first self-esteem item (esteem1) and that item is reverse keyed on a 1 to 5 scale.
+* If you collect items over multiple time points use a prefix with a short code to indicate the time followed by an underscore. For example, if you had a multi-item self-esteem scale you might call the column for the first time "t1_esteem1_likert5rev". This indicate that you have for time 1 (t1), the first self-esteem item (esteem1) and that item is a likert item that is reverse keyed on a 1 to 5 scale.
 
 
 ### ANOVA between
@@ -1054,11 +1058,11 @@ The way you deal with reverse-keyed items depends on how you scored them. Imagin
 
 In this example, we scored the data using the value 1 to 5; so that is the approach illustrated here. See the extra information box for details on how to fixed reverse-keyed items when the scale begins with zero.
 
-In this data file all the reverse-keyed items were identified with the suffix "_rev15" in the column names. This suffix indicates the item was reverse keyed and that the original scale used the response points 1 to 5. We can see those items with the glimpse() command below. Notice that there are two reverse-keyed items - each on difference scales.
+In this data file all the reverse-keyed items were identified with the suffix "_likert5rev" in the column names. This suffix indicates the item was reverse keyed and that the original scale used the response points 1 to 5. We can see those items with the glimpse() command below. Notice that there are two reverse-keyed items - each on difference scales.
 
 ```{r}
 analytic_data_survey %>%
-  select(ends_with("_rev15")) %>%
+  select(ends_with("_likert5rev")) %>%
   glimpse()
 ```
 
@@ -1075,16 +1079,16 @@ To correct a reverse-keyed item where the lowest possible rating is 1 (i.e, 1 on
 
 The code below:
 
-* selects columns that end with "_rev15" (i.e., both esteem and jobsat scales)
+* selects columns that end with "_likert5rev" (i.e., both esteem and jobsat scales)
 * subtracts the values in those columns from 6
-* renames the columns by removing "_rev15" from the name because the reverse coding is complete
+* renames the columns by removing "_likert5rev" from the name because the reverse coding is complete
 
 ```{r,echo=TRUE,eval=TRUE}
 analytic_data_survey <- analytic_data_survey %>% 
-  mutate(6 - across(.cols = ends_with("_rev15")) ) %>% 
+  mutate(6 - across(.cols = ends_with("_likert5rev")) ) %>% 
   rename_with(.fn = str_remove,
-              .cols = ends_with("_rev15"),
-              pattern = "_rev15")
+              .cols = ends_with("_likert5rev"),
+              pattern = "_likert5rev")
 ```
 
 You can use the glimpse() command to see the result of your work. If you compare these new values to those obtained from the previous glimpse() command you can see they have changed. Also notice the column names no longer indicate the items are reverse keyed.
@@ -1107,7 +1111,7 @@ For each item you would use subtract values from the highest possible point (i.e
 
 Thus, the mutate command would instead be:
 
-  mutate(4 - across(.cols = ends_with("_rev15")) )
+  mutate(4 - across(.cols = ends_with("_likert5rev")) )
 ```
 
 #### Creating scores
@@ -1383,11 +1387,11 @@ The way you deal with reverse-keyed items depends on how you scored them. Imagin
 
 In this example, we scored the Likert items using the values 1 to 5. Therefore, we use the reverse keying approach for scales that being with 1. The preceding section, "Surveys: Single occasion", describes how the math differs when the response scale starts with 0. We encourage you to read that section before going further if you have not done so already.
 
-In this data file all the reverse-keyed items were identified with the suffix "_rev15" in the column names. This suffix indicates the item was reverse keyed and that the original scale used the response points 1 to 5. We can see those items with the glimpse() command below. Notice that there are two reverse-keyed items - each on difference scales.
+In this data file all the reverse-keyed items were identified with the suffix "_likert5rev" in the column names. This suffix indicates the item was reverse keyed and that the original scale used the response points 1 to 5. We can see those items with the glimpse() command below. Notice that there are two reverse-keyed items - each on difference scales.
 
 ```{r}
 analytic_data_survey %>%
-  select(ends_with("_rev15")) %>%
+  select(ends_with("_likert5rev")) %>%
   glimpse()
 ```
 
@@ -1396,16 +1400,16 @@ To correct reverse-keyed items where the lowest possible rating is 1 (i.e, 1 on 
 
 The code below:
 
-* selects columns that end with "_rev15" (i.e., both esteem and jobsat scales)
+* selects columns that end with "_likert5rev" (i.e., both esteem and jobsat scales)
 * subtracts the values in those columns from 6
-* renames the columns by removing "_rev15" from the name because the reverse coding is complete
+* renames the columns by removing "_likert5rev" from the name because the reverse coding is complete
 
 ```{r,echo=TRUE,eval=TRUE}
 analytic_data_occasions <- analytic_data_occasions %>% 
-  mutate(6 - across(.cols = ends_with("_rev15")) ) %>% 
+  mutate(6 - across(.cols = ends_with("_likert5rev")) ) %>% 
   rename_with(.fn = str_remove,
-              .cols = ends_with("_rev15"),
-              pattern = "_rev15")
+              .cols = ends_with("_likert5rev"),
+              pattern = "_likert5rev")
 ```
 
 You can use the glimpse() command to see the result of your work. If you compare these new values to those obtained from the previous glimpse() command you can see they have changed. Also notice the column names no longer indicate the items are reverse keyed.

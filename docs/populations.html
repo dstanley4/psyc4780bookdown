@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Populations | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Populations | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-03-16" />
+<meta name="date" content="2021-08-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -66,6 +66,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -124,6 +125,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -981,7 +1005,7 @@ FIGURE 3.6: The three scenarios in this figure illustrate that a Standardized Me
 </div>
 <div id="comparison-benchmarks" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> Comparison Benchmarks</h2>
-<p>Regardless of how the standardized mean difference (i.e., <span class="math inline">\(\delta\)</span>-value) is calculated, Cohen suggested that the values of 0.20, 0.50, and 0.80 correspond to the effect size labels of small, medium, and large, respectively <span class="citation">(<a href="references.html#ref-cohen1988" role="doc-biblioref">Cohen 1988</a>)</span>. These effect sizes are illustrated in Figure <a href="populations.html#fig:dex4">3.7</a>. As described in an interesting <a href="https://replicationindex.com/2015/09/22/the-statistical-power-of-abnormal-social-psychological-research-a-revew-by-jacob-cohen/">blog post</a>, these benchmark values came from reviewing a single issue of the <em>Journal of Abnormal and Social Psychology</em>. Basing benchmarks on such a small number of studies is potentially problematic - as is the fact that the that time all the studies were prone to publication bias. A recent investigation <span class="citation">(see <a href="references.html#ref-schafer2019meaningfulness" role="doc-biblioref">Schäfer and Schwarz 2019</a>)</span> of effect sizes in pre-registered studies, with no publication bias, suggests substantially lower benchmark values.</p>
+<p>Regardless of how the standardized mean difference (i.e., <span class="math inline">\(\delta\)</span>-value) is calculated, Cohen suggested that the values of 0.20, 0.50, and 0.80 correspond to the effect size labels of small, medium, and large, respectively <span class="citation">(<a href="#ref-cohen1988" role="doc-biblioref">Cohen 1988</a>)</span>. These effect sizes are illustrated in Figure <a href="populations.html#fig:dex4">3.7</a>. As described in an interesting <a href="https://replicationindex.com/2015/09/22/the-statistical-power-of-abnormal-social-psychological-research-a-revew-by-jacob-cohen/">blog post</a>, these benchmark values came from reviewing a single issue of the <em>Journal of Abnormal and Social Psychology</em>. Basing benchmarks on such a small number of studies is potentially problematic - as is the fact that the that time all the studies were prone to publication bias. A recent investigation <span class="citation">(see <a href="#ref-schafer2019meaningfulness" role="doc-biblioref">Schäfer and Schwarz 2019</a>)</span> of effect sizes in pre-registered studies, with no publication bias, suggests substantially lower benchmark values.</p>
 <div class="figure"><span id="fig:dex4"></span>
 <img src="ch_populations/images/dvalue_ex4.png" alt="Cohen's (1988) effect size benchmarks" width="100%" />
 <p class="caption">
@@ -1016,7 +1040,7 @@ FIGURE 3.7: Cohen’s (1988) effect size benchmarks
 <div id="population-relations" class="section level2" number="3.9">
 <h2><span class="header-section-number">3.9</span> Population relations</h2>
 <p>Often researchers are interested in the extent to which one variable is related to another variable. For example, to what extent does variability in weight relate to variability in height? In other words, is there a relation between weight and height? One approach to this question to calculate a regression equation relating weight to height - this provides an index of the relation in the original units of the variables. Here we focus on a second approach to describing the relation between variable, namely, the correlation. The correlation is standardized effect size for the <em>linear</em> relation between two variables.</p>
-<p>A population correlation is represented by the symbol <span class="math inline">\(\rho\)</span> (pronounced rho) and calculated using Formula <a href="populations.html#eq:poprho4">(3.7)</a> below. The correlation may range from -1.00 to 1.00. A strong negative correlation indicates that as one variable increases the other decreases. A positive correlation indicates that as one variable increases the other increases. There are at least thirteen ways to conceptualize a correlations <span class="citation">(see <a href="references.html#ref-lee1988thirteen" role="doc-biblioref">Lee Rodgers and Nicewander 1988</a>)</span> but it’s easiest to think of it as an index of the extent to which the variables covary in a linear way.</p>
+<p>A population correlation is represented by the symbol <span class="math inline">\(\rho\)</span> (pronounced rho) and calculated using Formula <a href="populations.html#eq:poprho4">(3.7)</a> below. The correlation may range from -1.00 to 1.00. A strong negative correlation indicates that as one variable increases the other decreases. A positive correlation indicates that as one variable increases the other increases. There are at least thirteen ways to conceptualize a correlations <span class="citation">(see <a href="#ref-lee1988thirteen" role="doc-biblioref">Lee Rodgers and Nicewander 1988</a>)</span> but it’s easiest to think of it as an index of the extent to which the variables covary in a linear way.</p>
 <p><span class="math display" id="eq:poprho4">\[\begin{equation} 
 \rho =  \frac{\Sigma (X - \mu_X)(Y - \mu_Y)}{\sqrt{\Sigma (X - \mu_X)^2\Sigma (Y - \mu_Y)^2}}
       \tag{3.7}
@@ -1104,6 +1128,18 @@ FIGURE 3.9: Populations of various strengths.
 
 </div>
 </div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-cohen1988" class="csl-entry">
+Cohen, Jacob. 1988. <em>Statistical Power Analysis for the Behavioral Sciences</em>. Academic press.
+</div>
+<div id="ref-lee1988thirteen" class="csl-entry">
+Lee Rodgers, Joseph, and W Alan Nicewander. 1988. <span>“Thirteen Ways to Look at the Correlation Coefficient.”</span> <em>The American Statistician</em> 42 (1): 59–66.
+</div>
+<div id="ref-schafer2019meaningfulness" class="csl-entry">
+Schäfer, Thomas, and Marcus A Schwarz. 2019. <span>“The Meaningfulness of Effect Sizes in Psychological Research: Differences Between Sub-Disciplines and the Impact of Potential Biases.”</span> <em>Frontiers in Psychology</em> 10: 813. <a href="https://doi.org/10.3389/fpsyg.2019.00813">https://doi.org/10.3389/fpsyg.2019.00813</a>.
+</div>
+</div>
             </section>
 
           </div>
@@ -1133,6 +1169,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
