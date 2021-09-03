@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 21 Deep Dive: Sampling Distributions [DRAFT] | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 21 Deep Dive: Sampling Distributions [DRAFT] | Welcome!" />
   <meta property="og:type" content="book" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="references.html"/>
 
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -763,7 +763,7 @@ div.csl-indent {
 <p>Now imagine that we are interested in studying the random sampling process. Specifically we are interested in examining the variability in sample means that occurs when taking random samples of students from the population of people (see Figure <a href="deep-dive-sampling-distributions-draft.html#fig:chdeepfigure1">21.1</a>). Indeed, imagine that we obtained a sample of <span class="math inline">\(n\)</span> = 5 students and calculated a sample mean (<span class="math inline">\(\bar{x}\)</span>). Then we repeated this sampling process an infinite number of times such that we have an infinite number of sample means. This set of an <strong>infinite number of sample means</strong> is conceptually illustrated in Figure <a href="deep-dive-sampling-distributions-draft.html#fig:chdeepfigure1">21.1</a>B and we refer to it as the <em>sampling distribution of the mean</em>. Moreover, <strong>because we sampled from a single population</strong> the variability in sample means is due only to the <strong>random sampling error</strong> that occurs when the sample size is 5 (<span class="math inline">\(n = 5\)</span>) and the population variance is 156.3236 (i.e., <span class="math inline">\(\sigma_{people}^2 =156.3236\)</span>).</p>
 <p><br />
 </p>
-<div class="figure"><span id="fig:chdeepfigure1"></span>
+<div class="figure"><span style="display:block;" id="fig:chdeepfigure1"></span>
 <img src="ch_deep_sampling/images/figure1.png" alt="The distributions of people and the sample means can both be considered populations." width="60%" />
 <p class="caption">
 FIGURE 21.1: The distributions of people and the sample means can both be considered populations.
@@ -1372,6 +1372,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }

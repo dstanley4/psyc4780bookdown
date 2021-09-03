@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Sampling Accuracy | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Sampling Accuracy | Welcome!" />
   <meta property="og:type" content="book" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="populations.html"/>
 <link rel="next" href="sampling-precision.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -832,7 +832,7 @@ div.csl-indent {
       \tag{5.3}
 \end{equation}\]</span></p>
 <p>If the mean of the sample means, <span class="math inline">\(\bar{\bar{x}}\)</span>, equals the population mean, <span class="math inline">\(\mu\)</span>, then the sample mean is an unbiased (or accurate) estimate of the population mean. Figure <a href="sampling-accuracy.html#fig:showbias">5.1</a> illustrates the concept of accuracy/bias with a distribution of sample means (i.e., <span class="math inline">\(\bar{x}\)</span>). Accuracy/bias is an index of the extent to which the mean of many sample means, <span class="math inline">\(\bar{\bar{x}}\)</span>, deviates from the population mean, <span class="math inline">\(\mu\)</span>.</p>
-<div class="figure"><span id="fig:showbias"></span>
+<div class="figure"><span style="display:block;" id="fig:showbias"></span>
 <img src="ch_samples/images/sampling_accuracy.png" alt="Sampling accuracy and precision" width="80%" />
 <p class="caption">
 FIGURE 5.1: Sampling accuracy and precision
@@ -861,7 +861,7 @@ FIGURE 5.1: Sampling accuracy and precision
 ## 10    10    10        168.        263.           292. 
 ## # … with 49,990 more rows</code></pre>
 <p>Each row of many_samples represents a sample of 10 people. Each column of many_samples indicates a sample statistic. You can see that for each sample/row we indicate “n” (the sample size) and “sample_mean” (the mean of the population), and a few other statistics. Even though all the samples came from the same population you can see how the values in the sample_mean column vary across samples/rows.</p>
-<div class="figure"><span id="fig:bothdist"></span>
+<div class="figure"><span style="display:block;" id="fig:bothdist"></span>
 <img src="ch_samples/images/sampling_dist.png" alt="Sampling distribution of the mean. The population of individuals is presented at the top and filled with X's to remind you they are individuals. There are more individuals than X's. The sampling distribution of means is presented in the bottom part of the graph. The sampling distribution of means is filled with $\bar{x}$'s to remind you that it is sample means being graphed. There are more means than $\bar{x}$'s. The population mean (green line) and the mean of sample means (blue line) are in the same spot, indicating high accuracy (i.e., no bias)." width="80%" />
 <p class="caption">
 FIGURE 5.2: Sampling distribution of the mean. The population of individuals is presented at the top and filled with X’s to remind you they are individuals. There are more individuals than X’s. The sampling distribution of means is presented in the bottom part of the graph. The sampling distribution of means is filled with <span class="math inline">\(\bar{x}\)</span>’s to remind you that it is sample means being graphed. There are more means than <span class="math inline">\(\bar{x}\)</span>’s. The population mean (green line) and the mean of sample means (blue line) are in the same spot, indicating high accuracy (i.e., no bias).
@@ -980,7 +980,7 @@ s = \sqrt{\frac{\sum{(x - \bar{x})^2}}{n-1}}
 &amp;= 1.49 \\
 \end{aligned} 
 \]</span></p>
-<div class="figure"><span id="fig:sexpop"></span>
+<div class="figure"><span style="display:block;" id="fig:sexpop"></span>
 <img src="ch_samples/images/sex_pops.png" alt="Illustration of the standardized mean difference of 1.49 for male and female heights. The solid black vertical line indicates the mean for males; whereas the dotted vertical line indicates the mean for females." width="95%" />
 <p class="caption">
 FIGURE 5.3: Illustration of the standardized mean difference of 1.49 for male and female heights. The solid black vertical line indicates the mean for males; whereas the dotted vertical line indicates the mean for females.
@@ -1020,20 +1020,20 @@ s_{females} &amp;= 8.2 \\
 <p>How do we resolve this situation of having two sample-level standard deviations? The first step is to switch to thinking in terms of variance rather than standard deviation. Due to the way the math works, life becomes very complicated, very quickly, if we continue to think in terms of standard deviations. Therefore, we reframe the problem into a variance problem. Variances are preferable to standard deviations because we can add and subtract variances - but not standard deviations.</p>
 <p>We have a sample variance for males (92.2) and a sample variance for females (66.8). We view each of these sample variances as an estimate of the respective population variances (see Figure <a href="sampling-accuracy.html#fig:pool1">5.4</a>). That is, the male sample variance is an estimate of the male population variance. Likewise, the female sample variance is an estimate of the female population variance. However, we also <strong>assume</strong> that the population variances for males and females are the same. Consequently, the male sample variance and the female sample variance are both estimates of the same value (see Figure <a href="sampling-accuracy.html#fig:pool2">5.5</a>). Because the two sample variances are estimates of the same population variance, we can (when the sample sizes are equal) calculate a new variance by averaging them together. This new variance, the average of the sample variances, provides us with a better estimate of the single population variance. The logic behind this approach is similar to averaging two measurements of the same distance to reduce error. We call this new variance pooled variance; and represent it with the symbol <span class="math inline">\(s_{pooled}^2\)</span>.</p>
 <div style="page-break-after: always;"></div>
-<div class="figure"><span id="fig:pool1"></span>
+<div class="figure"><span style="display:block;" id="fig:pool1"></span>
 <img src="ch_samples/images/pool1.png" alt="Estimating population variances with sample variances. The male sample variance (n-1) is an estimate of male population variance. Likewise, the female sample variance (n-1) is an estimate of the female population variance. " width="80%" />
 <p class="caption">
 FIGURE 5.4: Estimating population variances with sample variances. The male sample variance (n-1) is an estimate of male population variance. Likewise, the female sample variance (n-1) is an estimate of the female population variance.
 </p>
 </div>
-<div class="figure"><span id="fig:pool2"></span>
+<div class="figure"><span style="display:block;" id="fig:pool2"></span>
 <img src="ch_samples/images/pool2.png" alt="Two estimates of a single population variance. We assume the population variances are the same. Therefore, the male and female sample variances are both estimates of the same population variance." width="80%" />
 <p class="caption">
 FIGURE 5.5: Two estimates of a single population variance. We assume the population variances are the same. Therefore, the male and female sample variances are both estimates of the same population variance.
 </p>
 </div>
 <div style="page-break-after: always;"></div>
-<div class="figure"><span id="fig:pool3"></span>
+<div class="figure"><span style="display:block;" id="fig:pool3"></span>
 <img src="ch_samples/images/pool3.png" alt="Pooled variance from the samples estimates population variance. The population variance is estimated by averaging two sample variances into a single estimate called pooled variance ($s_{pooled}^2$). When sample sizes are equal, the pooled variance is just the regular/simple average of the two sample variances (both using n-1 in the denominator). When the sample sizes are unequal (i.e., different numbers of males and females), however, we need to use a more sophisticated averaging formula to obtain the pooled variance." width="80%" />
 <p class="caption">
 FIGURE 5.6: Pooled variance from the samples estimates population variance. The population variance is estimated by averaging two sample variances into a single estimate called pooled variance (<span class="math inline">\(s_{pooled}^2\)</span>). When sample sizes are equal, the pooled variance is just the regular/simple average of the two sample variances (both using n-1 in the denominator). When the sample sizes are unequal (i.e., different numbers of males and females), however, we need to use a more sophisticated averaging formula to obtain the pooled variance.
@@ -1147,7 +1147,7 @@ d_{unbiased}  &amp;= d \times [1 - \frac{3}{4(n_{males} + n_{females})-9}] \\
 <div id="illustrating-variability" class="section level3" number="5.7.4">
 <h3><span class="header-section-number">5.7.4</span> Illustrating variability</h3>
 <p>An inspection of the first few rows of the many_samples data, above, illustrates that many of the <span class="math inline">\(d_{unbiased}\)</span> values differed from the population-level standardized mean difference of <span class="math inline">\(\delta = 1.49\)</span>. We can see the variability in sample-level <span class="math inline">\(d_{unbiased}\)</span> values in the histogram below.</p>
-<div class="figure"><span id="fig:ddist"></span>
+<div class="figure"><span style="display:block;" id="fig:ddist"></span>
 <img src="ch_samples/images/d_dist.png" alt="Histogram of $d_{unbiased}$ when $\delta = 1.49$" width="95%" />
 <p class="caption">
 FIGURE 5.7: Histogram of <span class="math inline">\(d_{unbiased}\)</span> when <span class="math inline">\(\delta = 1.49\)</span>
@@ -1244,7 +1244,7 @@ r =  \frac{\Sigma (x - \bar{x})(y - \bar{y})}{\sqrt{\Sigma (x - \bar{x})^2\Sigma
 ##    &lt;dbl&gt;
 ## 1  0.497</code></pre>
 <p>You can see that the mean of the sample-level correlations is <span class="math inline">\(\bar{r} = .497\)</span> which is very close to the population-level correlation <span class="math inline">\(\rho = .50\)</span> (.4999951 without rounding). Consequently, for practical purposes, we don’t worry about the sample correlation being a biased estimator of the population correlation. On average, sample correlation are correct - even though any single sample correlation is likely incorrect due to sampling error (i.e., the fact it is based on a small subset of the population).</p>
-<div class="figure"><span id="fig:rdistplot"></span>
+<div class="figure"><span style="display:block;" id="fig:rdistplot"></span>
 <img src="ch_samples/images/r_sampling_dist_edit.png" alt="Correlation sampling distribution" width="70%" height="70%" />
 <p class="caption">
 FIGURE 5.8: Correlation sampling distribution
@@ -1392,6 +1392,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }
