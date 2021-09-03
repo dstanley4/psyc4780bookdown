@@ -73,7 +73,7 @@ When you first start R, the Console panel is on the left side of the screen. Som
 8 + 6 + 7 + 5
 ```
 
-We can also put the result into a variable to store it. Later we can use the print command to see that result. In the example below we add the numbers 3, 0, and 9 and store the result in the variable my_sum. The text "<-" indicate you are putting what is on the right side of the arrow into the variable on the left side of the arrow. You can think of a variable as cup into which you can put different things. In this case, imagine a real-world cup with my_sum written on the outside and inside the cup we have stored the sum of 3, 0, and 9 (i.e., 12).
+We can also put the result into a variable to store it. Later we can use the print command to see that result. In the example below we add the numbers 3, 0, and 9 and store the result in the variable my_sum. The text "<-" indicate you are putting what is on the right side of the arrow into the variable on the left side of the arrow. You can think of a variable as a cup into which you can put different things. In this case, imagine a real-world cup with my_sum written on the outside and inside the cup we have stored the sum of 3, 0, and 9 (i.e., 12).
 
 ```{r}
 my_sum <- 3 + 0 + 9
@@ -86,16 +86,19 @@ We can inspect the contents of the my_sum variable (i.e., my_sum cup) with the p
 print(my_sum)
 ```
 
-Variable are very useful in R. We will use them to store a single number, an entire data set, 
+Variables are very useful in R. We will use them to store a single number, an entire data set, 
 the results of an analysis, or anything else.
 
 ### Script Panel
 
-Although you can use R with just with the Console panel, it's a better idea to use scripts via the Script panel - not visible yet. Scripts are just text files with the commands you use stored in them. You can run a script (as you will see below) using the Run or Source buttons located in the top right of the Script panel. 
+Although you can use R with just with the Console panel, it's a better idea to use scripts via the Script panel - not visible yet. Scripts are just text files that contain R commands that you run as a batch. You can run a script (as you will see below) using the Run or Source buttons located in the top right of the Script panel. 
 
 Scripts are valuable because if you need to run an analysis a second time you don't have to type the command in a second time. You can run the script again and again without retyping your commands. More importantly though, the script provides a record of your analyses. 
 
 A common problem in science is that after an article is published, the authors can't reproduce the numbers in the paper. You can read more about the important problem in a surprising article in the journal [Molecular Brain](https://molecularbrain.biomedcentral.com/articles/10.1186/s13041-020-0552-2). In this article an editor reports how a request for the data underlying articles resulted in the wrong data for 40 out of 41 papers. Long story short -- keep track of the data and scripts you use for your paper. In a later chapter, it's generally poor practice to manipulate or modify or analyze your data using any menu driven software because this approach does not provide a record of what you have done.
+
+### Cheatsheets
+As you learn R and RStudio you should be aware there are a number of [cheatsheets](https://www.rstudio.com/resources/cheatsheets/) available. There is even one for the [RStudio interface](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
 
 ## Writing your first script
 
@@ -124,24 +127,25 @@ A good way to start every script is with a comment that includes the date of you
 # By: John Smith
 ```
 
-Moving forward, I suggest you use comments to make your own personal notes in your own code as your write it. Note that in the above comment I used the internationally accepted date format\index{date format} order Year/Month/Day created by the [International Organization for Standardization](https://www.iso.org/home.html) (ISO). Some people use the mnemonic *You're My Dream* to remember the **Y**ear **M**onth **D**ay order. Wikipedia provides more information about this [International Date Format (ISO 8601)](https://en.wikipedia.org/wiki/ISO_8601). An [XKCD](https://xkcd.com/1179/) cartoon highlights the ISO date format:
+Moving forward, I suggest you use comments to make your own personal notes in your own code as you write it. Note that in the above comment I used the internationally accepted date format\index{date format} order Year/Month/Day created by the [International Organization for Standardization](https://www.iso.org/home.html) (ISO). Some people use the mnemonic *You're My Dream* to remember the **Y**ear **M**onth **D**ay order. Wikipedia provides more information about this [International Date Format (ISO 8601)](https://en.wikipedia.org/wiki/ISO_8601). An [XKCD](https://xkcd.com/1179/) cartoon highlights the ISO date format:
 
 ```{r, echo = FALSE, out.width="40%"}
 knitr::include_graphics("ch_introduction/images/iso8601.png")
+# test
 ```
 
 ### Background about the tidyverse
 
-There are generally two broad ways of using R, the older way and the newer way. Using R the older way is referred to as using base R. A more modern approach to using R is the tidyverse\index{tidyverse}. The tidyverse represents a collection of packages the work together to give R a modern workflow. These packages do many things to help the data analyst (loading data, rearranging data, graphing, etc.). We will use the tidyverse approach to R in this guide.
+There are generally two broad ways of using R, the older way and the newer way. Using R the older way is referred to as using base R. A more modern approach to using R is the tidyverse\index{tidyverse}. The tidyverse represents a collection of packages that work together to give R a modern workflow. These packages do many things to help the data analyst (loading data, rearranging data, graphing, etc.). We will use the tidyverse approach to R in this guide.
 
-A noted the tidyverse is a collection of packages. Each package adds new commands to R. The number of packages and correspondingly the number of new commands added to R by the tidyverse is large. Below is a list of the tidyverse packages:
+As noted, the tidyverse is a collection of packages. Each package adds new commands to R. The number of packages and correspondingly the number of new commands added to R by the tidyverse is large. Below is a list of the tidyverse packages:
 
 ```{r, echo = FALSE}
 tidyverse::tidyverse_packages(include_self = TRUE)
 ```
 
 
-Before you can use a package it needs to be installed -- this is the same as downloading an app from the App Store. Normally, you can install a **single** packages with the install.packages command. Previously, you needed run an install.package command for every package in the tidyverse as illustrated below (though we no longer use this approach).
+Before you can use a package it needs to be installed -- this is the same as downloading an app from the App Store. Normally, you can install a **single** package with the install.packages command. Previously, you needed to run an install.package command for every package in the tidyverse as illustrated below (though we no longer use this approach).
 
 ```{r, eval=FALSE}
 # The old way of installing the tidyverse packages
@@ -153,7 +157,7 @@ install.packages("ggplot", dep = TRUE)
 # etc
 ```
 
-Fortunately, the tidyverse packages can now by installed with a single install.packages command. Specifically, the install.packages command below will install all of the packages listed above.
+Fortunately, the tidyverse packages can now be installed with a single install.packages command. Specifically, the install.packages command below will install all of the packages listed above.
 
 **Class note: For the "First Lab", I've done the install.packages for you. So there is no need to use the install.packages command below in this first lab.**
 
@@ -173,7 +177,7 @@ library(tidyverse)
 
 ### Activate tidyverse auto-complete for your script
 
-Select the library(tidyverse) text with your mouse/track-pad so that it is highlighted. Then click the Run button in the upper right of the Script panel. Doing this "runs" the selected text. After you click the Run button you should see text like the following the Console panel:
+Select the library(tidyverse) text with your mouse/track-pad so that it is highlighted. Then click the Run button in the upper right of the Script panel. Doing this "runs" the selected text. After you click the Run button you should see text like the following in the Console panel:
 
 ```{r, echo = FALSE, eval = TRUE}
 library(tidyverse)
@@ -189,11 +193,11 @@ Most importantly, running the library(tidyverse) prior to entering the rest of y
 
 ### Use read_csv (not read.csv) to open files. 
 
-If you inspect the Files pane on the right of the screen you see the  **data_okcupid.csv** data file in our project directory. We will load this data with the commands below. If you followed the steps above, you should have auto-complete for the tidyverse commands you type for now in -- in the current R session. Enter the command below into your script. As your start to type read_csv you will likely be presented with an auto-complete option. You can use the arrow keys to move up and down the list of options to select the one you want - then press tab to select it.
+If you inspect the Files pane on the right of the screen you see the  **data_okcupid.csv** data file in our project directory. We will load this data with the commands below. If you followed the steps above, you should have auto-complete for the tidyverse commands you type from now on -- in the current R session. Enter the command below into your script. As your start to type read_csv you will likely be presented with an auto-complete option. You can use the arrow keys to move up and down the list of options to select the one you want - then press tab to select it.
 
 Once your command looks like the one below select the text and click on the "Run" button.
 
-Note: If you are not in the class, the data file is available from: https://github.com/dstanley4/psyc4780bookdown
+Note: If you are not in the class, the data file is available here: [data_okcupid.csv](data_okcupid.csv)
 
 
 ```{r firstread}
@@ -216,7 +220,7 @@ view(okcupid_profiles)
 ```
 
 
-### print(): See you data in the Console
+### print(): See your data in the Console
 You can inspect the first few rows of your data with the print() command. It is OK to add a print command to your script. Try the print() command below in the Console:
 
 ```{r}
@@ -253,9 +257,9 @@ tail(okcupid_profiles, 3)
 
 ### summary(): Quick summaries
 
-You can a short summary of your data with the summary() command. Note that we will use the summary() command in many places in the guide. The output of the summary() command changes depending on what you give it - that is put inside the brackets. You can give the summary() command many things such as data, the results of a regression analysis, etc.
+You can create a short summary of your data with the summary() command. Note that we will use the summary() command in many places in the guide. The output of the summary() command changes depending on what you give it - that is put inside the brackets. You can give the summary() command many things such as data, the results of a regression analysis, etc.
 
-Try the command below in the Console. You will see that summary() give the mean and median for each of the numeric variables (age and height).
+Try the command below in the Console. You will see that summary() gives the mean and median for each of the numeric variables (age and height).
 
 ```{r}
 summary(okcupid_profiles)
@@ -295,14 +299,15 @@ Source (without Echo) is not designed for the typical analysis workflow. It is m
 
 The Source with Echo command runs all of the contents of a script and presents the output in the R console. This is the approach you should use to running your scripts in most cases.
 
-Prior to running Source with Echo (or just Source), it's always a good idea to restart R. This makes sure you clear the computer memory of any errors from any previous runs. 
+Prior to running Source with Echo (or just Source), it's always a good idea do do two things: 1) Save your script. 2) Use the menu item: *Session > Restart R*. This makes sure you clear the computer memory of any errors from any previous runs. 
 
 So you should do the following EVERY time you run your script.
 
-1.  Use the menu item: **Session > Restart R**
-2.  Click the down arrow beside the Source button, and click on Source With Echo
+1.  Save your script
+2.  Use the menu item: **Session > Restart R**
+3.  Click the down arrow beside the Source button, and click on Source With Echo
 
-This will clear potentially problematic previous stats, run the script commands, and display the output in the Console.  Moving forward we will use this approach for running scripts. Once you have used Source with Echo once, you can just click the Source button and it will use Source with Echo automatically (without the need to use the pull down option for selecting Source with Echo).
+This will clear potentially problematic previous stats and variables from memory, run the script commands, and display the output in the Console.  Moving forward we will use this approach for running scripts. Once you have used Source with Echo once, you can just click the Source button and it will use Source with Echo automatically (without the need to use the pull down option for selecting Source with Echo).
 
 
 ```{block2, type='rmdcaution'}
@@ -412,7 +417,7 @@ print(my_list$office_number)
 
 ## Revisiting read_csv()
 
-In the text above we learned about vectors of characters. This information can be used handle missing values in the read_csv() command. Consider a data set where for many participants we did not get a response to a question. We might have that represented in various ways within the data file. The value for that question might simply be omitted (i.e., represented by nothing -- ""), represented by NA for not available, or maybe simply be something like -777. 
+In the text above we learned about vectors of characters. This information can be used to handle missing values in the read_csv() command. Consider a data set where for many participants we did not get a response to a question. We might have that represented in various ways within the data file. The value for that question might simply be omitted (i.e., represented by nothing -- ""), represented by NA for not available, or maybe simply be something like -777. 
 
 When we load data with read_csv() we can indicate to the computer how missing values are represented. This ensures the computer sees something like -777 as a missing value rather than an actual value. We do so in the read_csv() command below using the **na** argument (not available). Note: use SHIFT-RETURN or SHIFT-ENTER to move the next line within the read_csv() command. Failure to indicate the missing value codes within read_csv() will result in incorrect answers in most scenarios with missing data.
 

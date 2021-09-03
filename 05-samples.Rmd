@@ -487,9 +487,34 @@ s_{pooled}  &= \sqrt{79.5} \\
 \end{aligned} 
 $$
 
+```{block2, type='rmdcaution'}
+AN ASIDE ON POOLING. Variance pooling is an extraordinarily important part of statistics - we see it used in many topics. To prepare you for that future learning, examine the more general version of the variance pooling equation below. Go through each line of the math below to see how the pooling formula used above is only a specific case of the more general formula below. No really do it - don't skip this task! Actually take a minute to understand the general version of the pooling formula below. You'll thank me in future weeks. This is foundational knowledge.
+In the math below we use a = 2 to indicate there are two sample variances being pooled.
+
+$$
+\begin{aligned}
+s_{pooled}^2 &= \frac{\sum_{i=1}^{a}(n_i-1)(s_i^2)}{\sum_{i=1}^{a}(n_i-1)} \\
+&= \frac{(n_1-1)s_1^2 + (n_2 -1)s_2^2}{(n_1-1)+(n_2-1)} \\
+&= \frac{(n_1-1)s_1^2 + (n_2 -1)s_2^2}{(n_1+n_2-2)} \\
+&= \frac{(n_{male} -1)s_{male}^2 + (n_{female} -1)s_{female}^2}{n_{male} + n_{female}-2} \\
+\end{aligned}\\
+$$
+
+Also note the simplification of the general formula below when the sample sizes ($n_i$) are all the same. In particular notice how we express the denominator when the sample sizes are the same. This will become relevant when we get to ANOVA. Recall a = 2 to indicate there are two sample variances.
+
+$$
+\begin{aligned}
+s_{pooled}^2 &= \frac{\sum_{i=1}^{a}(n_i-1)(s_i^2)}{\sum_{i=1}^{a}(n_i-1)} \\
+&= \frac{(n-1)s_1^2 + (n-1)s_2^2}{a(n-1)} \\
+\end{aligned}\\
+$$
+```
+
+
+
 ### Calculating $d$
 
-Now that we have the pooled standard deviation, $s_{pooled}$, we can calculate the standardized mean difference. We do so below using unbiased formula, Formula \@ref(eq:samplesmdunbiasedch5) below.
+Recall that in the above we calculated the pooled standard deviation, $s_{pooled} = 8.9$. Using this value we can calculate the standardized mean difference. We do so below using unbiased formula, Formula \@ref(eq:samplesmdunbiasedch5) below.
 
 $$
 \begin{aligned}

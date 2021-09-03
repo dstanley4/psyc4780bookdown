@@ -1,17 +1,29 @@
 # Handling Data with the Tidyverse
 
+A key component of doing statistics in the modern world is managing/wrangling or cleaning data to make it ready for analysis. Indeed, some estimate that those who do data science spend 80% of their time engaged in cleaning data. Although this specific percentage [may not be accurate](https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/) it does accurately reflect the fact that data scientists do spend a substantial portion of their time preparing data for analysis. Many complain about this fact but as [Leigh Dodds](https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/) points out "I would argue that spending time working with data. To transform, explore and understand it better is absolutely what data scientists should be doing. This is the medium they are working in."
+
+In this chapter we focus on teaching you foundational skills for data preparation. The skills taught in the this chapter large revolve around using the tidyverse packages to manage data that will eventually help with data cleaning in the [Workflow](https://dstanley4.github.io/psyc6060bookdown/an-emphasis-on-workflow.html) and [Qualtrics](https://dstanley4.github.io/psyc6060bookdown/qualtrics.html) chapters. There are some additional resources you may want to consult as you learn these tidyverse skills:
+
+* [R for Data Science book](https://r4ds.had.co.nz). This is an excellent free online book! But it does reflect an exploratory analysis mindset compared to the confirmatory mindset we typically use in Psychological science.
+
+* You may find a [cheatsheet](https://www.rstudio.com/resources/cheatsheets/) helpful. Specifically, the [Data Transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) cheatsheet. 
+
+* [tidyverse website](https://www.tidyverse.org) 
+
+
+
 ```{r, include=FALSE}
 library(tidyverse)
 ```
 
 ## Required
 
-The data files below are used in this chapter. The files are available at: https://github.com/dstanley4/psyc4780bookdown
+The data files below are used in this chapter. Right click to save each file.
 
 | Required Data |
 |-------------------|
-|data_okcupid.csv   |
-|data_experiment.csv   |
+|[data_okcupid.csv](data_okcupid.csv)   |
+|[data_experiment.csv](data_experiment.csv)|
 
 
 The following CRAN packages must be installed:
@@ -19,8 +31,20 @@ The following CRAN packages must be installed:
 | Required CRAN Packages |
 |-------------------|
 |tidyverse          |
+|remotes            |
+
+The following GitHub package must be installed:
+
+| Required GitHub Packages |
+|--------------------------|
+|spielmanlab/introverse |
 
 
+After the remotes package is installed, it can be used to install the introverse package from GitHub (an alternative "App Store"). If you get asked if you would like to install more recent versions of packages on your machine press "1" and Return to indicate "All" (if you are asked, you may not be).
+
+```{r, eval = FALSE}
+remotes::install_github("spielmanlab/introverse")
+```
 
 ## Objective
 
@@ -31,10 +55,44 @@ The objective of this chapter is to familiarize you with some key commands in th
 
 All of the commands in this chapter should be typed into the Console within R. If you see a command split over multiple lines, use SHIFT-RETURN (macOS) or SHIFT-ENTER (Windows) to move the next line that is part of the same command. 
 
+## Tidyverse help with the Introverse
+
+The **introverse** package is just additional documentation that is helpful for beginners - until you learn to read the standard R documentation. The first command we will use in this chapter is the **read_csv()** command. You get get the standard R help for this command using the code below in the R Console:
+
+```{r, eval = FALSE}
+library(tidyverse) # this actives the tidyverse commands
+?read_csv
+```
+
+This gives you help that looks like this:
+
+```{r, echo=FALSE, out.width="70%"}
+knitr::include_graphics("ch_tidy_intro/images/screenshot_R_help.png")
+```
+
+But you can obtain the better introverse documentation by typing the code below in the R Console:
+
+```{r, eval = FALSE}
+library(introverse) # this actives the intoverse help
+get_help("read_csv")
+```
+
+
+This gives you help that looks like this:
+
+
+```{r, echo=FALSE, out.width="70%"}
+knitr::include_graphics("ch_tidy_intro/images/screenshot_introverse_help.png")
+```
+
+
+Most importantly, when you scroll down on the introverse help pages - it gives you code examples that are easy to follow. If at any point during this course you want more information about how a command works use the introverse get_help() command. 
+
+The get_help() command is especially valuable because it tells you which package (of the many tidyverse packages) a particular command comes from. For example, you can see the read_csv() command is from the readr package when you inspect the introverse help above.
 
 ## Basic tidyverse commands
 
-If you inspect the Files tab on the lower-right panel in R Studio you will see the file data_okcupid.csv. The code below loads that file.
+If you inspect the Files tab on the lower-right panel in R Studio you will see the file data_okcupid.csv. The code below loads that file. Recall you should tpe this code into the R Console.
 
 ```{r, eval = FALSE}
 library(tidyverse)
