@@ -2,7 +2,7 @@
 
 A key component of doing statistics in the modern world is managing/wrangling or cleaning data to make it ready for analysis. Indeed, some estimate that those who do data science spend 80% of their time engaged in cleaning data. Although this specific percentage [may not be accurate](https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/) it does accurately reflect the fact that data scientists do spend a substantial portion of their time preparing data for analysis. Many complain about this fact but as [Leigh Dodds](https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/) points out "I would argue that spending time working with data. To transform, explore and understand it better is absolutely what data scientists should be doing. This is the medium they are working in."
 
-In this chapter we focus on teaching you foundational skills for data preparation. The skills taught in the this chapter large revolve around using the tidyverse packages to manage data that will eventually help with data cleaning in the [Workflow](https://dstanley4.github.io/psyc6060bookdown/an-emphasis-on-workflow.html) and [Qualtrics](https://dstanley4.github.io/psyc6060bookdown/qualtrics.html) chapters. There are some additional resources you may want to consult as you learn these tidyverse skills:
+In this chapter we focus on teaching you foundational skills for data preparation. The skills taught in this chapter largely revolve around using the tidyverse packages to manage data that will eventually help with data cleaning in the [Workflow](https://dstanley4.github.io/psyc6060bookdown/an-emphasis-on-workflow.html) and [Qualtrics](https://dstanley4.github.io/psyc6060bookdown/qualtrics.html) chapters. There are some additional resources you may want to consult as you learn these tidyverse skills:
 
 * [R for Data Science book](https://r4ds.had.co.nz). This is an excellent free online book! But it does reflect an exploratory analysis mindset compared to the confirmatory mindset we typically use in Psychological science.
 
@@ -57,7 +57,7 @@ All of the commands in this chapter should be typed into the Console within R. I
 
 ## Tidyverse help with the Introverse
 
-The **introverse** package is just additional documentation that is helpful for beginners - until you learn to read the standard R documentation. The first command we will use in this chapter is the **read_csv()** command. You get get the standard R help for this command using the code below in the R Console:
+The **introverse** package is just additional documentation that is helpful for beginners - until you learn to read the standard R documentation. The first command we will use in this chapter is the **read_csv()** command. You get the standard R help for this command using the code below in the R Console:
 
 ```{r, eval = FALSE}
 library(tidyverse) # this actives the tidyverse commands
@@ -92,7 +92,7 @@ The get_help() command is especially valuable because it tells you which package
 
 ## Basic tidyverse commands
 
-If you inspect the Files tab on the lower-right panel in R Studio you will see the file data_okcupid.csv. The code below loads that file. Recall you should tpe this code into the R Console.
+If you inspect the Files tab on the lower-right panel in R Studio you will see the file data_okcupid.csv. The code below loads that file. Recall you should type this code into the R Console.
 
 ```{r, eval = FALSE}
 library(tidyverse)
@@ -362,7 +362,7 @@ You can learn about regex at [RegexOne](https://regexone.com) and test your rege
 
 #### select() using column type
 
-If many cases we will want to select or perform an action on a column based on whether the column is a numeric, character, or factor column (indicated in glimpse output as dbl, chr, and fct, respectively).  We will learn more about factors later in this chapter. Each of these column types can be selected by using is.numeric, is.character, or is.factor, respectively, in combination with the where() command.
+In many cases we will want to select or perform an action on a column based on whether the column is a numeric, character, or factor column (indicated in glimpse output as dbl, chr, and fct, respectively).  We will learn more about factors later in this chapter. Each of these column types can be selected by using is.numeric, is.character, or is.factor, respectively, in combination with the where() command.
 
 We can select numeric columns using where() and is.numeric:
 
@@ -391,7 +391,7 @@ You can see the new data contains only the character columns:
 glimpse(data_character_columns)
 ```
 
-If a future chapter you will see how we can select factors using where(is.factor).
+In a future chapter you will see how we can select factors using where(is.factor).
 
 
 ### summarise()
@@ -557,7 +557,7 @@ An inspection of the glimpse() command output reveals that the sex column has th
 glimpse(data_exp)
 ```
 
-We need to convert the sex column to a factor in order for R to handle it appropriately in analyses. Failure to indicate the column is a factor could result in R conducting all the analyses and presenting incorrect results. Consequently, it is critical that we covert the column to a factor. Fortunately, that is easily done using the as_factor() command (there is also an as.factor command if as_factor won't work for some reason).
+We need to convert the sex column to a factor in order for R to handle it appropriately in analyses. Failure to indicate the column is a factor column could result in R conducting all the analyses and presenting incorrect results. Consequently, it is critical that we covert the column to a factor. Fortunately, that is easily done using the as_factor() command (there is also an as.factor command if as_factor won't work for some reason).
 
 We convert the sex column to a factor with this code:
 
@@ -593,7 +593,7 @@ library(tidyverse)
 
 Examine the page that appears on the Help tab in the panel in the lower right of your screen. Read through the help file comparing what you read there to what we have learned about the select command. Notice how the help file tells you about the argument that you sent into the select() command, and also what the select() command returns when it receives those commands. Pay particular attention to the examples near the bottom of the help page. At the very bottom of the help page you will see [Package dplyr version 1.0.0 Index]. This tells you the select() command is from the dplyr package (part of the tidyverse). Notice that the word "Index" is underlined. Click on the word Index. You will be presented with list of other commands in the dplyr package.
 
-As you become more experienced with R help pages, this is how you will learn to use new commands. Examine the help pages for the commands below by typing a question mark into the Console followed by the command name. Note that for filter and starts_with you will be presented with a menu instead of help page. This typically occurs because the command is in more than one package. If this does occur, read through the options you are presented with to try and figure out which one you wanted. Typically, you want the first option. If you're not sure, try one. IF it's not what you want, use the back arrow in the Help panel to go back and pick another one.
+As you become more experienced with R help pages, this is how you will learn to use new commands. Examine the help pages for the commands below by typing a question mark into the Console followed by the command name. Note that for filter and starts_with you will be presented with a menu instead of help page. This typically occurs because the command is in more than one package. If this does occur, read through the options you are presented with to try and figure out which one you wanted. Typically, you want the first option. If you're not sure, try one. If it's not what you want, use the back arrow in the Help panel to go back and pick another one.
 
 * mutate
 * filter

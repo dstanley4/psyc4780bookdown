@@ -18,7 +18,7 @@ options(width = 60)
 app_store <- readr::read_csv("data_app_store_analogy.csv", col_type = readr::cols())
 knitr::kable(
   head(app_store), caption = 'R packages are similar to smart phone apps (Kim, 2018)',
-  booktabs = TRUE
+  booktabs = TRUE, 
 )
 ```
 

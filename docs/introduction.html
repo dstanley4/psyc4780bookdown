@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introduction | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introduction | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-03" />
+<meta name="date" content="2021-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="about-the-author.html"/>
 <link rel="next" href="handling-data-with-the-tidyverse.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -725,7 +725,7 @@ div.csl-indent {
 <caption><span id="tab:appstore">TABLE 1.1: </span>R packages are similar to smart phone apps (Kim, 2018)</caption>
 <colgroup>
 <col width="35%" />
-<col width="64%" />
+<col width="65%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -744,7 +744,7 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td align="left">Download App from App Store</td>
-<td align="left">install.packages(“apaTables,” dependencies = TRUE)</td>
+<td align="left">install.packages(“apaTables” , dependencies = TRUE)</td>
 </tr>
 <tr class="even">
 <td align="left">Open App</td>
@@ -765,7 +765,7 @@ div.csl-indent {
 <li><p>Go to your university email account and find the message with the subject “R Studio Workspace Invitation.” In this message there is a link to the class R Studio Cloud workspace.</p></li>
 <li><p>Click on the workspace link in the email or paste it into your web browser. You should see a screen like the one below in Figure <a href="introduction.html#fig:join">1.1</a>. Click on the Join button.</p></li>
 </ol>
-<div class="figure"><span style="display:block;" id="fig:join"></span>
+<div class="figure"><span id="fig:join"></span>
 <img src="ch_introduction/images/screenshot_join.png" alt="Screenshot of workspace join message" width="70%" />
 <p class="caption">
 FIGURE 1.1: Screenshot of workspace join message
@@ -774,7 +774,7 @@ FIGURE 1.1: Screenshot of workspace join message
 <ol start="4" style="list-style-type: decimal">
 <li>Then you should see the welcome message illustrated in Figure <a href="introduction.html#fig:welcome">1.2</a>. Above this message is the Projects menu option. Click on the word Project.</li>
 </ol>
-<div class="figure"><span style="display:block;" id="fig:welcome"></span>
+<div class="figure"><span id="fig:welcome"></span>
 <img src="ch_introduction/images/screenshot_welcome.png" alt="Screenshot of welcome message" width="70%" />
 <p class="caption">
 FIGURE 1.2: Screenshot of welcome message
@@ -783,7 +783,7 @@ FIGURE 1.2: Screenshot of welcome message
 <ol start="5" style="list-style-type: decimal">
 <li>You should now see the First Project displayed as in <a href="introduction.html#fig:assignment">1.3</a>. Click the Start button. You will then move to a view of R Studio.</li>
 </ol>
-<div class="figure"><span style="display:block;" id="fig:assignment"></span>
+<div class="figure"><span id="fig:assignment"></span>
 <img src="ch_introduction/images/screenshot_assignment.png" alt="Screenshot of starting first assignment" width="70%" />
 <p class="caption">
 FIGURE 1.3: Screenshot of starting first assignment
@@ -796,7 +796,7 @@ FIGURE 1.3: Screenshot of starting first assignment
 <div id="exploring-the-r-studio-interface" class="section level2" number="1.5">
 <h2><span class="header-section-number">1.5</span> Exploring the R Studio Interface</h2>
 <p>Once you have opened (or created) a Project folder, you are presented with the R Studio interface. There are a few key elements to the user interface that are illustrated in Figure <a href="introduction.html#fig:interface">1.4</a> In the lower right of the screen you can see the a panel with several tabs (i.e., Files, Plots, Packages, etc) that I will refer to as the Files pane. You look in this pane to see all the files associated with your project. On the left side of the screen is the Console which is an interactive pane where you type and obtain results in real time. I’ve placed two large grey blocks on the screen with text to more clearly identify the Console and Files panes. Not shown in this figure is the Script panel where we can store our commands for later reuse.</p>
-<div class="figure"><span style="display:block;" id="fig:interface"></span>
+<div class="figure"><span id="fig:interface"></span>
 <img src="ch_introduction/images/screenshot_interface.png" alt="R Studio interface" width="70%" />
 <p class="caption">
 FIGURE 1.4: R Studio interface
@@ -882,9 +882,9 @@ the results of an analysis, or anything else.</p>
 <p>Select the library(tidyverse) text with your mouse/track-pad so that it is highlighted. Then click the Run button in the upper right of the Script panel. Doing this “runs” the selected text. After you click the Run button you should see text like the following in the Console panel:</p>
 <pre><code>## ── Attaching packages ─────────────────── tidyverse 1.3.1 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
 ## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.0     ✓ forcats 0.5.1</code></pre>
+## ✓ readr   2.0.1     ✓ forcats 0.5.1</code></pre>
 <pre><code>## ── Conflicts ────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
@@ -1017,7 +1017,7 @@ the results of an analysis, or anything else.</p>
 <li>Script: Source With Echo</li>
 </ol>
 <p>Two of these approaches involve using the Source button, see Figure <a href="introduction.html#fig:sourcebutton">1.5</a>. You bring up the options for the Source button, illustrated in this figure, by clicking on the small arrow to the right of the word Source.</p>
-<div class="figure"><span style="display:block;" id="fig:sourcebutton"></span>
+<div class="figure"><span id="fig:sourcebutton"></span>
 <img src="ch_introduction/images/screenshot_source.png" alt="Source button options" width="35%" />
 <p class="caption">
 FIGURE 1.5: Source button options
@@ -1238,10 +1238,6 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
-"search": {
-"engine": "lunr",
-"options": null
-},
 "toc": {
 "collapse": "none"
 }

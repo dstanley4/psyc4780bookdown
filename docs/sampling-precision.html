@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Sampling Precision | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Sampling Precision | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-03" />
+<meta name="date" content="2021-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="sampling-accuracy.html"/>
 <link rel="next" href="an-emphasis-on-workflow.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -717,7 +717,7 @@ div.csl-indent {
 <h2><span class="header-section-number">6.1</span> Overview</h2>
 <p>In the previous chapter we focused on examining the extent to which we could estimate a population parameter from a statistic in an unbiased manner. That is, we focused on the fact that, due to sampling error, a sample estimate (i.e., a statistic) of a population parameter will likely be wrong. Sample statistics may overestimate, or underestimate, a population parameter - often substantially. Consequently, we learned to think about the accuracy of sample statistics. More specifically, we learned to think about accuracy not in terms of a single study, but rather in terms of whether sample statistics correctly estimate the population parameter on average over many studies (as illustrated in Figure <a href="sampling-precision.html#fig:showbias2">6.1</a>). When the average of many sample statistics (e.g., sample means) equals the population parameter (e.g., population mean) there is no bias and the sample statistic can be considered accurate (on average).</p>
 <p>In this chapter, we assume there is no bias and that sample means are, on average, accurate. In doing so, we focus now on the precision of sample means as estimates of the population mean, see Figure <a href="sampling-precision.html#fig:showbias2">6.1</a>. That is, assuming no bias, when you conduct a single study you know the sample mean will differ from the population mean due to sampling error. You might wonder, how much does my sample mean differ from the population mean? That’s the question we address in this chapter. When we conduct a single study we can’t know how much that particular sample mean differs from the population mean, but we can estimate the extent to which sample means differ from the population mean in general. We focus on two indices of precision – variance of sample mean and standard error of sample means. By the end of the chapter you will understand how to a) conceptualize these indices with respect to a large number of samples/studies and b) estimate them for a single study.</p>
-<div class="figure"><span style="display:block;" id="fig:showbias2"></span>
+<div class="figure"><span id="fig:showbias2"></span>
 <img src="ch_samples_precision/images/sampling_accuracy.png" alt="Sampling accuracy and precision" width="80%" />
 <p class="caption">
 FIGURE 6.1: Sampling accuracy and precision
@@ -797,7 +797,7 @@ FIGURE 6.1: Sampling accuracy and precision
 ##      &lt;dbl&gt;    &lt;dbl&gt;
 ## 1     156.     189.</code></pre>
 <p>The 50000 means in the sample_mean column form a <strong>sampling distribution</strong>; specifically, the sampling distribution of the mean. It’s critical to distinguish between a) the distribution of the sample means and b) the distribution of population heights. Examine Figure <a href="sampling-precision.html#fig:bothdist2">6.2</a> below. The top part of this figure illustrates the variability in the heights for the 100,000 people (represented by X’s). There are more people than X’s; the X’s are a reminder it is a distribution of people’s heights. The bottom part of this figure illustrates the variability in sample means - each based on 10 people. Each sample mean is an estimate of the mean height of the population (172.5 cm). There are more sample means than <span class="math inline">\(\bar{x}\)</span>’s; the <span class="math inline">\(\bar{x}\)</span>’s are a reminder it is a distribution of sample means. When we describe how precisely sample means estimate the mean height for the population we are referring to the width of this distribution of means.</p>
-<div class="figure"><span style="display:block;" id="fig:bothdist2"></span>
+<div class="figure"><span id="fig:bothdist2"></span>
 <img src="ch_samples_precision/images/sampling_dist.png" alt="Sampling distribution of the mean. The population of individual height's is presented at the top and filled with X's to remind you they are individuals. There are more individuals than X's. The sampling distribution of means is presented in the bottom part of the graph. The sampling distribution of means is filled with $\bar{x}$'s to remind you that sample means are being graphed. There are more means than $\bar{x}$'s. The population mean (green line) and the mean of sample means (blue line) are in the same spot, indicating high accuracy (i.e., no bias)." width="80%" />
 <p class="caption">
 FIGURE 6.2: Sampling distribution of the mean. The population of individual height’s is presented at the top and filled with X’s to remind you they are individuals. There are more individuals than X’s. The sampling distribution of means is presented in the bottom part of the graph. The sampling distribution of means is filled with <span class="math inline">\(\bar{x}\)</span>’s to remind you that sample means are being graphed. There are more means than <span class="math inline">\(\bar{x}\)</span>’s. The population mean (green line) and the mean of sample means (blue line) are in the same spot, indicating high accuracy (i.e., no bias).
@@ -958,7 +958,7 @@ s_{\bar{x}} &amp;= \sqrt{\frac{s^2}{n}} \\
 \end{aligned} 
 \]</span></p>
 <p>We also show in Figure <a href="sampling-precision.html#fig:threedist">6.3</a> the difference that increasing the sample size makes. The larger the sample size the less sample means vary due to sampling error. A larger sample size means a more precise estimate of the population parameter.</p>
-<div class="figure"><span style="display:block;" id="fig:threedist"></span>
+<div class="figure"><span id="fig:threedist"></span>
 <img src="ch_samples_precision/images/sampling_mdist.png" alt="Two sampling distributions illustrating variability in sample means based on sample size. The top graph show the variance of individual's heights in the population. The graph is filled with X's to remind you it is a graph of individuals. There are more individuals than X's. The bottom two graphs show variability in sample means due to random sampling. Each of the lower two graphs is a sampling distribution for a given sample size. Each sampling distribution contains 50000 sample means. Each sample mean is the average of the heights of individuals in a sample. The sampling distributions are filled with $\bar{x}$'s to remind you that it is sample means being graphed. There are more means than $\bar{x}$'s. You can see that by using a larger sample size ($n = 50$, for 50000 samples) there is less variability in sample means than when using a smaller sample size ($n = 10$), for 50000 samples." width="80%" />
 <p class="caption">
 FIGURE 6.3: Two sampling distributions illustrating variability in sample means based on sample size. The top graph show the variance of individual’s heights in the population. The graph is filled with X’s to remind you it is a graph of individuals. There are more individuals than X’s. The bottom two graphs show variability in sample means due to random sampling. Each of the lower two graphs is a sampling distribution for a given sample size. Each sampling distribution contains 50000 sample means. Each sample mean is the average of the heights of individuals in a sample. The sampling distributions are filled with <span class="math inline">\(\bar{x}\)</span>’s to remind you that it is sample means being graphed. There are more means than <span class="math inline">\(\bar{x}\)</span>’s. You can see that by using a larger sample size (<span class="math inline">\(n = 50\)</span>, for 50000 samples) there is less variability in sample means than when using a smaller sample size (<span class="math inline">\(n = 10\)</span>), for 50000 samples.
@@ -982,7 +982,7 @@ FIGURE 6.3: Two sampling distributions illustrating variability in sample means 
 <p>We investigated the extent to which study-level <span class="math inline">\(d_{unbiased}\)</span> values differ from the population <span class="math inline">\(\delta\)</span> = 1.49 when using 100 people per group for the comparison (i.e., 100 males, 100 females).
 You can see in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>C that in this scenario the precision of the sample estimates (<span class="math inline">\(d_{unbiased}\)</span>) of the population parameter (<span class="math inline">\(\delta\)</span>) still vary considerably - but substantially less than they did when it was 10 per group. With a 100 people per group, the <span class="math inline">\(d_{unbiased}\)</span> values range from 0.91 to 2.21. For the lower end of this range, 0.91, a researcher would conclude that the mean for males is .91 standard deviations higher than the mean for females. At the upper end of this range, 2.21, a researcher would conclude that the mean for males is 2.21 standard deviations higher than the mean for females. The variability in <span class="math inline">\(d_{unbiased}\)</span> values is still large - but at least the conclusions are a) all in the same direction, and b) would all be considered large (i.e, above 0.80) according to Cohen’s standards.</p>
 <p>These simulations illustrate a few important points. First, drawing any conclusion from a single study is problematic. The findings for a single study may differ substantially from the population parameter. Second, increasing sample size increases the precision with which a sample statistic estimates a population parameter. Third, drawing conclusions from small sample size studies (e.g., <span class="math inline">\(n\)</span> = 10 per group) is extraordinarily problematic. Finally, we note that single studies (even with small sample size) are useful because they serve as data points for a future meta-analysis.</p>
-<div class="figure"><span style="display:block;" id="fig:ddistributions"></span>
+<div class="figure"><span id="fig:ddistributions"></span>
 <img src="ch_samples_precision/images/d_distribs2.png" alt="Sampling distribution for $d_{unbiased}$" width="80%" />
 <p class="caption">
 FIGURE 6.4: Sampling distribution for <span class="math inline">\(d_{unbiased}\)</span>
@@ -994,7 +994,7 @@ FIGURE 6.4: Sampling distribution for <span class="math inline">\(d_{unbiased}\)
 <h3><span class="header-section-number">6.10.2</span> Population effect size (<span class="math inline">\(\delta\)</span>)</h3>
 <p>The precision with which sample <span class="math inline">\(d\)</span>-values estimate the population standardized mean difference is influenced by the magnitude of the population standardized mean difference. This situation differs sharply from that of sample means. The magnitude of the population mean does not influence the shape of the distribution of sample means. The distribution of sample means is normal - regardless of whether the population mean is high or low.</p>
 <p>In contrast, the shape of the the sampling distribution of <span class="math inline">\(d\)</span>-values changes depending on the magnitude of the population effect (i.e., <span class="math inline">\(\delta\)</span>). In Figure <a href="sampling-precision.html#fig:dvalueskew">6.5</a> we illustrate two scenarios. Both scenarios are based on a repeated measures design. For each scenario we created a population-level difference and then obtained 50000 sample <span class="math inline">\(d\)</span>-values. The sample size, <span class="math inline">\(n\)</span> = 10 for each <span class="math inline">\(d\)</span>-value, was held constant across the two scenarios. In contrast, the population standardized mean difference was different across the two scenarios. In Figure <a href="sampling-precision.html#fig:dvalueskew">6.5</a>A the population standardized mean difference was <span class="math inline">\(\delta\)</span> = 0.50. In contrast, in Figure <a href="sampling-precision.html#fig:dvalueskew">6.5</a>B the population standardized mean difference was <span class="math inline">\(\delta\)</span> = 2.00. Compare the shape of the distributions of <span class="math inline">\(d\)</span>-values in Figure <a href="sampling-precision.html#fig:dvalueskew">6.5</a>A and Figure <a href="sampling-precision.html#fig:dvalueskew">6.5</a>B. You can see how the shape changes when the population level effect size changes. Consequently, the size of the population standardized mean difference influences the precision with which sample <span class="math inline">\(d\)</span>-values estimate the population level effect (<span class="math inline">\(\delta\)</span>).</p>
-<div class="figure"><span style="display:block;" id="fig:dvalueskew"></span>
+<div class="figure"><span id="fig:dvalueskew"></span>
 <img src="ch_samples_precision/images/d_sampling_dist_delta_vary.png" alt="d-value skew graphs" width="80%" />
 <p class="caption">
 FIGURE 6.5: d-value skew graphs
@@ -1015,7 +1015,7 @@ FIGURE 6.5: d-value skew graphs
 <div id="sample-size-1" class="section level3" number="6.11.1">
 <h3><span class="header-section-number">6.11.1</span> Sample size</h3>
 <p>Consider a situation where the population-level relation between two variables is <span class="math inline">\(\rho = .30\)</span>. For example, when looking at 300000 people the correlation between weight and height is .30. Then consider two scenarios where we sample from the population. In Scenario 1, we use a sample size of 50 people. We take 50000 samples (each comprised of 50 people) and calculate for each sample the correlation (<span class="math inline">\(r\)</span>). The distribution of these sample correlations for Scenario 1 are presented in Figure <a href="sampling-precision.html#fig:rvaluen">6.6</a>A. In Scenario 2, we use a sample size of 500 people (ten times more per sample). We take 50000 samples (each comprised of 500 people) and calculate for each sample the correlation (<span class="math inline">\(r\)</span>). The distribution of these sample correlations for Scenario 2 are presented in Figure <a href="sampling-precision.html#fig:rvaluen">6.6</a>B. If you contrast these two graphs you see the sampling distribution is narrower in Scenario 2 where the sample size is larger, see Figure <a href="sampling-precision.html#fig:rvaluen">6.6</a>B. This means that sampling error is less when the sample size is larger. In other words, a larger sample size results in more precise sample correlations.</p>
-<div class="figure"><span style="display:block;" id="fig:rvaluen"></span>
+<div class="figure"><span id="fig:rvaluen"></span>
 <img src="ch_samples_precision/images/r_sampling_dist_n_vary.png" alt="Correlation precision and sample size" width="80%" />
 <p class="caption">
 FIGURE 6.6: Correlation precision and sample size
@@ -1026,7 +1026,7 @@ FIGURE 6.6: Correlation precision and sample size
 <h3><span class="header-section-number">6.11.2</span> Population effect size (<span class="math inline">\(\rho\)</span>)</h3>
 <p>Consider a situation where we look at the correlation between height and weight in two different cities. Each city has 300000 people and we consider each city a population.
 In City 1 the population correlation is <span class="math inline">\(\rho = .30\)</span> whereas in City 2 the population correlation is <span class="math inline">\(\rho = .70\)</span>. For City 1, we take 50000 samples (each comprised of 50 people) and calculate for each sample the correlation (<span class="math inline">\(r\)</span>). The distribution of these sample correlations for City 1 are presented in Figure <a href="sampling-precision.html#fig:rvalueskew">6.7</a>A. We repeat the process and obtain 50000 sample correlations (each comprised of 50 people) for City 2; the distribution of these sample correlations is presented in Figure <a href="sampling-precision.html#fig:rvalueskew">6.7</a>B. If you contrast these two graphs you see the sampling distribution is narrower for City 2 where the population correlation is stronger, see Figure <a href="sampling-precision.html#fig:rvalueskew">6.7</a>B. This means that sampling error is less when the population correlation (<span class="math inline">\(\rho\)</span>) is stronger. In other words, a larger population correlation results in more precise sample correlations. Importantly, also notice how the shape of the sampling distribution varies across the two effect-size scenarios (Figure <a href="sampling-precision.html#fig:rvalueskew">6.7</a> A vs B).</p>
-<div class="figure"><span style="display:block;" id="fig:rvalueskew"></span>
+<div class="figure"><span id="fig:rvalueskew"></span>
 <img src="ch_samples_precision/images/r_sampling_dist_rho_vary.png" alt="Correlation precision and effect size" width="80%" />
 <p class="caption">
 FIGURE 6.7: Correlation precision and effect size
@@ -1099,10 +1099,6 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
-"search": {
-"engine": "lunr",
-"options": null
-},
 "toc": {
 "collapse": "none"
 }

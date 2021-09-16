@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Handling Data with the Tidyverse | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Handling Data with the Tidyverse | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-03" />
+<meta name="date" content="2021-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="introduction.html"/>
 <link rel="next" href="graphing.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -714,7 +714,7 @@ div.csl-indent {
 <div id="handling-data-with-the-tidyverse" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Handling Data with the Tidyverse</h1>
 <p>A key component of doing statistics in the modern world is managing/wrangling or cleaning data to make it ready for analysis. Indeed, some estimate that those who do data science spend 80% of their time engaged in cleaning data. Although this specific percentage <a href="https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/">may not be accurate</a> it does accurately reflect the fact that data scientists do spend a substantial portion of their time preparing data for analysis. Many complain about this fact but as <a href="https://blog.ldodds.com/2020/01/31/do-data-scientists-spend-80-of-their-time-cleaning-data-turns-out-no/">Leigh Dodds</a> points out “I would argue that spending time working with data. To transform, explore and understand it better is absolutely what data scientists should be doing. This is the medium they are working in.”</p>
-<p>In this chapter we focus on teaching you foundational skills for data preparation. The skills taught in the this chapter large revolve around using the tidyverse packages to manage data that will eventually help with data cleaning in the <a href="https://dstanley4.github.io/psyc6060bookdown/an-emphasis-on-workflow.html">Workflow</a> and <a href="https://dstanley4.github.io/psyc6060bookdown/qualtrics.html">Qualtrics</a> chapters. There are some additional resources you may want to consult as you learn these tidyverse skills:</p>
+<p>In this chapter we focus on teaching you foundational skills for data preparation. The skills taught in this chapter largely revolve around using the tidyverse packages to manage data that will eventually help with data cleaning in the <a href="https://dstanley4.github.io/psyc6060bookdown/an-emphasis-on-workflow.html">Workflow</a> and <a href="https://dstanley4.github.io/psyc6060bookdown/qualtrics.html">Qualtrics</a> chapters. There are some additional resources you may want to consult as you learn these tidyverse skills:</p>
 <ul>
 <li><p><a href="https://r4ds.had.co.nz">R for Data Science book</a>. This is an excellent free online book! But it does reflect an exploratory analysis mindset compared to the confirmatory mindset we typically use in Psychological science.</p></li>
 <li><p>You may find a <a href="https://www.rstudio.com/resources/cheatsheets/">cheatsheet</a> helpful. Specifically, the <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">Data Transformation</a> cheatsheet.</p></li>
@@ -780,7 +780,7 @@ div.csl-indent {
 </div>
 <div id="tidyverse-help-with-the-introverse" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Tidyverse help with the Introverse</h2>
-<p>The <strong>introverse</strong> package is just additional documentation that is helpful for beginners - until you learn to read the standard R documentation. The first command we will use in this chapter is the <strong>read_csv()</strong> command. You get get the standard R help for this command using the code below in the R Console:</p>
+<p>The <strong>introverse</strong> package is just additional documentation that is helpful for beginners - until you learn to read the standard R documentation. The first command we will use in this chapter is the <strong>read_csv()</strong> command. You get the standard R help for this command using the code below in the R Console:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="handling-data-with-the-tidyverse.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># this actives the tidyverse commands</span></span>
 <span id="cb62-2"><a href="handling-data-with-the-tidyverse.html#cb62-2" aria-hidden="true" tabindex="-1"></a>?read_csv</span></code></pre></div>
 <p>This gives you help that looks like this:</p>
@@ -795,7 +795,7 @@ div.csl-indent {
 </div>
 <div id="basic-tidyverse-commands" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Basic tidyverse commands</h2>
-<p>If you inspect the Files tab on the lower-right panel in R Studio you will see the file data_okcupid.csv. The code below loads that file. Recall you should tpe this code into the R Console.</p>
+<p>If you inspect the Files tab on the lower-right panel in R Studio you will see the file data_okcupid.csv. The code below loads that file. Recall you should type this code into the R Console.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="handling-data-with-the-tidyverse.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb64-2"><a href="handling-data-with-the-tidyverse.html#cb64-2" aria-hidden="true" tabindex="-1"></a>okcupid_profiles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
 <p>You can see the first few rows of the data using the print() command. Each row presents a person whereas each column represents a variable. If you have a large number of columns you will only see the first several columns with this approach to viewing your data.</p>
@@ -1072,7 +1072,7 @@ div.csl-indent {
 </div>
 <div id="select-using-column-type" class="section level4" number="2.6.1.2">
 <h4><span class="header-section-number">2.6.1.2</span> select() using column type</h4>
-<p>If many cases we will want to select or perform an action on a column based on whether the column is a numeric, character, or factor column (indicated in glimpse output as dbl, chr, and fct, respectively). We will learn more about factors later in this chapter. Each of these column types can be selected by using is.numeric, is.character, or is.factor, respectively, in combination with the where() command.</p>
+<p>In many cases we will want to select or perform an action on a column based on whether the column is a numeric, character, or factor column (indicated in glimpse output as dbl, chr, and fct, respectively). We will learn more about factors later in this chapter. Each of these column types can be selected by using is.numeric, is.character, or is.factor, respectively, in combination with the where() command.</p>
 <p>We can select numeric columns using where() and is.numeric:</p>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="handling-data-with-the-tidyverse.html#cb118-1" aria-hidden="true" tabindex="-1"></a>data_numeric_columns <span class="ot">&lt;-</span> data_exp <span class="sc">%&gt;%</span> </span>
 <span id="cb118-2"><a href="handling-data-with-the-tidyverse.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric))</span></code></pre></div>
@@ -1093,7 +1093,7 @@ div.csl-indent {
 <pre><code>## Rows: 6
 ## Columns: 1
 ## $ sex &lt;chr&gt; &quot;male&quot;, &quot;female&quot;, &quot;male&quot;, &quot;female&quot;, &quot;male&quot;, &quot;f…</code></pre>
-<p>If a future chapter you will see how we can select factors using where(is.factor).</p>
+<p>In a future chapter you will see how we can select factors using where(is.factor).</p>
 </div>
 </div>
 <div id="summarise-1" class="section level3" number="2.6.2">
@@ -1253,7 +1253,7 @@ div.csl-indent {
 ## $ t2_vomit      &lt;dbl&gt; 2, 1, 1, 2, 1, 2
 ## $ t2_aggression &lt;dbl&gt; -0.5, 0.5, -0.5, 0.5, -1.5, 1.5
 ## $ vomit_avg     &lt;dbl&gt; 2.5, 1.5, 0.5, 2.5, 1.5, 1.5</code></pre>
-<p>We need to convert the sex column to a factor in order for R to handle it appropriately in analyses. Failure to indicate the column is a factor could result in R conducting all the analyses and presenting incorrect results. Consequently, it is critical that we covert the column to a factor. Fortunately, that is easily done using the as_factor() command (there is also an as.factor command if as_factor won’t work for some reason).</p>
+<p>We need to convert the sex column to a factor in order for R to handle it appropriately in analyses. Failure to indicate the column is a factor column could result in R conducting all the analyses and presenting incorrect results. Consequently, it is critical that we covert the column to a factor. Fortunately, that is easily done using the as_factor() command (there is also an as.factor command if as_factor won’t work for some reason).</p>
 <p>We convert the sex column to a factor with this code:</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="handling-data-with-the-tidyverse.html#cb150-1" aria-hidden="true" tabindex="-1"></a>data_exp <span class="ot">&lt;-</span> data_exp <span class="sc">%&gt;%</span></span>
 <span id="cb150-2"><a href="handling-data-with-the-tidyverse.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as_factor</span>(sex))</span></code></pre></div>
@@ -1283,7 +1283,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="handling-data-with-the-tidyverse.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb154-2"><a href="handling-data-with-the-tidyverse.html#cb154-2" aria-hidden="true" tabindex="-1"></a>?select</span></code></pre></div>
 <p>Examine the page that appears on the Help tab in the panel in the lower right of your screen. Read through the help file comparing what you read there to what we have learned about the select command. Notice how the help file tells you about the argument that you sent into the select() command, and also what the select() command returns when it receives those commands. Pay particular attention to the examples near the bottom of the help page. At the very bottom of the help page you will see [Package dplyr version 1.0.0 Index]. This tells you the select() command is from the dplyr package (part of the tidyverse). Notice that the word “Index” is underlined. Click on the word Index. You will be presented with list of other commands in the dplyr package.</p>
-<p>As you become more experienced with R help pages, this is how you will learn to use new commands. Examine the help pages for the commands below by typing a question mark into the Console followed by the command name. Note that for filter and starts_with you will be presented with a menu instead of help page. This typically occurs because the command is in more than one package. If this does occur, read through the options you are presented with to try and figure out which one you wanted. Typically, you want the first option. If you’re not sure, try one. IF it’s not what you want, use the back arrow in the Help panel to go back and pick another one.</p>
+<p>As you become more experienced with R help pages, this is how you will learn to use new commands. Examine the help pages for the commands below by typing a question mark into the Console followed by the command name. Note that for filter and starts_with you will be presented with a menu instead of help page. This typically occurs because the command is in more than one package. If this does occur, read through the options you are presented with to try and figure out which one you wanted. Typically, you want the first option. If you’re not sure, try one. If it’s not what you want, use the back arrow in the Help panel to go back and pick another one.</p>
 <ul>
 <li>mutate</li>
 <li>filter</li>
@@ -1412,10 +1412,6 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
-"search": {
-"engine": "lunr",
-"options": null
-},
 "toc": {
 "collapse": "none"
 }

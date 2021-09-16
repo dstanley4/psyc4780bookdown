@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Positive Predictive Value | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Positive Predictive Value | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-03" />
+<meta name="date" content="2021-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="precision-and-sample-size.html"/>
 <link rel="next" href="regression-and-correlation.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -743,7 +743,7 @@ div.csl-indent {
 <h3><span class="header-section-number">13.3.1</span> Probability of an effect</h3>
 <p>When you conduct an experiment to determine if an effect exists you start off fairly confident that the effect is there - otherwise you would not invest the time and money to run the study. But some research hypotheses will be true and others will not be true. One way to think about this is by imagining 1000 hypothesis as per Figure <a href="positive-predictive-value.html#fig:ppvfig1">13.1</a>. In this figure there are 1000 squares. Each square represents an hypothesis worth testing. Just like the real world some hypotheses are true and some are false. We’ve shaded the squares to indicate which hypotheses are true or false. More specifically, we shaded 40% of the 1000 hypotheses (i.e., 600) green to indicate they are true (i.e., there is an effect). In contrast, we shaded 60% of the 1000 hypotheses (i.e., 600) yellow to indicate they are false (i.e., there is no effect).</p>
 <p>Why did we pick the percentage of hypotheses that are true in Figure <a href="positive-predictive-value.html#fig:ppvfig1">13.1</a> to be 40%? We did so because 40% could well correspond to the number of hypotheses that are true in psychology research overall. It’s difficult to assess the number of hypotheses that are true in psychology given that there is a tendency for only significant effects to be published. However, we can examine pre-registered studies to obtain an estimate of the percentage of hypotheses that are true. With pre-registration scientists register their hypotheses before they collect their data. Consequently looking at the percentage of pre-registered hypotheses that are true may be a reasonable estimate of the percentage of hypotheses that are true in general. Fortunately, a recent study examined a large set of pre-registered studies and determined that just over 40% of research hypotheses are true <span class="citation">(<a href="#ref-scheel2020excess" role="doc-biblioref">Scheel, Schijen, and Lakens 2020</a>)</span>. This finding correspondingly implies that approximately 60% of research hypotheses are false. That is, approximately 60% of studies fail to find the desired effect. We used these percentages to shade Figure <a href="positive-predictive-value.html#fig:ppvfig1">13.1</a>. More specifically, we used these numbers to indicate P(effect) = .400 and the P(no effect) = .600.</p>
-<div class="figure"><span style="display:block;" id="fig:ppvfig1"></span>
+<div class="figure"><span id="fig:ppvfig1"></span>
 <img src="ch_ppv/images/fig1.png" alt="One-thousand hypotheses represented as squares. True hypotheses are indicated by the color green. False hypotheses are indicated by the color yellow." width="90%" />
 <p class="caption">
 FIGURE 13.1: One-thousand hypotheses represented as squares. True hypotheses are indicated by the color green. False hypotheses are indicated by the color yellow.
@@ -753,7 +753,7 @@ FIGURE 13.1: One-thousand hypotheses represented as squares. True hypotheses are
 <div id="type-i-error" class="section level3" number="13.3.2">
 <h3><span class="header-section-number">13.3.2</span> Type I Error</h3>
 <p>Even when an hypothesis is false there still a chance we will obtain a significant result (i.e., <span class="math inline">\(p\)</span> &lt; .05). More specifically, we will obtain a significant result 5% of the time when the null hypothesis is true and there is no effect (i.e., <span class="math inline">\(\alpha = .05\)</span>). In terms of our example, this means that of the 600 false hypotheses, we would obtain a significant result for 30 of them (i.e., .05 * 600 = 30). These 30 false positive significance tests are illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig2">13.2</a> below.</p>
-<div class="figure"><span style="display:block;" id="fig:ppvfig2"></span>
+<div class="figure"><span id="fig:ppvfig2"></span>
 <img src="ch_ppv/images/fig2.png" alt="False positive significance tests. False hypotheses for which the researcher obtained a significant result are indicated by dark green squares." width="90%" />
 <p class="caption">
 FIGURE 13.2: False positive significance tests. False hypotheses for which the researcher obtained a significant result are indicated by dark green squares.
@@ -763,7 +763,7 @@ FIGURE 13.2: False positive significance tests. False hypotheses for which the r
 <div id="power" class="section level3" number="13.3.3">
 <h3><span class="header-section-number">13.3.3</span> Power</h3>
 <p>Unfortunately, even when an hypothesis is true we won’t always obtain a significant <em>p</em>-value. Low sample sizes in psychology are common. As a result most studies in psychology only have a 30% chance of finding an effect if there is one. That is, the typical value for statistical power in psychology is around .30. This typical statistical power level is illustrated in the context of our example in Figure <a href="positive-predictive-value.html#fig:ppvfig3">13.3</a> below. In this figure, hypotheses that were true but obtained non-significant <em>p</em>-values are indicated by red squares. In contrast, the hypotheses that were true and obtained significant <em>p</em>-values are indicated by green squares; there are 120 green squares.</p>
-<div class="figure"><span style="display:block;" id="fig:ppvfig3"></span>
+<div class="figure"><span id="fig:ppvfig3"></span>
 <img src="ch_ppv/images/fig3.png" alt="True positive signficance tests. True hypotheses for which the researcher obtained a significant result are indicated by green squares. True hypotheses for which the researcher obtained a non-significant result are indicated by red squares." width="90%" />
 <p class="caption">
 FIGURE 13.3: True positive signficance tests. True hypotheses for which the researcher obtained a significant result are indicated by green squares. True hypotheses for which the researcher obtained a non-significant result are indicated by red squares.
@@ -773,14 +773,14 @@ FIGURE 13.3: True positive signficance tests. True hypotheses for which the rese
 <div id="calculating-ppv" class="section level3" number="13.3.4">
 <h3><span class="header-section-number">13.3.4</span> Calculating PPV</h3>
 <p>You can see from the blue outline in Figure <a href="positive-predictive-value.html#fig:ppvfig4">13.4</a>, below, that there two ways to obtain a significant <em>p</em>-value. Specifically, you can obtain a significant <em>p</em>-value when the null hypothesis is true (a false positive <em>p</em>-value). As well, you can obtain a significant <em>p</em>-value when the null hypothesis is false (a true positive <em>p</em>-value). As a researcher, when we obtain a significant <em>p</em>-value we don’t know if it’s a true-positive or a false-positive. We calculate PPV to determine how likely it is there is an effect when the <em>p</em>-value is significant.</p>
-<div class="figure"><span style="display:block;" id="fig:ppvfig4"></span>
+<div class="figure"><span id="fig:ppvfig4"></span>
 <img src="ch_ppv/images/fig4.png" alt="Illustrating there are two ways to obtain a significant effect." width="90%" />
 <p class="caption">
 FIGURE 13.4: Illustrating there are two ways to obtain a significant effect.
 </p>
 </div>
 <p>As illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig5">13.5</a>, below, the positive predictive value (PPV) is simply the proportion of statistically significant hypotheses that are true positives.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ppvfig5"></span>
+<div class="figure" style="text-align: center"><span id="fig:ppvfig5"></span>
 <img src="ch_ppv/images/fig5.png" alt="Graphical illustration of the PPV formula." width="40%" />
 <p class="caption">
 FIGURE 13.5: Graphical illustration of the PPV formula.
@@ -800,7 +800,7 @@ PPV &amp;= \frac{120 }{120  + 30} \\
 <div id="formal-explanation" class="section level2" number="13.4">
 <h2><span class="header-section-number">13.4</span> Formal explanation</h2>
 <p>A more formal explanation of PPV can be made by thinking in terms of the area of square that is 1.0 units by 1.0 units. The length of each side corresponds a length of 1.0 because probabilities range from 0 to 1.0. Indeed, we can represent the probability of an hypothesis being true, P(effect), or false, P(no effect), along the right edge of the square. This is illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig6">13.6</a> below.</p>
-<div class="figure"><span style="display:block;" id="fig:ppvfig6"></span>
+<div class="figure"><span id="fig:ppvfig6"></span>
 <img src="ch_ppv/images/fig6.png" alt="Representing probabilities on a square" width="90%" />
 <p class="caption">
 FIGURE 13.6: Representing probabilities on a square
@@ -809,7 +809,7 @@ FIGURE 13.6: Representing probabilities on a square
 <div id="no-effect" class="section level3" number="13.4.1">
 <h3><span class="header-section-number">13.4.1</span> No effect</h3>
 <p>Likewise, we can indicate the probability of a Type I Error on the diagram as well. Specifically, <span class="math inline">\(\alpha = .05\)</span> is the distance, moving right to left, from the top right corner of the square. This is illustrated in Figure <a href="positive-predictive-value.html#fig:ppvfig7">13.7</a> below.</p>
-<div class="figure"><span style="display:block;" id="fig:ppvfig7"></span>
+<div class="figure"><span id="fig:ppvfig7"></span>
 <img src="ch_ppv/images/fig7.png" alt="Representing Type I Error on the square" width="90%" />
 <p class="caption">
 FIGURE 13.7: Representing Type I Error on the square
@@ -835,7 +835,7 @@ P(\text{Type I Error} \cap \text{no effect} ) &amp;= (\alpha) \cap P(\text{no ef
 <div id="effect" class="section level3" number="13.4.2">
 <h3><span class="header-section-number">13.4.2</span> Effect</h3>
 <p>So far the probability of there being an effect, P(effect), was indicated by a length (.400). Likewise, the probability of finding that effect (i.e., power) can be indicated by a length (.30) as per Figure <a href="positive-predictive-value.html#fig:ppvfig8">13.8</a> below.</p>
-<div class="figure"><span style="display:block;" id="fig:ppvfig8"></span>
+<div class="figure"><span id="fig:ppvfig8"></span>
 <img src="ch_ppv/images/fig8.png" alt="Representing power on the square" width="90%" />
 <p class="caption">
 FIGURE 13.8: Representing power on the square
@@ -889,7 +889,7 @@ PPV &amp;= \frac{(1 - \beta)(OR)}{(1 - \beta)(OR) + \alpha}\\
 <div id="touchstone" class="section level3" number="13.4.5">
 <h3><span class="header-section-number">13.4.5</span> Touchstone</h3>
 <p>You may, or may not, have noticed something familiar when we started working with the square as means of describing the numbers required for the positive predictive value calculation. Specifically, the square is very similar to the standard 2 x 2 table used to represents Type I Errors (false positives) and Type II Errors (false negatives). In Figure <a href="positive-predictive-value.html#fig:ppvfig9">13.9</a> I’ve placed a colour coded version of this table so that you can see the similarities with the calculation approach used above.</p>
-<div class="figure"><span style="display:block;" id="fig:ppvfig9"></span>
+<div class="figure"><span id="fig:ppvfig9"></span>
 <img src="ch_ppv/images/fig9.png" alt="Table illustrating conclusion errors." width="90%" />
 <p class="caption">
 FIGURE 13.9: Table illustrating conclusion errors.
@@ -1123,10 +1123,6 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
-"search": {
-"engine": "lunr",
-"options": null
-},
 "toc": {
 "collapse": "none"
 }

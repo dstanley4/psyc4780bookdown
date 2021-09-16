@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Graphing | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Graphing | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-03" />
+<meta name="date" content="2021-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="handling-data-with-the-tidyverse.html"/>
 <link rel="next" href="populations.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -869,7 +869,7 @@ div.csl-indent {
 <div id="aesthetics" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Aesthetics</h2>
 <p>Exactly how does that aesthetic, aes(), command work? What happens when we put the data and mapping in the ggplot() command instead of the specific commands such as geom_col()? When we put data and the mapping arguments in the ggplot() command we set those attributes for the entire graph. To understand this, you need to know that ggplot uses an internal data set that we will call the “black box” data set (i.e., inside the <a href="https://en.wikipedia.org/wiki/Black_box">black box</a> of ggplot). To create a graph ggplot maps/copies columns from your data set (e.g., movie_data) to an internal data set. This internal data set is then used to create the graph. Figure <a href="graphing.html#fig:showmap">3.1</a> below illustrates what is happening “inside the black box” when you create the graph using the code above.</p>
-<div class="figure"><span style="display:block;" id="fig:showmap"></span>
+<div class="figure"><span id="fig:showmap"></span>
 <img src="ch_graphing/images/mapping.png" alt="Internal data structure for ggplot" width="70%" />
 <p class="caption">
 FIGURE 3.1: Internal data structure for ggplot
@@ -888,7 +888,7 @@ FIGURE 3.1: Internal data structure for ggplot
 <span id="cb178-8"><a href="graphing.html#cb178-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb178-9"><a href="graphing.html#cb178-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_graph)</span></code></pre></div>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-110-1.png" width="65%" /></p>
-<div class="figure"><span style="display:block;" id="fig:addfill"></span>
+<div class="figure"><span id="fig:addfill"></span>
 <img src="ch_graphing/images/mapping_fill.png" alt="Adding a fill column to the internal data" width="70%" />
 <p class="caption">
 FIGURE 3.2: Adding a fill column to the internal data
@@ -1321,7 +1321,7 @@ FIGURE 3.2: Adding a fill column to the internal data
 <h2><span class="header-section-number">3.11</span> Accessible Colors</h2>
 <p>The current version of the graph is much improved from where we started at the begining of the chapter. One notable improvement was the use of the “proper” colors for the Marvel and DC studios. Although using these colors was aethetically pleasing, a major consideration is ensuring your graphs are accessible to a wide audience.</p>
 <p>Color blindness is an issue that affects approximately five percent of the population. A nuanced discussion of the different types of color blindness is beyond the scope of this chapter. We can, however, take a momement to think about every graph as being composed of two parts that work together to create the colors overall image. We can think of there being a lightness (i.e., light vs. dark) component and a hue component (e.g., magenta, yellow, etc.). Together these two components work together to create colors that we see. This distinction between lightness and hue is relevant to all images not just graphs <span class="citation">(see <a href="#ref-margulis2005photoshop" role="doc-biblioref">Margulis 2005</a>)</span>.</p>
-<div class="figure"><span style="display:block;" id="fig:colorcomparison"></span>
+<div class="figure"><span id="fig:colorcomparison"></span>
 <img src="ch_graphing/images/nocolorcomparison.png" alt="Hue removed from current graph" width="75%" />
 <p class="caption">
 FIGURE 3.3: Hue removed from current graph
@@ -1335,7 +1335,7 @@ FIGURE 3.3: Hue removed from current graph
 <p>The RColorBrewer package can be used to generate color palettes for graphs that are accessible to people with color blindness. That is, it creates sets of colors, called palettes, for which the colors vary in terms of both lightness and hue. You can see the color-blind accessible palettes, along with their respective names, by using the command below. This code produces a wide range of color-blind accessible palettes with a large number of colors in each palette - as illustrated in Figure <a href="graphing.html#fig:colorpal">3.4</a>.</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="graphing.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
 <span id="cb203-2"><a href="graphing.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>(<span class="at">n =</span> <span class="cn">NULL</span>, <span class="at">colorblindFriendly =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:colorpal"></span>
+<div class="figure"><span id="fig:colorpal"></span>
 <img src="ch_graphing/images/colors_all.png" alt="Wide range color palette (color-blind accessible)" width="70%" height="70%" />
 <p class="caption">
 FIGURE 3.4: Wide range color palette (color-blind accessible)
@@ -1346,7 +1346,7 @@ FIGURE 3.4: Wide range color palette (color-blind accessible)
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="graphing.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
 <span id="cb204-2"><a href="graphing.html#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="fu">display.brewer.all</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">colorblindFriendly =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>The above code generates the three-color palettes presented in Figure <a href="graphing.html#fig:colorspalthree">3.5</a>.</p>
-<div class="figure"><span style="display:block;" id="fig:colorspalthree"></span>
+<div class="figure"><span id="fig:colorspalthree"></span>
 <img src="ch_graphing/images/colors_3.png" alt="Narrow range color palette (color-blind accessible)" width="70%" height="70%" />
 <p class="caption">
 FIGURE 3.5: Narrow range color palette (color-blind accessible)
@@ -1386,7 +1386,7 @@ FIGURE 3.5: Narrow range color palette (color-blind accessible)
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="graphing.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">name =</span> <span class="st">&quot;Paired&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;#A6CEE3&quot; &quot;#1F78B4&quot; &quot;#B2DF8A&quot;</code></pre>
 <p>The numbers in the output correspond to values representing the three colors of the “Paired” palette, see Figure <a href="graphing.html#fig:pairedpal">3.6</a>. If we want the last two colors in the palette for our graph that means we want the colors: #1F78B4 and #B2DF8A.</p>
-<div class="figure"><span style="display:block;" id="fig:pairedpal"></span>
+<div class="figure"><span id="fig:pairedpal"></span>
 <img src="ch_graphing/images/pairedpalette.png" alt="Paired palette colors with hex numbers" width="75%" />
 <p class="caption">
 FIGURE 3.6: Paired palette colors with hex numbers
@@ -1416,7 +1416,7 @@ FIGURE 3.6: Paired palette colors with hex numbers
 <span id="cb208-21"><a href="graphing.html#cb208-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#1F78B4&quot;</span>, <span class="st">&quot;#B2DF8A&quot;</span>))</span></code></pre></div>
 <p><img src="ch_graphing/images/emoji_graph5.png" width="65%" /></p>
 <p>Now that we have used a color-blind accessible palette in the graph we can look at the graph without the hue component. In Figure <a href="graphing.html#fig:colorcomparison2">3.7</a>B, below, notice that the bars representing the two studios are easily distinguishable based on lightness alone. That is, the lightness graph in Figure <a href="graphing.html#fig:colorcomparison2">3.7</a>B demonstrates the new color-blind accessible colors vary in term of both hue and lightness - not just hue. Therefore, when hue is removed the two colors are distinguishable. This makes the graph accessible to color-blind individuals.</p>
-<div class="figure"><span style="display:block;" id="fig:colorcomparison2"></span>
+<div class="figure"><span id="fig:colorcomparison2"></span>
 <img src="ch_graphing/images/nocolorcomparison2.png" alt="Color information (i.e., hue) removed from new color-blind accessible graph" width="75%" />
 <p class="caption">
 FIGURE 3.7: Color information (i.e., hue) removed from new color-blind accessible graph
@@ -1555,10 +1555,6 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
-"search": {
-"engine": "lunr",
-"options": null
-},
 "toc": {
 "collapse": "none"
 }
