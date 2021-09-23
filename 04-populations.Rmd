@@ -4,7 +4,6 @@
 library(tidyverse)
 ```
 
-
 ## Notation
 
 In this chapter we will use summation notation. If you are not familiar with summation notation, we present a brief overview here.
@@ -37,9 +36,7 @@ $$
 \end{aligned} 
 $$
 
-
 **Calculating a mean**. The full version of the notation can be used to indicate how an average/mean is calculated.
-
 
 $$
 \begin{aligned} 
@@ -63,14 +60,13 @@ $$
 \end{aligned} 
 $$
 
-
 **Calculating squared differences**. A common task in statistics is to calculate 1) the squared difference between each person and the mean, and 2) add up those squared differences. This calculation is easily expressed with the full version of the notation.
 
 $$
 \begin{aligned} 
 \sum_{i=1}^{N}{(X_i - \bar{X})^2} &= (X_1-\bar{X})^2 + (X_2-\bar{X})^2 + (X_3-\bar{X})^2\\ 
 &= (110-110)^2 + (120-110)^2 + (100-110)^2\\
-&= (0)^2 + (10)^2 (-10)^2 \\
+&= (0)^2 + (10)^2 + (-10)^2 \\
 &= 0 + 100 + 100 \\
 &= 200
 \end{aligned} 
@@ -82,40 +78,37 @@ $$
 \begin{aligned} 
 \sum{(X - \bar{X})^2} &= (X_1-\bar{X})^2 + (X_2-\bar{X})^2 + (X_3-\bar{X})^2\\ 
 &= (110-110)^2 + (120-110)^2 + (100-110)^2\\
-&= (0)^2 + (10)^2 (-10)^2 \\
+&= (0)^2 + (10)^2 + (-10)^2 \\
 &= 0 + 100 + 100 \\
 &= 200
 \end{aligned} 
 $$
 
-
 ## Population vs samples
 
-As we move closer to conducting our own research it is critical to make a distinction between populations and samples. A population is the complete set of people/animals about which we want to make conclusions. A sample is a randomly selected subset of the population. In most scenarios it is impractical to work with an entire population and, for practical reasons, we study a subset of the population called a sample. 
+As we move closer to conducting our own research it is critical to make a distinction between populations and samples. A population is the complete set of people/animals about which we want to make conclusions. A sample is a randomly selected subset of the population. In most scenarios it is impractical to work with an entire population and, for practical reasons, we study a subset of the population called a sample.
 
-Researchers, and consumers of research, typically have little interest in making conclusions at the sample level. In general, we care about conclusions that generalize to the population but not conclusions that only apply to specific individuals in the sample. Consider the case of COVID-19. Imagine a research team creates a vaccine that they hope generates immunity to COVID-19. We care very little if the immunity only works for the specific individuals in the study. However, we care a great deal if the immunity works, or is likely to work, for all Canadians or all humans. We study samples but typically wish to make conclusions that apply to the population. Thus, even if you are an experimental researcher it's critical that you think in terms of populations and not samples. Indeed, statistical tests (such as the *t*-test) are a means of helping researchers use sample data to make conclusions at the population level. 
+Researchers, and consumers of research, typically have little interest in making conclusions at the sample level. In general, we care about conclusions that generalize to the population but not conclusions that only apply to specific individuals in the sample. Consider the case of COVID-19. Imagine a research team creates a vaccine that they hope generates immunity to COVID-19. We care very little if the immunity only works for the specific individuals in the study. However, we care a great deal if the immunity works, or is likely to work, for all Canadians or all humans. We study samples but typically wish to make conclusions that apply to the population. Thus, even if you are an experimental researcher it's critical that you think in terms of populations and not samples. Indeed, statistical tests (such as the *t*-test) are a means of helping researchers use sample data to make conclusions at the population level.
 
-In this chapter, our focus is on describing populations. When we calculate a number that summarises an attribute of all of the people/animals in the population we refer to it as a **parameter**. 
+In this chapter, our focus is on describing populations. When we calculate a number that summarises an attribute of all of the people/animals in the population we refer to it as a **parameter**.
 
 ## A small population
 
-In this section we review how to calculate three commonly used population parameters (mean, variance, and standard deviation). Populations are typically quite large but for simplicity we focus on a population composed of the weights of just three chocolate chip cookies. We refer to the three cookies as $X_1$, $X_2$, and $X_3$. The cookies have the weights of 8, 10, and 12 grams, respectively. 
+In this section we review how to calculate three commonly used population parameters (mean, variance, and standard deviation). Populations are typically quite large but for simplicity we focus on a population composed of the weights of just three chocolate chip cookies. We refer to the three cookies as $X_1$, $X_2$, and $X_3$. The cookies have the weights of 8, 10, and 12 grams, respectively.
 
 ### Mean ($\mu$)
 
-It can be helpful to create a model that describes our data. Of course, the model won’t describe every participant perfectly and each participant will differ to some extent from the model.
+It can be helpful to create a model that describes our data. Of course, the model won't describe every participant perfectly and each participant will differ to some extent from the model.
 
 **Model:** To create a model we first need data, which in this example will be the weight of three different chocolate chip cookies. As mentioned previously, the weights of the three cookies are designated by $X_1$, $X_2$, and $X_3$. A simple model for our cookie weight data is the mean. At the population level the mean is represented by the symbol $\mu$ see Formula \@ref(eq:popmeanch4) below. At the sample level a different notation is used.
 
-
+```{=tex}
 \begin{equation} 
 \mu = \frac{\sum{X}}{N}
       (\#eq:popmeanch4)
-\end{equation} 
-
-
+\end{equation}
+```
 Using that equation with values:
-
 
 $$
 \begin{aligned} 
@@ -127,14 +120,13 @@ $$
 \end{aligned} 
 $$
 
-
-We can think of the “mean cookie" as our model for our cookie weight data, see Figure \@ref(fig:meancookie). The "mean cookie" is represented by $\mu$ in equations. 
+We can think of the "mean cookie" as our model for our cookie weight data, see Figure \@ref(fig:meancookie). The "mean cookie" is represented by $\mu$ in equations.
 
 ```{r meancookie, echo=FALSE, out.width="60%", fig.cap="Variance as a fit index for the mean"}
 knitr::include_graphics("ch_populations/images/cookie.png")
 ```
 
-**Error:**  As mentioned previously, each participant (i.e., cookie) differs to some extent from our model (“mean cookie"). In general this can be conceptualized as:
+**Error:** As mentioned previously, each participant (i.e., cookie) differs to some extent from our model ("mean cookie"). In general this can be conceptualized as:
 
 $$
 \begin{aligned} 
@@ -142,7 +134,7 @@ X_i &= model + error_i \\
 \end{aligned} 
 $$
 
-More specifically, the difference between the weight of any individual cookie ($X_i$) and the model ($\mu$) is indicated by $error_i$ as shown below. 
+More specifically, the difference between the weight of any individual cookie ($X_i$) and the model ($\mu$) is indicated by $error_i$ as shown below.
 
 $$
 \begin{aligned} 
@@ -162,7 +154,6 @@ $$
 
 That is the weights of the three cookies ($X_1 = 8$, $X_2 = 10$, and $X_3 = 12$) can be conceptualized as:
 
-
 $$
 \begin{aligned} 
 X_1 &= 10 + (-2) \\
@@ -171,8 +162,7 @@ X_3 &= 10 + 2 \\
 \end{aligned} 
 $$
 
-The mean/average of the population,  $\mu = 10$, is a parameter that serves as a model for the cookie weight data. However, it’s helpful to have an index, known as variance, that indicates the extent to which the data do not correspond to the model from the model. 
-
+The mean/average of the population, $\mu = 10$, is a parameter that serves as a model for the cookie weight data. However, it's helpful to have an index, known as variance, that indicates the extent to which the data do not correspond to the model from the model.
 
 ### Variance ($\sigma^2$)
 
@@ -188,21 +178,22 @@ $$
 
 We want a number that indicates the quality of the cookie model. Specifically, we want a single number that indexes overall how the data (i.e., cookie weights) differ from the model (i.e., the mean cookie). We refer to that index as variance ($\sigma^2$).
 
-**Calculating Squared Errors.** To calculate variance ($\sigma^2$), we use the errors for the cookies -- how the cookies differ from the mean/model. The first step is to square the errors/differences Those squared numbers are referred to as the "squared differences" or "squared errors". The calculation of the squared error for each cookie weight is shown below. The squared errors (or squared differences) are 4, 0, and 4.
+**Calculating Squared Differences/Errors.** To calculate variance ($\sigma^2$), we use the errors for the cookies -- how the cookies differ from the mean/model. The first step is to square the errors/differences Those squared numbers are referred to as the "squared differences" or "squared errors". The calculation of the squared error for each cookie weight is shown below. The squared errors (or squared differences) are 4, 0, and 4.
 
-| Cookie Weight |  Model | Squared Difference/Error | 
-| ---         |  ---   |  ---             |
-| $X_1 = 8$  |  $\mu = 10$ |  $(X_1 - \mu)^2 =(8 - 10)^2= 4$ |
-| $X_2 = 10$  |  $\mu = 10$ |  $(X_2 - \mu)^2 =(10 - 10)^2= 0$ |
-| $X_3 = 12$  |  $\mu = 10$ |  $(X_3 - \mu)^2 =(12 - 10)^2= 4$ |
+| Cookie Weight | Model      | Squared Difference/Error        |
+|---------------|------------|---------------------------------|
+| $X_1 = 8$     | $\mu = 10$ | $(X_1 - \mu)^2 =(8 - 10)^2= 4$  |
+| $X_2 = 10$    | $\mu = 10$ | $(X_2 - \mu)^2 =(10 - 10)^2= 0$ |
+| $X_3 = 12$    | $\mu = 10$ | $(X_3 - \mu)^2 =(12 - 10)^2= 4$ |
 
-**Averaging Squared Errors.** To obtain variance we calculate the average of the squared errors.  At the population level the variance is represented by the symbol $\sigma^2$ see Formula \@ref(eq:popvarch4) below. In this formula, $N$ refers to the number of people in the population.  At the sample level a different notation is used.
+**Averaging Squared Errors.** To obtain variance we calculate the average of the squared errors. At the population level the variance is represented by the symbol $\sigma^2$ see Formula \@ref(eq:popvarch4) below. In this formula, $N$ refers to the number of people in the population. At the sample level a different notation is used.
 
+```{=tex}
 \begin{equation} 
 \sigma^2 = \frac{\sum{(X - \mu)^2}}{N}
       (\#eq:popvarch4)
-\end{equation} 
-
+\end{equation}
+```
 Using that equation with values:
 
 $$
@@ -210,7 +201,7 @@ $$
 \sigma^2 &= \frac{\sum{(X - \mu)^2}}{N}\\
 &= \frac{(X_1-\mu)^2 + (X_2-\mu)^2 + (X_3-\mu)^2}{N}  \\ 
 &= \frac{(8-10)^2 + (10-10)^2 + (12-10)^2}{3}\\
-&= \frac{(-2)^2 + (0)^2 (2)^2}{3} \\
+&= \frac{(-2)^2 + (0)^2 + (2)^2}{3} \\
 &= \frac{4 + 0 + 4}{3} \\
 &= \frac{8}{3} \\
 &= 2.67 grams^2 \\
@@ -231,16 +222,16 @@ It probably strikes you as an odd choice to square the difference between each d
 
 ### Standard Deviation ($\sigma$)
 
-An alternative index for how data differ from the mean/model is the standard deviation. To understand standard deviation you have to understand varince. Variance is a single number that indexes how data differ from a model. The interpretation of variance is straight forward. It is the average of the squared differences/errors between the data and the model. 
+An alternative index for how data differ from the mean/model is the standard deviation. To understand standard deviation you have to understand variance. Variance is a single number that indexes how data differ from a model. The interpretation of variance is straight forward. It is the average of the squared differences/errors between the data and the model.
 
 Standard deviation is represented by the symbol $\sigma$ and can be calculated as the square root of variance as in Formula \@ref(eq:popsdch4) below.
 
+```{=tex}
 \begin{equation} 
 \sigma = \sqrt{\frac{\sum{(X - \mu)^2}}{N}}
       (\#eq:popsdch4)
-\end{equation} 
-
-
+\end{equation}
+```
 Using that equation with values:
 
 $$
@@ -252,7 +243,7 @@ $$
 \end{aligned} 
 $$
 
-One reason that people like standard deviation is presents the difference between the data and the model in the original units (e.g., grams). This is in contrast to variance which presents the difference betweeen the data and the model in squared units (e.g., 2.67 grams$^2$).
+One reason that people like standard deviation is that it presents the difference between the data and the model in the original units (e.g., grams). This is in contrast to variance which presents the difference betweeen the data and the model in squared units (e.g., 2.67 grams$^2$).
 
 **Interpretation**. Unfortunately, although variance has a straight forward interpretation, standard deviation does not. Sometimes standard deviation is, incorrectly, described as how much data points differ on average from the mean. A quick calculation of the average difference reveals a number (1.33) that does not correspond to the standard deviation (1.63):
 
@@ -271,7 +262,6 @@ As illustrated above, standard deviation is not equal to the average of the devi
 Therefore, we encourage you to think primarily in terms of variance rather than standard deviation due to the fact the interpretation of variance is more straightforward. Additionally, variance is foundational in the language used to describe regression and analysis of variance. That said, standard deviation is used in the calculation of some standardized effect sizes - so it is important to know and understand both indices.
 
 Overall, the rules for interpreting standard deviation are similar to those for variance; but the standard deviation values are smaller than variance values. In the cookie case, if the standard deviation was zero, that would indicate that all the cookies had the same weight as the model, exactly 10 grams. To the extent that the standard deviation is larger than zero it implies the data points (i.e., cookie weights) differ from the model (i.e., the mean cookie). By implication, a larger standard deviation indicates larger differences among the observations (e.g., cookie weights). That is, when the standard deviation is small, cookie weights tend to be similar to the model -- and each other. In contrast, when the standard deviation is large, cookie weights tend to be different from the model -- and each other.
-
 
 ```{r, include = FALSE}
 library(learnSampling)
@@ -368,7 +358,6 @@ gridExtra::grid.arrange(g1, g2, g3, nrow =3)
 dev.off()
 ```
 
-
 ```{r, include = FALSE}
 library(learnSampling)
 library(tidyverse)
@@ -464,9 +453,6 @@ gridExtra::grid.arrange(g1, g2, g3, nrow =3)
 dev.off()
 
 ```
-
-
-
 
 ```{r, include = FALSE}
 library(learnSampling)
@@ -565,9 +551,6 @@ dev.off()
 
 ```
 
-
-
-
 ```{r, include = FALSE}
 library(learnSampling)
 library(tidyverse)
@@ -662,6 +645,7 @@ png(file = "ch_populations/images/dvalue_ex4.png", res = 300, width = 8*300, hei
 gridExtra::grid.arrange(g1, g2, g3, nrow =3)
 dev.off()
 ```
+
 ## Visualizing populations
 
 Populations are typically quite large in nature and it's often imposssible to pratically list all of the members of the population. Consequently, it helps to have ways to visual the entire population. In Figure \@ref(fig:popvisual3) we present three ways of visualizing a population. In all three graphs (A, B, C) in this figure the x-axis represents heights in centimeter and the y-axis is used to indicate which values on the x-axis are more common. In Figure \@ref(fig:popvisual3)A we use a large number of X's to indicate the members of the population. Because X's are also used in formulas to represent individual participants, a strength of this graph is that it reminds you that it is a graph reflecting a large number of individuals. In Figure \@ref(fig:popvisual3)B we present a standard histogram that illustrate the distribution of heights. In Figure \@ref(fig:popvisual3)C we present a density curve that illustrate the distribution of heights. All three approaches are useful for illustrating that most people have heights around 170 cm.
@@ -710,7 +694,6 @@ dev.off()
 
 ```
 
-
 ```{r popvisual3, fig.cap  = "Three ways of visualizing a population distribution", echo = FALSE, out.height="80%", out.width="80%"}
 knitr::include_graphics("ch_populations/images/popvisual.png")
 ```
@@ -719,15 +702,13 @@ knitr::include_graphics("ch_populations/images/popvisual.png")
 
 In this section we review a method of comparing two population means when the populations have the same standard deviation. To facilitate comparing two populations we use the heights of males and females, measured in centimeters, as an example. On average males are taller than females. There is, however, variability in the heights of both males and females. The variability in heights is the same for males and females even though the means differ. We illustrate these differences in a series of figures below. Each figure contains three scenarios (labeled A, B, C) in which we manipulate the mean height and variability of the populations. In each scenario the standard deviation of heights is the same for the male and female populations.
 
-
 ### Standardized units
 
 #### Individual scores
 
-Often when we compare two means we use the original metric.  In the case of the male and female heights that metric is centimeters. The original units are a useful way to convey information about the difference between two populations.
+Often when we compare two means we use the original metric. In the case of the male and female heights that metric is centimeters. The original units are a useful way to convey information about the difference between two populations.
 
 In addition to the original unit it is also possible, and sometimes desirable, to use the standardized mean difference. The word *standardized* is used to indicate that the comparison is relative to the standard deviation.
-
 
 Imagine a population of male heights ($\mu = 170$, $\sigma = 10$) from which we have obtained a single individual, Ian, whose height is 185 cm.
 
@@ -746,7 +727,7 @@ z_{Ian} &=  \frac{X_{Ian} - \mu_{males}}{\sigma_{males}}\\
 \end{aligned} 
 $$
 
-The above calculation is a ratio. Ratios are used to compare two numbers. The numerator (number on the top) is compared to the denominator (number on bottom)  through division. The resulting number tells you how much larger the numerator is than the denominator.
+The above calculation is a ratio. Ratios are used to compare two numbers. The numerator (number on the top) is compared to the denominator (number on bottom) through division. The resulting number tells you how much larger the numerator is than the denominator.
 
 In this case, the numerator is the extent to which Ian is taller than the mean height for males ($X_{Ian} - \mu_{males}$). This numerator is compared to the denominator -- which is the standard deviation for males ($\sigma_{males}$). The resulting number is 1.50 which indicates the numerator is 1.50 times larger than the denominator. In other words, Ian is 1.50 standard deviations taller than the average male. This is a standardized score for Ian's height - it expresses the difference between his height and the mean height in standard deviation units.
 
@@ -754,17 +735,16 @@ In this case, the numerator is the extent to which Ian is taller than the mean h
 
 The same approach to generating standardized scores can be applied to population means. Consider a situation where we have population of male heights ($\mu = 170$, $\sigma = 10$) and a population of female heights ($\mu = 165$, $\sigma = 10$). Notice that both populations have the same standard deviation.
 
-We can calculate a standardized value to compare these heights. This standardized value is called the standardized mean difference (SMD). Alternatively, it is also known as Cohen's $d$ which is represented at the population level with the symbol $\delta$. Calculation of the standardized mean difference is based on the premise that both populations have the same standard deviation. 
+We can calculate a standardized value to compare these heights. This standardized value is called the standardized mean difference (SMD). Alternatively, it is also known as Cohen's $d$ which is represented at the population level with the symbol $\delta$. Calculation of the standardized mean difference is based on the premise that both populations have the same standard deviation.
 
 In this calculation the numerator represents the difference between the two population means. The denominator represents the population standard deviation - which is the same for both populations see Formula \@ref(eq:popsmdch4) below.
 
-
+```{=tex}
 \begin{equation} 
 \delta =  \frac{\mu_{1} - \mu_{2}}{\sigma}
       (\#eq:popsmdch4)
-\end{equation} 
-
-
+\end{equation}
+```
 Using that equation with values:
 
 $$
@@ -780,7 +760,7 @@ The resulting division of this ratio reveals that the numerator is 0.50 times as
 
 ### Cohen's $d$ units
 
-Because the unit for the standardized mean difference is the standard deviation it can be easy to interpret if you are unfamiliar with the original units. It is usually a good idea to report the difference between populations in both the original units (cm) and standardized units ($\delta$). Figure \@ref(fig:dex1) illustrates three different population difference scenarios (A through C). The population standard deviation is held constant across the three scenarios. You can see that as the difference between the population means increases in raw units - it does the same in $\delta$ (i.e., Cohen's $d$) units. In raw units (i.e., cm), the difference between the population means for scenarios A through C are 5 cm, 10 cm, and 20 cm, respectively. In standardized units (i.e., standard deviations), the difference the between the population means for scenarios A through C are 0.50  standard deviations, 1.0 standard deviations, and 2.0 standard deviations, respectively. In other words, the population-level Cohen's $d$-values are 0.50, 1.0, and 2.0 for scenarios A through C.
+Because the unit for the standardized mean difference is the standard deviation it can be easy to interpret if you are unfamiliar with the original units. It is usually a good idea to report the difference between populations in both the original units (cm) and standardized units ($\delta$). Figure \@ref(fig:dex1) illustrates three different population difference scenarios (A through C). The population standard deviation is held constant across the three scenarios. You can see that as the difference between the population means increases in raw units - it does the same in $\delta$ (i.e., Cohen's $d$) units. In raw units (i.e., cm), the difference between the population means for scenarios A through C are 5 cm, 10 cm, and 20 cm, respectively. In standardized units (i.e., standard deviations), the difference between the population means for scenarios A through C are 0.50 standard deviations, 1.0 standard deviations, and 2.0 standard deviations, respectively. In other words, the population-level Cohen's $d$-values are 0.50, 1.0, and 2.0 for scenarios A through C.
 
 ```{r dex1, fig.scap = "Illustrating standardized mean difference", fig.cap="The difference between two population means can be expressed in the original units as indicated by $\\Delta M$. Alternatively, the difference can be expressed using a Standardized Mean Difference (SMD). The SMD index is also known as the population-level $d$-value and is represented by the symbol $\\delta$. The SMD is a way of expressing the difference between population means without using the original units. ", echo = FALSE, out.width="100%"}
 knitr::include_graphics("ch_populations/images/dvalue_ex1.png")
@@ -806,58 +786,54 @@ knitr::include_graphics("ch_populations/images/dvalue_ex3.png")
 
 The calculation of the standardized mean difference values ($\delta$-values) above assumed that the two populations had identical standard deviations. In some scenarios, you might reasonably expect the standard deviations to be different for two populations. When the **populations** being compared have different standard deviations, we can still calculate a standardized mean difference (i.e, $\delta$-value) but we need to pick one of the standard deviations to use in the formula. In many cases, it makes sense to think of one population as the frame of reference for the comparison; a "Control" population of sorts. In this case, you use the standard deviation of the control population as the reference/denominator when calculating the $\delta$-value as illustrated in Formula \@ref(eq:popsmdcontrolch4) below. Make sure you recognize we are talking about a scenario with different population standard deviations (not sample standard deviations) as the appropriate situation for this type of calculation.
 
+```{=tex}
 \begin{equation} 
 \delta =  \frac{\mu_{1} - \mu_{2}}{\sigma_{control}}
       (\#eq:popsmdcontrolch4)
-\end{equation} 
-
+\end{equation}
+```
 ## Comparisons: Repeated Measures
 
 Sometimes we measures the members of a single population twice and are interested in the change across occasions. Consider a scenario where everyone in a large population (*N* = 1000000) attempts to loose weight over a given period of time. We weigh everyone in the population at time 1 before the weight loss attempt. Then we weigh everyone in the population at time 2 after the weight loss attempt.
 
 Think of this scenario concretely with respect to how we would record this information. Imagine a large spreadsheet with 1000000 rows - each representing a person. There are two columns. The first column contains time 1 weights. The second column contains time 2 weights. We are interested in how weights changed across the times. So we create a third column, called diff, by subtracting time 1 weight from time 2 weights. That is, diff = time 2 weight - time 1 weight. The new diff column indicates how the weights for each person have changed over the diet. We can think of this single column of differences as being a population. This column is used to calculate the repeated-measures $\delta$-value. Specifically, the mean of the diff column ($bar{x}_{diff}$) and the standard deviation of the diff column ($s_{diff}$) are used in Formula \@ref(eq:popsmddiffch4) below:
 
+```{=tex}
 \begin{equation} 
 \delta =  \frac{\mu_{diff}}{\sigma_{diff}}
       (\#eq:popsmddiffch4)
-\end{equation} 
-
-
+\end{equation}
+```
 ## Comparison Benchmarks
 
-Regardless of how the standardized mean difference (i.e., $\delta$-value) is calculated, Cohen suggested that the values of 0.20, 0.50, and 0.80 correspond to the effect size labels of small, medium, and large, respectively [@cohen1988]. These effect sizes are illustrated in Figure \@ref(fig:dex4). As described in an interesting  [blog post](https://replicationindex.com/2015/09/22/the-statistical-power-of-abnormal-social-psychological-research-a-revew-by-jacob-cohen/), these benchmark values came from reviewing a single issue of the *Journal of Abnormal and Social Psychology*. Basing benchmarks on such a small number of studies is potentially problematic - as is the fact that the that time all the studies were prone to publication bias. A recent investigation [see @schafer2019meaningfulness] of effect sizes in pre-registered studies, with no publication bias, suggests substantially lower benchmark values.
-
+Regardless of how the standardized mean difference (i.e., $\delta$-value) is calculated, Cohen suggested that the values of 0.20, 0.50, and 0.80 correspond to the effect size labels of small, medium, and large, respectively [@cohen1988]. These effect sizes are illustrated in Figure \@ref(fig:dex4). As described in an interesting [blog post](https://replicationindex.com/2015/09/22/the-statistical-power-of-abnormal-social-psychological-research-a-revew-by-jacob-cohen/), these benchmark values came from reviewing a single issue of the *Journal of Abnormal and Social Psychology*. Basing benchmarks on such a small number of studies is potentially problematic - as is the fact that at that time all the studies were prone to publication bias. A recent investigation [see @schafer2019meaningfulness] of effect sizes in pre-registered studies, with no publication bias, suggests substantially lower benchmark values.
 
 ```{r dex4, fig.cap="Cohen's (1988) effect size benchmarks", echo = FALSE, out.width="100%"}
 knitr::include_graphics("ch_populations/images/dvalue_ex4.png")
 ```
 
-
 You can visualize any $\delta$ value (i.e., population $d$-value) using the rpsychologist [website](https://rpsychologist.com/d3/cohend/). This website also provides a number of interesting statistics such as the percentage of overlapping values in two populations for a given $\delta$/d value. Take a minute to use this website now.
 
 Cohen's benchmarks for standardized mean differences are displayed in the table below. These effect size labels should be interpreted with caution. The magnitude of an effect is best considered in the context of the field of research and the consequences of an effect on individuals in both the short and long run.
 
-|  Cohen (1988) Label  | Value        |
-|             :-: |  :-:         | 
-| Small           | $\delta$ = .20 |
-| Medium          | $\delta$ = .50 |
-| Large           | $\delta$ = .80 |
-
-
+| Cohen (1988) Label |     Value      |
+|:------------------:|:--------------:|
+|       Small        | $\delta$ = .20 |
+|       Medium       | $\delta$ = .50 |
+|       Large        | $\delta$ = .80 |
 
 ## Population relations
 
-Often researchers are interested in the extent to which one variable is related to another variable. For example, to what extent does variability in weight relate to variability in height? In other words, is there a relation between weight and height? One approach to this question to calculate a regression equation relating weight to height - this provides an index of the relation in the original units of the variables. Here we focus on a second approach to describing the relation between variable, namely, the correlation. The correlation is standardized effect size for the *linear* relation between two variables.
+Often researchers are interested in the extent to which one variable is related to another variable. For example, to what extent does variability in weight relate to variability in height? In other words, is there a relation between weight and height? One approach to this question is to calculate a regression equation relating weight to height - this provides an index of the relation in the original units of the variables. Here we focus on a second approach to describing the relation between variables, namely, the correlation. The correlation is standardized effect size for the *linear* relation between two variables.
 
 A population correlation is represented by the symbol $\rho$ (pronounced rho) and calculated using Formula \@ref(eq:poprho4) below. The correlation may range from -1.00 to 1.00. A strong negative correlation indicates that as one variable increases the other decreases. A positive correlation indicates that as one variable increases the other increases. There are at least thirteen ways to conceptualize a correlations [see @lee1988thirteen] but it's easiest to think of it as an index of the extent to which the variables covary in a linear way.
 
+```{=tex}
 \begin{equation} 
 \rho =  \frac{\Sigma (X - \mu_X)(Y - \mu_Y)}{\sqrt{\Sigma (X - \mu_X)^2\Sigma (Y - \mu_Y)^2}}
       (\#eq:poprho4)
-\end{equation} 
-
-
-
+\end{equation}
+```
 ```{r, include=FALSE, eval=FALSE}
 sigma = diag(2)
 mu <- c(0,0)
@@ -928,12 +904,11 @@ dev.off()
 
 ```
 
-
 Because a correlation only provides an index of a linear relation - it is important to plot the data. Weak correlations (close to zero) may indicate there is not a linear relation. But there may still be a relation between the variables - just not one that follows a straight line. Indeed, the same correlation may take many different forms. Consider the data sets from the datasauRus package presented in Figure \@ref(fig:datarex). The graphs for each data set appear quite different. Yet, the following is true for all 12 data sets:
 
-* The mean of X is 54.3 and the standard deviation is 16.8
-* The mean of Y is 47.8 and the standard deviation is 26.9
-* The correlation between X and Y is $\rho$ = -.06
+-   The mean of X is 54.3 and the standard deviation is 16.8
+-   The mean of Y is 47.8 and the standard deviation is 26.9
+-   The correlation between X and Y is $\rho$ = -.06
 
 Therefore, make sure you ALWAYS graph your data. The numbers only tell part of the story.
 
@@ -960,15 +935,13 @@ knitr::include_graphics("ch_populations/images/datarex.png")
 
 ## Relation benchmarks
 
-Plots of linear relations are presented in Figure \@ref(fig:rhoplot). The three graphs in this figure corresponds to Cohen's benchmarks for correlations (i.e., $\rho$), displayed in the table below. 
+Plots of linear relations are presented in Figure \@ref(fig:rhoplot). The three graphs in this figure corresponds to Cohen's benchmarks for correlations (i.e., $\rho$), displayed in the table below.
 
-
-|  Cohen (1988) Label  | Value        |
-|             :-: |  :-:         | 
-| Small           | $\rho$ = .10 |
-| Medium          | $\rho$ = .30 |
-| Large           | $\rho$ = .50 |
-
+| Cohen (1988) Label |    Value     |
+|:------------------:|:------------:|
+|       Small        | $\rho$ = .10 |
+|       Medium       | $\rho$ = .30 |
+|       Large        | $\rho$ = .50 |
 
 These effect size labels should be interpreted with caution. The magnitude of an effect is best considered in the context of the field of research and the consequences of an effect on individuals in both the short and long run.
 
@@ -976,48 +949,46 @@ These effect size labels should be interpreted with caution. The magnitude of an
 knitr::include_graphics("ch_populations/images/rho_example.png")
 ```
 
-
 \newpage
 
 ## Key points
 
-1. Populations are described using numbers called parameters.
+1.  Populations are described using numbers called parameters.
 
-2. Population-level parameters are often represented using Greek letter.
+2.  Population-level parameters are often represented using Greek letter.
 
-3. Commonly used parameters include mean ($\mu$ or $\bar{X}$), variance ($\sigma^2$), or standard deviation ($\sigma$).
+3.  Commonly used parameters include mean ($\mu$ or $\bar{X}$), variance ($\sigma^2$), or standard deviation ($\sigma$).
 
-4. Individual scores can be expressed in standardized units.
+4.  Individual scores can be expressed in standardized units.
 
-5. Population differences can be described in original raw units or standardized units called the standardized mean difference (SMD).
+5.  Population differences can be described in original raw units or standardized units called the standardized mean difference (SMD).
 
-6. SMD is based on the premise that the two population being compared have the same standard deviation.
+6.  SMD is based on the premise that the two populations being compared have the same standard deviation.
 
-7. SMD is a ratio that compares two numbers (the numerator and the denominator).
+7.  SMD is a ratio that compares two numbers (the numerator and the denominator).
 
-8. Make sure you understand what is represented by both the numerator and denominator in the SMD ratio.
+8.  Make sure you understand what is represented by both the numerator and denominator in the SMD ratio.
 
-9. SMD (i.e., Cohen's d) represents the number of standard deviations between two population means. Recall both populations have the same standard deviation.
+9.  SMD (i.e., Cohen's d) represents the number of standard deviations between two population means. Recall both populations have the same standard deviation.
 
 10. SMD is indicated at the population level using the Greek letter delta ($\delta$). At the sample level we tend to use the term "$d$-value" or "Cohen's $d$".
 
 ## Minor Points
 
-1. Standardized mean differences are reported with a leading zero: $\delta$ = 0.50.
+1.  Standardized mean differences are reported with a leading zero: $\delta$ = 0.50.
 
-2. Correlations are reported *without* a leading zero: $\rho$ = .30.
+2.  Correlations are reported *without* a leading zero: $\rho$ = .30.
 
-3. The difference in reporting is an APA-style issue. Values that are bounded between 0 and 1 (or between -1 and +1) are reported without a leading zero (e.g., $\rho$ and $r$). Values that are not bounded are reported with the leading zero (e.g., $\delta$ and $d$).
+3.  The difference in reporting is an APA-style issue. Values that are bounded between 0 and 1 (or between -1 and +1) are reported without a leading zero (e.g., $\rho$ and $r$). Values that are not bounded are reported with the leading zero (e.g., $\delta$ and $d$).
 
-## Self Assessment 
+## Self Assessment
 
-1. What is the difference between parameters and statistics?
+1.  What is the difference between parameters and statistics?
 
-2. Are the formulas (excluding notation differences) always the same for parameters and statistics? If not, explain why not? 
+2.  Are the formulas (excluding notation differences) always the same for parameters and statistics? If not, explain why not?
 
-3. Grade 4 students in Ontario are taller than the Grade 3 students. Specifically, $\delta$ = 0.30. How would you describe what this value means to an audience of experts at a conference? How would you describe what this values means to community members during a talk at the local public library?
+3.  Grade 4 students in Ontario are taller than the Grade 3 students. Specifically, $\delta$ = 0.30. How would you describe what this value means to an audience of experts at a conference? How would you describe what this values means to community members during a talk at the local public library?
 
-4. We reviewed three different ways of calculating a standardized mean different ($\delta$). What is the appropriate circumstance to use each formula? Describe a concrete scenario for each one.
+4.  We reviewed three different ways of calculating a standardized mean different ($\delta$). What is the appropriate circumstance to use each formula? Describe a concrete scenario for each one.
 
-5. There is a strong relation between two variables that follows and upside-down U-shape. Would you expect there to be a strong correlation between these two variables? Why or why not?
-
+5.  There is a strong relation between two variables that follows an upside-down U-shape. Would you expect there to be a strong correlation between these two variables? Why or why not?

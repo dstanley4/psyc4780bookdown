@@ -20,6 +20,9 @@ A GitHub package can be installed using the code below:
 remotes::install_github("dstanley4/learnsampling")
 ```
 
+| Required Data |
+|-------------------|
+|[data_cor_pop.csv](data_cor_pop.csv)   |
 
 ## Overview
 
@@ -606,7 +609,7 @@ r =  \frac{\Sigma (x - \bar{x})(y - \bar{y})}{\sqrt{\Sigma (x - \bar{x})^2\Sigma
 
 Sample-level correlations, $r$, often differ from the population-level correlation ($\rho$) due to sampling error. We can confirm that sample correlations are not substantially biased with a simulation. That is, we can confirm that the average of many sample correlations ($r$) roughly equals the population correlation ($\rho$) using a simulation. We say "roughly equal" because $r$ is technically a biased estimator of $\rho$ but the bias is sufficiently small that it can be ignored [@schmidt2014methods].
 
-We have the height and weight for 300000 people that comprise our population (fictious data). This data can be loaded with the command below.
+We have the height and weight for 300000 people that comprise our population (fictious data). This data can be loaded with the command below. The data can be downloaded here: [data_cor_pop.csv](data_cor_pop.csv)
 
 ```{r}
 library(tidyverse)

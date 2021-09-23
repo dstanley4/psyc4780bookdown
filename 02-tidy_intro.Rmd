@@ -219,7 +219,7 @@ okcupid_profiles %>%
             age_sd = sd(age, na.rm = TRUE))
 ```
 
-We see that for the `r dim(okcupid_males)[1]` females the mean age is `r sprintf("%1.1f",mean(okcupid_males$age))` and the standard deviation is `r sprintf("%1.1f",sd(okcupid_males$age))`.
+We see that for the `r dim(okcupid_males)[1]` males the mean age is `r sprintf("%1.1f",mean(okcupid_males$age))` and the standard deviation is `r sprintf("%1.1f",sd(okcupid_males$age))`.
 
 Likewise, we can obtain the descriptive statistics for females with only a slight modification, changing m to f in the filter command:
 
@@ -342,10 +342,10 @@ glimpse(new_data)
 
 ##### matches()
 
-It's also possible to use *regex* (regular expressiona) to select columns. Regex is a powerful way to specify search/matching requirements for text - in this case the text of column names. An explanation of regex is beyond the scope of this chapter. Nonetheless the example below uses regex to select any column with an underscore in the column name followed by any character. The result is the same as the above for the contains() command. However, the matches() command is more flexible than the contains() command and can take into account substantially more complicated situations.
+It's also possible to use *regex* (i.e., a *regular expression*) to select columns. Regex is a powerful way to specify search/matching requirements for text - in this case the text of column names. An explanation of regex is beyond the scope of this chapter. Nonetheless the example below uses regex to select any column with an underscore in the column name followed by any character. The result is the same as the above for the contains() command. However, the matches() command is more flexible than the contains() command and can take into account substantially more complicated situations.
 
 ```{r}
-data_matched<- data_exp %>% 
+data_matched <- data_exp %>% 
   select(matches("(_.)"))
 ```
 
@@ -378,7 +378,7 @@ glimpse(data_numeric_columns)
 ```
 
 
-We can select numeric columns using where() and is.character:
+We can select character (i.e., chr) columns using where() and is.character:
 
 ```{r}
 data_character_columns <- data_exp %>% 
@@ -484,7 +484,7 @@ data_exp <- data_exp %>%
 
 ```
 
-You can see via the glimpse() output that the contents of all the columns that end with "aggression" have changed. Every value in one these columns has had the column mean subtracted from it.
+You can see via the glimpse() output that the contents of all the columns that end with "aggression" have changed. Every value in each of these columns has had the column mean subtracted from it.
 
 ```{r}
 glimpse(data_exp)
@@ -528,7 +528,7 @@ data_exp %>%
 
 #### mutate() within rows using column names
 
-Sometimes it can be difficult to use one of the advanced select commands to obtain the columns you need to average across. The advanced commands like ends_with() and starts_with() can sometimes include columns you don't want. The command below is equivalent the one above, however, we explicitly name the variables we want to average across.
+Sometimes it can be difficult to use one of the advanced select commands to obtain the columns you need to average across. The advanced commands like ends_with() and starts_with() can sometimes include columns you don't want. The command below is equivalent to the one above, however, we explicitly name the variables we want to average across.
 
 ```{r}
 data_exp <- data_exp %>% 

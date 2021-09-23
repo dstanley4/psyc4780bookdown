@@ -8,7 +8,7 @@ The data files below are used in this chapter. Right click to save each file.
 
 | Required Data |
 |-------------------|
-|[data_movies.csv]([data_movies.csv)|
+|[data_movies.csv](data_movies.csv)   |
 
 The following packages CRAN must be installed:
 

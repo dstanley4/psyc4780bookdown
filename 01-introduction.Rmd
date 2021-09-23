@@ -185,7 +185,7 @@ library(tidyverse)
 
 When you use library(tidyverse) to activate the tidyverse you activate the most commonly used subset of the tidyverse packages. In the output you see checkmarks beside names of the tidyverse packages you have activated. 
 
-By activating these packages you have added new commands to R that you will use. Sometimes these packages replace older versions of commands in R. The "Conflicts" section in the output shows you where  the packages you  activated  replaced older R commands with newer R commands. You can activate the other tidyverse package by running a library command for each package -- if needed. No need to do so now.
+By activating these packages you have added new commands to R that you will use. Sometimes these packages replace older versions of commands in R. The "Conflicts" section in the output shows you where  the packages you  activated  replaced older R commands with newer R commands. You can activate the other tidyverse packages by running a library command for each package -- if needed. No need to do so now.
 
 Most importantly, running the library(tidyverse) prior to entering the rest of your script allows R Studio to present auto-complete options when typing your text. Remember to start each script with the library(tidyverse) command and then Run it so you get the autocomplete options for the rest of the commands your enter.
 
@@ -193,7 +193,7 @@ Most importantly, running the library(tidyverse) prior to entering the rest of y
 
 ### Use read_csv (not read.csv) to open files. 
 
-If you inspect the Files pane on the right of the screen you see the  **data_okcupid.csv** data file in our project directory. We will load this data with the commands below. If you followed the steps above, you should have auto-complete for the tidyverse commands you type from now on -- in the current R session. Enter the command below into your script. As your start to type read_csv you will likely be presented with an auto-complete option. You can use the arrow keys to move up and down the list of options to select the one you want - then press tab to select it.
+If you inspect the Files pane on the right of the screen you see the  **data_okcupid.csv** data file in our project directory. We will load this data with the commands below. If you followed the steps above, you should have auto-complete for the tidyverse commands you type from now on -- in the current R session. Enter the command below into your script. As you start to type read_csv you will likely be presented with an auto-complete option. You can use the arrow keys to move up and down the list of options to select the one you want - then press tab to select it.
 
 Once your command looks like the one below select the text and click on the "Run" button.
 
@@ -382,7 +382,7 @@ favourite_things <- c("copper kettles",
 print(favourite_things)
 ```
 
-As before, can obtain the second item in the vector using the following notation:
+As before, you can obtain the second item in the vector using the following notation:
 
 ```{r}
 print(favourite_things[2])
