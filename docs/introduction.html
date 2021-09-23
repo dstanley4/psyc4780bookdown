@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-16" />
+<meta name="date" content="2021-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -889,7 +889,7 @@ the results of an analysis, or anything else.</p>
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>When you use library(tidyverse) to activate the tidyverse you activate the most commonly used subset of the tidyverse packages. In the output you see checkmarks beside names of the tidyverse packages you have activated.</p>
-<p>By activating these packages you have added new commands to R that you will use. Sometimes these packages replace older versions of commands in R. The “Conflicts” section in the output shows you where the packages you activated replaced older R commands with newer R commands. You can activate the other tidyverse package by running a library command for each package – if needed. No need to do so now.</p>
+<p>By activating these packages you have added new commands to R that you will use. Sometimes these packages replace older versions of commands in R. The “Conflicts” section in the output shows you where the packages you activated replaced older R commands with newer R commands. You can activate the other tidyverse packages by running a library command for each package – if needed. No need to do so now.</p>
 <p>Most importantly, running the library(tidyverse) prior to entering the rest of your script allows R Studio to present auto-complete options when typing your text. Remember to start each script with the library(tidyverse) command and then Run it so you get the autocomplete options for the rest of the commands your enter.</p>
 </div>
 </div>
@@ -897,7 +897,7 @@ the results of an analysis, or anything else.</p>
 <h2><span class="header-section-number">1.7</span> Loading your data</h2>
 <div id="use-read_csv-not-read.csv-to-open-files." class="section level3" number="1.7.1">
 <h3><span class="header-section-number">1.7.1</span> Use read_csv (not read.csv) to open files.</h3>
-<p>If you inspect the Files pane on the right of the screen you see the <strong>data_okcupid.csv</strong> data file in our project directory. We will load this data with the commands below. If you followed the steps above, you should have auto-complete for the tidyverse commands you type from now on – in the current R session. Enter the command below into your script. As your start to type read_csv you will likely be presented with an auto-complete option. You can use the arrow keys to move up and down the list of options to select the one you want - then press tab to select it.</p>
+<p>If you inspect the Files pane on the right of the screen you see the <strong>data_okcupid.csv</strong> data file in our project directory. We will load this data with the commands below. If you followed the steps above, you should have auto-complete for the tidyverse commands you type from now on – in the current R session. Enter the command below into your script. As you start to type read_csv you will likely be presented with an auto-complete option. You can use the arrow keys to move up and down the list of options to select the one you want - then press tab to select it.</p>
 <p>Once your command looks like the one below select the text and click on the “Run” button.</p>
 <p>Note: If you are not in the class, the data file is available here: <a href="data_okcupid.csv">data_okcupid.csv</a></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction.html#cb14-1" aria-hidden="true" tabindex="-1"></a>okcupid_profiles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
@@ -1144,7 +1144,7 @@ Using Restart R before you run a script, or R code in general, is a critical wor
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="introduction.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(favourite_things)</span></code></pre></div>
 <pre><code>## [1] &quot;copper kettles&quot;       &quot;woolen mittens&quot;      
 ## [3] &quot;brown paper packages&quot;</code></pre>
-<p>As before, can obtain the second item in the vector using the following notation:</p>
+<p>As before, you can obtain the second item in the vector using the following notation:</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="introduction.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(favourite_things[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] &quot;woolen mittens&quot;</code></pre>
 </div>

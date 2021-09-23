@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-16" />
+<meta name="date" content="2021-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -744,6 +744,18 @@ div.csl-indent {
 </table>
 <p>A GitHub package can be installed using the code below:</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="sampling-accuracy.html#cb213-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;dstanley4/learnsampling&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>Required Data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="data_cor_pop.csv">data_cor_pop.csv</a></td>
+</tr>
+</tbody>
+</table>
 <div id="overview" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Overview</h2>
 <p>Researchers are usually interested in describing the attributes of a population; numbers that describe the population are called parameters. Two parameters that are frequently of interest are the mean and variance of the population. Unfortunately, it’s rarely possible to obtain information from every member of a population to calculate a parameter. Consequently, researchers use subsets of the population called samples to estimate parameters. Numbers calculated from sample data are called statistics. Typically, sample statistics are used to estimate population parameters.</p>
@@ -1145,7 +1157,7 @@ r =  \frac{\Sigma (x - \bar{x})(y - \bar{y})}{\sqrt{\Sigma (x - \bar{x})^2\Sigma
       \tag{5.13}
 \end{equation}\]</span></p>
 <p>Sample-level correlations, <span class="math inline">\(r\)</span>, often differ from the population-level correlation (<span class="math inline">\(\rho\)</span>) due to sampling error. We can confirm that sample correlations are not substantially biased with a simulation. That is, we can confirm that the average of many sample correlations (<span class="math inline">\(r\)</span>) roughly equals the population correlation (<span class="math inline">\(\rho\)</span>) using a simulation. We say “roughly equal” because <span class="math inline">\(r\)</span> is technically a biased estimator of <span class="math inline">\(\rho\)</span> but the bias is sufficiently small that it can be ignored <span class="citation">(<a href="#ref-schmidt2014methods" role="doc-biblioref">Schmidt and Hunter 2014</a>)</span>.</p>
-<p>We have the height and weight for 300000 people that comprise our population (fictious data). This data can be loaded with the command below.</p>
+<p>We have the height and weight for 300000 people that comprise our population (fictious data). This data can be loaded with the command below. The data can be downloaded here: <a href="data_cor_pop.csv">data_cor_pop.csv</a></p>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="sampling-accuracy.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb245-2"><a href="sampling-accuracy.html#cb245-2" aria-hidden="true" tabindex="-1"></a>pop_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_cor_pop.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 300000 Columns: 2</code></pre>

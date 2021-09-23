@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-16" />
+<meta name="date" content="2021-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -925,7 +925,7 @@ div.csl-indent {
 ##   age_mean age_sd
 ##      &lt;dbl&gt;  &lt;dbl&gt;
 ## 1     32.0   9.03</code></pre>
-<p>We see that for the 35829 females the mean age is 32.0 and the standard deviation is 9.0.</p>
+<p>We see that for the 35829 males the mean age is 32.0 and the standard deviation is 9.0.</p>
 <p>Likewise, we can obtain the descriptive statistics for females with only a slight modification, changing m to f in the filter command:</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="handling-data-with-the-tidyverse.html#cb90-1" aria-hidden="true" tabindex="-1"></a>okcupid_profiles <span class="sc">%&gt;%</span></span>
 <span id="cb90-2"><a href="handling-data-with-the-tidyverse.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;f&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -1056,8 +1056,8 @@ div.csl-indent {
 </div>
 <div id="matches" class="section level5" number="2.6.1.1.4">
 <h5><span class="header-section-number">2.6.1.1.4</span> matches()</h5>
-<p>It’s also possible to use <em>regex</em> (regular expressiona) to select columns. Regex is a powerful way to specify search/matching requirements for text - in this case the text of column names. An explanation of regex is beyond the scope of this chapter. Nonetheless the example below uses regex to select any column with an underscore in the column name followed by any character. The result is the same as the above for the contains() command. However, the matches() command is more flexible than the contains() command and can take into account substantially more complicated situations.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="handling-data-with-the-tidyverse.html#cb115-1" aria-hidden="true" tabindex="-1"></a>data_matched<span class="ot">&lt;-</span> data_exp <span class="sc">%&gt;%</span> </span>
+<p>It’s also possible to use <em>regex</em> (i.e., a <em>regular expression</em>) to select columns. Regex is a powerful way to specify search/matching requirements for text - in this case the text of column names. An explanation of regex is beyond the scope of this chapter. Nonetheless the example below uses regex to select any column with an underscore in the column name followed by any character. The result is the same as the above for the contains() command. However, the matches() command is more flexible than the contains() command and can take into account substantially more complicated situations.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="handling-data-with-the-tidyverse.html#cb115-1" aria-hidden="true" tabindex="-1"></a>data_matched <span class="ot">&lt;-</span> data_exp <span class="sc">%&gt;%</span> </span>
 <span id="cb115-2"><a href="handling-data-with-the-tidyverse.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">&quot;(_.)&quot;</span>))</span></code></pre></div>
 <p>You can see the columns selected using regex:</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="handling-data-with-the-tidyverse.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_matched)</span></code></pre></div>
@@ -1085,7 +1085,7 @@ div.csl-indent {
 ## $ t1_aggression &lt;dbl&gt; 5, 6, 4, 7, 3, 8
 ## $ t2_vomit      &lt;dbl&gt; 2, 1, 1, 2, 1, 2
 ## $ t2_aggression &lt;dbl&gt; 6, 7, 6, 7, 5, 8</code></pre>
-<p>We can select numeric columns using where() and is.character:</p>
+<p>We can select character (i.e., chr) columns using where() and is.character:</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="handling-data-with-the-tidyverse.html#cb121-1" aria-hidden="true" tabindex="-1"></a>data_character_columns <span class="ot">&lt;-</span> data_exp <span class="sc">%&gt;%</span> </span>
 <span id="cb121-2"><a href="handling-data-with-the-tidyverse.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.character))</span></code></pre></div>
 <p>You can see the new data contains only the character columns:</p>
@@ -1170,7 +1170,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="handling-data-with-the-tidyverse.html#cb136-1" aria-hidden="true" tabindex="-1"></a>data_exp <span class="ot">&lt;-</span> data_exp <span class="sc">%&gt;%</span> </span>
 <span id="cb136-2"><a href="handling-data-with-the-tidyverse.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">ends_with</span>(<span class="st">&quot;aggression&quot;</span>), </span>
 <span id="cb136-3"><a href="handling-data-with-the-tidyverse.html#cb136-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> make_centered))</span></code></pre></div>
-<p>You can see via the glimpse() output that the contents of all the columns that end with “aggression” have changed. Every value in one these columns has had the column mean subtracted from it.</p>
+<p>You can see via the glimpse() output that the contents of all the columns that end with “aggression” have changed. Every value in each of these columns has had the column mean subtracted from it.</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="handling-data-with-the-tidyverse.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_exp)</span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 6
@@ -1219,7 +1219,7 @@ div.csl-indent {
 </div>
 <div id="mutate-within-rows-using-column-names" class="section level4" number="2.6.3.2">
 <h4><span class="header-section-number">2.6.3.2</span> mutate() within rows using column names</h4>
-<p>Sometimes it can be difficult to use one of the advanced select commands to obtain the columns you need to average across. The advanced commands like ends_with() and starts_with() can sometimes include columns you don’t want. The command below is equivalent the one above, however, we explicitly name the variables we want to average across.</p>
+<p>Sometimes it can be difficult to use one of the advanced select commands to obtain the columns you need to average across. The advanced commands like ends_with() and starts_with() can sometimes include columns you don’t want. The command below is equivalent to the one above, however, we explicitly name the variables we want to average across.</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="handling-data-with-the-tidyverse.html#cb145-1" aria-hidden="true" tabindex="-1"></a>data_exp <span class="ot">&lt;-</span> data_exp <span class="sc">%&gt;%</span> </span>
 <span id="cb145-2"><a href="handling-data-with-the-tidyverse.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb145-3"><a href="handling-data-with-the-tidyverse.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vomit_avg =</span> <span class="fu">mean</span>( <span class="fu">c_across</span>(<span class="at">cols =</span> <span class="fu">c</span>(t1_vomit, t2_vomit)),</span>
