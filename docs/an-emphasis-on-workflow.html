@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 An Emphasis on Workflow | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 An Emphasis on Workflow | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-22" />
+<meta name="date" content="2021-09-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="sampling-precision.html"/>
 <link rel="next" href="qualtrics.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -771,7 +771,7 @@ div.csl-indent {
 <p>It may seem that reproducibility should be a given - but it’s not. Correspondingly, there is a trend for journals and authors to adopt Transparency and Openness Promotion (TOP) <a href="https://www.cos.io/our-services/top-guidelines">guidelines</a>. These guidelines involve such things as making your materials, data, code, and analysis scripts available on public repositories so anyone can check your data. A new open science journal rating system has even emerged called the <a href="https://topfactor.org">TOP Factor</a>.</p>
 <p>The idea is not that open science articles are more trustworthy than other types of articles – the idea is that trust doesn’t play a role. Anyone can inspect the data using the scripts and data provided by authors. It’s really just the same as making your science available for auditing the way financial records can be audited. But just like in the world of business, some people don’t like the idea of making it possible for others to audit their work. The problems reported in Molecular Brain (doubtless common to many journals) are likely avoided with open science - because the data and scripts needed to reproduce the statistics in the articles are uploaded prior to publication.</p>
 <p>The TOP open science guidelines have made an impact and some newer journals, such as Meta Psychology, have fully embraced open science. Figure <a href="an-emphasis-on-workflow.html#fig:metapsychology">7.1</a> shows the header from an <a href="https://open.lnu.se/index.php/metapsychology/article/view/1630/2266">article</a> in Meta Psychology that clearly delineates the open science attributes of the article that used computer simulations (instead of participant data). Take note that the header even indicates who verified that the analyses in the article were reproducible.</p>
-<div class="figure"><span id="fig:metapsychology"></span>
+<div class="figure"><span style="display:block;" id="fig:metapsychology"></span>
 <img src="ch_enter_load/images/screenshot_metapsychology.png" alt="Open science in an article header" width="100%" />
 <p class="caption">
 FIGURE 7.1: Open science in an article header
@@ -792,7 +792,7 @@ FIGURE 7.1: Open science in an article header
 <h2><span class="header-section-number">7.3</span> Begin with the end in mind</h2>
 <p>In this chapter we will walk you though the steps from data collection, data entry, loading raw data, and the creation of data you will analyze (analytic data) via pre-processing scripts. These steps are outlined in Figure <a href="an-emphasis-on-workflow.html#fig:pipeline">7.2</a>. This figure makes a clear distinction between raw data and analytic data. Raw data refers to the data as you entered it into a spreadsheet or received it from survey software. Analytic data is the data that has been structured and processed so that it is ready for analysis. This pre-processing could include such things as identifying categorical variables to the computer, averaging multiple items into a scale score, and other tasks.</p>
 <p>It’s critical that you don’t think of the analysis of your data as being completely removed from the data collection and data entry choices you make. Poor choices at the data collection and data entry stage can make your life substantially more complicated when it comes time to write the pre-processing script that will convert your raw data to analytic data. The mantra of this chapter is <em>begin with the end in mind</em>.</p>
-<div class="figure"><span id="fig:pipeline"></span>
+<div class="figure"><span style="display:block;" id="fig:pipeline"></span>
 <img src="ch_enter_load/images/pipeline.png" alt="Data science pipeline by Roger Peng" width="85%" />
 <p class="caption">
 FIGURE 7.2: Data science pipeline by Roger Peng
@@ -1534,6 +1534,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }

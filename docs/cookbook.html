@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 20 Cookbook | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 20 Cookbook | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-22" />
+<meta name="date" content="2021-09-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,7 @@
 <link rel="prev" href="next-step-resources.html"/>
 <link rel="next" href="references.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -810,14 +810,14 @@ div.csl-indent {
 <div id="entering-data-into-spreadsheets" class="section level2" number="20.3">
 <h2><span class="header-section-number">20.3</span> Entering data into spreadsheets</h2>
 <p>The first example uses a data file data_ex_between.csv that corresponds to a fictitious example where we recorded the run times for a number of male and female participants. How did we create this data file? We used a spreadsheet to enter the data, as illustrated in Figure <a href="cookbook.html#fig:spreadsheetbetween">20.1</a>. Programs like Microsoft Excel and Google Sheets are good options for entering data.</p>
-<div class="figure"><span id="fig:spreadsheetbetween"></span>
+<div class="figure"><span style="display:block;" id="fig:spreadsheetbetween"></span>
 <img src="ch_enter_load/images/screenshot_data_between.png" alt="Spreadsheet entry of running data" width="40%" />
 <p class="caption">
 FIGURE 20.1: Spreadsheet entry of running data
 </p>
 </div>
 <p>The key to using these types of programs is to save the data as a .csv file when you are done. CSV is short for Comma Separated Values. After entering the data in Figure <a href="cookbook.html#fig:spreadsheetbetween">20.1</a> we saved it as data_ex_between.csv. There is no need to do so, but if you were to open this file in a text editor (such as TextEdit on a Mac or Notepad on Windows) you would see the information displayed in Figure <a href="cookbook.html#fig:csvsheetbetween">20.2</a>. You can see there is one row per person and the columns are created by separating each values by a comma; hence, comma separated values.</p>
-<div class="figure"><span id="fig:csvsheetbetween"></span>
+<div class="figure"><span style="display:block;" id="fig:csvsheetbetween"></span>
 <img src="ch_enter_load/images/screenshot_csv_between.png" alt="Text view of CSV data" width="25%" />
 <p class="caption">
 FIGURE 20.2: Text view of CSV data
@@ -2025,7 +2025,7 @@ Notice that a single column is not used to represent esteem, jobsat, or time. Ra
 <span id="cb786-2"><a href="cookbook.html#cb786-2" aria-hidden="true" tabindex="-1"></a>analytic_data_survey <span class="sc">%&gt;%</span></span>
 <span id="cb786-3"><a href="cookbook.html#cb786-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span></span>
 <span id="cb786-4"><a href="cookbook.html#cb786-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apa.cor.table</span>(<span class="at">filename =</span> <span class="st">&quot;apa_descriptives.doc&quot;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:descapa"></span>
+<div class="figure"><span style="display:block;" id="fig:descapa"></span>
 <img src="ch_enter_load/images/desc_apa.png" alt="Word document created by apa.cor.table" width="100%" />
 <p class="caption">
 FIGURE 20.3: Word document created by apa.cor.table
@@ -2170,6 +2170,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "none"
 }

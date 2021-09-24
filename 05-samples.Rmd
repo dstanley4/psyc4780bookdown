@@ -1,5 +1,6 @@
 # Sampling Accuracy
 
+
 The following CRAN packages must be installed:
 
 | Required CRAN Packages |
@@ -218,7 +219,7 @@ many_samples %>%
 
 You can see the average of sample_var_n column (141.54) is much smaller than the population variance (157.5). That is, the average of the sample variances, using $n$ in the denominator, was smaller than the population variance. Consequently, sample variance (using $n$ in the denominator) provides a biased estimate of the population variance. If we try to estimate the population variance with sample variance (using $n$ in the denominator) we will, on average, be wrong.
 
-Fortunately, there is a sample-level formula that estimates the population variance without bias (see Hayes). An unbiased estimate of the population variance can be obtained if we calculate the sample variance but divide by $n - 1$ instead of $n$. The unbiased estimate is calculated using Formula \@ref(eq:samplevarn1ch5).
+Fortunately, there is a sample-level formula that estimates the population variance without bias (see Hayes). An unbiased estimate of the population variance can be obtained if we calculate the sample variance but divide by $n - 1$ instead of $n$. The unbiased estimate is calculated using Formula \@ref(eq:samplevarn1ch5). **The denominator of this formula is the degrees of freedom for the variance estimate. In this case, the degrees of freedom are $n-1$**.
 
 \begin{equation} 
 s^2 = \frac{\sum{(x - \bar{x})^2}}{n-1}
@@ -456,7 +457,7 @@ s_{pooled}^2  = \frac{s_{1}^2 + s_{2}^2}{2}
       (\#eq:poolvarequalch5)
 \end{equation} 
 
-When the sample sizes for males and females are the different (i.e., $n_{males} \ne n_{females}$) we can use the Formula \@ref(eq:poolvarch5) below to calculate the pooled variance. This formula can be used all of the time. We only show Formula \@ref(eq:poolvarequalch5), above, to make it clear that Formula \@ref(eq:poolvarch5) below is basically just averaging the variances in a way that takes sample size into account.
+When the sample sizes for males and females are the different (i.e., $n_{males} \ne n_{females}$) we can use the Formula \@ref(eq:poolvarch5) below to calculate the pooled variance. This formula can be used all of the time. We only show Formula \@ref(eq:poolvarequalch5), above, to make it clear that Formula \@ref(eq:poolvarch5) below is basically just averaging the variances in a way that takes sample size into account. **As before, the denominator of this equation reflects the degrees of freedom associated with this estimate of the population variance. That is, the degrees of freedom are $n_1 + n_2-2 = 2(n-1)$*.
 
 \begin{equation} 
 s_{pooled}^2  = \frac{(n_1 -1)s_1^2 + (n_2 -1)s_2^2}{n_1 + n_2-2}
