@@ -218,7 +218,7 @@ many_samples %>%
 
 You can see the average of sample_var_n column (141.54) is much smaller than the population variance (157.5). That is, the average of the sample variances, using $n$ in the denominator, was smaller than the population variance. Consequently, sample variance (using $n$ in the denominator) provides a biased estimate of the population variance. If we try to estimate the population variance with sample variance (using $n$ in the denominator) we will, on average, be wrong.
 
-Fortunately, there is a sample-level formula that estimates the population variance without bias (see Hayes). An unbiased estimate of the population variance can be obtained if we calculate the sample variance but divide by $n - 1$ instead of $n$. The unbiased estimate is calculated using Formula \@ref(eq:samplevarn1ch5).
+Fortunately, there is a sample-level formula that estimates the population variance without bias (see Hayes). An unbiased estimate of the population variance can be obtained if we calculate the sample variance but divide by $n - 1$ instead of $n$. The unbiased estimate is calculated using Formula \@ref(eq:samplevarn1ch5). **The denominator of the formula below indicates the *degrees of freedom* associated with the variance estimate. More specifically, in this formula there are $n-1$ degrees of freedom associated with the variance estimate.**
 
 \begin{equation} 
 s^2 = \frac{\sum{(x - \bar{x})^2}}{n-1}
@@ -492,7 +492,8 @@ $$
 
 ```{block2, type='rmdcaution'}
 AN ASIDE ON POOLING. Variance pooling is an extraordinarily important part of statistics - we see it used in many topics. To prepare you for that future learning, examine the more general version of the variance pooling equation below. Go through each line of the math below to see how the pooling formula used above is only a specific case of the more general formula below. No really do it - don't skip this task! Actually take a minute to understand the general version of the pooling formula below. You'll thank me in future weeks. This is foundational knowledge.
-In the math below we use a = 2 to indicate there are two sample variances being pooled.
+
+In the math below we use a = 2 to indicate there are two sample variances being pooled. **The denominator of the formula below indicates the *degrees of freedom* associated with the variance estimate. More specifically, in this formula there are $(n_1-1)+(n_2-1)$ (or $a(n-1)$) degrees of freedom associated with the variance estimate.**
 
 $$
 \begin{aligned}
