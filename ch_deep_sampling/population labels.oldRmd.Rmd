@@ -1,0 +1,49 @@
+---
+title: "population labels"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# current chapter
+
+$$
+\mu_{A1_{people}} = 172.50
+$$
+
+
+$$
+\mu_{A2_{people}} = 172.50
+$$
+
+
+$$
+\mu_{A3_{people}} = 172.50
+$$
+
+
+# next chapter
+$$
+\mu_{A1_{people}} = 152.50
+$$
+
+
+$$
+\mu_{A2_{people}} = 172.50
+$$
+
+
+$$
+\mu_{A3_{people}} = 192.50
+$$
+
+
+$$
+\sigma_{\bar{x}}^2 = \frac{\sigma_{people}^2}{n} + \sigma_{\mu_{A}}^2
+$$
+
+$$
+\mu_{A3_{people}} = 192.50
+$$

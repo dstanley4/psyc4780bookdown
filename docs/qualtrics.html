@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Qualtrics | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Qualtrics | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-24" />
+<meta name="date" content="2021-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,6 +35,7 @@
 <link rel="next" href="effect-sizes-from-publications.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
 <script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -406,6 +406,11 @@ div.csl-indent {
 <li class="chapter" data-level="8.4.2" data-path="qualtrics.html"><a href="qualtrics.html#load-data-in-r"><i class="fa fa-check"></i><b>8.4.2</b> Load data in R</a></li>
 <li class="chapter" data-level="8.4.3" data-path="qualtrics.html"><a href="qualtrics.html#convert-to-analytic-data"><i class="fa fa-check"></i><b>8.4.3</b> Convert to analytic data</a></li>
 <li class="chapter" data-level="8.4.4" data-path="qualtrics.html"><a href="qualtrics.html#complete-script"><i class="fa fa-check"></i><b>8.4.4</b> Complete script</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="qualtrics.html"><a href="qualtrics.html#extra-help"><i class="fa fa-check"></i><b>8.5</b> Extra Help</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="qualtrics.html"><a href="qualtrics.html#qualtrics-1"><i class="fa fa-check"></i><b>8.5.1</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.5.2" data-path="qualtrics.html"><a href="qualtrics.html#surveys"><i class="fa fa-check"></i><b>8.5.2</b> Surveys</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html"><i class="fa fa-check"></i><b>9</b> Effect sizes from publications</a>
@@ -1771,6 +1776,22 @@ div.csl-indent {
 <span id="cb375-179"><a href="qualtrics.html#cb375-179" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb375-180"><a href="qualtrics.html#cb375-180" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb375-181"><a href="qualtrics.html#cb375-181" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(analytic_data_survey)</span></code></pre></div>
+</div>
+</div>
+<div id="extra-help" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Extra Help</h2>
+<div id="qualtrics-1" class="section level3" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Qualtrics</h3>
+<ul>
+<li>University of Guelph library <a href="https://www.lib.uoguelph.ca/working-data/data-collection-surveys/qualtrics-frequently-asked-questions">Qualtrics FAQ page</a></li>
+</ul>
+</div>
+<div id="surveys" class="section level3" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> Surveys</h3>
+<ul>
+<li><p>Dillman Method book can be found <a href="https://www.amazon.ca/Internet-Phone-Mail-Mixed-Mode-Surveys/dp/1118456149/ref=sr_1_1?dchild=1&amp;keywords=dillman+method&amp;qid=1632496487&amp;sr=8-1">here</a></p></li>
+<li><p>Duke University Survey <a href="https://dism.duke.edu/about/resources/help-topics/">site</a></p></li>
+</ul>
 
 </div>
 </div>
@@ -1794,7 +1815,6 @@ Thompson, Edmund R, and Florence TT Phua. 2012. <span>“A Brief Index of Affect
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -1835,7 +1855,7 @@ gitbook.start({
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

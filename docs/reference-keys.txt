@@ -300,6 +300,9 @@ scale-scores-1
 reverse-key-items-1
 creating-scores-1
 complete-script
+extra-help
+qualtrics-1
+surveys
 effect-sizes-from-publications
 required-3
 objective-2

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 NHST and sample size | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 NHST and sample size | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-24" />
+<meta name="date" content="2021-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,6 +35,7 @@
 <link rel="next" href="equivalence-tests-and-sample-size.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
 <script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -406,6 +406,11 @@ div.csl-indent {
 <li class="chapter" data-level="8.4.2" data-path="qualtrics.html"><a href="qualtrics.html#load-data-in-r"><i class="fa fa-check"></i><b>8.4.2</b> Load data in R</a></li>
 <li class="chapter" data-level="8.4.3" data-path="qualtrics.html"><a href="qualtrics.html#convert-to-analytic-data"><i class="fa fa-check"></i><b>8.4.3</b> Convert to analytic data</a></li>
 <li class="chapter" data-level="8.4.4" data-path="qualtrics.html"><a href="qualtrics.html#complete-script"><i class="fa fa-check"></i><b>8.4.4</b> Complete script</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="qualtrics.html"><a href="qualtrics.html#extra-help"><i class="fa fa-check"></i><b>8.5</b> Extra Help</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="qualtrics.html"><a href="qualtrics.html#qualtrics-1"><i class="fa fa-check"></i><b>8.5.1</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.5.2" data-path="qualtrics.html"><a href="qualtrics.html#surveys"><i class="fa fa-check"></i><b>8.5.2</b> Surveys</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html"><i class="fa fa-check"></i><b>9</b> Effect sizes from publications</a>
@@ -877,7 +882,7 @@ div.csl-indent {
 <h5><span class="header-section-number">10.4.2.0.1</span> A different number of participants?</h5>
 <p>But what happens to our power if we get a greater/fewer number of participants? We don’t always have control over the exact number due to non-response rates etc. We can use the graph below to see how power changes as the number of participants changes. Based on an examination of this graph, we may want to adjust the number of participants.</p>
 <div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="nhst-and-sample-size.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pwr_out)</span></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-342-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-344-1.png" width="672" /></p>
 <p>We can see the information conveyed in the graph above for an independent groups <span class="math inline">\(t\)</span>-test in table form using the code below.</p>
 <div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="nhst-and-sample-size.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the population effect size from your power analysis</span></span>
 <span id="cb418-2"><a href="nhst-and-sample-size.html#cb418-2" aria-hidden="true" tabindex="-1"></a>pop_d <span class="ot">&lt;-</span> .<span class="dv">24</span></span>
@@ -966,7 +971,7 @@ div.csl-indent {
 <span id="cb420-51"><a href="nhst-and-sample-size.html#cb420-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
 <span id="cb420-52"><a href="nhst-and-sample-size.html#cb420-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb420-53"><a href="nhst-and-sample-size.html#cb420-53" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(power_plot)</span></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-344-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-346-1.png" width="672" /></p>
 <p>We can see the information conveyed in the graph above for an independent groups <span class="math inline">\(t\)</span>-test in table form using the code below.</p>
 <div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="nhst-and-sample-size.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the sample size per group from your power analysis</span></span>
 <span id="cb421-2"><a href="nhst-and-sample-size.html#cb421-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">298</span> <span class="co"># N per group</span></span>
@@ -1136,7 +1141,7 @@ div.csl-indent {
 <h5><span class="header-section-number">10.5.2.0.1</span> A different number of participants?</h5>
 <p>But what happens to our power if we get a greater/fewer number of participants? We don’t always have control over the exact number due to non-response rates etc. We can use the graph below to see how power changes as the number of participants changes. Based on an examination of this graph, we may want to adjust the number of participants.</p>
 <div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="nhst-and-sample-size.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pwr_out)</span></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-352-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-354-1.png" width="672" /></p>
 <p>We can see the information conveyed in the graph above for an repeated measures <span class="math inline">\(t\)</span>-test in table form using the code below.</p>
 <div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="nhst-and-sample-size.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the population effect size from your power analysis</span></span>
 <span id="cb436-2"><a href="nhst-and-sample-size.html#cb436-2" aria-hidden="true" tabindex="-1"></a>pop_d <span class="ot">&lt;-</span> .<span class="dv">17</span></span>
@@ -1225,7 +1230,7 @@ div.csl-indent {
 <span id="cb438-51"><a href="nhst-and-sample-size.html#cb438-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
 <span id="cb438-52"><a href="nhst-and-sample-size.html#cb438-52" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb438-53"><a href="nhst-and-sample-size.html#cb438-53" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(power_plot)</span></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-354-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-356-1.png" width="672" /></p>
 <p>We can see the information conveyed in the graph above for an repeated measures <span class="math inline">\(t\)</span>-test in table form using the code below.</p>
 <div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="nhst-and-sample-size.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the sample size from your power analysis</span></span>
 <span id="cb439-2"><a href="nhst-and-sample-size.html#cb439-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">298</span> </span>
@@ -1387,7 +1392,7 @@ div.csl-indent {
 <h5><span class="header-section-number">10.6.2.0.1</span> A different number of participants?</h5>
 <p>But what happens to our power if we get a greater/fewer number of participants? We don’t always have control over the exact number due to non-response rates etc. We can use the graph below to see how power changes as the number of participants changes. Based on an examination of this graph, we may want to adjust the number of participants.</p>
 <div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="nhst-and-sample-size.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pwr_out)</span></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-362-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-364-1.png" width="672" /></p>
 <p>We can see the information conveyed in the graph above for our proposed correlation study in table form using the code below.</p>
 <div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="nhst-and-sample-size.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the population effect size from your power analysis</span></span>
 <span id="cb453-2"><a href="nhst-and-sample-size.html#cb453-2" aria-hidden="true" tabindex="-1"></a>pop_r <span class="ot">&lt;-</span> .<span class="dv">18</span></span>
@@ -1462,7 +1467,7 @@ div.csl-indent {
 <span id="cb455-37"><a href="nhst-and-sample-size.html#cb455-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;rect&quot;</span>, <span class="at">xmin =</span> pwr_95, <span class="at">xmax =</span> <span class="dv">1</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">ymax =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">&quot;green&quot;</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
 <span id="cb455-38"><a href="nhst-and-sample-size.html#cb455-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
 <span id="cb455-39"><a href="nhst-and-sample-size.html#cb455-39" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(power_plot)</span></code></pre></div>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-364-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-366-1.png" width="672" /></p>
 <p>We can see the information conveyed in the graph above for a correlation study in table form using the code below.</p>
 <div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="nhst-and-sample-size.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the sample size from your power analysis</span></span>
 <span id="cb456-2"><a href="nhst-and-sample-size.html#cb456-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">261</span> </span>
@@ -1550,7 +1555,6 @@ Szucs, Denes, and John PA Ioannidis. 2017. <span>“Empirical Assessment of Publ
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -1591,7 +1595,7 @@ gitbook.start({
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

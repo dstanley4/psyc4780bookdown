@@ -1059,3 +1059,19 @@ analytic_data_survey <- analytic_data_survey %>%
 glimpse(analytic_data_survey)
 
 ```
+
+
+
+## Extra Help
+
+### Qualtrics
+
+* University of Guelph library [Qualtrics FAQ page](https://www.lib.uoguelph.ca/working-data/data-collection-surveys/qualtrics-frequently-asked-questions)
+
+
+### Surveys
+
+* Dillman Method book can be found [here](https://www.amazon.ca/Internet-Phone-Mail-Mixed-Mode-Surveys/dp/1118456149/ref=sr_1_1?dchild=1&keywords=dillman+method&qid=1632496487&sr=8-1)
+
+* Duke University Survey [site](https://dism.duke.edu/about/resources/help-topics/)
+

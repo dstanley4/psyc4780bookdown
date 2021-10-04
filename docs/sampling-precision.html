@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Sampling Precision | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Sampling Precision | Welcome!" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-09-24" />
+<meta name="date" content="2021-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,6 +35,7 @@
 <link rel="next" href="an-emphasis-on-workflow.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
 <script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -406,6 +406,11 @@ div.csl-indent {
 <li class="chapter" data-level="8.4.2" data-path="qualtrics.html"><a href="qualtrics.html#load-data-in-r"><i class="fa fa-check"></i><b>8.4.2</b> Load data in R</a></li>
 <li class="chapter" data-level="8.4.3" data-path="qualtrics.html"><a href="qualtrics.html#convert-to-analytic-data"><i class="fa fa-check"></i><b>8.4.3</b> Convert to analytic data</a></li>
 <li class="chapter" data-level="8.4.4" data-path="qualtrics.html"><a href="qualtrics.html#complete-script"><i class="fa fa-check"></i><b>8.4.4</b> Complete script</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="qualtrics.html"><a href="qualtrics.html#extra-help"><i class="fa fa-check"></i><b>8.5</b> Extra Help</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="qualtrics.html"><a href="qualtrics.html#qualtrics-1"><i class="fa fa-check"></i><b>8.5.1</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.5.2" data-path="qualtrics.html"><a href="qualtrics.html#surveys"><i class="fa fa-check"></i><b>8.5.2</b> Surveys</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html"><i class="fa fa-check"></i><b>9</b> Effect sizes from publications</a>
@@ -775,7 +780,7 @@ FIGURE 6.1: Sampling accuracy and precision
 <p>A sampling distribution is composed of an infinite number of samples. For pedagogical purposes, we will use a sampling distribution of just 50000 samples. This large number of samples will lead us to roughly the same conclusions as using an infinite, but impractical, number of samples. We obtain 50000 samples with code below:</p>
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="sampling-precision.html#cb267-1" aria-hidden="true" tabindex="-1"></a>many_samples <span class="ot">&lt;-</span> <span class="fu">get_M_samples</span>(<span class="at">pop.data =</span> pop_data, </span>
 <span id="cb267-2"><a href="sampling-precision.html#cb267-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">pop.column.name =</span> height,</span>
-<span id="cb267-3"><a href="sampling-precision.html#cb267-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">n =</span> <span class="dv">50</span>,</span>
+<span id="cb267-3"><a href="sampling-precision.html#cb267-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">n =</span> <span class="dv">10</span>,</span>
 <span id="cb267-4"><a href="sampling-precision.html#cb267-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">number.of.samples =</span> <span class="dv">50000</span>)</span></code></pre></div>
 <p>We can use the head() command to see the first few rows of many_samples. Every row represents a sample of 10 people. That is, each row represents a study with 10 participants for which we measured their heights. For each row/study we have the sample mean and variance (using n-1) for the 10 heights.</p>
 <div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="sampling-precision.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(many_samples)</span></code></pre></div>
@@ -806,15 +811,15 @@ FIGURE 6.2: Sampling distribution of the mean. The population of individual heig
 </div>
 <div id="precision-indices" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Precision indices</h2>
-<p>The most common way of referring to the width of this distribution of sample means is with the term standard error. Standard error is simply the standard deviation of the sample means. We calculate the standard error of the mean using Formula <a href="sampling-precision.html#eq:samplesechnext">(6.1)</a> below. We use <span class="math inline">\(k\)</span> in the formula to refer to the number of sample means in the distribution.</p>
+<p>The most common way of referring to the width of this distribution of sample means is with the term standard error. Standard error is simply the standard deviation of the sample means. We calculate the standard error of the mean using Formula <a href="sampling-precision.html#eq:samplesechnext">(6.1)</a> below. We use <span class="math inline">\(K\)</span> in the formula to refer to the number of sample means in the distribution (i.e., <span class="math inline">\(K = \infty\)</span>). Note that it doesn’t really make sense to divide by infinity (i.e., <span class="math inline">\(\infty\)</span>) so statistician’s don’t normally express the standard deviation of this distribution using the formula below - instead they talk about the <strong>expected value</strong> for the standard deviation. But for learning purposes - we present the formula below as means to bridge this learning with past learning.</p>
 <p><span class="math display" id="eq:samplesechnext">\[\begin{equation} 
-\sigma_{\bar{x}} = \sqrt{\frac{\sum{(\bar{x} - \bar{\bar{x}})^2}}{k}}
+\sigma_{\bar{x}} = \sqrt{\frac{\sum{(\bar{x} - \bar{\bar{x}})^2}}{K}}
       \tag{6.1}
 \end{equation}\]</span></p>
 <p>Notice that the formula for standard error is actually just the formula for standard deviation but with notation adapted to reflect the fact we are examining sample means (i.e., <span class="math inline">\(\bar{x}\)</span>’s) instead of people (i.e., X’s).</p>
 <p>Often we will not talk about standard error but rather the variance of the distribution of sample means. When we do so, we are talking about the same thing - the variability in sample means - but using different units. You can see that the formula for the variance of sample means, see Formula <a href="sampling-precision.html#eq:samplevarchnext">(6.2)</a> below, is just a squared version of the standard error equation, Formula <a href="sampling-precision.html#eq:samplesechnext">(6.1)</a> above.</p>
 <p><span class="math display" id="eq:samplevarchnext">\[\begin{equation} 
-\sigma_{\bar{x}}^2 = \frac{\sum{(\bar{x} - \bar{\bar{x}})^2}}{k}
+\sigma_{\bar{x}}^2 = \frac{\sum{(\bar{x} - \bar{\bar{x}})^2}}{K}
       \tag{6.2}
 \end{equation}\]</span></p>
 <p>How do we interpret variance of sample means? Assuming the sample mean provides an unbiased estimate of the population mean (i.e., <span class="math inline">\(\bar{\bar{x}} = \mu\)</span>), then the <strong>variance of the sample means is simply the average of the squared differences between sample means and the population mean</strong>. Standard error is simply the square root of the variance of sample means. Both are different ways of describing the same thing - the precision with which sample means estimate the population mean.</p>
@@ -918,16 +923,15 @@ s_{\bar{x}} &amp;= \sqrt{\frac{s^2}{n}} \\
 <span id="cb276-2"><a href="sampling-precision.html#cb276-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">est_se2 =</span> sample_var_n_1<span class="sc">/</span>n)</span></code></pre></div>
 <p>The command above calculated the estimate variance of sample means (est_se2 or <span class="math inline">\(s_{\bar{x}}^2\)</span>) for each of the 50000 samples. We can see the first few samples with the head() command.</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="sampling-precision.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(many_samples)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 6
-##   study     n sample_mean sample_var_n sample_var_n_1
-##   &lt;int&gt; &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;
-## 1     1    10        174.         27.8           30.9
-## 2     2    10        162.         83.4           92.6
-## 3     3    10        173.        139.           155. 
-## 4     4    10        180         322.           358. 
-## 5     5    10        173.        161.           179. 
-## 6     6    10        172         160.           177. 
-## # … with 1 more variable: est_se2 &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 6 × 5
+##   study     n sample_mean sample_var_n_1 est_se2
+##   &lt;int&gt; &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;   &lt;dbl&gt;
+## 1     1    10        174.           30.9    3.09
+## 2     2    10        162.           92.6    9.26
+## 3     3    10        173.          155.    15.5 
+## 4     4    10        180           358.    35.8 
+## 5     5    10        173.          179.    17.9 
+## 6     6    10        172           177.    17.7</code></pre>
 <p>Inspect the est_se2 column. Notice how each of these values is an <span class="math inline">\(s_{\bar{x}}^2\)</span> number that is an estimate of <span class="math inline">\(\sigma_{\bar{x}}^2\)</span> = 15.75. The first estimate, <span class="math inline">\(s_{\bar{x}}^2\)</span> = 3.09, is the one we did by hand above. This estimate of the variance of sample means (<span class="math inline">\(s_{\bar{x}}^2\)</span> = 3.09) is much lower than the actual variance of sample means (<span class="math inline">\(\sigma_{\bar{x}}^2\)</span> = 15.75). Notice how the other values in the est_se2 column tend to either overestimate, or underestimate, the variance of sample means. That is, the other studies also overestimate, or underestimate, the precision with which sample means (<span class="math inline">\(n\)</span> = 10) estimate the population mean.</p>
 </div>
 </div>
@@ -974,11 +978,11 @@ FIGURE 6.3: Two sampling distributions illustrating variability in sample means 
 </div>
 <div id="precision-for-d-values-causes" class="section level2" number="6.10">
 <h2><span class="header-section-number">6.10</span> Precision for <span class="math inline">\(d\)</span>-values: Causes</h2>
-<p>Whenever we use a statistic (e.g., <span class="math inline">\(\bar{x}\)</span>) to estimate a population-level parameter (e.g., <span class="math inline">\(\mu\)</span>) the statistic will differ from the parameter due to sampling error. This is true of all statistics. Therefore, it is possible to generate a sampling distribution for all statistics. In this section will focus on the factors that influence the precision with which <span class="math inline">\(d\)</span>-value estimate the population-level standardized mean difference (<span class="math inline">\(\delta\)</span>). More specifically, we focus on how the sample size and the size of the population-level effect influence width of the sampling distribution.</p>
+<p>Whenever we use a statistic (e.g., <span class="math inline">\(\bar{x}\)</span>) to estimate a population-level parameter (e.g., <span class="math inline">\(\mu\)</span>) the statistic will differ from the parameter due to sampling error. This is true of all statistics. Therefore, it is possible to generate a sampling distribution for all statistics. In this section we will focus on the factors that influence the precision with which <span class="math inline">\(d\)</span>-value estimate the population-level standardized mean difference (<span class="math inline">\(\delta\)</span>). More specifically, we focus on how the sample size and the size of the population-level effect influence width of the sampling distribution.</p>
 <div id="sample-size" class="section level3" number="6.10.1">
 <h3><span class="header-section-number">6.10.1</span> Sample size</h3>
 <p>Consider the case of estimating the standardized mean difference (i.e., <span class="math inline">\(\delta\)</span>) between the heights of males and females, illustrated in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>. The population-level height information is presented in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>A. The sampling distribution for sample-level <span class="math inline">\(d_{unbiased}\)</span> values when you use 10 people per group (10 males, 10 females) is presented in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>B. We could calculate the variance of <span class="math inline">\(d_{unbiased}\)</span> values or the standard error (i.e., standard deviation) of <span class="math inline">\(d_{unbiased}\)</span> values; just like we did for sample mean.</p>
-<p>You can see in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>B that even though the population-level standardized mean difference is 1.49 (<span class="math inline">\(\delta\)</span> = 1.49) there was considerably variability in sample-level <span class="math inline">\(d_{unbiased}\)</span> values. Indeed, inspecting the sample-level data reveals when the population difference is <span class="math inline">\(\delta\)</span> = 1.49, the sample level differences range from <span class="math inline">\(d_{unbiased}\)</span> = -0.38 to <span class="math inline">\(d_{unbiased}\)</span> = 5.50. That’s a considerable range. When <span class="math inline">\(d_{unbiased}\)</span> = -0.38 you would conclude, in your study, that the mean female height is .38 standard deviations higher than than the mean male height. Yet a colleague, conducting exactly the same study, could obtain a sample that leads him to observe <span class="math inline">\(d_{unbiased}\)</span> = 5.50. This would indicate to him that the mean male height is 5.50 standard deviations higher than the mean female height; an opposite conclusion. The results of both your study and the colleague’s study differ considerably from the truth that <span class="math inline">\(\delta\)</span> = 1.49 – which indicates the mean male height is 1.49 standard deviations higher than the mean female height.</p>
+<p>You can see in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>B that even though the population-level standardized mean difference is 1.49 (<span class="math inline">\(\delta\)</span> = 1.49) there was considerable variability in sample-level <span class="math inline">\(d_{unbiased}\)</span> values. Indeed, inspecting the sample-level data reveals when the population difference is <span class="math inline">\(\delta\)</span> = 1.49, the sample level differences range from <span class="math inline">\(d_{unbiased}\)</span> = -0.38 to <span class="math inline">\(d_{unbiased}\)</span> = 5.50. That’s a considerable range. When <span class="math inline">\(d_{unbiased}\)</span> = -0.38 you would conclude, in your study, that the mean female height is .38 standard deviations higher than the mean male height. Yet a colleague, conducting exactly the same study, could obtain a sample that leads him to observe <span class="math inline">\(d_{unbiased}\)</span> = 5.50. This would indicate to him that the mean male height is 5.50 standard deviations higher than the mean female height; an opposite conclusion. The results of both your study and the colleague’s study differ considerably from the truth that <span class="math inline">\(\delta\)</span> = 1.49 – which indicates the mean male height is 1.49 standard deviations higher than the mean female height.</p>
 <p>We investigated the extent to which study-level <span class="math inline">\(d_{unbiased}\)</span> values differ from the population <span class="math inline">\(\delta\)</span> = 1.49 when using 100 people per group for the comparison (i.e., 100 males, 100 females).
 You can see in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>C that in this scenario the precision of the sample estimates (<span class="math inline">\(d_{unbiased}\)</span>) of the population parameter (<span class="math inline">\(\delta\)</span>) still vary considerably - but substantially less than they did when it was 10 per group. With a 100 people per group, the <span class="math inline">\(d_{unbiased}\)</span> values range from 0.91 to 2.21. For the lower end of this range, 0.91, a researcher would conclude that the mean for males is .91 standard deviations higher than the mean for females. At the upper end of this range, 2.21, a researcher would conclude that the mean for males is 2.21 standard deviations higher than the mean for females. The variability in <span class="math inline">\(d_{unbiased}\)</span> values is still large - but at least the conclusions are a) all in the same direction, and b) would all be considered large (i.e, above 0.80) according to Cohen’s standards.</p>
 <p>These simulations illustrate a few important points. First, drawing any conclusion from a single study is problematic. The findings for a single study may differ substantially from the population parameter. Second, increasing sample size increases the precision with which a sample statistic estimates a population parameter. Third, drawing conclusions from small sample size studies (e.g., <span class="math inline">\(n\)</span> = 10 per group) is extraordinarily problematic. Finally, we note that single studies (even with small sample size) are useful because they serve as data points for a future meta-analysis.</p>
@@ -1001,7 +1005,7 @@ FIGURE 6.5: d-value skew graphs
 </p>
 </div>
 <p><strong>Standard Error</strong></p>
-<p>There is a standard error for <span class="math inline">\(d\)</span>-values (i.e., <span class="math inline">\(SE_d\)</span> or <span class="math inline">\(SE_{d_{unbiased}}\)</span>). It is simply the standard deviation of the thousands of <span class="math inline">\(d\)</span>-values in the simulation. More generally, it is an index of much <span class="math inline">\(d\)</span>-values vary from a population standardized mean difference (<span class="math inline">\(\delta\)</span>) due to sampling error for a given sample size. In geometric terms, the standard error is an index of the width of a sampling distribution. The standard error is larger in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>B than in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>C.</p>
+<p>There is a standard error for <span class="math inline">\(d\)</span>-values (i.e., <span class="math inline">\(SE_d\)</span> or <span class="math inline">\(SE_{d_{unbiased}}\)</span>). It is simply the standard deviation of the thousands of <span class="math inline">\(d\)</span>-values in the simulation. More generally, it is an index of how much <span class="math inline">\(d\)</span>-values vary from a population standardized mean difference (<span class="math inline">\(\delta\)</span>) due to sampling error for a given sample size. In geometric terms, the standard error is an index of the width of a sampling distribution. The standard error is larger in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>B than in Figure <a href="sampling-precision.html#fig:ddistributions">6.4</a>C.</p>
 <p><strong>The precision of sample <span class="math inline">\(d\)</span>-values is influenced by:</strong></p>
 <ul>
 <li><p>population standardized mean difference (<span class="math inline">\(\delta\)</span>) - influences shape of the distribution</p></li>
@@ -1033,7 +1037,7 @@ FIGURE 6.7: Correlation precision and effect size
 </p>
 </div>
 <p><strong>Standard Error</strong></p>
-<p>As with the other statistics reviewed, for sample correlations (<span class="math inline">\(r\)</span>) you can calculate a standard error (<span class="math inline">\(SE_r\)</span>). It is simply the standard deviation of the thousands of sample correlations (<span class="math inline">\(r\)</span>’s) in the simulation. More generally, it is an index of much sample correlations vary from a population correlation (<span class="math inline">\(\rho\)</span>) due to sampling error for a given sample size. In geometric terms, the standard error is an index of the width of a sampling distribution. The standard error is larger in Figure <a href="sampling-precision.html#fig:rvaluen">6.6</a>A than in Figure <a href="sampling-precision.html#fig:rvaluen">6.6</a>B.</p>
+<p>As with the other statistics reviewed, for sample correlations (<span class="math inline">\(r\)</span>) you can calculate a standard error (<span class="math inline">\(SE_r\)</span>). It is simply the standard deviation of the thousands of sample correlations (<span class="math inline">\(r\)</span>’s) in the simulation. More generally, it is an index of how much sample correlations vary from a population correlation (<span class="math inline">\(\rho\)</span>) due to sampling error for a given sample size. In geometric terms, the standard error is an index of the width of a sampling distribution. The standard error is larger in Figure <a href="sampling-precision.html#fig:rvaluen">6.6</a>A than in Figure <a href="sampling-precision.html#fig:rvaluen">6.6</a>B.</p>
 <p><strong>The precision of sample correlations (<span class="math inline">\(r\)</span>) is influenced by:</strong></p>
 <ul>
 <li><p>population correlation (<span class="math inline">\(\rho\)</span>) - influences shape of the distribution</p></li>
@@ -1059,7 +1063,6 @@ Hays, William. 1994. <em>Statistics</em>. 5th ed. Cengage Learning.
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -1100,7 +1103,7 @@ gitbook.start({
 },
 "download": ["bookdown.pdf", "bookdown.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

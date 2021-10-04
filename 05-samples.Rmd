@@ -79,13 +79,20 @@ We are interested in the sample mean ($\bar{x}$) to the extent that it provides 
 \end{equation} 
 
 
-We can calculate the population mean for the height column of pop_data using the summarise() and mean() commands. The mean() command uses Formula \@ref(eq:popmeanch5). We see in the output that the population mean is 172.48 ($\mu = 172.48$).
+```{r, echo = FALSE}
+pop_mean <- pop_data %>%
+  summarise(pop_mean = mean(height)) %>%
+  as.data.frame() %>% pull()
+```
+
+We can calculate the population mean for the height column of pop_data using the summarise() and mean() commands. The mean() command uses Formula \@ref(eq:popmeanch5). We see in the output that the population mean is 172.50 ($\mu = 172.50$).
 
 ```{r}
 pop_data %>%
   summarise(pop_mean = mean(height)) %>%
   as.data.frame()
 ```
+
 
 
 As noted previously, we rarely have access to data from an entire population. Consequently, we use the sample mean as an estimate of the population mean. The sample mean, $\bar{x}$, is a statistic calculated using the using Formula \@ref(eq:samplemeanch5) below. The bar above the $x$, indicates that it is a mean. Notice that Formula \@ref(eq:popmeanch5) and Formula \@ref(eq:samplemeanch5) are the same - even though they use different notation. In this formula, the letter $n$ corresponds to the number of people in the sample.
@@ -456,7 +463,7 @@ s_{pooled}^2  = \frac{s_{1}^2 + s_{2}^2}{2}
       (\#eq:poolvarequalch5)
 \end{equation} 
 
-When the sample sizes for males and females are the different (i.e., $n_{males} \ne n_{females}$) we can use the Formula \@ref(eq:poolvarch5) below to calculate the pooled variance. This formula can be used all of the time. We only show Formula \@ref(eq:poolvarequalch5), above, to make it clear that Formula \@ref(eq:poolvarch5) below is basically just averaging the variances in a way that takes sample size into account.
+When the sample sizes for males and females are different (i.e., $n_{males} \ne n_{females}$) we can use the Formula \@ref(eq:poolvarch5) below to calculate the pooled variance. This formula can be used all of the time. We only show Formula \@ref(eq:poolvarequalch5), above, to make it clear that Formula \@ref(eq:poolvarch5) below is basically just averaging the variances in a way that takes sample size into account.
 
 \begin{equation} 
 s_{pooled}^2  = \frac{(n_1 -1)s_1^2 + (n_2 -1)s_2^2}{n_1 + n_2-2}

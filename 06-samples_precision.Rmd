@@ -69,7 +69,7 @@ A sampling distribution is composed of an infinite number of samples. For pedago
 ```{r, eval= FALSE}
 many_samples <- get_M_samples(pop.data = pop_data, 
                               pop.column.name = height,
-                              n = 50,
+                              n = 10,
                               number.of.samples = 50000)
 ```
 ```{r, echo=FALSE}
@@ -100,10 +100,10 @@ knitr::include_graphics("ch_samples_precision/images/sampling_dist.png")
 
 ## Precision indices
 
-The most common way of referring to the width of this distribution of sample means is with the term standard error. Standard error is simply the standard deviation of the sample means. We calculate the standard error of the mean  using Formula \@ref(eq:samplesechnext) below. We use $k$ in the formula to refer to the number of sample means in the distribution.  
+The most common way of referring to the width of this distribution of sample means is with the term standard error. Standard error is simply the standard deviation of the sample means. We calculate the standard error of the mean  using Formula \@ref(eq:samplesechnext) below. We use $K$ in the formula to refer to the number of sample means in the distribution (i.e., $K = \infty$). Note that it doesn't really make sense to divide by infinity (i.e., $\infty$) so statistician's don't normally express the standard deviation of this distribution using the formula below - instead they talk about the **expected value** for the standard deviation. But for learning purposes - we present the formula below as means to bridge this learning with past learning.
 
 \begin{equation} 
-\sigma_{\bar{x}} = \sqrt{\frac{\sum{(\bar{x} - \bar{\bar{x}})^2}}{k}}
+\sigma_{\bar{x}} = \sqrt{\frac{\sum{(\bar{x} - \bar{\bar{x}})^2}}{K}}
       (\#eq:samplesechnext)
 \end{equation} 
 
@@ -112,7 +112,7 @@ Notice that the formula for standard error is actually just the formula for stan
 Often we will not talk about standard error but rather the variance of the distribution of sample means. When we do so, we are talking about the same thing - the variability in sample means - but using different units. You can see that the formula for the variance of sample means, see Formula \@ref(eq:samplevarchnext) below, is just a squared version of the standard error equation, Formula \@ref(eq:samplesechnext) above.
 
 \begin{equation} 
-\sigma_{\bar{x}}^2 = \frac{\sum{(\bar{x} - \bar{\bar{x}})^2}}{k}
+\sigma_{\bar{x}}^2 = \frac{\sum{(\bar{x} - \bar{\bar{x}})^2}}{K}
       (\#eq:samplevarchnext)
 \end{equation} 
 
@@ -256,9 +256,17 @@ many_samples <- many_samples %>%
 
 The command above calculated the estimate variance of sample means (est_se2 or $s_{\bar{x}}^2$) for each of the 50000 samples. We can see the first few samples with the head() command.
 
-```{r}
+
+
+```{r, eval = FALSE}
 head(many_samples)
 ```
+
+```{r, echo = FALSE}
+many_samples_temp <- many_samples %>% select(-sample_var_n)
+head(many_samples_temp)
+```
+
 
 Inspect the est_se2 column. Notice how each of these values is an $s_{\bar{x}}^2$ number that is an estimate of $\sigma_{\bar{x}}^2$ = 15.75. The first estimate, $s_{\bar{x}}^2$ = 3.09, is the one we did by hand above. This estimate of the variance of sample means ($s_{\bar{x}}^2$ = 3.09) is much lower than the actual variance of sample means ($\sigma_{\bar{x}}^2$ = 15.75). Notice how the other values in the est_se2 column tend to either overestimate, or underestimate, the variance of sample means. That is, the other studies also overestimate, or underestimate, the precision with which sample means ($n$ = 10) estimate the population mean.
 
@@ -350,14 +358,14 @@ Additionally, a larger sample size makes the sample estimate ($s^2$) of the popu
 
 ## Precision for $d$-values: Causes
 
-Whenever we use a statistic (e.g., $\bar{x}$) to estimate a population-level parameter (e.g., $\mu$) the statistic will differ from the parameter due to sampling error. This is true of all statistics. Therefore, it is possible to generate a sampling distribution for all statistics. In this section will focus on the factors that influence the precision with which $d$-value estimate the population-level standardized mean difference ($\delta$). More specifically, we focus on how the sample size and the size of the population-level effect influence width of the sampling distribution.
+Whenever we use a statistic (e.g., $\bar{x}$) to estimate a population-level parameter (e.g., $\mu$) the statistic will differ from the parameter due to sampling error. This is true of all statistics. Therefore, it is possible to generate a sampling distribution for all statistics. In this section we will focus on the factors that influence the precision with which $d$-value estimate the population-level standardized mean difference ($\delta$). More specifically, we focus on how the sample size and the size of the population-level effect influence width of the sampling distribution.
 
 ### Sample size
 
 
 Consider the case of estimating the standardized mean difference (i.e., $\delta$) between the heights of males and females, illustrated in Figure \@ref(fig:ddistributions). The population-level height information is presented in Figure \@ref(fig:ddistributions)A. The sampling distribution for sample-level $d_{unbiased}$ values when you use 10 people per group (10 males, 10 females) is presented in Figure \@ref(fig:ddistributions)B. We could calculate the variance of $d_{unbiased}$ values or the standard error (i.e., standard deviation) of $d_{unbiased}$ values; just like we did for sample mean.
 
-You can see in Figure \@ref(fig:ddistributions)B that even though the population-level standardized mean difference is 1.49 ($\delta$ = 1.49) there was considerably variability in sample-level $d_{unbiased}$ values. Indeed, inspecting the sample-level data reveals when the population difference is $\delta$ = 1.49, the sample level differences range from $d_{unbiased}$ = -0.38 to $d_{unbiased}$ = 5.50. That's a considerable range. When $d_{unbiased}$ = -0.38 you would conclude, in your study, that the mean female height is .38 standard deviations higher than than the mean male height. Yet a colleague, conducting exactly the same study, could obtain a sample that leads him to observe $d_{unbiased}$ = 5.50. This would indicate to him that the mean male height is 5.50 standard deviations higher than the mean female height; an opposite conclusion. The results of both your study and the colleague's study differ considerably from the truth that $\delta$ = 1.49 -- which indicates the mean male height is 1.49 standard deviations higher than the mean female height.
+You can see in Figure \@ref(fig:ddistributions)B that even though the population-level standardized mean difference is 1.49 ($\delta$ = 1.49) there was considerable variability in sample-level $d_{unbiased}$ values. Indeed, inspecting the sample-level data reveals when the population difference is $\delta$ = 1.49, the sample level differences range from $d_{unbiased}$ = -0.38 to $d_{unbiased}$ = 5.50. That's a considerable range. When $d_{unbiased}$ = -0.38 you would conclude, in your study, that the mean female height is .38 standard deviations higher than the mean male height. Yet a colleague, conducting exactly the same study, could obtain a sample that leads him to observe $d_{unbiased}$ = 5.50. This would indicate to him that the mean male height is 5.50 standard deviations higher than the mean female height; an opposite conclusion. The results of both your study and the colleague's study differ considerably from the truth that $\delta$ = 1.49 -- which indicates the mean male height is 1.49 standard deviations higher than the mean female height.
 
 We investigated the extent to which study-level $d_{unbiased}$ values differ from the population $\delta$ = 1.49 when using 100 people per group for the comparison (i.e., 100 males, 100 females).
 You can see in Figure \@ref(fig:ddistributions)C that in this scenario the precision of the sample estimates ($d_{unbiased}$) of the population parameter ($\delta$) still vary considerably  - but substantially less than they did when it was 10 per group. With a 100 people per group, the $d_{unbiased}$ values range from 0.91 to 2.21.  For the lower end of this range, 0.91, a researcher would conclude that the mean for males is .91 standard deviations higher than the mean for females. At the upper end of this range, 2.21, a researcher would conclude that the mean for males is 2.21 standard deviations higher than the mean for females. The variability in $d_{unbiased}$ values is still large - but at least the conclusions are a) all in the same direction, and  b) would all be considered large (i.e, above 0.80) according to Cohen's standards.
@@ -516,7 +524,7 @@ knitr::include_graphics("ch_samples_precision/images/d_sampling_dist_delta_vary.
 
 **Standard Error**
 
-There is a standard error for $d$-values (i.e., $SE_d$ or $SE_{d_{unbiased}}$). It is simply the standard deviation of the thousands of $d$-values in the simulation. More generally, it is an index of much $d$-values vary from a population standardized mean difference ($\delta$) due to sampling error for a given sample size. In geometric terms, the standard error is an index of the width of a sampling distribution. The standard error is larger in Figure \@ref(fig:ddistributions)B than in Figure \@ref(fig:ddistributions)C.
+There is a standard error for $d$-values (i.e., $SE_d$ or $SE_{d_{unbiased}}$). It is simply the standard deviation of the thousands of $d$-values in the simulation. More generally, it is an index of how much $d$-values vary from a population standardized mean difference ($\delta$) due to sampling error for a given sample size. In geometric terms, the standard error is an index of the width of a sampling distribution. The standard error is larger in Figure \@ref(fig:ddistributions)B than in Figure \@ref(fig:ddistributions)C.
 
 **The precision of sample $d$-values is influenced by:**
 
@@ -614,7 +622,7 @@ knitr::include_graphics("ch_samples_precision/images/r_sampling_dist_rho_vary.pn
 
 **Standard Error**
 
-As with the other statistics reviewed, for sample correlations ($r$) you can calculate a standard error ($SE_r$). It is simply the standard deviation of the thousands of sample correlations ($r$'s) in the simulation. More generally, it is an index of much sample correlations vary from a population correlation ($\rho$) due to sampling error for a given sample size. In geometric terms, the standard error is an index of the width of a sampling distribution. The standard error is larger in Figure \@ref(fig:rvaluen)A than in Figure \@ref(fig:rvaluen)B.
+As with the other statistics reviewed, for sample correlations ($r$) you can calculate a standard error ($SE_r$). It is simply the standard deviation of the thousands of sample correlations ($r$'s) in the simulation. More generally, it is an index of how much sample correlations vary from a population correlation ($\rho$) due to sampling error for a given sample size. In geometric terms, the standard error is an index of the width of a sampling distribution. The standard error is larger in Figure \@ref(fig:rvaluen)A than in Figure \@ref(fig:rvaluen)B.
 
 **The precision of sample correlations ($r$) is influenced by:**
 
