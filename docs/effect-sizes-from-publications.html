@@ -951,42 +951,42 @@ Obtaining the values for the denominator is a bit more complicated. We can calcu
 <p>We begin by calculating <span class="math inline">\(s_{diff}^2\)</span> which is variance of the column of differences differences:</p>
 <p><span class="math display">\[
 \begin{aligned}
-s_{diff}^2 &amp; = s_1^2 + s_2^2 + 2(s_1)(s_2)r_{12} \\
-&amp; = 5^2  + 6^2 + 2(5)(6)(.80)\\
-&amp; = 25  + 36 + 48\\
-&amp; = 109
+s_{diff}^2 &amp; = s_1^2 + s_2^2 - 2(s_1)(s_2)r_{12} \\
+&amp; = 5^2  + 6^2 - 2(5)(6)(.80)\\
+&amp; = 25  + 36 - 48\\
+&amp; = 13
 \end{aligned}
 \]</span></p>
 <p>We obtain <span class="math inline">\(s_{diff}\)</span> by taking the square root of <span class="math inline">\(s_{diff}^2\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 s_{diff} &amp; = \sqrt{s_{diff}^2} \\
-&amp; = \sqrt{109}\\
-&amp; = 10.44031
+&amp; = \sqrt{13}\\
+&amp; = 3.605551
 \end{aligned}
 \]</span></p>
 <p>Then we calculate the <span class="math inline">\(d\)</span>-value using the numerator and denominator we calculated:</p>
 <p><span class="math display">\[
 \begin{aligned}
 d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}\\
-&amp; = \frac{8}{10.44031} \\
-&amp; = 0.7662608\\
-&amp; = 0.77\\
+&amp; = \frac{8}{3.605551} \\
+&amp; = 2.218801\\
+&amp; = 2.22\\
 \end{aligned}
 \]</span>
-The <span class="math inline">\(d\)</span>-value is 0.77 but we need a confidence interval:</p>
+The <span class="math inline">\(d\)</span>-value is 2.22 but we need a confidence interval:</p>
 <div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="effect-sizes-from-publications.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb398-2"><a href="effect-sizes-from-publications.html#cb398-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">sm =</span> <span class="fl">0.77</span>, <span class="at">N =</span><span class="dv">100</span>) </span></code></pre></div>
+<span id="cb398-2"><a href="effect-sizes-from-publications.html#cb398-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">sm =</span> <span class="fl">2.22</span>, <span class="at">N =</span><span class="dv">100</span>) </span></code></pre></div>
 <pre><code>## [1] &quot;The 0.95 confidence limits for the standardized mean are given as:&quot;</code></pre>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
-## [1] 0.5451
+## [1] 1.852
 ## 
 ## $Standardized.Mean
-## [1] 0.77
+## [1] 2.22
 ## 
 ## $Upper.Conf.Limit.Standardized.Mean
-## [1] 0.9918</code></pre>
-<p>In this repeated measures design the population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate of weight loss is <span class="math inline">\(d\)</span> = 0.77, 95% CI [0.55, 0.99]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 0.55 to 0.99.</p>
+## [1] 2.584</code></pre>
+<p>In this repeated measures design the population effect (<span class="math inline">\(\delta\)</span>) is unknown but our sample estimate of weight loss is <span class="math inline">\(d\)</span> = 2.22, 95% CI [1.85, 2.58]. This <span class="math inline">\(d\)</span>-value will differ from the population effect (<span class="math inline">\(\delta\)</span>) due to sampling error. The confidence interval indicates that a plausible range for <span class="math inline">\(\delta\)</span> is 1.85 to 2.58.</p>
 </div>
 <div id="using-repeated-measures-t-value" class="section level4" number="9.3.2.4">
 <h4><span class="header-section-number">9.3.2.4</span> Using repeated measures <span class="math inline">\(t\)</span>-value</h4>

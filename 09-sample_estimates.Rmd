@@ -228,10 +228,10 @@ We begin by calculating $s_{diff}^2$ which is variance of the column of differen
 
 $$
 \begin{aligned}
-s_{diff}^2 & = s_1^2 + s_2^2 + 2(s_1)(s_2)r_{12} \\
-& = 5^2  + 6^2 + 2(5)(6)(.80)\\
-& = 25  + 36 + 48\\
-& = 109
+s_{diff}^2 & = s_1^2 + s_2^2 - 2(s_1)(s_2)r_{12} \\
+& = 5^2  + 6^2 - 2(5)(6)(.80)\\
+& = 25  + 36 - 48\\
+& = 13
 \end{aligned}
 $$
 
@@ -240,8 +240,8 @@ We obtain $s_{diff}$  by taking the square root of $s_{diff}^2$:
 $$
 \begin{aligned}
 s_{diff} & = \sqrt{s_{diff}^2} \\
-& = \sqrt{109}\\
-& = 10.44031
+& = \sqrt{13}\\
+& = 3.605551
 \end{aligned}
 $$
 
@@ -250,19 +250,19 @@ Then we calculate the $d$-value using the numerator and denominator we calculate
 $$
 \begin{aligned}
 d & = \frac{\bar{x}_{diff}}{s_{diff}}\\
-& = \frac{8}{10.44031} \\
-& = 0.7662608\\
-& = 0.77\\
+& = \frac{8}{3.605551} \\
+& = 2.218801\\
+& = 2.22\\
 \end{aligned}
 $$
-The $d$-value is 0.77 but we need a confidence interval:
+The $d$-value is 2.22 but we need a confidence interval:
 
 ```{r}
 library(MBESS)
-ci.sm(sm = 0.77, N =100) 
+ci.sm(sm = 2.22, N =100) 
 ```
 
-In this repeated measures design the population effect ($\delta$) is unknown but our sample estimate of weight loss is $d$ = 0.77, 95% CI [0.55, 0.99]. This $d$-value will differ from the population effect ($\delta$) due to sampling error. The confidence interval indicates that a plausible range for $\delta$ is 0.55 to 0.99.
+In this repeated measures design the population effect ($\delta$) is unknown but our sample estimate of weight loss is $d$ = 2.22, 95% CI [1.85, 2.58]. This $d$-value will differ from the population effect ($\delta$) due to sampling error. The confidence interval indicates that a plausible range for $\delta$ is 1.85 to 2.58.
 
 
 #### Using repeated measures $t$-value
