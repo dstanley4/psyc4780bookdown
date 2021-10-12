@@ -72,7 +72,7 @@ The easy way to create items in the [Advanced Text Format](https://www.qualtrics
 
 Consider a scenario where we want to create a survey that contains 2 demographics items, 18 commitment items, and 4 job satisfaction items. The *three-component model of commitment* items are from [@meyer1993commitment] and the *job satisfaction* items are from [@thompson2012brief].
 
-We being by creating a survey codebook spreadsheet in Excel (or similar program). The spreadsheet should have the columns with the names: block, item_name, item_text, type, response_options. The completed file (  [survey_codebook.csv](survey_codebook.csv)) is illustrated below.  I provide a detailed description of what should be placed in each column after the figure. Remember to work from the guiding principle that one row is used for one item/question.
+We begin by creating a survey codebook spreadsheet in Excel (or similar program). The spreadsheet should have the columns with the names: block, item_name, item_text, type, response_options. The completed file (  [survey_codebook.csv](survey_codebook.csv)) is illustrated below.  I provide a detailed description of what should be placed in each column after the figure. Remember to work from the guiding principle that one row is used for one item/question.
 
 ```{r, echo=FALSE, out.width="100%"}
 knitr::include_graphics("ch_qualtrics/images/screenshot_items.png")
@@ -703,7 +703,7 @@ analytic_data_survey <- analytic_data_survey %>%
 
 ```
 
-In this code we use the mutate() command to modify columns. We use the across() command to have the single mutate command apply to several columns. Within the across() command we use contains("likert7") to apply the mutate() command only to columns with likert7 in the name. **You can see why column naming conventions are so important!** Next, within the across() command, we specify .fns. This indicate the function/command that will apply to the columns selected. The ~ before "factor" just warns the computer that what comes next is a function/command name. The factor() command is what will be applied to the columns. The .x within the factor command is a placeholder for each column name that will obtained by the previous contains() command. 
+In this code we use the mutate() command to modify columns. We use the across() command to have the single mutate command apply to several columns. Within the across() command we use contains("likert7") to apply the mutate() command only to columns with likert7 in the name. **You can see why column naming conventions are so important!** Next, within the across() command, we specify .fns. This indicate the function/command that will apply to the columns selected. The ~ before "factor" just warns the computer that what comes next is a function/command name. The factor() command is what will be applied to the columns. The .x within the factor command is a placeholder for each column name that will be obtained by the previous contains() command. 
 
 After this mutate() command is used you can see the columns with likert7 in the name are now factors.
 

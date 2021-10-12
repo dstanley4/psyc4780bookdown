@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-10-04" />
+<meta name="date" content="2021-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -807,7 +807,7 @@ div.csl-indent {
 <h3><span class="header-section-number">8.3.1</span> Create survey codebook</h3>
 <p>The easy way to create items in the <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/">Advanced Text Format</a> is to use the qualtricsMaker package. With this package you create a spreadsheet with the items and then convert that spreadsheet to the Advanced Text Format.</p>
 <p>Consider a scenario where we want to create a survey that contains 2 demographics items, 18 commitment items, and 4 job satisfaction items. The <em>three-component model of commitment</em> items are from <span class="citation">(<a href="#ref-meyer1993commitment" role="doc-biblioref">Meyer, Allen, and Smith 1993</a>)</span> and the <em>job satisfaction</em> items are from <span class="citation">(<a href="#ref-thompson2012brief" role="doc-biblioref">Thompson and Phua 2012</a>)</span>.</p>
-<p>We being by creating a survey codebook spreadsheet in Excel (or similar program). The spreadsheet should have the columns with the names: block, item_name, item_text, type, response_options. The completed file ( <a href="survey_codebook.csv">survey_codebook.csv</a>) is illustrated below. I provide a detailed description of what should be placed in each column after the figure. Remember to work from the guiding principle that one row is used for one item/question.</p>
+<p>We begin by creating a survey codebook spreadsheet in Excel (or similar program). The spreadsheet should have the columns with the names: block, item_name, item_text, type, response_options. The completed file ( <a href="survey_codebook.csv">survey_codebook.csv</a>) is illustrated below. I provide a detailed description of what should be placed in each column after the figure. Remember to work from the guiding principle that one row is used for one item/question.</p>
 <p><img src="ch_qualtrics/images/screenshot_items.png" width="100%" /></p>
 <div id="block-column" class="section level4" number="8.3.1.1">
 <h4><span class="header-section-number">8.3.1.1</span> block column</h4>
@@ -1373,7 +1373,7 @@ div.csl-indent {
 <span id="cb354-2"><a href="qualtrics.html#cb354-2" aria-hidden="true" tabindex="-1"></a>analytic_data_survey <span class="ot">&lt;-</span> analytic_data_survey <span class="sc">%&gt;%</span></span>
 <span id="cb354-3"><a href="qualtrics.html#cb354-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">contains</span>(<span class="st">&quot;likert7&quot;</span>), </span>
 <span id="cb354-4"><a href="qualtrics.html#cb354-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">factor</span>(.x, <span class="at">levels =</span> likert7_factor)))</span></code></pre></div>
-<p>In this code we use the mutate() command to modify columns. We use the across() command to have the single mutate command apply to several columns. Within the across() command we use contains(“likert7”) to apply the mutate() command only to columns with likert7 in the name. <strong>You can see why column naming conventions are so important!</strong> Next, within the across() command, we specify .fns. This indicate the function/command that will apply to the columns selected. The ~ before “factor” just warns the computer that what comes next is a function/command name. The factor() command is what will be applied to the columns. The .x within the factor command is a placeholder for each column name that will obtained by the previous contains() command.</p>
+<p>In this code we use the mutate() command to modify columns. We use the across() command to have the single mutate command apply to several columns. Within the across() command we use contains(“likert7”) to apply the mutate() command only to columns with likert7 in the name. <strong>You can see why column naming conventions are so important!</strong> Next, within the across() command, we specify .fns. This indicate the function/command that will apply to the columns selected. The ~ before “factor” just warns the computer that what comes next is a function/command name. The factor() command is what will be applied to the columns. The .x within the factor command is a placeholder for each column name that will be obtained by the previous contains() command.</p>
 <p>After this mutate() command is used you can see the columns with likert7 in the name are now factors.</p>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="qualtrics.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(analytic_data_survey)</span></code></pre></div>
 <pre><code>## Rows: 150
