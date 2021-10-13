@@ -95,7 +95,7 @@ analytic_data_survey <- analytic_data_survey %>%
 
 # Screen numeric variables
 analytic_data_survey %>%
-  select(yearofbirth) %>%
+  select(year_of_birth) %>%
   skim()
 
 

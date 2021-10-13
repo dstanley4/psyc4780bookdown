@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-10-12" />
+<meta name="date" content="2021-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1100,7 +1100,7 @@ div.csl-indent {
 </ol>
 <p><img src="ch_qualtrics/images/screenshot_raw_data.png" width="100%" /></p>
 <ol start="5" style="list-style-type: decimal">
-<li>You can see by inspecting the data screenshot above that a variety of columns have been included before our first data column (yearofbirth) which appears on the far right of screenshot. Also note that there are three header rows at the top of the file before the data which starts on row 4. So there are few problems that need to be addressed when we load data from Qualtrics.</li>
+<li>You can see by inspecting the data screenshot above that a variety of columns have been included before our first data column (year_of_birth) which appears on the far right of screenshot. Also note that there are three header rows at the top of the file before the data which starts on row 4. So there are few problems that need to be addressed when we load data from Qualtrics.</li>
 </ol>
 <ul>
 <li><p>Obtain the names from the first header row but read the data from row 4 on.</p></li>
@@ -1186,7 +1186,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="qualtrics.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(analytic_data_survey)</span></code></pre></div>
 <pre><code>## Rows: 150
 ## Columns: 24
-## $ yearofbirth          &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
+## $ year_of_birth        &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
 ## $ sex                  &lt;chr&gt; &quot;female&quot;, &quot;female&quot;, &quot;female&quot;,…
 ## $ aff_com1_likert7     &lt;chr&gt; &quot;Slightly Agree&quot;, &quot;Neither Ag…
 ## $ aff_com2_likert7     &lt;chr&gt; &quot;Slightly Agree&quot;, &quot;Slightly D…
@@ -1217,7 +1217,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="qualtrics.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(analytic_data_survey)</span></code></pre></div>
 <pre><code>## Rows: 150
 ## Columns: 24
-## $ yearofbirth          &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
+## $ year_of_birth        &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
 ## $ sex                  &lt;chr&gt; &quot;female&quot;, &quot;female&quot;, &quot;female&quot;,…
 ## $ aff_com1_likert7     &lt;chr&gt; &quot;Slightly Agree&quot;, &quot;Neither Ag…
 ## $ aff_com2_likert7     &lt;chr&gt; &quot;Slightly Agree&quot;, &quot;Slightly D…
@@ -1296,13 +1296,13 @@ div.csl-indent {
 </div>
 <div id="numeric-screening-1" class="section level4" number="8.4.3.4">
 <h4><span class="header-section-number">8.4.3.4</span> Numeric screening</h4>
-<p>For numeric variables, it’s important to find and remove impossible values. We only have yearofbirth as a numeric column - so we can easily check for nonsense values with the code below:</p>
+<p>For numeric variables, it’s important to find and remove impossible values. We only have year_of_birth as a numeric column - so we can easily check for nonsense values with the code below:</p>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="qualtrics.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Screen numeric variables</span></span>
 <span id="cb345-2"><a href="qualtrics.html#cb345-2" aria-hidden="true" tabindex="-1"></a>analytic_data_survey <span class="sc">%&gt;%</span></span>
-<span id="cb345-3"><a href="qualtrics.html#cb345-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(yearofbirth) <span class="sc">%&gt;%</span></span>
+<span id="cb345-3"><a href="qualtrics.html#cb345-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year_of_birth) <span class="sc">%&gt;%</span></span>
 <span id="cb345-4"><a href="qualtrics.html#cb345-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim</span>()</span></code></pre></div>
 <pre><code>##   skim_variable n_missing mean    sd   p0  p50 p100
-## 1   yearofbirth         0 1974 20.06 1940 1970 2010</code></pre>
+## 1 year_of_birth         0 1974 20.06 1940 1970 2010</code></pre>
 </div>
 <div id="item-values-from-labels" class="section level4" number="8.4.3.5">
 <h4><span class="header-section-number">8.4.3.5</span> Item values from labels</h4>
@@ -1311,7 +1311,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="qualtrics.html#cb347-1" aria-hidden="true" tabindex="-1"></a>analytic_data_survey <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code></pre></div>
 <pre><code>## Rows: 150
 ## Columns: 25
-## $ yearofbirth          &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
+## $ year_of_birth        &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
 ## $ sex                  &lt;fct&gt; female, female, female, male,…
 ## $ aff_com1_likert7     &lt;chr&gt; &quot;Slightly Agree&quot;, &quot;Neither Ag…
 ## $ aff_com2_likert7     &lt;chr&gt; &quot;Slightly Agree&quot;, &quot;Slightly D…
@@ -1378,7 +1378,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="qualtrics.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(analytic_data_survey)</span></code></pre></div>
 <pre><code>## Rows: 150
 ## Columns: 25
-## $ yearofbirth          &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
+## $ year_of_birth        &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
 ## $ sex                  &lt;fct&gt; female, female, female, male,…
 ## $ aff_com1_likert7     &lt;fct&gt; Slightly Agree, Neither Agree…
 ## $ aff_com2_likert7     &lt;fct&gt; Slightly Agree, Slightly Disa…
@@ -1424,7 +1424,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="qualtrics.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(analytic_data_survey)</span></code></pre></div>
 <pre><code>## Rows: 150
 ## Columns: 25
-## $ yearofbirth          &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
+## $ year_of_birth        &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953,…
 ## $ sex                  &lt;fct&gt; female, female, female, male,…
 ## $ aff_com1_likert7     &lt;dbl&gt; 5, 4, 2, 7, 1, 6, 6, 2, 4, 2,…
 ## $ aff_com2_likert7     &lt;dbl&gt; 5, 3, 4, 2, 6, 7, 2, 3, 2, 7,…
@@ -1529,7 +1529,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="qualtrics.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(analytic_data_survey)</span></code></pre></div>
 <pre><code>## Rows: 150
 ## Columns: 25
-## $ yearofbirth         &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953, …
+## $ year_of_birth       &lt;dbl&gt; 1961, 2006, 2008, 1985, 1953, …
 ## $ sex                 &lt;fct&gt; female, female, female, male, …
 ## $ aff_com1_likert7    &lt;dbl&gt; 5, 4, 2, 7, 1, 6, 6, 2, 4, 2, …
 ## $ aff_com2_likert7    &lt;dbl&gt; 5, 3, 4, 2, 6, 7, 2, 3, 2, 7, …
@@ -1582,7 +1582,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="qualtrics.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(analytic_data_survey)</span></code></pre></div>
 <pre><code>## Rows: 150
 ## Columns: 7
-## $ yearofbirth            &lt;dbl&gt; 1961, 2006, 2008, 1985, 195…
+## $ year_of_birth          &lt;dbl&gt; 1961, 2006, 2008, 1985, 195…
 ## $ sex                    &lt;fct&gt; female, female, female, mal…
 ## $ participant_id         &lt;fct&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, …
 ## $ affective_commitment   &lt;dbl&gt; 6.000, 3.833, 2.833, 4.000,…
@@ -1692,7 +1692,7 @@ div.csl-indent {
 <span id="cb375-95"><a href="qualtrics.html#cb375-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb375-96"><a href="qualtrics.html#cb375-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Screen numeric variables</span></span>
 <span id="cb375-97"><a href="qualtrics.html#cb375-97" aria-hidden="true" tabindex="-1"></a>analytic_data_survey <span class="sc">%&gt;%</span></span>
-<span id="cb375-98"><a href="qualtrics.html#cb375-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(yearofbirth) <span class="sc">%&gt;%</span></span>
+<span id="cb375-98"><a href="qualtrics.html#cb375-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year_of_birth) <span class="sc">%&gt;%</span></span>
 <span id="cb375-99"><a href="qualtrics.html#cb375-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim</span>()</span>
 <span id="cb375-100"><a href="qualtrics.html#cb375-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb375-101"><a href="qualtrics.html#cb375-101" aria-hidden="true" tabindex="-1"></a></span>
@@ -1783,7 +1783,8 @@ div.csl-indent {
 <div id="qualtrics-1" class="section level3" number="8.5.1">
 <h3><span class="header-section-number">8.5.1</span> Qualtrics</h3>
 <ul>
-<li>University of Guelph library <a href="https://www.lib.uoguelph.ca/working-data/data-collection-surveys/qualtrics-frequently-asked-questions">Qualtrics FAQ page</a></li>
+<li><p>University of Guelph <a href="https://www.lib.uoguelph.ca/working-data/data-collection-surveys">Qualtrics Login page</a></p></li>
+<li><p>University of Guelph <a href="https://www.lib.uoguelph.ca/working-data/data-collection-surveys/qualtrics-frequently-asked-questions">Qualtrics FAQ page</a></p></li>
 </ul>
 </div>
 <div id="surveys" class="section level3" number="8.5.2">

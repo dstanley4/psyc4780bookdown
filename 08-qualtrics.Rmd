@@ -425,7 +425,7 @@ To load the data in R follow the steps below
 knitr::include_graphics("ch_qualtrics/images/screenshot_raw_data.png")
 ```
 
-5. You can see by inspecting the data screenshot above that a variety of  columns have been included before our first data column (yearofbirth) which appears on the far right of screenshot. Also note that there are three header rows at the top of the file before the data which starts on row 4. So there are few problems that need to be addressed when we load data from Qualtrics.
+5. You can see by inspecting the data screenshot above that a variety of  columns have been included before our first data column (year_of_birth) which appears on the far right of screenshot. Also note that there are three header rows at the top of the file before the data which starts on row 4. So there are few problems that need to be addressed when we load data from Qualtrics.
 
 * Obtain the names from the first header row but read the data from row 4 on.
 
@@ -620,17 +620,17 @@ analytic_data_survey <- analytic_data_survey %>%
 
 #### Numeric screening
 
-For numeric variables, it's important to find and remove impossible values. We only have yearofbirth as a numeric column - so we can easily check for nonsense values with the code below:
+For numeric variables, it's important to find and remove impossible values. We only have year_of_birth as a numeric column - so we can easily check for nonsense values with the code below:
 
 ```{r, eval = FALSE}
 # Screen numeric variables
 analytic_data_survey %>%
-  select(yearofbirth) %>%
+  select(year_of_birth) %>%
   skim()
 ```
 ```{r, echo=FALSE}
 outdf <- analytic_data_survey %>%
-  select(starts_with("yearofbirth")) %>%
+  select(starts_with("year_of_birth")) %>%
   skim_without_charts() %>%
   as_tibble() %>%
   select(-skim_type) %>%
@@ -973,7 +973,7 @@ analytic_data_survey <- analytic_data_survey %>%
 
 # Screen numeric variables
 analytic_data_survey %>%
-  select(yearofbirth) %>%
+  select(year_of_birth) %>%
   skim()
 
 
@@ -1066,7 +1066,9 @@ glimpse(analytic_data_survey)
 
 ### Qualtrics
 
-* University of Guelph library [Qualtrics FAQ page](https://www.lib.uoguelph.ca/working-data/data-collection-surveys/qualtrics-frequently-asked-questions)
+* University of Guelph [Qualtrics Login page](https://www.lib.uoguelph.ca/working-data/data-collection-surveys)
+
+* University of Guelph [Qualtrics FAQ page](https://www.lib.uoguelph.ca/working-data/data-collection-surveys/qualtrics-frequently-asked-questions)
 
 
 ### Surveys
