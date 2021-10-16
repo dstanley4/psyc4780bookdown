@@ -7,7 +7,7 @@
 
 
 [[Question:MC:Dropdown]]
-[[ID:yearofbirth]]
+[[ID:year_of_birth]]
 In what year where you born?
 [[Choices]]
 1940
@@ -94,6 +94,9 @@ male
 
 [[Block:Commitment]]
 
+
+
+
 [[Question:Matrix]]
 Indicate the extent to which you agree with each of the statements below.
 [[Choices]]
@@ -134,7 +137,10 @@ Strongly Agree
 
 [[Block:Feelings About Your Job]]
 
-[[Question:MC]]
+
+
+
+[[Question:MC:SingleAnswer:Vertical]]
 [[ID:job_aff1_likert5]]
 I find real enjoyment in my jobI find real enjoyment in my job
 [[Choices]]
@@ -145,7 +151,7 @@ Strongly Disagree
  Strongly Agree
 
 
-[[Question:MC]]
+[[Question:MC:SingleAnswer:Vertical]]
 [[ID:job_aff2_likert5]]
 I like my job better than the average person
 [[Choices]]
@@ -156,7 +162,7 @@ Strongly Disagree
  Strongly Agree
 
 
-[[Question:MC]]
+[[Question:MC:SingleAnswer:Vertical]]
 [[ID:job_aff3_likert5]]
 Most days I am enthusiastic about my job
 [[Choices]]
@@ -167,7 +173,7 @@ Strongly Disagree
  Strongly Agree
 
 
-[[Question:MC]]
+[[Question:MC:SingleAnswer:Vertical]]
 [[ID:job_aff4_likert5]]
 I feel fairly well satisfied with my job
 [[Choices]]
