@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-10-16" />
+<meta name="date" content="2021-10-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1970,18 +1970,18 @@ mutate(4 - across(.cols = ends_with("_likert5rev")) )
 Notice that a single column is not used to represent esteem, jobsat, or time. Rather, there are four columns that are a mix of these variables. The consequence of this is that there are two esteem ratings/observations on each row and two jobsat ratings/observations on each row. Tidy data is structured so that each variable is represented in a single column and each observation has its own row.</p>
 <div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="cookbook.html#cb779-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(analytic_data_occasions)</span></code></pre></div>
 <pre><code>## # A tibble: 300 × 8
-##    id      age sex    eye_color esteem_t1 esteem_t2 jobsat_t1
-##    &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-##  1 1        23 male   blue            3.2       3.8      4   
-##  2 2        22 female brown           3.8       4.4      5   
-##  3 3        18 male   hazel           3.8       4.4      4.4 
-##  4 4        23 female blue            3         3.6      3.5 
-##  5 5        22 male   &lt;NA&gt;            3.4       4        4   
-##  6 6        17 female hazel           3.5       4.2      3.8 
-##  7 7        23 male   blue            3         3.6      3.6 
-##  8 8        22 female brown           3.8       4.4      4.6 
-##  9 9        17 male   hazel           3.6       4.2      3.75
-## 10 10       NA female blue            3.6       4.2      3.8 
+##    id      age sex   eye_color esteem_t1 esteem_t2 jobsat_t1
+##    &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1 1        23 male  blue            3.2       3.8      4   
+##  2 2        22 fema… brown           3.8       4.4      5   
+##  3 3        18 male  hazel           3.8       4.4      4.4 
+##  4 4        23 fema… blue            3         3.6      3.5 
+##  5 5        22 male  &lt;NA&gt;            3.4       4        4   
+##  6 6        17 fema… hazel           3.5       4.2      3.8 
+##  7 7        23 male  blue            3         3.6      3.6 
+##  8 8        22 fema… brown           3.8       4.4      4.6 
+##  9 9        17 male  hazel           3.6       4.2      3.75
+## 10 10       NA fema… blue            3.6       4.2      3.8 
 ## # … with 290 more rows, and 1 more variable:
 ## #   jobsat_t2 &lt;dbl&gt;</code></pre>
 <p>The pivot_longer() command below coverts our data to the tidy data format. In this command we specify the columns with data by using esteem_t1:jobsat_t2; this selects these two columns and all of the columns between them. Each of these columns represents a dependent variable at a particular time in the format “variable_time” (e.g., esteem_t1). The code names_to = c(“.value,” “time”) explains this format to R. It indicates that the first part of the column name (e.g., esteem) contains the name of the variable (expressed in the code as “.value”). It also indicates that the second part of the column name represents time. The line names_sep = "_" tells the R that the underscore character is used to separate the first part of the name from the second part of the name. When this code is executed it creates a tidy version of data set stored in analytic_survey_tidy.</p>
