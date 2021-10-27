@@ -47,7 +47,7 @@ You can use an equivalent test when you want to conclude there is not effect or 
 
 3. Statistically equivalent and statistically different
 
-4. Not statistically equivalent and not statistically different
+4. Not statistically equivalent and statistically different
 
 You can see from the possible outcomes above it is still possible to obtain an outcome that is difficult to interpret. The outcomes that are challenging to interpret are most likely to occur when you have small sample sizes and low statistical power for the equivalence test. 
 
