@@ -215,6 +215,13 @@ s_{\bar{x}} = \sqrt{\frac{s^2}{n}} = \frac{s}{{\sqrt{n}}}
       (\#eq:samplese2estchnext)
 \end{equation} 
 
+
+```{r showallformulas, echo=FALSE, out.width = "80%", fig.cap = "Precision: Conceptual and calculation approaches. "}
+knitr::include_graphics("ch_samples_precision/images/sampling_all_formulas.png")
+```
+
+
+
 ### A worked example
 
 Consider a worked example below. Imagine a scenario where we do not know anything about the population of heights. Therefore we conduct a study by taking a random sample of 10 people to estimate the average height of people in the population. The sample mean is 174.3cm and the sample variance is 30.90. Therefore, our best guess of the unknown population mean is 174.3cm. Because we used a sample (a small subset of the population) we know that 174.3cm is unlikely to be the actual mean height for the population. The mean height for the population might be higher or lower than 174.3cm. Nonetheless, at this point our best guess is that the mean of the population is 174.3cm; but we recognize that this is just an estimate of the population mean and is likely off by some amount.

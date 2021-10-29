@@ -55,6 +55,7 @@ eq:samplevarchnext
 eq:samplevar2chnext
 eq:samplevar2estchnext
 eq:samplese2estchnext
+fig:showallformulas
 fig:threedist
 fig:ddistributions
 fig:dvalueskew
