@@ -307,7 +307,7 @@ From this output you see that $r$ = .40, 95%  CI [.28, .51]. The population effe
 
 Sometimes a researcher will conduct two studies in the same article and compare the correlations. 
 
-Scenario: A researcher reports in Study 1 he found that $r$ = .32, N = 300. But in Study 2 the he found a correlation of $r$ = .51, N = 400. You want to know the difference between the correlations and a confidence interval for that difference.
+Scenario: A researcher reports that in Study 1 he found that $r$ = .32, N = 300. But in Study 2 he found a correlation of $r$ = .51, N = 400. You want to know the difference between the correlations and a confidence interval for that difference.
 
 $$
 \begin{aligned}

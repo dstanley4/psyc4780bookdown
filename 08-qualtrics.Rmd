@@ -160,7 +160,7 @@ knitr::include_graphics("ch_qualtrics/images/screenshot_existing_dir.png")
 knitr::include_graphics("ch_qualtrics/images/screenshot_folder.png")
 ```
 
-3. You should previously have installed the remote and tidyverse package from the CRAN and the qualtricsMaker package from GitHub. If you haven't done this already type the commands below into the **Console**.
+3. You should previously have installed the *remotes* and *tidyverse* packages from the CRAN and the qualtricsMaker package from GitHub. If you haven't done this already type the commands below into the **Console**.
 
 **Installing Packages from the CRAN**
 
@@ -203,7 +203,7 @@ make_survey(survey_codebook,
 knitr::include_graphics("ch_qualtrics/images/screenshot_post_creation.png")
 ```
 
-**Congratulation - your items are ready to be imported into Qualtrics. Move on to the "Import the items" section.**
+**Congratulations - your items are ready to be imported into Qualtrics. Move on to the "Import the items" section.**
 
 
 ##### RStudio Cloud
@@ -396,7 +396,7 @@ knitr::include_graphics("ch_qualtrics/images/screenshot_export.png")
 
 #### Click Use Choice Text
 
-To ensure the data can be used by others, as per the FAIR policy described above, we SELECT the "Use Choice Text" option when exporting data. If you were (non-optimally) select "Use numeric value" as an export option then the resulting data file would be missing information that make it difficult for others to use. Then click the Download button. 
+To ensure the data can be used by others, as per the FAIR policy described above, we SELECT the "Use Choice Text" option when exporting data. If you were to (non-optimally) select "Use numeric value" as an export option then the resulting data file would be missing information that make it difficult for others to use. Then click the Download button. 
 
 ```{r, echo=FALSE, out.width="60%"}
 knitr::include_graphics("ch_qualtrics/images/screenshot_export_choice.png")

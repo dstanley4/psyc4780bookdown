@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-10-29" />
+<meta name="date" content="2021-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -749,7 +749,7 @@ div.csl-indent {
 <p>In the rest of the chapter we focus on obtaining the desired power for our study by conducting a sample size analysis based on Null Hypothesis Significance Testing (NHST) logic. We caveat all of the subsequent advise is based on the goal of obtaining research findings that are trustworthy. Many times, however, research may be conducted with a different goal. For example, an Honours Thesis in psychology may be conducted with the primary goal being a learning experience for the student. When this is the case (as it often is in training scenarios) then the sample sizes used for the project may fall substantially short of the sample sizes suggested by power analyses below. This occurs frequently due to the fact that student theses have limited time and financial resources because the focus is on learning the research process rather than producing robust findings.</p>
 <p>Conducting a sample size analysis requires a few pieces of information before you start.</p>
 <ol style="list-style-type: decimal">
-<li><p>Desired power. Power refers to probability of obtaining a significant result (p &lt; .05) if the effect/difference exists. Often a power level of .80 or .85 is suggested when planning studies. However, a power-level of .90 is probability more advisable given how easy it is to obtain a <span class="math inline">\(p\)</span>-value less than .05. Indeed, Dr. Daniel Lakens <a href="http://daniellakens.blogspot.com/2017/05/how-power-analysis-implicitly-reveals.html">notes</a> that only individuals with power .90 or higher are eligible for funding in his Department at the Eindhoven University of Technology.</p></li>
+<li><p>Desired power. Power refers to probability of obtaining a significant result (p &lt; .05) if the effect/difference exists. Often a power level of .80 or .85 is suggested when planning studies. However, a power-level of .90 is probably more advisable given how easy it is to obtain a <span class="math inline">\(p\)</span>-value less than .05. Indeed, Dr. Daniel Lakens <a href="http://daniellakens.blogspot.com/2017/05/how-power-analysis-implicitly-reveals.html">notes</a> that only individuals with power .90 or higher are eligible for funding in his Department at the Eindhoven University of Technology.</p></li>
 <li><p>Population-level effect size. To conduct a sample-size analysis you need an estimate of the population effect size you are trying to find. Most commonly, for theses, that means you needs a estimate of the population-level <span class="math inline">\(d\)</span>-value (i.e., <span class="math inline">\(\delta\)</span>) or population-level correlation (<span class="math inline">\(\rho\)</span>) that you are trying to detect.</p></li>
 </ol>
 <p>Below we present the process for conducting a sample size analysis for the independent groups <span class="math inline">\(t\)</span>-test, repeated measures <span class="math inline">\(t\)</span>-test, andcorrelations. For each of these analyses we go through three steps:</p>
@@ -816,7 +816,7 @@ div.csl-indent {
 </div>
 <div id="smallest-sig.-effect" class="section level4" number="10.4.1.3">
 <h4><span class="header-section-number">10.4.1.3</span> Smallest sig. effect</h4>
-<p>Another approach to determine the effect size using in your independent groups <span class="math inline">\(t\)</span>-test power / sample size analysis is to determine the smallest effect that would have been significant in the previous study <span class="citation">(<a href="#ref-lakens2018equivalence" role="doc-biblioref">Lakens, Scheel, and Isager 2018</a>)</span>. We do that with the code below:</p>
+<p>Another approach to determine the effect size to use in your independent groups <span class="math inline">\(t\)</span>-test power / sample size analysis is to determine the smallest effect that would have been significant in the previous study <span class="citation">(<a href="#ref-lakens2018equivalence" role="doc-biblioref">Lakens, Scheel, and Isager 2018</a>)</span>. We do that with the code below:</p>
 <div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="nhst-and-sample-size.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Based on the previous study modify the settings below.</span></span>
 <span id="cb412-2"><a href="nhst-and-sample-size.html#cb412-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For n1 and n2 indicate the two group sizes</span></span>
 <span id="cb412-3"><a href="nhst-and-sample-size.html#cb412-3" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
@@ -845,7 +845,7 @@ div.csl-indent {
 <li><p>specify desired power (probability of a significant effect if it exists)</p></li>
 <li><p>specify if you are conducting a one-tailed or two-tailed test</p></li>
 <li><p>examine a graph to see how a greater/fewer number of participants influences power</p></li>
-<li><p>examine a graph to see how a higher/lower population effect power</p></li>
+<li><p>examine a graph to see how a higher/lower population effect size influences power</p></li>
 </ul>
 <p>In the example below we use:</p>
 <ul>

@@ -27,7 +27,7 @@ In the rest of the chapter we focus on obtaining the desired power for our study
 
 Conducting a sample size analysis requires a few pieces of information before you start.
 
-1. Desired power. Power refers to probability of obtaining a significant result (p < .05) if the effect/difference exists. Often a power level of .80 or .85 is suggested when planning studies. However, a power-level of .90 is probability more advisable given how easy it is to obtain a $p$-value less than .05. Indeed, Dr. Daniel Lakens [notes](http://daniellakens.blogspot.com/2017/05/how-power-analysis-implicitly-reveals.html) that only individuals with power .90 or higher are eligible for funding in his Department at the Eindhoven University of Technology.
+1. Desired power. Power refers to probability of obtaining a significant result (p < .05) if the effect/difference exists. Often a power level of .80 or .85 is suggested when planning studies. However, a power-level of .90 is probably more advisable given how easy it is to obtain a $p$-value less than .05. Indeed, Dr. Daniel Lakens [notes](http://daniellakens.blogspot.com/2017/05/how-power-analysis-implicitly-reveals.html) that only individuals with power .90 or higher are eligible for funding in his Department at the Eindhoven University of Technology.
 
 2. Population-level effect size. To conduct a sample-size analysis you need an estimate of the population effect size you are trying to find. Most commonly, for theses, that means you needs a estimate of the population-level $d$-value (i.e., $\delta$) or population-level correlation ($\rho$) that you are trying to detect.
 
@@ -92,7 +92,7 @@ The indicates when $\delta$ = .24 the previous study (with 50 per group) would h
 #### Smallest sig. effect 
 
 
-Another approach to determine the effect size using in your independent groups $t$-test power / sample size analysis is to determine the smallest effect that would have been significant in the previous study [@lakens2018equivalence]. We do that with the code below:
+Another approach to determine the effect size to use in your independent groups $t$-test power / sample size analysis is to determine the smallest effect that would have been significant in the previous study [@lakens2018equivalence]. We do that with the code below:
 
 ```{r}
 # Based on the previous study modify the settings below.
@@ -128,7 +128,7 @@ To determine a sample size for your independent groups $t$-test you need to:
 
 * examine a graph to see how a greater/fewer number of participants influences power
 
-* examine a graph to see how a higher/lower population effect power
+* examine a graph to see how a higher/lower population effect size influences power
 
 
 In the example below we use:
