@@ -634,7 +634,7 @@ The analytic data in its current form does not conform to the tidy data specific
 
 
 ```{r}
-print(analytic_data_within)
+print(analytic_data_within_nway)
 ```
 
 We need to restructure the data into the tidy data format so that we have a food_type column and a temperature column to properly represent these predictors. As well, we need a column that contains all of the taste ratings that is clearly labeled taste. Doing all of these things will ensure we have one variable per column and one observation per row - consistent with the requirements of tidy data. The pivot_longer() command below coverts our data to the tidy data format. 

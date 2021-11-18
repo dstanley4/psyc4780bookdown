@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-10-30" />
+<meta name="date" content="2021-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
-<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main/plotly-latest.min.js"></script>
@@ -1275,16 +1275,18 @@ FIGURE 20.2: Text view of CSV data
 <div id="pivot-to-tidy-data-1" class="section level3" number="20.7.4">
 <h3><span class="header-section-number">20.7.4</span> Pivot to tidy data</h3>
 <p>The analytic data in its current form does not conform to the tidy data specification. Inspect the data with the print() command. Notice that columns do not exist for temperature (with levels hot/cold) or food type (with levels pizza/steak/burger). Instead, there are six columns that are combinations of the levels of these variables (i.e., pizza_hot, pizza_cold, steak_hot, steak_cold, burger_hot, and burger_cold). Each of these columns contains taste ratings on a 1 to 10 point scale.</p>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="cookbook.html#cb697-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(analytic_data_within)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 5
-##   id    sex    march   may  july
-##   &lt;fct&gt; &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 1     male      40    37    35
-## 2 2     female    35    32    30
-## 3 3     male      38    35    33
-## 4 4     female    33    30    28
-## 5 5     male      42    39    37
-## 6 6     female    36    33    31</code></pre>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="cookbook.html#cb697-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(analytic_data_within_nway)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   id    sex    pizza_hot pizza_cold steak_hot steak_cold
+##   &lt;fct&gt; &lt;fct&gt;      &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1 1     male           7          6         6          3
+## 2 2     female         8          7         6          3
+## 3 3     male           7          5         7          4
+## 4 4     female         8          7         7          5
+## 5 5     male           7          6         8          7
+## 6 6     female         9          7         7          8
+## # … with 2 more variables: burger_hot &lt;dbl&gt;,
+## #   burger_cold &lt;dbl&gt;</code></pre>
 <p>We need to restructure the data into the tidy data format so that we have a food_type column and a temperature column to properly represent these predictors. As well, we need a column that contains all of the taste ratings that is clearly labeled taste. Doing all of these things will ensure we have one variable per column and one observation per row - consistent with the requirements of tidy data. The pivot_longer() command below coverts our data to the tidy data format.</p>
 <p>In this command we specify the columns march, may, and july are all levels of a single variable called occasion. We specify the columns involved with the cols argument. The code pizza_hot:burger_cold after the cols argument selects the pizza_hot column, the burger_cold column, and all the columns in between. Each column contains taste ratings at a combination of the levels for the variables food_type and temperature. The names_to argument is used to indicate that two new columns should be created to represent food and temperature. Notice the order food then temperature. This is consistent with our naming convention; in the column name pizza_hot the food_type is specified before temperature. The value_to argument is used to indicate that a new column called taste should created to hold all the values from the pizza_hot, pizza_cold, steak_hot, steak_cold, burger_hot, and burger_cold columns.</p>
 <div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="cookbook.html#cb699-1" aria-hidden="true" tabindex="-1"></a>analytic_data_nway_tidy <span class="ot">&lt;-</span> analytic_data_within_nway <span class="sc">%&gt;%</span></span>
