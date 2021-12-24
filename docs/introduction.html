@@ -24,7 +24,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2021-11-18" />
+<meta name="date" content="2021-12-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ div.csl-indent {
 <li class="chapter" data-level="1.11.1" data-path="introduction.html"><a href="introduction.html#lists"><i class="fa fa-check"></i><b>1.11.1</b> Lists</a></li>
 </ul></li>
 <li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.12</b> Revisiting read_csv()</a></li>
-<li class="chapter" data-level="1.13" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.13</b> That’s it!</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction.html"><a href="introduction.html#importing-to-rstudio-cloud"><i class="fa fa-check"></i><b>1.13</b> Importing to RStudio Cloud</a></li>
+<li class="chapter" data-level="1.14" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.14</b> That’s it!</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Handling Data with the Tidyverse</a>
 <ul>
@@ -889,7 +890,7 @@ the results of an analysis, or anything else.</p>
 <pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
 ## ✓ tibble  3.1.6     ✓ dplyr   1.0.7
 ## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-## ✓ readr   2.1.0     ✓ forcats 0.5.1</code></pre>
+## ✓ readr   2.1.1     ✓ forcats 0.5.1</code></pre>
 <pre><code>## ── Conflicts ────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
@@ -1182,13 +1183,59 @@ Using Restart R before you run a script, or R code in general, is a critical wor
 </div>
 <div id="revisiting-read_csv" class="section level2" number="1.12">
 <h2><span class="header-section-number">1.12</span> Revisiting read_csv()</h2>
-<p>In the text above we learned about vectors of characters. This information can be used to handle missing values in the read_csv() command. Consider a data set where for many participants we did not get a response to a question. We might have that represented in various ways within the data file. The value for that question might simply be omitted (i.e., represented by nothing – ""), represented by NA for not available, or maybe simply be something like -777.</p>
+<p>In the text above we learned about vectors of characters. This information can be used to handle missing values in the read_csv() command. Consider a data set where for many participants we did not get a response to a question. We might have that represented in various ways within the data file. The value for that question might simply be omitted (i.e., represented by nothing – ““), represented by NA for not available, or maybe simply be something like -777.</p>
 <p>When we load data with read_csv() we can indicate to the computer how missing values are represented. This ensures the computer sees something like -777 as a missing value rather than an actual value. We do so in the read_csv() command below using the <strong>na</strong> argument (not available). Note: use SHIFT-RETURN or SHIFT-ENTER to move the next line within the read_csv() command. Failure to indicate the missing value codes within read_csv() will result in incorrect answers in most scenarios with missing data.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="introduction.html#cb60-1" aria-hidden="true" tabindex="-1"></a>okcupid_profiles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>,</span>
 <span id="cb60-2"><a href="introduction.html#cb60-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">na =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;-777&quot;</span>))</span></code></pre></div>
 </div>
-<div id="thats-it" class="section level2" number="1.13">
-<h2><span class="header-section-number">1.13</span> That’s it!</h2>
+<div id="importing-to-rstudio-cloud" class="section level2" number="1.13">
+<h2><span class="header-section-number">1.13</span> Importing to RStudio Cloud</h2>
+<p>If you are using RStudio via the <a href="www.rstudio.cloud">RStudio Cloud</a> interface you may need to, on occasion, upload a file from your computer. Here is how to do so. We begin be downloading a file from this website to your computer.</p>
+<ol style="list-style-type: decimal">
+<li>Download the <a href="data_ratings.csv">data_ratings.csv</a> by right clicking the filename in this sentence. Doing this will put the file in your <strong>Downloads</strong> folder.</li>
+</ol>
+<p><strong>NOTE: The data_ratings.csv file may automatically open in Numbers or Excel. DO NOT save the file if this happens. You MUST use the file from the Downloads folder - not a saved version. Saving the file from Excel or Numbers will likely cause substantial problems. Find the Downloads folder on your computer and obtain the file from this folder.</strong></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Move the data_ratings.csv from the Downloads folder to your Desktop.</p></li>
+<li><p>In RStudio Cloud, click on the Upload button on the Files tab.</p></li>
+</ol>
+<div class="figure"><span style="display:block;" id="fig:importfile"></span>
+<img src="ch_introduction/images/screenshot_upload.png" alt="Import file button" width="70%" />
+<p class="caption">
+FIGURE 1.6: Import file button
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Clicking the Upload makes the window below appear. In this window, click the Choose File button. Then select the file data_ratings.csv from your desktop.</li>
+</ol>
+<div class="figure"><span style="display:block;" id="fig:importselect"></span>
+<img src="ch_introduction/images/screenshot_upload_selector.png" alt="Select file window" width="70%" />
+<p class="caption">
+FIGURE 1.7: Select file window
+</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Click the OK button. The data_ratings.csv will appear the Files tab.</p></li>
+<li><p>Now load the file using the read_csv() command:</p></li>
+</ol>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="introduction.html#cb61-1" aria-hidden="true" tabindex="-1"></a>data_ratings <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_ratings.csv&quot;</span>,</span>
+<span id="cb61-2"><a href="introduction.html#cb61-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">na =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;-777&quot;</span>))</span></code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>Glimpse() the data you loaded.</li>
+</ol>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="introduction.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_ratings)</span></code></pre></div>
+<pre><code>## Rows: 30
+## Columns: 7
+## $ rating     &lt;dbl&gt; 43, 63, 71, 61, 81, 43, 58, 71, 72, 67,…
+## $ complaints &lt;dbl&gt; 51, 64, 70, 63, 78, 55, 67, 75, 82, 61,…
+## $ privileges &lt;dbl&gt; 30, 51, 68, 45, 56, 49, 42, 50, 72, 45,…
+## $ learning   &lt;dbl&gt; 39, 54, 69, 47, 66, 44, 56, 55, 67, 47,…
+## $ raises     &lt;dbl&gt; 61, 63, 76, 54, 71, 54, 66, 70, 71, 62,…
+## $ critical   &lt;dbl&gt; 92, 73, 86, 84, 83, 49, 68, 66, 83, 80,…
+## $ advance    &lt;dbl&gt; 45, 47, 48, 35, 47, 34, 35, 41, 31, 41,…</code></pre>
+</div>
+<div id="thats-it" class="section level2" number="1.14">
+<h2><span class="header-section-number">1.14</span> That’s it!</h2>
 <p>Congratulations! You’ve reached the end of the introduction to R. Take a break, have a cookie, and read some more about R tomorrow!</p>
 
 </div>

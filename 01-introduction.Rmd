@@ -426,6 +426,52 @@ okcupid_profiles <- read_csv(file = "data_okcupid.csv",
                              na = c("", "NA", "-777"))
 ```
 
+## Importing to RStudio Cloud
+
+If you are using RStudio via the [RStudio Cloud](www.rstudio.cloud) interface you may need to, on occasion, upload a file from your computer. Here is how to do so. We begin be downloading a file from this website to your computer.
+
+1. Download the [data_ratings.csv](data_ratings.csv) by right clicking the filename in this sentence. Doing this will put the file in your **Downloads** folder.
+
+**NOTE: The data_ratings.csv file may automatically open in Numbers or Excel. DO NOT save the file if this happens. You MUST use the file from the Downloads folder - not a saved version. Saving the file from Excel or Numbers will likely cause substantial problems. Find the Downloads folder on your computer and obtain the file from this folder.**
+
+2. Move the data_ratings.csv from the Downloads folder to your Desktop.
+
+3. In RStudio Cloud, click on the Upload button on the Files tab.
+
+```{r importfile, fig.cap="Import file button", echo = FALSE, out.width="70%"}
+knitr::include_graphics("ch_introduction/images/screenshot_upload.png")
+```
+
+
+4. Clicking the Upload makes the window below appear. In this window, click the Choose File button. Then select the file data_ratings.csv from your desktop.
+
+```{r importselect, fig.cap="Select file window", echo = FALSE, out.width="70%"}
+knitr::include_graphics("ch_introduction/images/screenshot_upload_selector.png")
+```
+
+5. Click the OK button.  The data_ratings.csv will appear the Files tab.
+
+
+6. Now load the file using the read_csv() command:
+
+```{r, eval = FALSE}
+data_ratings <- read_csv(file = "data_ratings.csv",
+                         na = c("", "NA", "-777"))
+```
+
+```{r, include = FALSE}
+data_ratings <- read_csv(file = "data_ratings.csv",
+                         na = c("", "NA", "-777"))
+```
+
+
+7. Glimpse() the data you loaded.
+
+```{r}
+glimpse(data_ratings)
+```
+
+
 
 ## That's it!
 

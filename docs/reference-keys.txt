@@ -4,6 +4,8 @@ fig:welcome
 fig:assignment
 fig:interface
 fig:sourcebutton
+fig:importfile
+fig:importselect
 fig:showmap
 fig:addfill
 fig:colorcomparison
@@ -111,6 +113,7 @@ vector-of-numbers
 vector-of-characters
 lists
 revisiting-read_csv
+importing-to-rstudio-cloud
 thats-it
 handling-data-with-the-tidyverse
 required
