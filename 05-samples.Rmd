@@ -17,7 +17,7 @@ The following GitHub packages must be installed:
 A GitHub package can be installed using the code below:
 
 ```{r, eval = FALSE}
-remotes::install_github("dstanley4/learnsampling")
+remotes::install_github("dstanley4/learnSampling")
 ```
 
 | Required Data |
