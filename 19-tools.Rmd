@@ -17,7 +17,15 @@ Also don't forget to pre-register any analyses involving control variables. Cont
 * [Spector, P. E., & Brannick, M. T. (2011). Methodological urban legends: The misuse of statistical control variables. Organizational Research Methods, 14(2), 287-305.](https://doi.org/10.1177%2F1094428110369842)
 
 
+## Transparency checklist
 
+Be sure to check out the [Transparency checklist](http://www.shinyapps.org/apps/TransparencyChecklist/). This is a great tool to help you ensure your process is transparent.
+
+## Helpful web apps
+
+Daniel Lakens has a number of very helpful web apps to help you with sample size planning and other issues. I encourage you to check them out [here](https://lakens.github.io/shiny_apps/).
+
+As well, check out [Designing Experiments](https://designingexperiments.com/shiny-r-web-apps/) for some other helpful tools. Sampling size planning, effect size calculations, and more!
 
 
 ## Minimizing mistakes
@@ -68,12 +76,14 @@ You can learn more about rmarkdown in this [video](https://vimeo.com/178485416).
 
 Some other great resources:
 
+
 * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by Xie, Allaire, and Grolemund. Free.
 
 * [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) by Xie, Dervieux, and Riederer. Free.
 
 * [bookdown: Authoring Books and Technical Documents with R Markdow](https://bookdown.org/yihui/bookdown/) by Xie. Free.
 
+* Karl Broman's [website](https://kbroman.org/knitr_knutshell/) has many helpful tips. Especially this [page](https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html).
 
 ### papaja
 
@@ -147,7 +157,7 @@ knitr::include_graphics("ch_tools/images/statcheck_process.png")
 
 ### statcheck validity
 
-Although there were some initial concerns about the validity of statcheck, subsequent [research](https://psyarxiv.com/tcxaj/download?format=pdf) on the package indicates an impressive validity level of roughly 90% (or a little higher/lower depending on the settings used). Indeed, in July of 2016, the journal *Psychological Science* started using statcheck on all submitted manuscripts - once they based an initial screen. Journal editor, Stephen Lindsey, [reports](https://www.nature.com/news/stat-checking-software-stirs-up-psychology-1.21049) there has been little resistance to doing so "Reaction has been almost non-existent."
+Although there were some initial concerns about the validity of statcheck, subsequent [research](https://psyarxiv.com/tcxaj/download?format=pdf) on the package indicates an impressive validity level of roughly 90% (or a little higher/lower depending on the settings used). Indeed, in July of 2016, the journal *Psychological Science* started using statcheck on all submitted manuscripts - once they passed an initial screen. Journal editor, Stephen Lindsey, [reports](https://www.nature.com/news/stat-checking-software-stirs-up-psychology-1.21049) there has been little resistance to doing so "Reaction has been almost non-existent."
 
 
 ## Journal rankings via the TOP Factor
@@ -170,6 +180,15 @@ If you want to learn more about statistics I suggest [@maxwell2017designing], [@
 
 There are many R books out there. I believe that you will find these most helpful:
 
+
+* [Data Visualization](https://socviz.co) by Healy. Free.
+
+* [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) by Wilke. Free.
+
+* [R Graphics Cookbook](https://r-graphics.org/index.html) by Chang. Free.
+
+* [ggplot2](https://ggplot2-book.org/index.html) by Wickham. Free.
+
 * [R for Data Science](https://r4ds.had.co.nz) by Wickham and Grolemund. Free.
 
 * [Hands-On Programming with R](https://rstudio-education.github.io/hopr/) by Grolemund. Free.
@@ -178,6 +197,28 @@ There are many R books out there. I believe that you will find these most helpfu
 
 * [Art of R Programming](https://nostarch.com/artofr.htm) by Matloff.
 
+
+Then some books that are great but less likely to by used by psychology folks:
+
+* [Mastering Shiny](https://mastering-shiny.org) by Wickham. Free.
+
+* [R packages](https://r-pkgs.org) by Wickham Free.
+
+
+* [Efficient R Programming](https://csgillespie.github.io/efficientR/) by Lovelace. Free.
+
+* [Text Mining with R](https://www.tidytextmining.com) by Silge and Robinson. Free.
+
+
+* [Javascript for R](https://book.javascript-for-r.com) by Coene. Free.
+
+* [Practical Data Science with R](https://www.manning.com/books/practical-data-science-with-r-second-edition?query=practical%20datas%20science%20with%20r) by Zumel and Mount.
+
+* [Functional Programming in R](https://www.amazon.ca/Functional-Programming-Advanced-Statistical-Analysis/dp/148422745X/ref=sr_1_2?crid=2PYTJ42R507CT&keywords=functional+programming+in+r&qid=1655326113&s=books&sprefix=functional+programming+in+r%2Cstripbooks%2C98&sr=1-2) by Mailund. 
+
+* [Deep learning with R](https://www.manning.com/books/deep-learning-with-r) Chollet and Allaire.
+
+* [Extending R](https://www.amazon.ca/Extending-R/dp/B07452L4XB) by Chambers.
 
 ## Retracted articles
 
@@ -240,6 +281,16 @@ Even better, you can use the [retractcheck](https://cran.r-project.org/package=r
 ```{r, echo = FALSE, out.width = "60%", cap = "Open retractions website"}
 knitr::include_graphics("ch_tools/images/retractcheck_website.png")
 ```
+
+## Big data
+
+Occasionally psychology researchers deal with big data. File sizes can be quite large with big data. Check out the [arrow package](https://cran.r-project.org/web/packages/arrow/index.html), specifically, the write_parquet() command as means of using smaller file sizes. This approach can make sharing a file on GitHub, or emailing it to a colleague, substantially easier.
+
+```{r, echo = FALSE, out.width = "60%", cap = "Arrow package"}
+knitr::include_graphics("ch_tools/images/arrow_package.png")
+```
+
+
 
 
 

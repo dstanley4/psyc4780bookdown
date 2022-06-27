@@ -486,6 +486,8 @@ preregistration-details
 learn-more
 next-step-resources
 osf
+transparency-checklist
+helpful-web-apps
 minimizing-mistakes
 avoiding-p-hacking
 writing-articles
@@ -507,6 +509,7 @@ doi
 retractiondatabase.org
 openretractions.com
 retractcheck
+big-data
 cookbook
 required-packages-1
 following-the-examples
