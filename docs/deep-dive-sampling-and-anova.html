@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 21 Deep dive: Sampling and ANOVA | Welcome!</title>
+  <meta name="description" content="Course notes for PSYC 4780" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 21 Deep dive: Sampling and ANOVA | Welcome!" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Course notes for PSYC 4780" />
+  <meta name="github-repo" content="dstanley4/psyc4780bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 21 Deep dive: Sampling and ANOVA | Welcome!" />
+  
+  <meta name="twitter:description" content="Course notes for PSYC 4780" />
+  
+
+<meta name="author" content="David J. Stanley" />
+
+
+<meta name="date" content="2022-08-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="cookbook.html"/>
+<link rel="next" href="deeper-dive-sampling-and-anova.html"/>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="libs/plotly-binding/plotly.js"></script>
+<script src="libs/typedarray/typedarray.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Course Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course:</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#a-focus-on-workflow"><i class="fa fa-check"></i><b>1.1</b> A focus on workflow</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-works-with-plug-ins"><i class="fa fa-check"></i><b>1.2</b> R works with plug-ins</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#create-an-account-at-r-studio-cloud"><i class="fa fa-check"></i><b>1.3</b> Create an account at R Studio Cloud</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#join-the-class-workspace"><i class="fa fa-check"></i><b>1.4</b> Join the class workspace</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#exploring-the-r-studio-interface"><i class="fa fa-check"></i><b>1.5</b> Exploring the R Studio Interface</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#console-panel"><i class="fa fa-check"></i><b>1.5.1</b> Console panel</a></li>
+<li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#script-panel"><i class="fa fa-check"></i><b>1.5.2</b> Script Panel</a></li>
+<li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#cheatsheets"><i class="fa fa-check"></i><b>1.5.3</b> Cheatsheets</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#writing-your-first-script"><i class="fa fa-check"></i><b>1.6</b> Writing your first script</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#create-the-script-file"><i class="fa fa-check"></i><b>1.6.1</b> Create the script file</a></li>
+<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#add-a-comment-to-your-script"><i class="fa fa-check"></i><b>1.6.2</b> Add a comment to your script</a></li>
+<li class="chapter" data-level="1.6.3" data-path="introduction.html"><a href="introduction.html#background-about-the-tidyverse"><i class="fa fa-check"></i><b>1.6.3</b> Background about the tidyverse</a></li>
+<li class="chapter" data-level="1.6.4" data-path="introduction.html"><a href="introduction.html#add-librarytidyverse-to-your-script"><i class="fa fa-check"></i><b>1.6.4</b> Add library(tidyverse) to your script</a></li>
+<li class="chapter" data-level="1.6.5" data-path="introduction.html"><a href="introduction.html#activate-tidyverse-auto-complete-for-your-script"><i class="fa fa-check"></i><b>1.6.5</b> Activate tidyverse auto-complete for your script</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#loading-your-data"><i class="fa fa-check"></i><b>1.7</b> Loading your data</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#use-read_csv-not-read.csv-to-open-files."><i class="fa fa-check"></i><b>1.7.1</b> Use read_csv (not read.csv) to open files.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#checking-out-your-data"><i class="fa fa-check"></i><b>1.8</b> Checking out your data</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#view-see-a-spreadsheet-view-of-your-data"><i class="fa fa-check"></i><b>1.8.1</b> view(): See a spreadsheet view of your data</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#print-see-your-data-in-the-console"><i class="fa fa-check"></i><b>1.8.2</b> print(): See your data in the Console</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introduction.html"><a href="introduction.html#head-check-out-the-first-few-rows-of-data"><i class="fa fa-check"></i><b>1.8.3</b> head(): Check out the first few rows of data</a></li>
+<li class="chapter" data-level="1.8.4" data-path="introduction.html"><a href="introduction.html#tail-check-out-the-last-few-rows-of-data"><i class="fa fa-check"></i><b>1.8.4</b> tail(): Check out the last few rows of data</a></li>
+<li class="chapter" data-level="1.8.5" data-path="introduction.html"><a href="introduction.html#summary-quick-summaries"><i class="fa fa-check"></i><b>1.8.5</b> summary(): Quick summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#run-vs.-source-with-echo-vs.-source"><i class="fa fa-check"></i><b>1.9</b> Run <em>vs.</em> Source with Echo <em>vs.</em> Source</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#run-select-text"><i class="fa fa-check"></i><b>1.9.1</b> Run select text</a></li>
+<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#source-without-echo"><i class="fa fa-check"></i><b>1.9.2</b> Source (without Echo)</a></li>
+<li class="chapter" data-level="1.9.3" data-path="introduction.html"><a href="introduction.html#source-with-echo"><i class="fa fa-check"></i><b>1.9.3</b> Source with Echo</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="introduction.html"><a href="introduction.html#trying-source-with-echo"><i class="fa fa-check"></i><b>1.10</b> Trying Source with Echo</a></li>
+<li class="chapter" data-level="1.11" data-path="introduction.html"><a href="introduction.html#a-few-key-points-about"><i class="fa fa-check"></i><b>1.11</b> A few key points about</a>
+<ul>
+<li class="chapter" data-level="1.11.1" data-path="introduction.html"><a href="introduction.html#lists"><i class="fa fa-check"></i><b>1.11.1</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.12</b> Revisiting read_csv()</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction.html"><a href="introduction.html#importing-to-rstudio-cloud"><i class="fa fa-check"></i><b>1.13</b> Importing to RStudio Cloud</a></li>
+<li class="chapter" data-level="1.14" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.14</b> That’s it!</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Handling Data with the Tidyverse</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#required"><i class="fa fa-check"></i><b>2.1</b> Required</a></li>
+<li class="chapter" data-level="2.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#objective"><i class="fa fa-check"></i><b>2.2</b> Objective</a></li>
+<li class="chapter" data-level="2.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#using-the-console"><i class="fa fa-check"></i><b>2.3</b> Using the Console</a></li>
+<li class="chapter" data-level="2.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#tidyverse-help-with-the-introverse"><i class="fa fa-check"></i><b>2.4</b> Tidyverse help with the Introverse</a></li>
+<li class="chapter" data-level="2.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#basic-tidyverse-commands"><i class="fa fa-check"></i><b>2.5</b> Basic tidyverse commands</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#decimals"><i class="fa fa-check"></i><b>2.5.1</b> decimals</a></li>
+<li class="chapter" data-level="2.5.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select"><i class="fa fa-check"></i><b>2.5.2</b> select()</a></li>
+<li class="chapter" data-level="2.5.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>2.5.3</b> summarise()</a></li>
+<li class="chapter" data-level="2.5.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#filter"><i class="fa fa-check"></i><b>2.5.4</b> filter()</a></li>
+<li class="chapter" data-level="2.5.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>2.5.5</b> group_by()</a></li>
+<li class="chapter" data-level="2.5.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>2.5.6</b> mutate()</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#advanced-tidyverse-commands"><i class="fa fa-check"></i><b>2.6</b> Advanced tidyverse commands</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select-1"><i class="fa fa-check"></i><b>2.6.1</b> select()</a></li>
+<li class="chapter" data-level="2.6.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise-1"><i class="fa fa-check"></i><b>2.6.2</b> summarise()</a></li>
+<li class="chapter" data-level="2.6.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate-1"><i class="fa fa-check"></i><b>2.6.3</b> mutate()</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#using-help"><i class="fa fa-check"></i><b>2.7</b> Using help</a></li>
+<li class="chapter" data-level="2.8" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#base-r-vs-tidyverse"><i class="fa fa-check"></i><b>2.8</b> Base R vs tidyverse</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#tibbles-vs.-data-frames"><i class="fa fa-check"></i><b>2.8.1</b> Tibbles vs. data frames</a></li>
+<li class="chapter" data-level="2.8.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read.csv-and-data-frames"><i class="fa fa-check"></i><b>2.8.2</b> read.csv() and data frames</a></li>
+<li class="chapter" data-level="2.8.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read_csv-and-tibbles"><i class="fa fa-check"></i><b>2.8.3</b> read_csv() and tibbles</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="graphing.html"><a href="graphing.html"><i class="fa fa-check"></i><b>3</b> Graphing</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="graphing.html"><a href="graphing.html#required-1"><i class="fa fa-check"></i><b>3.1</b> Required</a></li>
+<li class="chapter" data-level="3.2" data-path="graphing.html"><a href="graphing.html#data"><i class="fa fa-check"></i><b>3.2</b> Data</a></li>
+<li class="chapter" data-level="3.3" data-path="graphing.html"><a href="graphing.html#graph-basics"><i class="fa fa-check"></i><b>3.3</b> Graph basics</a></li>
+<li class="chapter" data-level="3.4" data-path="graphing.html"><a href="graphing.html#graphing-efficiently"><i class="fa fa-check"></i><b>3.4</b> Graphing efficiently</a></li>
+<li class="chapter" data-level="3.5" data-path="graphing.html"><a href="graphing.html#aesthetics"><i class="fa fa-check"></i><b>3.5</b> Aesthetics</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="graphing.html"><a href="graphing.html#fill-color"><i class="fa fa-check"></i><b>3.5.1</b> Fill color</a></li>
+<li class="chapter" data-level="3.5.2" data-path="graphing.html"><a href="graphing.html#overriding-aes"><i class="fa fa-check"></i><b>3.5.2</b> Overriding aes()</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="graphing.html"><a href="graphing.html#apa-style"><i class="fa fa-check"></i><b>3.6</b> APA style</a></li>
+<li class="chapter" data-level="3.7" data-path="graphing.html"><a href="graphing.html#axes"><i class="fa fa-check"></i><b>3.7</b> Axes</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="graphing.html"><a href="graphing.html#range"><i class="fa fa-check"></i><b>3.7.1</b> Range</a></li>
+<li class="chapter" data-level="3.7.2" data-path="graphing.html"><a href="graphing.html#ticks"><i class="fa fa-check"></i><b>3.7.2</b> Ticks</a></li>
+<li class="chapter" data-level="3.7.3" data-path="graphing.html"><a href="graphing.html#labels"><i class="fa fa-check"></i><b>3.7.3</b> Labels</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="graphing.html"><a href="graphing.html#axis-values"><i class="fa fa-check"></i><b>3.8</b> Axis values</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="graphing.html"><a href="graphing.html#text"><i class="fa fa-check"></i><b>3.8.1</b> Text</a></li>
+<li class="chapter" data-level="3.8.2" data-path="graphing.html"><a href="graphing.html#angle"><i class="fa fa-check"></i><b>3.8.2</b> Angle</a></li>
+<li class="chapter" data-level="3.8.3" data-path="graphing.html"><a href="graphing.html#alignment"><i class="fa fa-check"></i><b>3.8.3</b> Alignment</a></li>
+<li class="chapter" data-level="3.8.4" data-path="graphing.html"><a href="graphing.html#order"><i class="fa fa-check"></i><b>3.8.4</b> Order</a></li>
+<li class="chapter" data-level="3.8.5" data-path="graphing.html"><a href="graphing.html#legend-order"><i class="fa fa-check"></i><b>3.8.5</b> Legend order</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="graphing.html"><a href="graphing.html#custom-colours"><i class="fa fa-check"></i><b>3.9</b> Custom colours</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="graphing.html"><a href="graphing.html#r-palette"><i class="fa fa-check"></i><b>3.9.1</b> R palette</a></li>
+<li class="chapter" data-level="3.9.2" data-path="graphing.html"><a href="graphing.html#hex-colours"><i class="fa fa-check"></i><b>3.9.2</b> Hex colours</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="graphing.html"><a href="graphing.html#emoji"><i class="fa fa-check"></i><b>3.10</b> Emoji</a></li>
+<li class="chapter" data-level="3.11" data-path="graphing.html"><a href="graphing.html#accessible-colors"><i class="fa fa-check"></i><b>3.11</b> Accessible Colors</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="graphing.html"><a href="graphing.html#rcolorbrewer"><i class="fa fa-check"></i><b>3.11.1</b> RColorBrewer</a></li>
+<li class="chapter" data-level="3.11.2" data-path="graphing.html"><a href="graphing.html#avoid-color"><i class="fa fa-check"></i><b>3.11.2</b> Avoid color</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="graphing.html"><a href="graphing.html#saving"><i class="fa fa-check"></i><b>3.12</b> Saving</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="graphing.html"><a href="graphing.html#mac"><i class="fa fa-check"></i><b>3.12.1</b> MAC</a></li>
+<li class="chapter" data-level="3.12.2" data-path="graphing.html"><a href="graphing.html#pc-or-mac"><i class="fa fa-check"></i><b>3.12.2</b> PC or MAC</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="graphing.html"><a href="graphing.html#custom-themes"><i class="fa fa-check"></i><b>3.13</b> Custom themes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="populations.html"><a href="populations.html"><i class="fa fa-check"></i><b>4</b> Populations</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="populations.html"><a href="populations.html#notation"><i class="fa fa-check"></i><b>4.1</b> Notation</a></li>
+<li class="chapter" data-level="4.2" data-path="populations.html"><a href="populations.html#population-vs-samples"><i class="fa fa-check"></i><b>4.2</b> Population vs samples</a></li>
+<li class="chapter" data-level="4.3" data-path="populations.html"><a href="populations.html#a-small-population"><i class="fa fa-check"></i><b>4.3</b> A small population</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="populations.html"><a href="populations.html#mean-mu"><i class="fa fa-check"></i><b>4.3.1</b> Mean (<span class="math inline">\(\mu\)</span>)</a></li>
+<li class="chapter" data-level="4.3.2" data-path="populations.html"><a href="populations.html#variance-sigma2"><i class="fa fa-check"></i><b>4.3.2</b> Variance (<span class="math inline">\(\sigma^2\)</span>)</a></li>
+<li class="chapter" data-level="4.3.3" data-path="populations.html"><a href="populations.html#standard-deviation-sigma"><i class="fa fa-check"></i><b>4.3.3</b> Standard Deviation (<span class="math inline">\(\sigma\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="populations.html"><a href="populations.html#visualizing-populations"><i class="fa fa-check"></i><b>4.4</b> Visualizing populations</a></li>
+<li class="chapter" data-level="4.5" data-path="populations.html"><a href="populations.html#comparisons-same-sigma"><i class="fa fa-check"></i><b>4.5</b> Comparisons: Same <span class="math inline">\(\sigma\)</span></a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="populations.html"><a href="populations.html#standardized-units"><i class="fa fa-check"></i><b>4.5.1</b> Standardized units</a></li>
+<li class="chapter" data-level="4.5.2" data-path="populations.html"><a href="populations.html#cohens-d-units"><i class="fa fa-check"></i><b>4.5.2</b> Cohen’s <span class="math inline">\(d\)</span> units</a></li>
+<li class="chapter" data-level="4.5.3" data-path="populations.html"><a href="populations.html#cohens-d-advantages"><i class="fa fa-check"></i><b>4.5.3</b> Cohen’s <span class="math inline">\(d\)</span> advantages</a></li>
+<li class="chapter" data-level="4.5.4" data-path="populations.html"><a href="populations.html#cohens-d-caveats"><i class="fa fa-check"></i><b>4.5.4</b> Cohen’s <span class="math inline">\(d\)</span> caveats</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="populations.html"><a href="populations.html#comparisons-different-sigma"><i class="fa fa-check"></i><b>4.6</b> Comparisons: Different <span class="math inline">\(\sigma\)</span></a></li>
+<li class="chapter" data-level="4.7" data-path="populations.html"><a href="populations.html#comparisons-repeated-measures"><i class="fa fa-check"></i><b>4.7</b> Comparisons: Repeated Measures</a></li>
+<li class="chapter" data-level="4.8" data-path="populations.html"><a href="populations.html#comparison-benchmarks"><i class="fa fa-check"></i><b>4.8</b> Comparison Benchmarks</a></li>
+<li class="chapter" data-level="4.9" data-path="populations.html"><a href="populations.html#population-relations"><i class="fa fa-check"></i><b>4.9</b> Population relations</a></li>
+<li class="chapter" data-level="4.10" data-path="populations.html"><a href="populations.html#relation-benchmarks"><i class="fa fa-check"></i><b>4.10</b> Relation benchmarks</a></li>
+<li class="chapter" data-level="4.11" data-path="populations.html"><a href="populations.html#key-points"><i class="fa fa-check"></i><b>4.11</b> Key points</a></li>
+<li class="chapter" data-level="4.12" data-path="populations.html"><a href="populations.html#minor-points"><i class="fa fa-check"></i><b>4.12</b> Minor Points</a></li>
+<li class="chapter" data-level="4.13" data-path="populations.html"><a href="populations.html#self-assessment"><i class="fa fa-check"></i><b>4.13</b> Self Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html"><i class="fa fa-check"></i><b>5</b> Sampling Accuracy</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#data-for-the-chapter"><i class="fa fa-check"></i><b>5.2</b> Data for the chapter</a></li>
+<li class="chapter" data-level="5.3" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#notation-1"><i class="fa fa-check"></i><b>5.3</b> Notation</a></li>
+<li class="chapter" data-level="5.4" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#estimating-mu"><i class="fa fa-check"></i><b>5.4</b> Estimating <span class="math inline">\(\mu\)</span></a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#assessing-bias"><i class="fa fa-check"></i><b>5.4.1</b> Assessing bias</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#estimating-sigma2"><i class="fa fa-check"></i><b>5.5</b> Estimating <span class="math inline">\(\sigma^2\)</span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#assessing-bias-1"><i class="fa fa-check"></i><b>5.5.1</b> Assessing bias</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#estimating-sigma"><i class="fa fa-check"></i><b>5.6</b> Estimating <span class="math inline">\(\sigma\)</span></a></li>
+<li class="chapter" data-level="5.7" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#estimating-delta"><i class="fa fa-check"></i><b>5.7</b> Estimating <span class="math inline">\(\delta\)</span></a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#pooled-standard-deviation"><i class="fa fa-check"></i><b>5.7.1</b> Pooled standard deviation</a></li>
+<li class="chapter" data-level="5.7.2" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#calculating-d"><i class="fa fa-check"></i><b>5.7.2</b> Calculating <span class="math inline">\(d\)</span></a></li>
+<li class="chapter" data-level="5.7.3" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#assessing-bias-2"><i class="fa fa-check"></i><b>5.7.3</b> Assessing bias</a></li>
+<li class="chapter" data-level="5.7.4" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#illustrating-variability"><i class="fa fa-check"></i><b>5.7.4</b> Illustrating variability</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#estimating-rho"><i class="fa fa-check"></i><b>5.8</b> Estimating <span class="math inline">\(\rho\)</span></a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#assessing-bias-3"><i class="fa fa-check"></i><b>5.8.1</b> Assessing bias</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#overview-1"><i class="fa fa-check"></i><b>5.9</b> Overview</a></li>
+<li class="chapter" data-level="5.10" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#meta-analysis"><i class="fa fa-check"></i><b>5.10</b> Meta-analysis</a></li>
+<li class="chapter" data-level="5.11" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#a-joke"><i class="fa fa-check"></i><b>5.11</b> A joke</a></li>
+<li class="chapter" data-level="5.12" data-path="sampling-accuracy.html"><a href="sampling-accuracy.html#key-points-1"><i class="fa fa-check"></i><b>5.12</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sampling-precision.html"><a href="sampling-precision.html"><i class="fa fa-check"></i><b>6</b> Sampling Precision</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sampling-precision.html"><a href="sampling-precision.html#overview-2"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
+<li class="chapter" data-level="6.2" data-path="sampling-precision.html"><a href="sampling-precision.html#population-individuals"><i class="fa fa-check"></i><b>6.2</b> Population / Individuals</a></li>
+<li class="chapter" data-level="6.3" data-path="sampling-precision.html"><a href="sampling-precision.html#sampling-distribution"><i class="fa fa-check"></i><b>6.3</b> Sampling distribution</a></li>
+<li class="chapter" data-level="6.4" data-path="sampling-precision.html"><a href="sampling-precision.html#precision-indices"><i class="fa fa-check"></i><b>6.4</b> Precision indices</a></li>
+<li class="chapter" data-level="6.5" data-path="sampling-precision.html"><a href="sampling-precision.html#a-short-cut"><i class="fa fa-check"></i><b>6.5</b> A short cut</a></li>
+<li class="chapter" data-level="6.6" data-path="sampling-precision.html"><a href="sampling-precision.html#estimates-of-precision"><i class="fa fa-check"></i><b>6.6</b> Estimates of precision</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="sampling-precision.html"><a href="sampling-precision.html#a-worked-example"><i class="fa fa-check"></i><b>6.6.1</b> A worked example</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="sampling-precision.html"><a href="sampling-precision.html#bias-of-precision-estimates"><i class="fa fa-check"></i><b>6.7</b> Bias of precision estimates</a></li>
+<li class="chapter" data-level="6.8" data-path="sampling-precision.html"><a href="sampling-precision.html#where-are-we"><i class="fa fa-check"></i><b>6.8</b> Where are we?</a></li>
+<li class="chapter" data-level="6.9" data-path="sampling-precision.html"><a href="sampling-precision.html#precision-for-means-causes"><i class="fa fa-check"></i><b>6.9</b> Precision for means: Causes</a></li>
+<li class="chapter" data-level="6.10" data-path="sampling-precision.html"><a href="sampling-precision.html#precision-for-d-values-causes"><i class="fa fa-check"></i><b>6.10</b> Precision for <span class="math inline">\(d\)</span>-values: Causes</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="sampling-precision.html"><a href="sampling-precision.html#sample-size"><i class="fa fa-check"></i><b>6.10.1</b> Sample size</a></li>
+<li class="chapter" data-level="6.10.2" data-path="sampling-precision.html"><a href="sampling-precision.html#population-effect-size-delta"><i class="fa fa-check"></i><b>6.10.2</b> Population effect size (<span class="math inline">\(\delta\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.11" data-path="sampling-precision.html"><a href="sampling-precision.html#precision-for-sample-correlations-r-causes"><i class="fa fa-check"></i><b>6.11</b> Precision for sample correlations (<span class="math inline">\(r\)</span>): Causes</a>
+<ul>
+<li class="chapter" data-level="6.11.1" data-path="sampling-precision.html"><a href="sampling-precision.html#sample-size-1"><i class="fa fa-check"></i><b>6.11.1</b> Sample size</a></li>
+<li class="chapter" data-level="6.11.2" data-path="sampling-precision.html"><a href="sampling-precision.html#population-effect-size-rho"><i class="fa fa-check"></i><b>6.11.2</b> Population effect size (<span class="math inline">\(\rho\)</span>)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html"><i class="fa fa-check"></i><b>7</b> An Emphasis on Workflow</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#required-packages"><i class="fa fa-check"></i><b>7.1</b> Required Packages</a></li>
+<li class="chapter" data-level="7.2" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#objective-1"><i class="fa fa-check"></i><b>7.2</b> Objective</a></li>
+<li class="chapter" data-level="7.3" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#begin-with-the-end-in-mind"><i class="fa fa-check"></i><b>7.3</b> Begin with the end in mind</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#structuring-data-obtaining-tidy-data"><i class="fa fa-check"></i><b>7.3.1</b> Structuring data: Obtaining tidy data</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#data-collection-considerations"><i class="fa fa-check"></i><b>7.4</b> Data collection considerations</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#file-naming-conventions"><i class="fa fa-check"></i><b>7.4.1</b> File naming conventions</a></li>
+<li class="chapter" data-level="7.4.2" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#data-column-naming-conventions"><i class="fa fa-check"></i><b>7.4.2</b> Data column naming conventions</a></li>
+<li class="chapter" data-level="7.4.3" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#likert-type-items"><i class="fa fa-check"></i><b>7.4.3</b> Likert-type items</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#example-single-occassion-survey"><i class="fa fa-check"></i><b>7.5</b> Example: Single Occassion Survey</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#creating-factors"><i class="fa fa-check"></i><b>7.5.1</b> Creating factors</a></li>
+<li class="chapter" data-level="7.5.2" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#factor-screening"><i class="fa fa-check"></i><b>7.5.2</b> Factor screening</a></li>
+<li class="chapter" data-level="7.5.3" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#numeric-screening"><i class="fa fa-check"></i><b>7.5.3</b> Numeric screening</a></li>
+<li class="chapter" data-level="7.5.4" data-path="an-emphasis-on-workflow.html"><a href="an-emphasis-on-workflow.html#scale-scores"><i class="fa fa-check"></i><b>7.5.4</b> Scale scores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="qualtrics.html"><a href="qualtrics.html"><i class="fa fa-check"></i><b>8</b> Qualtrics</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="qualtrics.html"><a href="qualtrics.html#overview-3"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.2" data-path="qualtrics.html"><a href="qualtrics.html#required-2"><i class="fa fa-check"></i><b>8.2</b> Required</a></li>
+<li class="chapter" data-level="8.3" data-path="qualtrics.html"><a href="qualtrics.html#items-to-qualtrics"><i class="fa fa-check"></i><b>8.3</b> Items to Qualtrics</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="qualtrics.html"><a href="qualtrics.html#create-survey-codebook"><i class="fa fa-check"></i><b>8.3.1</b> Create survey codebook</a></li>
+<li class="chapter" data-level="8.3.2" data-path="qualtrics.html"><a href="qualtrics.html#convert-to-qualtrics-format"><i class="fa fa-check"></i><b>8.3.2</b> Convert to Qualtrics format</a></li>
+<li class="chapter" data-level="8.3.3" data-path="qualtrics.html"><a href="qualtrics.html#import-the-items"><i class="fa fa-check"></i><b>8.3.3</b> Import the items</a></li>
+<li class="chapter" data-level="8.3.4" data-path="qualtrics.html"><a href="qualtrics.html#tweak-survey-in-qualtrics"><i class="fa fa-check"></i><b>8.3.4</b> Tweak survey in Qualtrics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="qualtrics.html"><a href="qualtrics.html#qualtrics-data-to-r"><i class="fa fa-check"></i><b>8.4</b> Qualtrics data to R</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="qualtrics.html"><a href="qualtrics.html#export-from-qualtrics"><i class="fa fa-check"></i><b>8.4.1</b> Export from Qualtrics</a></li>
+<li class="chapter" data-level="8.4.2" data-path="qualtrics.html"><a href="qualtrics.html#load-data-in-r"><i class="fa fa-check"></i><b>8.4.2</b> Load data in R</a></li>
+<li class="chapter" data-level="8.4.3" data-path="qualtrics.html"><a href="qualtrics.html#convert-to-analytic-data"><i class="fa fa-check"></i><b>8.4.3</b> Convert to analytic data</a></li>
+<li class="chapter" data-level="8.4.4" data-path="qualtrics.html"><a href="qualtrics.html#complete-script"><i class="fa fa-check"></i><b>8.4.4</b> Complete script</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="qualtrics.html"><a href="qualtrics.html#extra-help"><i class="fa fa-check"></i><b>8.5</b> Extra Help</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="qualtrics.html"><a href="qualtrics.html#qualtrics-1"><i class="fa fa-check"></i><b>8.5.1</b> Qualtrics</a></li>
+<li class="chapter" data-level="8.5.2" data-path="qualtrics.html"><a href="qualtrics.html#surveys"><i class="fa fa-check"></i><b>8.5.2</b> Surveys</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html"><i class="fa fa-check"></i><b>9</b> Effect sizes from publications</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html#required-3"><i class="fa fa-check"></i><b>9.1</b> Required</a></li>
+<li class="chapter" data-level="9.2" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html#objective-2"><i class="fa fa-check"></i><b>9.2</b> Objective</a></li>
+<li class="chapter" data-level="9.3" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html#estimating-delta-1"><i class="fa fa-check"></i><b>9.3</b> Estimating <span class="math inline">\(\delta\)</span></a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html#independent-groups"><i class="fa fa-check"></i><b>9.3.1</b> Independent Groups</a></li>
+<li class="chapter" data-level="9.3.2" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html#repeated-measures"><i class="fa fa-check"></i><b>9.3.2</b> Repeated Measures</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html#estimating-rho-1"><i class="fa fa-check"></i><b>9.4</b> Estimating <span class="math inline">\(\rho\)</span></a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html#a-single-correlation"><i class="fa fa-check"></i><b>9.4.1</b> A single correlation</a></li>
+<li class="chapter" data-level="9.4.2" data-path="effect-sizes-from-publications.html"><a href="effect-sizes-from-publications.html#difference-between-two-correlations"><i class="fa fa-check"></i><b>9.4.2</b> Difference between two correlations</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html"><i class="fa fa-check"></i><b>10</b> NHST and sample size</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#required-4"><i class="fa fa-check"></i><b>10.1</b> Required</a></li>
+<li class="chapter" data-level="10.2" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#overview-4"><i class="fa fa-check"></i><b>10.2</b> Overview</a></li>
+<li class="chapter" data-level="10.3" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#goals"><i class="fa fa-check"></i><b>10.3</b> Goals</a></li>
+<li class="chapter" data-level="10.4" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#independent-groups-t-test"><i class="fa fa-check"></i><b>10.4</b> Independent groups <span class="math inline">\(t\)</span>-test</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#population-effect-size"><i class="fa fa-check"></i><b>10.4.1</b> Population effect size</a></li>
+<li class="chapter" data-level="10.4.2" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#determining-sample-size"><i class="fa fa-check"></i><b>10.4.2</b> Determining sample size</a></li>
+<li class="chapter" data-level="10.4.3" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#what-will-be-signficant"><i class="fa fa-check"></i><b>10.4.3</b> What will be signficant?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#repeated-measures-t-test"><i class="fa fa-check"></i><b>10.5</b> Repeated measures <span class="math inline">\(t\)</span>-test</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#population-effect-size-1"><i class="fa fa-check"></i><b>10.5.1</b> Population effect size</a></li>
+<li class="chapter" data-level="10.5.2" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#determining-sample-size-1"><i class="fa fa-check"></i><b>10.5.2</b> Determining sample size</a></li>
+<li class="chapter" data-level="10.5.3" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#what-will-be-signficant-1"><i class="fa fa-check"></i><b>10.5.3</b> What will be signficant?</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#correlations"><i class="fa fa-check"></i><b>10.6</b> Correlations</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#population-effect-size-2"><i class="fa fa-check"></i><b>10.6.1</b> Population effect size</a></li>
+<li class="chapter" data-level="10.6.2" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#determining-sample-size-2"><i class="fa fa-check"></i><b>10.6.2</b> Determining sample size</a></li>
+<li class="chapter" data-level="10.6.3" data-path="nhst-and-sample-size.html"><a href="nhst-and-sample-size.html#what-will-be-signficant-2"><i class="fa fa-check"></i><b>10.6.3</b> What will be signficant?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html"><i class="fa fa-check"></i><b>11</b> Equivalence tests and sample size</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#required-5"><i class="fa fa-check"></i><b>11.1</b> Required</a></li>
+<li class="chapter" data-level="11.2" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#interpreting-non-significant-findings"><i class="fa fa-check"></i><b>11.2</b> Interpreting non-significant findings</a></li>
+<li class="chapter" data-level="11.3" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#when-would-i-use-an-equivalence-test"><i class="fa fa-check"></i><b>11.3</b> When would I use an equivalence test?</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#t-test"><i class="fa fa-check"></i><b>11.3.1</b> <span class="math inline">\(t\)</span>-test</a></li>
+<li class="chapter" data-level="11.3.2" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#correlation"><i class="fa fa-check"></i><b>11.3.2</b> Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#possible-outcomes"><i class="fa fa-check"></i><b>11.4</b> Possible Outcomes</a></li>
+<li class="chapter" data-level="11.5" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#what-is-an-equivalence-test"><i class="fa fa-check"></i><b>11.5</b> What is an equivalence test</a></li>
+<li class="chapter" data-level="11.6" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#defining-a-zero-effect"><i class="fa fa-check"></i><b>11.6</b> Defining a zero effect</a></li>
+<li class="chapter" data-level="11.7" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#equivalence---repeated-measures"><i class="fa fa-check"></i><b>11.7</b> Equivalence - repeated measures</a>
+<ul>
+<li class="chapter" data-level="11.7.1" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#raw-units"><i class="fa fa-check"></i><b>11.7.1</b> Raw units</a></li>
+<li class="chapter" data-level="11.7.2" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#standardized-units-1"><i class="fa fa-check"></i><b>11.7.2</b> Standardized units</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#equivalence---independent-groups"><i class="fa fa-check"></i><b>11.8</b> Equivalence - Independent groups</a>
+<ul>
+<li class="chapter" data-level="11.8.1" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#raw-units-1"><i class="fa fa-check"></i><b>11.8.1</b> Raw units</a></li>
+<li class="chapter" data-level="11.8.2" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#standardized-units-2"><i class="fa fa-check"></i><b>11.8.2</b> Standardized units</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#equivalence-correlation"><i class="fa fa-check"></i><b>11.9</b> Equivalence Correlation</a></li>
+<li class="chapter" data-level="11.10" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#sample-sizes-for-equivalence-testing"><i class="fa fa-check"></i><b>11.10</b> Sample sizes for equivalence testing</a>
+<ul>
+<li class="chapter" data-level="11.10.1" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#independent-t-test"><i class="fa fa-check"></i><b>11.10.1</b> Independent <em>t</em>-test</a></li>
+<li class="chapter" data-level="11.10.2" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#repeated-t-test"><i class="fa fa-check"></i><b>11.10.2</b> Repeated <em>t</em>-test</a></li>
+<li class="chapter" data-level="11.10.3" data-path="equivalence-tests-and-sample-size.html"><a href="equivalence-tests-and-sample-size.html#correlation-1"><i class="fa fa-check"></i><b>11.10.3</b> Correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html"><i class="fa fa-check"></i><b>12</b> Precision and sample size</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#required-6"><i class="fa fa-check"></i><b>12.1</b> Required</a></li>
+<li class="chapter" data-level="12.2" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#overview-5"><i class="fa fa-check"></i><b>12.2</b> Overview</a></li>
+<li class="chapter" data-level="12.3" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision"><i class="fa fa-check"></i><b>12.3</b> Precision</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision-independent-t-test"><i class="fa fa-check"></i><b>12.3.1</b> Precision Independent <em>t</em>-test</a></li>
+<li class="chapter" data-level="12.3.2" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision-repeated-t-test"><i class="fa fa-check"></i><b>12.3.2</b> Precision Repeated <em>t</em>-test</a></li>
+<li class="chapter" data-level="12.3.3" data-path="precision-and-sample-size.html"><a href="precision-and-sample-size.html#precision-correlation"><i class="fa fa-check"></i><b>12.3.3</b> Precision Correlation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html"><i class="fa fa-check"></i><b>13</b> Positive Predictive Value</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#required-7"><i class="fa fa-check"></i><b>13.1</b> Required</a></li>
+<li class="chapter" data-level="13.2" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#overview-6"><i class="fa fa-check"></i><b>13.2</b> Overview</a></li>
+<li class="chapter" data-level="13.3" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#informal-explanation"><i class="fa fa-check"></i><b>13.3</b> Informal explanation</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#probability-of-an-effect"><i class="fa fa-check"></i><b>13.3.1</b> Probability of an effect</a></li>
+<li class="chapter" data-level="13.3.2" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#type-i-error"><i class="fa fa-check"></i><b>13.3.2</b> Type I Error</a></li>
+<li class="chapter" data-level="13.3.3" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#power"><i class="fa fa-check"></i><b>13.3.3</b> Power</a></li>
+<li class="chapter" data-level="13.3.4" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#calculating-ppv"><i class="fa fa-check"></i><b>13.3.4</b> Calculating PPV</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#formal-explanation"><i class="fa fa-check"></i><b>13.4</b> Formal explanation</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#no-effect"><i class="fa fa-check"></i><b>13.4.1</b> No effect</a></li>
+<li class="chapter" data-level="13.4.2" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#effect"><i class="fa fa-check"></i><b>13.4.2</b> Effect</a></li>
+<li class="chapter" data-level="13.4.3" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#calculation"><i class="fa fa-check"></i><b>13.4.3</b> Calculation</a></li>
+<li class="chapter" data-level="13.4.4" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#alternative-calculation"><i class="fa fa-check"></i><b>13.4.4</b> Alternative calculation</a></li>
+<li class="chapter" data-level="13.4.5" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#touchstone"><i class="fa fa-check"></i><b>13.4.5</b> Touchstone</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#calculating-power-for-your-study"><i class="fa fa-check"></i><b>13.5</b> Calculating power for your study</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#power-independent-groups-t-test"><i class="fa fa-check"></i><b>13.5.1</b> Power independent groups <span class="math inline">\(t\)</span>-test</a></li>
+<li class="chapter" data-level="13.5.2" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#power-repeated-measures-t-test"><i class="fa fa-check"></i><b>13.5.2</b> Power repeated measures <span class="math inline">\(t\)</span>-test</a></li>
+<li class="chapter" data-level="13.5.3" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#power-correlations"><i class="fa fa-check"></i><b>13.5.3</b> Power correlations</a></li>
+<li class="chapter" data-level="13.5.4" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#equivalence-independent-t-test"><i class="fa fa-check"></i><b>13.5.4</b> Equivalence independent <em>t</em>-test</a></li>
+<li class="chapter" data-level="13.5.5" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#equivalence-repeated-t-test"><i class="fa fa-check"></i><b>13.5.5</b> Equivalence repeated <em>t</em>-test</a></li>
+<li class="chapter" data-level="13.5.6" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#equivalence-correlation-1"><i class="fa fa-check"></i><b>13.5.6</b> Equivalence correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="positive-predictive-value.html"><a href="positive-predictive-value.html#calculating-ppv-for-your-study"><i class="fa fa-check"></i><b>13.6</b> Calculating PPV for your study</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html"><i class="fa fa-check"></i><b>14</b> Regression and correlation</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#population-example"><i class="fa fa-check"></i><b>14.1</b> Population example</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#no-predictor"><i class="fa fa-check"></i><b>14.1.1</b> No predictor</a></li>
+<li class="chapter" data-level="14.1.2" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#weak-relation"><i class="fa fa-check"></i><b>14.1.2</b> Weak relation</a></li>
+<li class="chapter" data-level="14.1.3" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#strong-relation"><i class="fa fa-check"></i><b>14.1.3</b> Strong relation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#consider-a-sample"><i class="fa fa-check"></i><b>14.2</b> Consider a sample</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#regression"><i class="fa fa-check"></i><b>14.2.1</b> Regression</a></li>
+<li class="chapter" data-level="14.2.2" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#correlation-2"><i class="fa fa-check"></i><b>14.2.2</b> Correlation</a></li>
+<li class="chapter" data-level="14.2.3" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#graphing-1"><i class="fa fa-check"></i><b>14.2.3</b> Graphing</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#comparing-correlations"><i class="fa fa-check"></i><b>14.3</b> Comparing correlations</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#p-values"><i class="fa fa-check"></i><b>14.3.1</b> p-values</a></li>
+<li class="chapter" data-level="14.3.2" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#within-a-data-set"><i class="fa fa-check"></i><b>14.3.2</b> Within a data set</a></li>
+<li class="chapter" data-level="14.3.3" data-path="regression-and-correlation.html"><a href="regression-and-correlation.html#between-data-sets"><i class="fa fa-check"></i><b>14.3.3</b> Between data sets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>15</b> Multiple regression</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="multiple-regression.html"><a href="multiple-regression.html#overview-7"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.2" data-path="multiple-regression.html"><a href="multiple-regression.html#example"><i class="fa fa-check"></i><b>15.2</b> Example</a></li>
+<li class="chapter" data-level="15.3" data-path="multiple-regression.html"><a href="multiple-regression.html#load-the-data"><i class="fa fa-check"></i><b>15.3</b> Load the data</a></li>
+<li class="chapter" data-level="15.4" data-path="multiple-regression.html"><a href="multiple-regression.html#bivariate-relations"><i class="fa fa-check"></i><b>15.4</b> Bivariate relations</a></li>
+<li class="chapter" data-level="15.5" data-path="multiple-regression.html"><a href="multiple-regression.html#single-best-predictor"><i class="fa fa-check"></i><b>15.5</b> Single best predictor</a></li>
+<li class="chapter" data-level="15.6" data-path="multiple-regression.html"><a href="multiple-regression.html#multiple-regression-1"><i class="fa fa-check"></i><b>15.6</b> Multiple regression</a></li>
+<li class="chapter" data-level="15.7" data-path="multiple-regression.html"><a href="multiple-regression.html#b-weights"><i class="fa fa-check"></i><b>15.7</b> <em>b</em>-weights</a></li>
+<li class="chapter" data-level="15.8" data-path="multiple-regression.html"><a href="multiple-regression.html#r2"><i class="fa fa-check"></i><b>15.8</b> <span class="math inline">\(R^2\)</span></a>
+<ul>
+<li class="chapter" data-level="15.8.1" data-path="multiple-regression.html"><a href="multiple-regression.html#method-1-ratio-approach"><i class="fa fa-check"></i><b>15.8.1</b> Method 1: Ratio Approach</a></li>
+<li class="chapter" data-level="15.8.2" data-path="multiple-regression.html"><a href="multiple-regression.html#method-2-correlation-approach"><i class="fa fa-check"></i><b>15.8.2</b> Method 2: Correlation Approach</a></li>
+<li class="chapter" data-level="15.8.3" data-path="multiple-regression.html"><a href="multiple-regression.html#r2-in-practice"><i class="fa fa-check"></i><b>15.8.3</b> <span class="math inline">\(R^2\)</span> in practice</a></li>
+</ul></li>
+<li class="chapter" data-level="15.9" data-path="multiple-regression.html"><a href="multiple-regression.html#semi-partial-sr"><i class="fa fa-check"></i><b>15.9</b> Semi-partial (<span class="math inline">\(sr\)</span>)</a>
+<ul>
+<li class="chapter" data-level="15.9.1" data-path="multiple-regression.html"><a href="multiple-regression.html#sr2-in-theory"><i class="fa fa-check"></i><b>15.9.1</b> <span class="math inline">\(sr^2\)</span> in theory</a></li>
+<li class="chapter" data-level="15.9.2" data-path="multiple-regression.html"><a href="multiple-regression.html#sr2-in-practice"><i class="fa fa-check"></i><b>15.9.2</b> <span class="math inline">\(sr^2\)</span> in practice</a></li>
+<li class="chapter" data-level="15.9.3" data-path="multiple-regression.html"><a href="multiple-regression.html#blocks-regression"><i class="fa fa-check"></i><b>15.9.3</b> Blocks regression</a></li>
+</ul></li>
+<li class="chapter" data-level="15.10" data-path="multiple-regression.html"><a href="multiple-regression.html#beta-weights"><i class="fa fa-check"></i><b>15.10</b> Beta-weights</a>
+<ul>
+<li class="chapter" data-level="15.10.1" data-path="multiple-regression.html"><a href="multiple-regression.html#in-practice"><i class="fa fa-check"></i><b>15.10.1</b> In practice</a></li>
+<li class="chapter" data-level="15.10.2" data-path="multiple-regression.html"><a href="multiple-regression.html#old-school"><i class="fa fa-check"></i><b>15.10.2</b> Old school</a></li>
+</ul></li>
+<li class="chapter" data-level="15.11" data-path="multiple-regression.html"><a href="multiple-regression.html#graphing-2"><i class="fa fa-check"></i><b>15.11</b> Graphing</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html"><i class="fa fa-check"></i><b>16</b> Sample size for multiple regression</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#sample-size-using-r2"><i class="fa fa-check"></i><b>16.1</b> Sample size using <span class="math inline">\(R^2\)</span></a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#determining-f2"><i class="fa fa-check"></i><b>16.1.1</b> Determining <span class="math inline">\(f^2\)</span></a></li>
+<li class="chapter" data-level="16.1.2" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#determine-degrees-of-freedom"><i class="fa fa-check"></i><b>16.1.2</b> Determine degrees of freedom</a></li>
+<li class="chapter" data-level="16.1.3" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#calculate-sample-size"><i class="fa fa-check"></i><b>16.1.3</b> Calculate sample size</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#sample-size-using-sr2"><i class="fa fa-check"></i><b>16.2</b> Sample size using <span class="math inline">\(sr^2\)</span></a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#determine-degrees-of-freedom-1"><i class="fa fa-check"></i><b>16.2.1</b> Determine degrees of freedom</a></li>
+<li class="chapter" data-level="16.2.2" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#determine-f2"><i class="fa fa-check"></i><b>16.2.2</b> Determine <span class="math inline">\(f^2\)</span></a></li>
+<li class="chapter" data-level="16.2.3" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#calculate-power"><i class="fa fa-check"></i><b>16.2.3</b> Calculate power</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="sample-size-for-multiple-regression.html"><a href="sample-size-for-multiple-regression.html#power-obtained-sr2"><i class="fa fa-check"></i><b>16.3</b> Power obtained <span class="math inline">\(sr^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html"><i class="fa fa-check"></i><b>17</b> Moderated multiple regression</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#overview-8"><i class="fa fa-check"></i><b>17.1</b> Overview</a></li>
+<li class="chapter" data-level="17.2" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#scenario"><i class="fa fa-check"></i><b>17.2</b> Scenario</a></li>
+<li class="chapter" data-level="17.3" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#overview-9"><i class="fa fa-check"></i><b>17.3</b> Overview</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#no-interaction"><i class="fa fa-check"></i><b>17.3.1</b> No interaction</a></li>
+<li class="chapter" data-level="17.3.2" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#interaction"><i class="fa fa-check"></i><b>17.3.2</b> Interaction</a></li>
+<li class="chapter" data-level="17.3.3" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#comparison"><i class="fa fa-check"></i><b>17.3.3</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#fastinteraction"><i class="fa fa-check"></i><b>17.4</b> fastInteraction</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#graphing-in-3d"><i class="fa fa-check"></i><b>17.4.1</b> Graphing in 3D</a></li>
+<li class="chapter" data-level="17.4.2" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#unformatted-2d-graph"><i class="fa fa-check"></i><b>17.4.2</b> Unformatted 2D graph</a></li>
+<li class="chapter" data-level="17.4.3" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#tables"><i class="fa fa-check"></i><b>17.4.3</b> Tables</a></li>
+<li class="chapter" data-level="17.4.4" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#formatted-2d-graph"><i class="fa fa-check"></i><b>17.4.4</b> Formatted 2D graph</a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="moderated-multiple-regression.html"><a href="moderated-multiple-regression.html#powersample-size-analysis"><i class="fa fa-check"></i><b>17.5</b> Power/sample size analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="open-science-preregistration.html"><a href="open-science-preregistration.html"><i class="fa fa-check"></i><b>18</b> Open Science Preregistration</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="open-science-preregistration.html"><a href="open-science-preregistration.html#overview-10"><i class="fa fa-check"></i><b>18.1</b> Overview</a></li>
+<li class="chapter" data-level="18.2" data-path="open-science-preregistration.html"><a href="open-science-preregistration.html#daniel-simmons-interview"><i class="fa fa-check"></i><b>18.2</b> Daniel Simmons Interview</a></li>
+<li class="chapter" data-level="18.3" data-path="open-science-preregistration.html"><a href="open-science-preregistration.html#preregistration-impact"><i class="fa fa-check"></i><b>18.3</b> Preregistration Impact</a></li>
+<li class="chapter" data-level="18.4" data-path="open-science-preregistration.html"><a href="open-science-preregistration.html#preregistration-details"><i class="fa fa-check"></i><b>18.4</b> Preregistration Details</a></li>
+<li class="chapter" data-level="18.5" data-path="open-science-preregistration.html"><a href="open-science-preregistration.html#learn-more"><i class="fa fa-check"></i><b>18.5</b> Learn more</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="next-step-resources.html"><a href="next-step-resources.html"><i class="fa fa-check"></i><b>19</b> Next Step Resources</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="next-step-resources.html"><a href="next-step-resources.html#osf"><i class="fa fa-check"></i><b>19.1</b> OSF</a></li>
+<li class="chapter" data-level="19.2" data-path="next-step-resources.html"><a href="next-step-resources.html#transparency-checklist"><i class="fa fa-check"></i><b>19.2</b> Transparency checklist</a></li>
+<li class="chapter" data-level="19.3" data-path="next-step-resources.html"><a href="next-step-resources.html#helpful-web-apps"><i class="fa fa-check"></i><b>19.3</b> Helpful web apps</a></li>
+<li class="chapter" data-level="19.4" data-path="next-step-resources.html"><a href="next-step-resources.html#minimizing-mistakes"><i class="fa fa-check"></i><b>19.4</b> Minimizing mistakes</a></li>
+<li class="chapter" data-level="19.5" data-path="next-step-resources.html"><a href="next-step-resources.html#avoiding-p-hacking"><i class="fa fa-check"></i><b>19.5</b> Avoiding <em>p</em>-hacking</a></li>
+<li class="chapter" data-level="19.6" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-articles"><i class="fa fa-check"></i><b>19.6</b> Writing articles</a></li>
+<li class="chapter" data-level="19.7" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-with-r"><i class="fa fa-check"></i><b>19.7</b> Writing with R</a>
+<ul>
+<li class="chapter" data-level="19.7.1" data-path="next-step-resources.html"><a href="next-step-resources.html#rmarkdown-bookdown"><i class="fa fa-check"></i><b>19.7.1</b> rmarkdown / bookdown</a></li>
+<li class="chapter" data-level="19.7.2" data-path="next-step-resources.html"><a href="next-step-resources.html#papaja"><i class="fa fa-check"></i><b>19.7.2</b> papaja</a></li>
+<li class="chapter" data-level="19.7.3" data-path="next-step-resources.html"><a href="next-step-resources.html#apatables"><i class="fa fa-check"></i><b>19.7.3</b> apaTables</a></li>
+</ul></li>
+<li class="chapter" data-level="19.8" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-with-statcheck"><i class="fa fa-check"></i><b>19.8</b> Writing with statcheck</a>
+<ul>
+<li class="chapter" data-level="19.8.1" data-path="next-step-resources.html"><a href="next-step-resources.html#statcheck-software"><i class="fa fa-check"></i><b>19.8.1</b> statcheck software</a></li>
+<li class="chapter" data-level="19.8.2" data-path="next-step-resources.html"><a href="next-step-resources.html#statcheck-website"><i class="fa fa-check"></i><b>19.8.2</b> statcheck website</a></li>
+<li class="chapter" data-level="19.8.3" data-path="next-step-resources.html"><a href="next-step-resources.html#statcheck-and-word"><i class="fa fa-check"></i><b>19.8.3</b> statcheck and Word</a></li>
+<li class="chapter" data-level="19.8.4" data-path="next-step-resources.html"><a href="next-step-resources.html#statcheck-process"><i class="fa fa-check"></i><b>19.8.4</b> statcheck process</a></li>
+<li class="chapter" data-level="19.8.5" data-path="next-step-resources.html"><a href="next-step-resources.html#statcheck-validity"><i class="fa fa-check"></i><b>19.8.5</b> statcheck validity</a></li>
+</ul></li>
+<li class="chapter" data-level="19.9" data-path="next-step-resources.html"><a href="next-step-resources.html#journal-rankings-via-the-top-factor"><i class="fa fa-check"></i><b>19.9</b> Journal rankings via the TOP Factor</a></li>
+<li class="chapter" data-level="19.10" data-path="next-step-resources.html"><a href="next-step-resources.html#statistics-books"><i class="fa fa-check"></i><b>19.10</b> Statistics books</a></li>
+<li class="chapter" data-level="19.11" data-path="next-step-resources.html"><a href="next-step-resources.html#general-r-books"><i class="fa fa-check"></i><b>19.11</b> General R books</a></li>
+<li class="chapter" data-level="19.12" data-path="next-step-resources.html"><a href="next-step-resources.html#retracted-articles"><i class="fa fa-check"></i><b>19.12</b> Retracted articles</a>
+<ul>
+<li class="chapter" data-level="19.12.1" data-path="next-step-resources.html"><a href="next-step-resources.html#doi"><i class="fa fa-check"></i><b>19.12.1</b> DOI</a></li>
+<li class="chapter" data-level="19.12.2" data-path="next-step-resources.html"><a href="next-step-resources.html#retractiondatabase.org"><i class="fa fa-check"></i><b>19.12.2</b> retractiondatabase.org</a></li>
+<li class="chapter" data-level="19.12.3" data-path="next-step-resources.html"><a href="next-step-resources.html#openretractions.com"><i class="fa fa-check"></i><b>19.12.3</b> openretractions.com</a></li>
+<li class="chapter" data-level="19.12.4" data-path="next-step-resources.html"><a href="next-step-resources.html#retractcheck"><i class="fa fa-check"></i><b>19.12.4</b> retractcheck</a></li>
+</ul></li>
+<li class="chapter" data-level="19.13" data-path="next-step-resources.html"><a href="next-step-resources.html#big-data"><i class="fa fa-check"></i><b>19.13</b> Big data</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="cookbook.html"><a href="cookbook.html"><i class="fa fa-check"></i><b>20</b> Cookbook</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="cookbook.html"><a href="cookbook.html#required-packages-1"><i class="fa fa-check"></i><b>20.1</b> Required Packages</a></li>
+<li class="chapter" data-level="20.2" data-path="cookbook.html"><a href="cookbook.html#following-the-examples"><i class="fa fa-check"></i><b>20.2</b> Following the examples</a></li>
+<li class="chapter" data-level="20.3" data-path="cookbook.html"><a href="cookbook.html#entering-data-into-spreadsheets"><i class="fa fa-check"></i><b>20.3</b> Entering data into spreadsheets</a></li>
+<li class="chapter" data-level="20.4" data-path="cookbook.html"><a href="cookbook.html#experiment-between"><i class="fa fa-check"></i><b>20.4</b> Experiment: Between</a>
+<ul>
+<li class="chapter" data-level="20.4.1" data-path="cookbook.html"><a href="cookbook.html#creating-factors-2"><i class="fa fa-check"></i><b>20.4.1</b> Creating factors</a></li>
+<li class="chapter" data-level="20.4.2" data-path="cookbook.html"><a href="cookbook.html#factor-screening-2"><i class="fa fa-check"></i><b>20.4.2</b> Factor screening</a></li>
+<li class="chapter" data-level="20.4.3" data-path="cookbook.html"><a href="cookbook.html#numeric-screening-2"><i class="fa fa-check"></i><b>20.4.3</b> Numeric screening</a></li>
+</ul></li>
+<li class="chapter" data-level="20.5" data-path="cookbook.html"><a href="cookbook.html#within-data-entry"><i class="fa fa-check"></i><b>20.5</b> Within Data Entry</a></li>
+<li class="chapter" data-level="20.6" data-path="cookbook.html"><a href="cookbook.html#experiment-within-one-way"><i class="fa fa-check"></i><b>20.6</b> Experiment: Within one-way</a>
+<ul>
+<li class="chapter" data-level="20.6.1" data-path="cookbook.html"><a href="cookbook.html#creating-factors-3"><i class="fa fa-check"></i><b>20.6.1</b> Creating factors</a></li>
+<li class="chapter" data-level="20.6.2" data-path="cookbook.html"><a href="cookbook.html#factor-screening-3"><i class="fa fa-check"></i><b>20.6.2</b> Factor screening</a></li>
+<li class="chapter" data-level="20.6.3" data-path="cookbook.html"><a href="cookbook.html#numeric-screening-3"><i class="fa fa-check"></i><b>20.6.3</b> Numeric screening</a></li>
+<li class="chapter" data-level="20.6.4" data-path="cookbook.html"><a href="cookbook.html#pivot-to-tidy-data"><i class="fa fa-check"></i><b>20.6.4</b> Pivot to tidy data</a></li>
+</ul></li>
+<li class="chapter" data-level="20.7" data-path="cookbook.html"><a href="cookbook.html#experiment-within-n-way"><i class="fa fa-check"></i><b>20.7</b> Experiment: Within N-way</a>
+<ul>
+<li class="chapter" data-level="20.7.1" data-path="cookbook.html"><a href="cookbook.html#creating-factors-4"><i class="fa fa-check"></i><b>20.7.1</b> Creating factors</a></li>
+<li class="chapter" data-level="20.7.2" data-path="cookbook.html"><a href="cookbook.html#factor-screening-4"><i class="fa fa-check"></i><b>20.7.2</b> Factor screening</a></li>
+<li class="chapter" data-level="20.7.3" data-path="cookbook.html"><a href="cookbook.html#numeric-screening-4"><i class="fa fa-check"></i><b>20.7.3</b> Numeric screening</a></li>
+<li class="chapter" data-level="20.7.4" data-path="cookbook.html"><a href="cookbook.html#pivot-to-tidy-data-1"><i class="fa fa-check"></i><b>20.7.4</b> Pivot to tidy data</a></li>
+</ul></li>
+<li class="chapter" data-level="20.8" data-path="cookbook.html"><a href="cookbook.html#surveys-single-occassion"><i class="fa fa-check"></i><b>20.8</b> Surveys: Single Occassion</a>
+<ul>
+<li class="chapter" data-level="20.8.1" data-path="cookbook.html"><a href="cookbook.html#creating-factors-5"><i class="fa fa-check"></i><b>20.8.1</b> Creating factors</a></li>
+<li class="chapter" data-level="20.8.2" data-path="cookbook.html"><a href="cookbook.html#factor-screening-5"><i class="fa fa-check"></i><b>20.8.2</b> Factor screening</a></li>
+<li class="chapter" data-level="20.8.3" data-path="cookbook.html"><a href="cookbook.html#numeric-screening-5"><i class="fa fa-check"></i><b>20.8.3</b> Numeric screening</a></li>
+<li class="chapter" data-level="20.8.4" data-path="cookbook.html"><a href="cookbook.html#scale-scores-2"><i class="fa fa-check"></i><b>20.8.4</b> Scale scores</a></li>
+</ul></li>
+<li class="chapter" data-level="20.9" data-path="cookbook.html"><a href="cookbook.html#surveys-multiple-occasions"><i class="fa fa-check"></i><b>20.9</b> Surveys: Multiple Occasions</a>
+<ul>
+<li class="chapter" data-level="20.9.1" data-path="cookbook.html"><a href="cookbook.html#creating-factors-6"><i class="fa fa-check"></i><b>20.9.1</b> Creating factors</a></li>
+<li class="chapter" data-level="20.9.2" data-path="cookbook.html"><a href="cookbook.html#factor-screening-6"><i class="fa fa-check"></i><b>20.9.2</b> Factor screening</a></li>
+<li class="chapter" data-level="20.9.3" data-path="cookbook.html"><a href="cookbook.html#numeric-screening-6"><i class="fa fa-check"></i><b>20.9.3</b> Numeric screening</a></li>
+<li class="chapter" data-level="20.9.4" data-path="cookbook.html"><a href="cookbook.html#scale-scores-3"><i class="fa fa-check"></i><b>20.9.4</b> Scale scores</a></li>
+<li class="chapter" data-level="20.9.5" data-path="cookbook.html"><a href="cookbook.html#pivot-to-tidy-data-2"><i class="fa fa-check"></i><b>20.9.5</b> Pivot to tidy data</a></li>
+</ul></li>
+<li class="chapter" data-level="20.10" data-path="cookbook.html"><a href="cookbook.html#basic-descriptive-statistics"><i class="fa fa-check"></i><b>20.10</b> Basic descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="20.10.1" data-path="cookbook.html"><a href="cookbook.html#skim"><i class="fa fa-check"></i><b>20.10.1</b> skim()</a></li>
+<li class="chapter" data-level="20.10.2" data-path="cookbook.html"><a href="cookbook.html#apa.cor.table"><i class="fa fa-check"></i><b>20.10.2</b> apa.cor.table()</a></li>
+<li class="chapter" data-level="20.10.3" data-path="cookbook.html"><a href="cookbook.html#tidyverse"><i class="fa fa-check"></i><b>20.10.3</b> tidyverse</a></li>
+<li class="chapter" data-level="20.10.4" data-path="cookbook.html"><a href="cookbook.html#cronbachs-alpha"><i class="fa fa-check"></i><b>20.10.4</b> Cronbach’s alpha</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html"><i class="fa fa-check"></i><b>21</b> Deep dive: Sampling and ANOVA</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#equal-population-means"><i class="fa fa-check"></i><b>21.1</b> Equal population means</a></li>
+<li class="chapter" data-level="21.2" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#a-tale-of-two-formulas"><i class="fa fa-check"></i><b>21.2</b> A tale of two formulas</a></li>
+<li class="chapter" data-level="21.3" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#a-student-population"><i class="fa fa-check"></i><b>21.3</b> A student population</a></li>
+<li class="chapter" data-level="21.4" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#random-sampling-process"><i class="fa fa-check"></i><b>21.4</b> Random sampling process</a></li>
+<li class="chapter" data-level="21.5" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#population-whats-in-a-name"><i class="fa fa-check"></i><b>21.5</b> Population: What’s in a name</a>
+<ul>
+<li class="chapter" data-level="21.5.1" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#sample-means-in-context"><i class="fa fa-check"></i><b>21.5.1</b> Sample means in context</a></li>
+<li class="chapter" data-level="21.5.2" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#distribution-of-sample-means-as-a-population"><i class="fa fa-check"></i><b>21.5.2</b> Distribution of sample means as a population</a></li>
+</ul></li>
+<li class="chapter" data-level="21.6" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#sample-mean-distribution-variance"><i class="fa fa-check"></i><b>21.6</b> Sample mean distribution variance</a>
+<ul>
+<li class="chapter" data-level="21.6.1" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#approach-1-total-calculate-the-variance-of-infinite-sample-means"><i class="fa fa-check"></i><b>21.6.1</b> Approach 1: Total: Calculate the variance of infinite sample means</a></li>
+<li class="chapter" data-level="21.6.2" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#approach-2-clt-calculation-of-variance-due-to-sampling-error"><i class="fa fa-check"></i><b>21.6.2</b> Approach 2: CLT: <em>Calculation</em> of variance due to sampling error</a></li>
+<li class="chapter" data-level="21.6.3" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#ratio-comparison-of-two-approaches"><i class="fa fa-check"></i><b>21.6.3</b> Ratio comparison of two approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#estimating-sample-mean-distribution-variance"><i class="fa fa-check"></i><b>21.7</b> Estimating sample mean distribution variance</a>
+<ul>
+<li class="chapter" data-level="21.7.1" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#approach-1-estimate-the-total-variance-of-infinite-sample-means-using-3-sample-means"><i class="fa fa-check"></i><b>21.7.1</b> Approach 1: Estimate the total variance of infinite sample means using 3 sample means</a></li>
+<li class="chapter" data-level="21.7.2" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#approach-2-clt-shortcut-estimation-of-variance-due-to-random-sampling-error"><i class="fa fa-check"></i><b>21.7.2</b> Approach 2: CLT shortcut: <em>Estimation</em> of variance due to random sampling error</a></li>
+<li class="chapter" data-level="21.7.3" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#ratio-comparison-of-two-approaches-1"><i class="fa fa-check"></i><b>21.7.3</b> Ratio comparison of two approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="21.8" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#frame-of-reference-random-sampling-only"><i class="fa fa-check"></i><b>21.8</b> Frame of reference: Random sampling only</a>
+<ul>
+<li class="chapter" data-level="21.8.1" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#simulation-of-1-population"><i class="fa fa-check"></i><b>21.8.1</b> Simulation of 1 population</a></li>
+<li class="chapter" data-level="21.8.2" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#simulation-of-3-identical-populations"><i class="fa fa-check"></i><b>21.8.2</b> Simulation of 3 identical populations</a></li>
+</ul></li>
+<li class="chapter" data-level="21.9" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#central-f-distributions"><i class="fa fa-check"></i><b>21.9</b> Central <span class="math inline">\(F\)</span>-distributions</a></li>
+<li class="chapter" data-level="21.10" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#summary-table"><i class="fa fa-check"></i><b>21.10</b> Summary table</a></li>
+<li class="chapter" data-level="21.11" data-path="deep-dive-sampling-and-anova.html"><a href="deep-dive-sampling-and-anova.html#walk-away-points"><i class="fa fa-check"></i><b>21.11</b> Walk away points</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html"><i class="fa fa-check"></i><b>22</b> Deeper dive: Sampling and ANOVA</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#now-different-population-means"><i class="fa fa-check"></i><b>22.1</b> Now: Different Population Means</a></li>
+<li class="chapter" data-level="22.2" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#theory-sample-mean-variance"><i class="fa fa-check"></i><b>22.2</b> Theory sample mean variance</a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#single-population-theory"><i class="fa fa-check"></i><b>22.2.1</b> Single population (theory)</a></li>
+<li class="chapter" data-level="22.2.2" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#multiple-populations-theory"><i class="fa fa-check"></i><b>22.2.2</b> Multiple populations (theory)</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#practice-sample-mean-variance"><i class="fa fa-check"></i><b>22.3</b> Practice sample mean variance</a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#single-population-practice"><i class="fa fa-check"></i><b>22.3.1</b> Single population (practice)</a></li>
+<li class="chapter" data-level="22.3.2" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#multiples-population-equal-mu-practice"><i class="fa fa-check"></i><b>22.3.2</b> Multiples population, equal <span class="math inline">\(\mu\)</span> (practice)</a></li>
+<li class="chapter" data-level="22.3.3" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#multiples-population-different-mu-practice"><i class="fa fa-check"></i><b>22.3.3</b> Multiples population, different <span class="math inline">\(\mu\)</span> (practice)</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#back-to-anova"><i class="fa fa-check"></i><b>22.4</b> Back to ANOVA</a>
+<ul>
+<li class="chapter" data-level="22.4.1" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#conceptualexpected-f-values"><i class="fa fa-check"></i><b>22.4.1</b> Conceptual/Expected <span class="math inline">\(F\)</span>-values</a></li>
+<li class="chapter" data-level="22.4.2" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#two-scenarios"><i class="fa fa-check"></i><b>22.4.2</b> Two scenarios</a></li>
+</ul></li>
+<li class="chapter" data-level="22.5" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#calculation-1"><i class="fa fa-check"></i><b>22.5</b> Calculation</a></li>
+<li class="chapter" data-level="22.6" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#a-confusing-rearrangement"><i class="fa fa-check"></i><b>22.6</b> A confusing rearrangement</a></li>
+<li class="chapter" data-level="22.7" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#worked-example"><i class="fa fa-check"></i><b>22.7</b> Worked example</a></li>
+<li class="chapter" data-level="22.8" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#p-value"><i class="fa fa-check"></i><b>22.8</b> p-value</a></li>
+<li class="chapter" data-level="22.9" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#take-a-moment"><i class="fa fa-check"></i><b>22.9</b> Take a moment</a></li>
+<li class="chapter" data-level="22.10" data-path="deeper-dive-sampling-and-anova.html"><a href="deeper-dive-sampling-and-anova.html#summary"><i class="fa fa-check"></i><b>22.10</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html"><i class="fa fa-check"></i><b>23</b> Sampling and N-way ANOVA</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#previously-one-way-anova"><i class="fa fa-check"></i><b>23.1</b> Previously: One-way ANOVA</a></li>
+<li class="chapter" data-level="23.2" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#now-n-way-anova"><i class="fa fa-check"></i><b>23.2</b> Now: N-way ANOVA</a></li>
+<li class="chapter" data-level="23.3" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#output"><i class="fa fa-check"></i><b>23.3</b> Output</a></li>
+<li class="chapter" data-level="23.4" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#multiple-frames-of-reference"><i class="fa fa-check"></i><b>23.4</b> Multiple frames of reference</a></li>
+<li class="chapter" data-level="23.5" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#frame-1-cell-populations"><i class="fa fa-check"></i><b>23.5</b> Frame 1: Cell Populations</a></li>
+<li class="chapter" data-level="23.6" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#frame-2-a-populations-juggling"><i class="fa fa-check"></i><b>23.6</b> Frame 2: <span class="math inline">\(A\)</span> Populations (Juggling)</a></li>
+<li class="chapter" data-level="23.7" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#frame-3-b-populations-preparation"><i class="fa fa-check"></i><b>23.7</b> Frame 3: <span class="math inline">\(B\)</span> Populations (Preparation)</a></li>
+<li class="chapter" data-level="23.8" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#anova-by-another-name"><i class="fa fa-check"></i><b>23.8</b> ANOVA by another name</a></li>
+<li class="chapter" data-level="23.9" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#homogeneity-of-variance"><i class="fa fa-check"></i><b>23.9</b> Homogeneity of variance</a></li>
+<li class="chapter" data-level="23.10" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#estimating-population-variance"><i class="fa fa-check"></i><b>23.10</b> Estimating population variance</a>
+<ul>
+<li class="chapter" data-level="23.10.1" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#sample-means"><i class="fa fa-check"></i><b>23.10.1</b> Sample means</a></li>
+<li class="chapter" data-level="23.10.2" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#population-variance-estimates"><i class="fa fa-check"></i><b>23.10.2</b> Population variance estimates</a></li>
+<li class="chapter" data-level="23.10.3" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#averaging-variances"><i class="fa fa-check"></i><b>23.10.3</b> Averaging variances</a></li>
+</ul></li>
+<li class="chapter" data-level="23.11" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#random-sampling-variance"><i class="fa fa-check"></i><b>23.11</b> Random Sampling Variance</a>
+<ul>
+<li class="chapter" data-level="23.11.1" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#clt-a-juggling"><i class="fa fa-check"></i><b>23.11.1</b> CLT <span class="math inline">\(A\)</span>: Juggling</a></li>
+<li class="chapter" data-level="23.11.2" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#clt-b-preparation"><i class="fa fa-check"></i><b>23.11.2</b> CLT <span class="math inline">\(B\)</span>: Preparation</a></li>
+<li class="chapter" data-level="23.11.3" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#clt-cells"><i class="fa fa-check"></i><b>23.11.3</b> CLT Cells</a></li>
+<li class="chapter" data-level="23.11.4" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#clt-summary"><i class="fa fa-check"></i><b>23.11.4</b> CLT Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="23.12" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#main-effect-a-juggling"><i class="fa fa-check"></i><b>23.12</b> Main Effect <span class="math inline">\(A\)</span>: Juggling</a>
+<ul>
+<li class="chapter" data-level="23.12.1" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#total-variance-a"><i class="fa fa-check"></i><b>23.12.1</b> Total variance <span class="math inline">\(A\)</span></a></li>
+<li class="chapter" data-level="23.12.2" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#f-value-for-a"><i class="fa fa-check"></i><b>23.12.2</b> <span class="math inline">\(F\)</span>-value for <span class="math inline">\(A\)</span></a></li>
+<li class="chapter" data-level="23.12.3" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#p-value-for-a"><i class="fa fa-check"></i><b>23.12.3</b> <span class="math inline">\(p\)</span>-value for <span class="math inline">\(A\)</span></a></li>
+<li class="chapter" data-level="23.12.4" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#a-conceptual-recap-juggling"><i class="fa fa-check"></i><b>23.12.4</b> <span class="math inline">\(A\)</span> conceptual recap (juggling)</a></li>
+<li class="chapter" data-level="23.12.5" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#a-typical-juggling"><i class="fa fa-check"></i><b>23.12.5</b> <span class="math inline">\(A\)</span> typical (juggling)</a></li>
+</ul></li>
+<li class="chapter" data-level="23.13" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#main-effect-b-preparation"><i class="fa fa-check"></i><b>23.13</b> Main Effect <span class="math inline">\(B\)</span>: Preparation</a>
+<ul>
+<li class="chapter" data-level="23.13.1" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#total-variance-b"><i class="fa fa-check"></i><b>23.13.1</b> Total variance <span class="math inline">\(B\)</span></a></li>
+<li class="chapter" data-level="23.13.2" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#f-value-for-b"><i class="fa fa-check"></i><b>23.13.2</b> <span class="math inline">\(F\)</span>-value for <span class="math inline">\(B\)</span></a></li>
+<li class="chapter" data-level="23.13.3" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#p-value-for-b"><i class="fa fa-check"></i><b>23.13.3</b> <span class="math inline">\(p\)</span>-value for <span class="math inline">\(B\)</span></a></li>
+<li class="chapter" data-level="23.13.4" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#b-conceptual-recap-preparation"><i class="fa fa-check"></i><b>23.13.4</b> <span class="math inline">\(B\)</span> conceptual recap (preparation)</a></li>
+<li class="chapter" data-level="23.13.5" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#b-typical-preparation"><i class="fa fa-check"></i><b>23.13.5</b> <span class="math inline">\(B\)</span> typical (preparation)</a></li>
+</ul></li>
+<li class="chapter" data-level="23.14" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#interaction-preparation"><i class="fa fa-check"></i><b>23.14</b> Interaction Preparation</a>
+<ul>
+<li class="chapter" data-level="23.14.1" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#obtaining-residualized-means"><i class="fa fa-check"></i><b>23.14.1</b> Obtaining residualized means</a></li>
+</ul></li>
+<li class="chapter" data-level="23.15" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#interaction-ab"><i class="fa fa-check"></i><b>23.15</b> Interaction (<span class="math inline">\(AB\)</span>)</a>
+<ul>
+<li class="chapter" data-level="23.15.1" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#total-variance-ab"><i class="fa fa-check"></i><b>23.15.1</b> Total variance <span class="math inline">\(AB\)</span></a></li>
+<li class="chapter" data-level="23.15.2" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#f-value-for-ab"><i class="fa fa-check"></i><b>23.15.2</b> <span class="math inline">\(F\)</span>-value for <span class="math inline">\(AB\)</span></a></li>
+<li class="chapter" data-level="23.15.3" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#p-value-for-ab"><i class="fa fa-check"></i><b>23.15.3</b> <span class="math inline">\(p\)</span>-value for <span class="math inline">\(AB\)</span></a></li>
+<li class="chapter" data-level="23.15.4" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#ab-conceptual-interaction"><i class="fa fa-check"></i><b>23.15.4</b> <span class="math inline">\(AB\)</span> conceptual (interaction)</a></li>
+<li class="chapter" data-level="23.15.5" data-path="sampling-and-n-way-anova.html"><a href="sampling-and-n-way-anova.html#ab-typical-interaction"><i class="fa fa-check"></i><b>23.15.5</b> <span class="math inline">\(AB\)</span> typical (interaction)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="n-way-cell-comparisons.html"><a href="n-way-cell-comparisons.html"><i class="fa fa-check"></i><b>24</b> N-way Cell Comparisons</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="n-way-cell-comparisons.html"><a href="n-way-cell-comparisons.html#recap-and-next-directions"><i class="fa fa-check"></i><b>24.1</b> Recap and next directions</a></li>
+<li class="chapter" data-level="24.2" data-path="n-way-cell-comparisons.html"><a href="n-way-cell-comparisons.html#confirmatory-comparisons"><i class="fa fa-check"></i><b>24.2</b> Confirmatory Comparisons</a>
+<ul>
+<li class="chapter" data-level="24.2.1" data-path="n-way-cell-comparisons.html"><a href="n-way-cell-comparisons.html#t-test-1"><i class="fa fa-check"></i><b>24.2.1</b> <span class="math inline">\(t\)</span>-test</a></li>
+<li class="chapter" data-level="24.2.2" data-path="n-way-cell-comparisons.html"><a href="n-way-cell-comparisons.html#contrast-2-means"><i class="fa fa-check"></i><b>24.2.2</b> contrast (2 means)</a></li>
+<li class="chapter" data-level="24.2.3" data-path="n-way-cell-comparisons.html"><a href="n-way-cell-comparisons.html#contrast-multiple-means"><i class="fa fa-check"></i><b>24.2.3</b> contrast (multiple means)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Welcome!</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="deep-dive-sampling-and-anova" class="section level1 hasAnchor" number="21">
+<h1><span class="header-section-number">Chapter 21</span> Deep dive: Sampling and ANOVA<a href="deep-dive-sampling-and-anova.html#deep-dive-sampling-and-anova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="equal-population-means" class="section level2 hasAnchor" number="21.1">
+<h2><span class="header-section-number">21.1</span> Equal population means<a href="deep-dive-sampling-and-anova.html#equal-population-means" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this chapter we build from a one population scenario to a three population scenario where the three populations have the same mean.</p>
+</div>
+<div id="a-tale-of-two-formulas" class="section level2 hasAnchor" number="21.2">
+<h2><span class="header-section-number">21.2</span> A tale of two formulas<a href="deep-dive-sampling-and-anova.html#a-tale-of-two-formulas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this chapter, we focus on describing the distribution of sample means. Our goal is to understand the logic behind two different formulas for estimating the variance of distribution of sample means. A thorough understanding of both of these two estimation approaches lays the foundation for understanding Analysis of Variance (ANOVA).</p>
+<table>
+<colgroup>
+<col width="44%" />
+<col width="22%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Approach</th>
+<th align="center">Estimation Formula</th>
+<th align="left">Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Approach 1: Total</td>
+<td align="center"><span class="math inline">\(s_{\bar{x}}^2=\frac{\sum (\bar{x}-\bar{\bar{x}})^2}{a-1}\)</span></td>
+<td align="left">Estimate the variance of the sampling distribution. That is, estimate variance of sample mean due to all sources (population differences, random sampling error, etc.).</td>
+</tr>
+<tr class="even">
+<td align="center">Approach 2: CLT</td>
+<td align="center"><span class="math inline">\(s_{\bar{x}}^2=\frac{s_{people}^2}{n}\)</span></td>
+<td align="left">Estimate the variance in sample mean due ONLY to random sampling error.</td>
+</tr>
+</tbody>
+</table>
+<p>Understanding the logic behind both approaches for estimating the variance of the distribution of sample means is critical. In this chapter, where there is one population of people, the two approaches estimate the same thing - variabilty in sample means <strong>due to random sampling</strong>. However, in future chapters, where there are multiple populations of people with different means, the two approaches estimate different things. Consequently, to prepare you for those more complex future chapters, it’s important to understand the logic behind both approaches in the simple case - where there is a single population of people.</p>
+<p><strong>What we learn in this chapter (and the pattern of results we obtain) will serve as frame-of-reference for interpreting more complex situations in future chapters.</strong></p>
+</div>
+<div id="a-student-population" class="section level2 hasAnchor" number="21.3">
+<h2><span class="header-section-number">21.3</span> A student population<a href="deep-dive-sampling-and-anova.html#a-student-population" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider a scenario where there is a large university with 100,000 students and we have the heights of all 100,000 students. We think of this as a population of student heights. The mean height of all 100,000 students is 172.50 cm and the variance is 156.3236 cm<span class="math inline">\(^2\)</span>. The heights of all the university students are illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A. This figure is shaded with stick figures wearing trousers that remind us this distribution represents people.</p>
+<p><br />
+</p>
+<div class="figure"><span style="display:block;" id="fig:chdeepfigure1"></span>
+<img src="ch_deep_sampling/images/figure1.png" alt="A distributionof people (A.) and a corresponding distribution of sample means (B.) can both be considered populations in some sense." width="60%" />
+<p class="caption">
+FIGURE 21.1: A distributionof people (A.) and a corresponding distribution of sample means (B.) can both be considered populations in some sense.
+</p>
+</div>
+<p>The mean of a population of 100,000 student heights is calculated using Equation <a href="deep-dive-sampling-and-anova.html#eq:popmeanchdeep">(21.1)</a> below.</p>
+<span class="math display" id="eq:popmeanchdeep">\[\begin{equation}
+\mu_{people} = \frac{\sum_{i=1}^{N=100000}{X_i}}{N}
+      \tag{21.1}
+\end{equation}\]</span>
+<p>The variance of a population of 100,000 student heights is calculated using Equation <a href="deep-dive-sampling-and-anova.html#eq:popvardeep">(21.2)</a> below.</p>
+<span class="math display" id="eq:popvardeep">\[\begin{equation}
+\sigma_{people}^2 = \frac{\sum_{i=1}^{N=100000}{(X_i - \mu_{people})^2}}{N}
+      \tag{21.2}
+\end{equation}\]</span>
+<p><strong>For these 100,000 people the mean is</strong> <span class="math inline">\(\mu_{people}=172.50\)</span> and the variance is <span class="math inline">\(\sigma_{people}^2=156.3236\)</span>.</p>
+</div>
+<div id="random-sampling-process" class="section level2 hasAnchor" number="21.4">
+<h2><span class="header-section-number">21.4</span> Random sampling process<a href="deep-dive-sampling-and-anova.html#random-sampling-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now imagine that we are interested in studying the random sampling process. Specifically we are interested in examining the variability in sample means that occurs when taking random samples of students heights from the population of people (see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>). Indeed, imagine that we obtained a sample of <span class="math inline">\(n\)</span> = 5 students and measured their heights. Then we calculated a sample mean (<span class="math inline">\(\bar{x}\)</span>) based on those heights. Then we repeated this sampling process an infinite number of times such that we have an infinite number of sample means each based on the heights of 5 students. This set of an <strong>infinite number of sample means</strong> is conceptually illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B and we refer to it as the <strong>sampling distribution of the mean</strong>. Moreover, <strong>because we sampled from a single population</strong>, whose variance is 156.3236 (i.e., <span class="math inline">\(\sigma_{people}^2 =156.3236\)</span>), the variability in sample means, when each sample size is 5 (<span class="math inline">\(n=5\)</span>), is due to the random sampling error only.</p>
+</div>
+<div id="population-whats-in-a-name" class="section level2 hasAnchor" number="21.5">
+<h2><span class="header-section-number">21.5</span> Population: What’s in a name<a href="deep-dive-sampling-and-anova.html#population-whats-in-a-name" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Typically, in psychology, when we use the word “population” we are referring to a population of people with respect to some dependent variable - such as the heights illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A. However, in statistics, a population is simply a set of elements (often people) about which we wish to draw conclusions. In this chapter, we shift our focus from thinking of the distribution of people in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A as a population to <strong>also</strong> thinking of the distribution of sample means in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B as a population. Doing so may seem counter intuitive but it the logical foundation for Analysis of Variance (ANOVA).</p>
+<div id="sample-means-in-context" class="section level3 hasAnchor" number="21.5.1">
+<h3><span class="header-section-number">21.5.1</span> Sample means in context<a href="deep-dive-sampling-and-anova.html#sample-means-in-context" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Thinking of the distribution of sample means as a population can be a bit tricky - since there are two populations that we could be referring to when we use the word “population”. Notation helps to keep things straight. In this book, when we are talking about a distribution of people (see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A), we use <span class="math inline">\(N\)</span> to indicate the number people in the population and <span class="math inline">\(n\)</span> to refer to the number of people in a subset of the population (what we typically refer to as a sample). Likewise, when we are talking about a distribution of sample means (see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B), we use <span class="math inline">\(K\)</span> to indicate the number of sample means in the population.</p>
+<p>Consider a concrete example. When we obtain a sample of five people’s heights (<span class="math inline">\(n\)</span> = 5) we can think of the <strong>people</strong> in the sample as a subset of the population of people (<span class="math inline">\(N\)</span>=100,000), see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A.</p>
+<p>But we can also think of that single sample mean as mean a subset of an infinity large set of sample means, see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B. We use (<span class="math inline">\(K = \infty\)</span>) to refer to the total number of sample mean in the population of sample means.</p>
+<p>When we have one sample mean from this population of same mean we say <span class="math inline">\(a = 1\)</span>. If we had three sample means from this population of sample means, <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B, we would say <span class="math inline">\(a = 3\)</span>.</p>
+</div>
+<div id="distribution-of-sample-means-as-a-population" class="section level3 hasAnchor" number="21.5.2">
+<h3><span class="header-section-number">21.5.2</span> Distribution of sample means as a population<a href="deep-dive-sampling-and-anova.html#distribution-of-sample-means-as-a-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Because we are thinking of the distribution of sample means as a population we can calculate the mean and variance for the distribution of sample means. The mean of the population of sample means is calculated as below in Equation <a href="deep-dive-sampling-and-anova.html#eq:popmeanxbardeep">(21.3)</a>. Notice that we used the symbol, <span class="math inline">\(\mu_{\bar{x}}\)</span>, to represented this value. Further notice, the little <span class="math inline">\(\bar{x}\)</span> beside the <span class="math inline">\(\mu\)</span> in <span class="math inline">\(\mu_{\bar{x}}\)</span> which indicates it is sample means that are being averaged. As noted previously, we use <span class="math inline">\(K\)</span> instead of <span class="math inline">\(N\)</span> to represent the number of sample means (where <span class="math inline">\(K\)</span> = infinity, because there are an infinite number of sample means in the distribution)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Notice the similarity between the formula for the mean of a distribution of people, Equation <a href="deep-dive-sampling-and-anova.html#eq:popmeanchdeep">(21.1)</a> above, and the formula for the mean of a distribution of sample means, Equation <a href="deep-dive-sampling-and-anova.html#eq:popmeanxbardeep">(21.3)</a>.</p>
+<span class="math display" id="eq:popmeanxbardeep">\[\begin{equation}
+\mu_{\bar{x}} = \frac{\sum_{i=1}^{K=\infty}{\bar{x}_i}}{K}
+      \tag{21.3}
+\end{equation}\]</span>
+<p>Using Equation <a href="deep-dive-sampling-and-anova.html#eq:popmeanxbardeep">(21.3)</a> we find that the mean of the sample means is 172.50 cm (i.e., <span class="math inline">\(\mu_{\bar{x}} = 172.50\)</span>).</p>
+<p>A key point to remember is that the mean of the sample means, <span class="math inline">\(\mu_{\bar{x}}\)</span>, will always be the same as the mean of people’s heights, <span class="math inline">\(\mu_{people}\)</span>. Consequently, any conclusions we make the mean of sample means, <span class="math inline">\(\mu_{\bar{x}}\)</span> see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B, will also apply to the mean of people, <span class="math inline">\(\mu_{people}\)</span> see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A. This is a crucial point to keep in mind as we proceed through this chapter. Although we are ultimately interested in making conclusion about the mean of the people (i.e., <span class="math inline">\(\mu_{people}\)</span>) - all our work in this chapter (and in ANOVA) is based on the mean of the distribution of sample means in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B (i.e., <span class="math inline">\(\mu_{\bar{x}}\)</span>).</p>
+</div>
+</div>
+<div id="sample-mean-distribution-variance" class="section level2 hasAnchor" number="21.6">
+<h2><span class="header-section-number">21.6</span> Sample mean distribution variance<a href="deep-dive-sampling-and-anova.html#sample-mean-distribution-variance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When there is <em>one</em> <strong>population of people</strong> (see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A) there is a single distribution of sample means that corresponds to that population (see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B). In this scenario, the sample means differ only because of random sampling. There are two approaches for calculating the variance of this distribution of sample means.</p>
+<div id="approach-1-total-calculate-the-variance-of-infinite-sample-means" class="section level3 hasAnchor" number="21.6.1">
+<h3><span class="header-section-number">21.6.1</span> Approach 1: Total: Calculate the variance of infinite sample means<a href="deep-dive-sampling-and-anova.html#approach-1-total-calculate-the-variance-of-infinite-sample-means" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this first method, we use an infinite number of sample means and simply calculate the variance, see Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarxbardeep">(21.4)</a> below.</p>
+<span class="math display" id="eq:popvarxbardeep">\[\begin{equation}
+\sigma_{\bar{x}}^2 = \frac{\sum_{i=1}^{K=\infty}{(\bar{x}_i - \mu_{\bar{x}})^2}}{K}
+      \tag{21.4}
+\end{equation}\]</span>
+<p>Notice how Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarxbardeep">(21.4)</a> for the variance of sample means in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B, is similar to the formula we use for the variance of people, Equation <a href="deep-dive-sampling-and-anova.html#eq:popvardeep">(21.2)</a>, in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A. The formula for the variance of sample means, Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarxbardeep">(21.4)</a>, differs because we are using sample means (<span class="math inline">\(\bar{x}\)</span>) instead of attributes of people (<span class="math inline">\(X\)</span>). As well, we use <span class="math inline">\(K\)</span> to indicate the number of elements used (i.e., an infinite number of sample means) in the calculation rather than <span class="math inline">\(N\)</span>.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="13%" />
+<col width="41%" />
+<col width="38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Distribution</th>
+<th align="center">Attribute</th>
+<th align="center">Parameter Calculation</th>
+<th align="center">Estimate of Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">People</td>
+<td align="center">Variance</td>
+<td align="center"><span class="math inline">\(\sigma_{people}^2 = \frac{\sum_{i=1}^{N}{(X_i - \mu_{people})^2}}{N}\)</span></td>
+<td align="center"><span class="math inline">\(s_{people}^2 = VAR = \frac{\sum_{i=1}^{n}{(x_i - \bar{x}_{people})^2}}{n-1}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Sample Means</td>
+<td align="center">Approach 1: Variance</td>
+<td align="center"><span class="math inline">\(\sigma_{\bar{x}}^2 = \frac{\sum_{i=1}^{K=\infty}{(\bar{x}_i - \mu_{\bar{x}})^2}}{K}\)</span></td>
+<td align="center"><span class="math inline">\(s_{\bar{x}}^2 = \frac{\sum_{i=1}^{a}{(\bar{x}_i - \bar{\bar{x}})^2}}{a-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Obviously, using Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarxbardeep">(21.4)</a> to calculate the variance of an infinite set of sample means is an impractical solution because we could never obtain the infinite number of samples and then calculate the variance for this set. Conceptually, however, it’s good to keep this calculation method in mind - since it reminds us of principles we’ve already learned about the variance of populations <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>But imagine if we could obtain the full infinite set of sample means - then we could use the formula as below:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sigma_{\bar{x}}^2 &amp;= \frac{\sum_{i=1}^{K=\infty}{(\bar{x}_i - \mu_{\bar{x}})^2}}{K}\\
+&amp;= 31.26472\\
+\end{aligned}
+\]</span></p>
+<p>Thus, the “population” variance of the distribution of sample means (<span class="math inline">\(\sigma_{\bar{x}}^2\)</span>, see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B) is <strong>calculated</strong>, based an infinite number of sample means (<span class="math inline">\(K = \infty\)</span>) using Approach 1, to be <span class="math inline">\(\sigma_{\bar{x}}^2 = 31.26472\)</span>.</p>
+<p><strong>When there is only one population of people</strong> this formula will reflect variability in sample means due to random sampling. When there is more than one population of people - it becomes more complicated. We’ll discuss that situation in a future chapter.</p>
+</div>
+<div id="approach-2-clt-calculation-of-variance-due-to-sampling-error" class="section level3 hasAnchor" number="21.6.2">
+<h3><span class="header-section-number">21.6.2</span> Approach 2: CLT: <em>Calculation</em> of variance due to sampling error<a href="deep-dive-sampling-and-anova.html#approach-2-clt-calculation-of-variance-due-to-sampling-error" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Fortunately, <strong>when sampling error is the ONLY source of variability in sample means</strong> there is a shortcut. We don’t need to obtain an infinite number of sample means to determine the variance of the distribution of an infinite number of sample means, Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B. There is a “shortcut formula” we can use based on the Central Limit Theorem (CLT), see the formula below.</p>
+<p><span class="math display">\[
+\sigma_{\bar{x}}^2 = \frac{\sigma_{people}^2}{\text{sample size}}
+\]</span></p>
+<p>Be we more often see it represented completely symbolically as per Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarCLTxbardeep">(21.5)</a> below.</p>
+<span class="math display" id="eq:popvarCLTxbardeep">\[\begin{equation}
+\sigma_{\bar{x}}^2 = \frac{\sigma_{people}^2}{n}\\
+      \tag{21.5}
+\end{equation}\]</span>
+<p>An inspection of Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarCLTxbardeep">(21.5)</a> reveals the variance of the distribution of sample means <strong>DUE TO RANDOM SAMPLING ERROR ONLY</strong>(see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B) depends on both the number of people in each sample (<span class="math inline">\(n\)</span>) and the variability in the people’s heights in the population (see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B, <span class="math inline">\(\sigma_{people}^2\)</span>).</p>
+<p>The reason this formula works should not be obvious - at all. If you are looking at this formula trying to figure out why it works - I suggest you stop and just accept that it does work. If you want to understand why it works, I suggest you <a href="https://archive.org/details/statisticsfifthe00will">consult</a> <span class="citation">(<a href="#ref-hays1994statistics" role="doc-biblioref">W. L. Hays 1994</a>)</span> who provides a statistical proof for the Central Limit Theorem.</p>
+<p>It’s helpful, moving forward, to think of this formula (<span class="math inline">\(\frac{\sigma_{people}^2}{n}\)</span>) as representing the <em>variability in means due to random sampling</em>. The formula was devired from teh Central Limit Theorem so we refer to it as the CLT approach. No matter the situation - this formula will always reflect the <strong>variability in sample means due ONLY to random sampling</strong>.</p>
+<p>Previously, we learned that the variance of the distribution of people in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A is <span class="math inline">\(\sigma_{people}^2=156.3236\)</span>. Consequently, we can use Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarCLTxbardeep">(21.5)</a> to calculate the variance of the distribution of sample means in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sigma_{\bar{x}}^2 &amp;= \frac{\sigma_{people}^2}{n}\\
+&amp;= \frac{156.3236}{5}\\
+&amp;= 31.26472\\
+\end{aligned}
+\]</span></p>
+<p>Thus, the “population” variance of the distribution of sample means (<span class="math inline">\(\sigma_{\bar{x}}^2\)</span>, see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B) is <strong>calculated</strong>, using Approach 2 the CLT shortcut, to be <span class="math inline">\(\sigma_{\bar{x}}^2 = 31.26472\)</span>.</p>
+</div>
+<div id="ratio-comparison-of-two-approaches" class="section level3 hasAnchor" number="21.6.3">
+<h3><span class="header-section-number">21.6.3</span> Ratio comparison of two approaches<a href="deep-dive-sampling-and-anova.html#ratio-comparison-of-two-approaches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To begin, we are looking at a distribution of sampling means <strong>where the means differed only due to random sampling error</strong>. In this situation, we have calculated the variance of the distribution of sample means using two different approaches.</p>
+<ul>
+<li><p>Approach 1: Total variance of sample means calculated using sample means and the variance formula</p></li>
+<li><p>Approach 2: Variance of sample means, due to random sampling error, calculated using CLT shortcut formula</p></li>
+</ul>
+<p>Although we can just look at the numbers resulting from these two approaches and compare them, that’s not how statisticians typically handle such comparisons. The approach used by statisticians to compare two numbers is to create a ratio. That is, take one number and divide it by the other number. If the two numbers are the same the ratio will be 1.00. If the ratio is larger than 1.00 it means the number on the top was bigger than the number on the bottom.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{ratio comparing approaches} &amp;= \frac{\text{total variance of sample means }}{\text{variance of sample means due to random sampling error}}\\
+&amp;=\frac{\frac{\sum_{i=1}^{A=\infty}{(\bar{x}_i - \mu_{\bar{x}})^2}}{A}}{\frac{\sigma_{people}^2}{n}}\\
+&amp;=\frac{31.26472}{31.26472}\\
+&amp;= 1.00\\
+\end{aligned}
+\]</span></p>
+<p>You can see the ratio comparing these two approaches below is 1.00 - so we conclude two approaches produced the same result. If the number on the top of the ratio was the <em>larger</em> of the two, then the value of the ratio would be greater than 1.00. In contrast, if the number on the top of the ratio was the <em>smaller</em> of the two, then the value of the ratio would be less than 1.00. Be sure you understand how to interpet the value of a ratio using these rules before continuing.</p>
+<p><strong>CRITICAL: Think about what this means.</strong> Both approaches produced the same number. The <strong>total variance approach</strong> resulted in the same number as the <strong>random samplingly only approach</strong>. <em>So we can conclude the only reason the sample means differed from each other was random sampling</em>. Go back and re-read this paragraph a few times until you are sure you understand this crucial point.</p>
+<p><strong>CALCULATION VS ESTIMATION</strong>. In this section, we focused on actually <strong>calculating</strong> the variance of the distribution of sample means using two approaches. But to actually <strong>calculate</strong> this variance we needed an infinite number of sample means (Approach 1) or knowledge of the population of people variance (Approach 2). Consequently, it’s impractical to <strong>calculate</strong> either quantity.</p>
+<p>In the next section, below, we recognize that we can likely never know or calculate the variance of the distribution of sample means. Instead, we focus on <strong>estimating</strong> the variance of the distribution of sample means. An <strong>estimated value</strong> is an approximation of the actual value that will differ due to the effects of random sampling.</p>
+</div>
+</div>
+<div id="estimating-sample-mean-distribution-variance" class="section level2 hasAnchor" number="21.7">
+<h2><span class="header-section-number">21.7</span> Estimating sample mean distribution variance<a href="deep-dive-sampling-and-anova.html#estimating-sample-mean-distribution-variance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section we focus on estimating the variance of the distribution of sample means using sample data. Imagine that we obtained three samples (i.e., <span class="math inline">\(a = 3\)</span>) and each sample has 5 people (i.e., <span class="math inline">\(n = 5\)</span>) from the population of people illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A. The statistics for those three samples are presented below.</p>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="13%" />
+<col width="29%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Sample Number</th>
+<th align="center">Sample size (<span class="math inline">\(n\)</span>)</th>
+<th align="center">Mean (<span class="math inline">\(\bar{x} = \frac{\Sigma x_i}{n}\)</span>)</th>
+<th align="center">Variance (<span class="math inline">\(s_{people}^2=\frac{\Sigma (x_i - \bar{x})^2}{n-1}\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center">185</td>
+<td align="center">168</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">169.2</td>
+<td align="center">146.7</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">170</td>
+<td align="center">346</td>
+</tr>
+</tbody>
+</table>
+<div id="approach-1-estimate-the-total-variance-of-infinite-sample-means-using-3-sample-means" class="section level3 hasAnchor" number="21.7.1">
+<h3><span class="header-section-number">21.7.1</span> Approach 1: Estimate the total variance of infinite sample means using 3 sample means<a href="deep-dive-sampling-and-anova.html#approach-1-estimate-the-total-variance-of-infinite-sample-means-using-3-sample-means" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can use the sample means presented in the table above to estimate the variance of the distribution of sample means as illustrated in the formula below. Recall, we use a lower case character, <span class="math inline">\(a\)</span>, to represent the number of sample means (in the case because we have 3 sample means <span class="math inline">\(a = 3\)</span>). We think of these three sample means as a subset (<span class="math inline">\(a = 3\)</span>) of the distribution of an infinite number of sample means (i.e., a population of sample means, <span class="math inline">\(K=\infty\)</span>) illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B. Consequently, we use the standard approach of estimating the variance of a larger set of elements from a (i.e., a population of sample means) subset of those elements (i.e., a sample of sample means) by including “-1” in the denominator of the variance formula, see Equation <a href="deep-dive-sampling-and-anova.html#eq:estpopvarxbardeep">(21.6)</a> below.</p>
+<span class="math display" id="eq:estpopvarxbardeep">\[\begin{equation}
+s_{\bar{x}}^2 = \frac{\sum_{i=1}^{a=3}{(\bar{x}_i - \bar{\bar{x}})^2}}{a-1}
+      \tag{21.6}
+\end{equation}\]</span>
+<p>First, we calculate the mean of the three sample means (<span class="math inline">\(\bar{\bar{x}}\)</span>) because we will need that in the variance formula.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\bar{\bar{x}} &amp;= \frac{\sum_{i=1}^{a=3}{\bar{x}_i}}{a}\\
+&amp;= \frac{\bar{x}_1+\bar{x}_2+\bar{x}_3}{a}\\
+&amp;= \frac{185 + 169.2  + 170 }{3}\\
+&amp;= 174.733
+\end{aligned}
+\]</span></p>
+<p>Second, we estimate the variance of the population of sample means (<span class="math inline">\(s_{\bar{x}}^2\)</span>, see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B) using the set of sample means. Again, notice the use of “-1” in the denominator - <a href="https://dstanley4.github.io/psyc6060bookdown/sampling-accuracy.html#estimating-sigma2">which we discussed previously in the sample accuracy chapter</a>. The use of the “-1” in the denominator means we are not calculating the variance of these three sample means. Rather, when we use “-1” in the denominator we are <strong>estimating</strong> the variance of the population of sample means from which they were obtained (i.e., the distribution of sample means depicted in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B).</p>
+<p><span class="math display">\[
+\begin{aligned}
+s_{\bar{x}}^2 &amp;= \frac{\sum_{i=1}^{a=3}{(\bar{x}_i - \bar{\bar{x}})^2}}{a-1}\\
+&amp;= \frac{(\bar{x_1}- \bar{\bar{x}})^2+(\bar{x_2}- \bar{\bar{x}})^2+(\bar{x_3}- \bar{\bar{x}})^2}{a-1}\\
+&amp;= \frac{(185 - 174.733)^2+(169.2  - 174.733)^2+(170 - 174.733)^2}{3-1}\\
+&amp;= 79.213
+\end{aligned}
+\]</span></p>
+<p>Thus, the “population” variance of the distribution of sample means (<span class="math inline">\(\sigma_{\bar{x}}^2\)</span>, see Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B) is <strong>estimated</strong>, based on three sample means (<span class="math inline">\(a = 3\)</span>) using Approach 1, to be <span class="math inline">\(s_{\bar{x}}^2 = 79.213\)</span>. Remember though 79.213 is just an <em>estimate</em> of the population value (<span class="math inline">\(\sigma_{\bar{x}}^2\)</span>) based on three sample means.</p>
+<p><strong>IMPORTANT:</strong> The denominator of this variance calculation is <span class="math inline">\(2\)</span> (i.e., <span class="math inline">\(3-1\)</span>). Therefore, we say there are 2 degrees of freedom associated with this estimate of the variance of the infinite number of sample means.</p>
+</div>
+<div id="approach-2-clt-shortcut-estimation-of-variance-due-to-random-sampling-error" class="section level3 hasAnchor" number="21.7.2">
+<h3><span class="header-section-number">21.7.2</span> Approach 2: CLT shortcut: <em>Estimation</em> of variance due to random sampling error<a href="deep-dive-sampling-and-anova.html#approach-2-clt-shortcut-estimation-of-variance-due-to-random-sampling-error" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can use the information presented in the table above in another way to estimate the variance of the distribution of sample means. Indeed, recall that than another approach to calculating the variance of the distribution of sample means is to use the shortcut formula based on the Central Limit Theorem (CLT), Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarCLTxbardeep">(21.5)</a> above, repeated below for clarity.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sigma_{\bar{x}}^2 &amp;= \frac{\sigma_{people}^2}{n}\\
+\end{aligned}
+\]</span></p>
+<div id="estimating-sigma_people2-with-s_people2" class="section level4 hasAnchor" number="21.7.2.1">
+<h4><span class="header-section-number">21.7.2.1</span> Estimating <span class="math inline">\(\sigma_{people}^2\)</span> with <span class="math inline">\(s_{people}^2\)</span><a href="deep-dive-sampling-and-anova.html#estimating-sigma_people2-with-s_people2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The problem with the formula above is that you need to know the variance of the all the people in the population (<span class="math inline">\(\sigma_{people}^2\)</span>) - and we don’t know the variance of all the people in the population. But, we do have three samples from that population of people. Because the three samples are from the same population of people - we know each sample provides an estimate of the same (single) variance of people in the population. Therefore, we can combine those variance estimates into a better (or average) estimate of the variance of the people (<span class="math inline">\(s_{people}^2\)</span>) in the population using the formula below.</p>
+<p><span class="math display">\[
+\begin{aligned}
+s_{people}^2 &amp;= MSE_{people}\\
+&amp;= \frac{\sum_{i=1}^{a=3}(n_i-1)s_i^2}{\sum_{i=1}^{a}(n_i-1)} \\
+&amp;= \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2 + (n_3-1)s_3^2}{(n_1-1)+(n_2-1)+(n_3-1)} \\
+&amp;= \frac{(5-1)s_1^2 + (5-1)s_2^2 + (5-1)s_3^2}{(5-1)+(5-1)+(5-1)} \\
+&amp;= \frac{(5-1)168 + (5-1)146.7 +(5-1)346}{(5-1) + (5-1) + (5-1)} \\
+&amp;= \frac{672 + 586.8 + 1384}{15 -3} \\
+&amp;= \frac{2642.8}{12} \\
+&amp;= 220.2333 \\
+\end{aligned}
+\]</span></p>
+<p><strong>IMPORTANT:</strong> The denominator of this variance calculation is <span class="math inline">\(12\)</span> (i.e., <span class="math inline">\(a(n-1)=3(5-1)=3(4)=12\)</span>). Therefore, we say there are 12 degrees of freedom associated with this estimate of the variance of the people in the population.</p>
+<p>When the three sample sizes are the same the above formula just boils down to an average:</p>
+<p><span class="math display">\[
+\begin{aligned}
+s_{people}^2 &amp;= MSE_{people}\\
+&amp;= \frac{s_1^2 + s_2^2 + s_3^2}{3} \\
+&amp;= \frac{168 + 146.7 + 346 }{3} \\
+&amp;= \frac{660.7}{3} \\
+&amp;= 220.2333 \\
+\end{aligned}
+\]</span></p>
+<p>The number we just calculated, <span class="math inline">\(s_{people}^2 =220.2333\)</span>, is an estimate of the variance of the population of people illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A. You could think of this number as an average variance estimate.</p>
+<p>We created the average variance estimate,<span class="math inline">\(s_{people}^2 =220.2333\)</span>, by combining three sample estimates of the variance of the population of people. Each sample estimate was based on 5 people (i.e., 4 degrees of freedom). But the average variance estimate we just calculated ( <span class="math inline">\(s_{people}^2 =220.2333\)</span>) is based on 15 people - people from all three samples (i.e., 12 degrees of freedom). Because we combined people from all three samples the average variance estimate is a better estimate of the variance of the population of people than any single sample estimate. In technical terms, we say the variance estimate we just calculated is a better estimate because of the higher degrees of freedom (12) compared to an individual sample estimate (with only 4 degrees of freedom).</p>
+<p>We use different names to refer to the resulting average variance estimate - we could just call it a better estimate of the population variance (<span class="math inline">\(s_{people}^2\)</span>). But, statisticians also use the term pooled variance (<span class="math inline">\(s_{pooled}^2\)</span>) to refer it. Other times, statisticians use the term Mean Square Error (<span class="math inline">\(MSE\)</span>) to refer to it. You should realize that these are all just synonyms for variance of the population of people illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>A: <span class="math inline">\(s_{people}^2 = s_{pooled}^2 = MSE_{people} = MSE\)</span>.</p>
+</div>
+<div id="estimating-sigma_barx2-with-clt" class="section level4 hasAnchor" number="21.7.2.2">
+<h4><span class="header-section-number">21.7.2.2</span> Estimating <span class="math inline">\(\sigma_{\bar{x}}^2\)</span> with CLT<a href="deep-dive-sampling-and-anova.html#estimating-sigma_barx2-with-clt" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>If we assume that random sampling error is the only source of variance in the distribution of sample means</strong> we can estimate <span class="math inline">\(\sigma_{\bar{x}}^2\)</span> using the formula we derived from the Central Limit Theorem.</p>
+<p>More specifically, armed with the estimate of the variance of the people in the population (<span class="math inline">\(s_{people}^2\)</span>) we can use the CLT shortcut formula to obtain an estimate of the variance of the distribution of sample means using Equation <a href="deep-dive-sampling-and-anova.html#eq:estpopvarmeansclt">(21.7)</a> below.</p>
+<span class="math display" id="eq:estpopvarmeansclt">\[\begin{equation}
+s_{\bar{x}}^2 = \frac{s_{people}^2}{n}
+      \tag{21.7}
+\end{equation}\]</span>
+<p>Putting in values:</p>
+<p><span class="math display">\[
+\begin{aligned}
+s_{\bar{x}}^2 &amp;= \frac{s_{people}^2}{n}\\
+&amp;= \frac{220.2333 }{5}\\
+&amp;= 44.0467
+\end{aligned}
+\]</span></p>
+<p>Thus, using Approach 2: CLT shortcut, our estimate of the variance of the distribution of sample means, <strong>due to random sampling error</strong> is <span class="math inline">\(s_{\bar{x}}^2 = 44.0467\)</span>.</p>
+<p><strong>IMPORTANT:</strong> This estimate of the variance of the distribution of sample means was based on using an estimate of the variance of the people in the population (i.e., <span class="math inline">\(s_{people}^2 =220.2333\)</span>). There were 12 degrees of freedom associated with <span class="math inline">\(s_{people}^2\)</span> which <span class="math inline">\(s_{\bar{X}}^2\)</span> depends upon. So we say there are 12 degrees of freedom associated with <span class="math inline">\(s_{\bar{X}}^2\)</span>.</p>
+</div>
+</div>
+<div id="ratio-comparison-of-two-approaches-1" class="section level3 hasAnchor" number="21.7.3">
+<h3><span class="header-section-number">21.7.3</span> Ratio comparison of two approaches<a href="deep-dive-sampling-and-anova.html#ratio-comparison-of-two-approaches-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The table below summarizes our work so far.</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="17%" />
+<col width="50%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Attribute</th>
+<th align="center">Unknown Parameter</th>
+<th align="center">Estimate of Parameter</th>
+<th align="center"><span class="math inline">\(s_{\bar{x}}^2\)</span> degrees of freedom</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Approach 1: Total variance</td>
+<td align="center"><span class="math inline">\(\sigma_{\bar{x}}^2 =31.26472\)</span></td>
+<td align="center"><span class="math inline">\(s_{\bar{x}}^2 = \frac{\sum_{i=1}^{a}{(\bar{x}_i - \bar{\bar{x}})^2}}{a-1}= 79.213\)</span></td>
+<td align="center"><span class="math inline">\(a-1=3-1=2\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Approach 2: CLT Random sampling variance</td>
+<td align="center"><span class="math inline">\(\sigma_{\bar{x}}^2 =31.26472\)</span></td>
+<td align="center"><span class="math inline">\(s_{\bar{x}}^2 = \frac{s_{people}^2}{n}=44.0467\)</span></td>
+<td align="center"><span class="math inline">\(a(n-1)=3(5-1)=12\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In the table above, Approach 1, estimates the total variance (from all sources) in sample means. In contrast, Approach 2, estimates the variance in sample means due strictly to random sampling error. In this particular scenario <strong>we know</strong> the only source of variability in sample means is random sampling error. So…we do the two numbers differ?</p>
+<p>Recall, that in Approach 1 we didn’t have all of the sample means in the infinity large distribution of sample means. We based our estimate on only three of those means. So our estimate using, Approach 1, will differ from the truth due to sampling error – because we only have 3 sample means - not the full infinite set of sample means.</p>
+<p>Likewise, recall that in Approach 2 we didn’t know the variance of the population of people (<span class="math inline">\(\sigma_{people}^2\)</span>). We had to rely on an esimate of that value (<span class="math inline">\(s_{people}^2\)</span>), based on 15 people (three sets of 5). Consequently, Approach 2 will differ from the truth as well due to random sampling error.</p>
+<p>Because both Approach 1 and 2 will differ from the true due to random sampling error, when we construct a ratio, it too will differ from the truth due to random sampling error. That is, when we construct a ratio based on those variance estimate (<span class="math inline">\(s_{\bar{x}}^2 = \frac{\sum_{i=1}^{a}{(\bar{x}_i - \bar{\bar{x}})^2}}{a-1}= 79.213\)</span> and <span class="math inline">\(s_{\bar{x}}^2 = \frac{s_{people}^2}{n}=44.0467\)</span>) the ratio will differ from “the truth” (1.00) due to sampling error.</p>
+<p><br />
+</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{ratio comparing approaches} &amp;= \frac{\text{variance of sample means ESTIMATED using sample means}}{\text{variance of sample means ESTIMATED using CLT shortcut formula}}\\
+&amp;=\frac{\frac{\sum_{i=1}^{a=3}{(\bar{x}_i - \bar{\bar{x}})^2}}{a-1}}{\frac{s_{people}^2}{n}}\\
+&amp;=\frac{79.213}{44.0467}\\
+&amp;= 1.7984\\
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+<div id="frame-of-reference-random-sampling-only" class="section level2 hasAnchor" number="21.8">
+<h2><span class="header-section-number">21.8</span> Frame of reference: Random sampling only<a href="deep-dive-sampling-and-anova.html#frame-of-reference-random-sampling-only" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section we focus on using simulations to establish a frame of reference for interpreting the variance ratio in a scenario where random sampling is the only reason sample means differ from each other. Because random sampling is the only reasons the sample means differ both formulas are estimating the same thing. However, due to random sampling error, the the formulas may differ.</p>
+<div id="simulation-of-1-population" class="section level3 hasAnchor" number="21.8.1">
+<h3><span class="header-section-number">21.8.1</span> Simulation of 1 population<a href="deep-dive-sampling-and-anova.html#simulation-of-1-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure"><span style="display:block;" id="fig:sim1pop"></span>
+<img src="ch_deep_sampling/images/figure2.png" alt="Sampling from one population" width="100%" />
+<p class="caption">
+FIGURE 21.2: Sampling from one population
+</p>
+</div>
+<p>The simplest scenario to understand the estimation formulas we have discussed is the one illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:sim1pop">21.2</a> above. In this scenario, we obtain 3 samples from the population of people and then used that data to <strong>estimate</strong> the variance of the distribution of sample means using Approach 1 and Approach 2. Then we create a ratio of those two values (Approach 1/Approach 2). Each additional row of the table shows a case where we did this same thing with three new samples.</p>
+<p>We begin by creating the population in R:</p>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="deep-dive-sampling-and-anova.html#cb783-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
+<span id="cb783-2"><a href="deep-dive-sampling-and-anova.html#cb783-2" aria-hidden="true" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span></code></pre></div>
+<p>Then we run a simulation where we estimate the variance using the distribution of sample means using the information in the three sample via Approach 1 and Approach 2. We repeat this estimation process 100,000 times to see if it is accurate in the long run.</p>
+<div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb784-1"><a href="deep-dive-sampling-and-anova.html#cb784-1" aria-hidden="true" tabindex="-1"></a>data_ratios <span class="ot">&lt;-</span> <span class="fu">get_mean_samples_ratio</span>(pop1,</span>
+<span id="cb784-2"><a href="deep-dive-sampling-and-anova.html#cb784-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">a =</span> <span class="dv">3</span>,</span>
+<span id="cb784-3"><a href="deep-dive-sampling-and-anova.html#cb784-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">n =</span> <span class="dv">5</span>,</span>
+<span id="cb784-4"><a href="deep-dive-sampling-and-anova.html#cb784-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">number.of.trials =</span> <span class="dv">100000</span>)</span></code></pre></div>
+<p>The results of the 100,000 simulations are placed in the data set called data_ratios. We can see the first few rows of these data below.</p>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="deep-dive-sampling-and-anova.html#cb785-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_ratios)</span></code></pre></div>
+<pre><code>##   trial app_1_total_var_est app_2_clt_est var_ratio
+## 1     1               38.89         54.17    0.7180
+## 2     2               20.57         18.77    1.0963
+## 3     3               44.41         10.91    4.0696
+## 4     4               64.05         18.19    3.5220
+## 5     5               19.85         25.55    0.7771
+## 6     6               21.33         19.64    1.0862</code></pre>
+<p>When you inspect the table above, recognize that for the first row of the table we obtained 3 random samples from the population of people and then used that data to <strong>estimate</strong> the variance of the sampling distribution of means using Approach 1 and Approach 2 (approach_1_total_var_est and approach_2_clt_est, respectively). Then we created a ratio of those two values (approach_1_var_est/approach_2_clt_est) and placed that in the table (var_ratio). Each additional row of table shows a case were were did this same thing with three new samples. There are a total of 100,000 rows in this table.</p>
+<p>We obtain the summary statistics with the skim command:</p>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="deep-dive-sampling-and-anova.html#cb787-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb787-2"><a href="deep-dive-sampling-and-anova.html#cb787-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(data_ratios)</span></code></pre></div>
+<p><img src="ch_deep_sampling/images/skim_screenshot.png" width="90%" /></p>
+<p>Recall that previously, we used Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarCLTxbardeep">(21.5)</a> to calculate <span class="math inline">\(\sigma_{\bar{x}}^2 = 31.26472\)</span>. Each row in the table above presents two estimates (i.e., <span class="math inline">\(s_{\bar{x}}^2\)</span>) of <span class="math inline">\(\sigma_{\bar{x}}^2\)</span>. You can see that the Approach 1 approach for obtaining <span class="math inline">\(s_{\bar{x}}^2\)</span> was on average correct becase of the 31.3 value in the blue box. Likewise, you can see that the Approach 2 approach for obtaining <span class="math inline">\(s_{\bar{x}}^2\)</span> was on average correct because of the 31.3 value in the blue box.</p>
+<p><strong>Graphing the ratios.</strong> Although each estimate was <strong>on average correct</strong>, the two estimates were not always the same. Recall we compared the two estimates by making a ratio. Due to random sampling error on some trials the numerator of the ratio was larger and on other trials the denominator of the ratio was larger. As a result, on some trials the ratio was larger than 1.0 and on other trials the ratio was smaller than 1.0.</p>
+<p>Below I present a graph of these ratios, Figure <a href="deep-dive-sampling-and-anova.html#fig:graph1pop">21.3</a>. You can see there is a wide range of ratio that occur. Note that this is shape of the distributions when we have:</p>
+<ol style="list-style-type: lower-alpha">
+<li>A single population - so sampling error is the only reason means differ</li>
+<li>Total variance estimate is based on 3 sample means (i.e., <span class="math inline">\(a-1\)</span> degrees)</li>
+<li>Sampling error variance estimate created using a population of people variance estimate dervied from 15 people (i.e., <span class="math inline">\(a(n-1)=3(5-1)=12\)</span> degrees of freedom)</li>
+</ol>
+<p>This type of graph is helpful, because it allows us to understand, when these conditions are true, the range of ratio values that can occur. FYI - as we’ll discuss more later, this is an <strong>F-ratio</strong>.</p>
+<div class="figure"><span style="display:block;" id="fig:graph1pop"></span>
+<img src="bookdown_files/figure-html/graph1pop-1.png" alt="Variance ratio when  there is one population of people" width="100%" />
+<p class="caption">
+FIGURE 21.3: Variance ratio when there is one population of people
+</p>
+</div>
+<p>This graph illustrates the range of ratio values that can occur when there is a single population when we use 3 samples, <span class="math inline">\(a =3\)</span>, and a sample size of 5, <span class="math inline">\(n = 5\)</span>. More formally, there are 2, <span class="math inline">\((a -1)\)</span>, and 12, <span class="math inline">\(a(n-1)\)</span>, degrees of freedom.</p>
+</div>
+<div id="simulation-of-3-identical-populations" class="section level3 hasAnchor" number="21.8.2">
+<h3><span class="header-section-number">21.8.2</span> Simulation of 3 identical populations<a href="deep-dive-sampling-and-anova.html#simulation-of-3-identical-populations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure"><span style="display:block;" id="fig:sim3pop"></span>
+<img src="ch_deep_sampling/images/figure3.png" alt="Sampling from three populations with the same mean (and variance)" width="100%" />
+<p class="caption">
+FIGURE 21.4: Sampling from three populations with the same mean (and variance)
+</p>
+</div>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="32%" />
+<col width="39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Population</th>
+<th align="center">Mean</th>
+<th align="left">Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center"><span class="math inline">\(\mu_{A1_{people}}= 172.50\)</span></td>
+<td align="left"><span class="math inline">\(\sigma_{A1_{people}}^2= 156.3236\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center"><span class="math inline">\(\mu_{A2_{people}}= 172.50\)</span></td>
+<td align="left"><span class="math inline">\(\sigma_{A2_{people}}^2= 156.3236\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center"><span class="math inline">\(\mu_{A3_{people}}= 172.50\)</span></td>
+<td align="left"><span class="math inline">\(\sigma_{A3_{people}}^2= 156.3236\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In this section, instead of using one population, we use three identical populations. That is, <span class="math inline">\(a = 3\)</span>. We use <span class="math inline">\(A1\)</span>, <span class="math inline">\(A2\)</span>, and <span class="math inline">\(A3\)</span> to refer to these three identical populations.</p>
+<p>You will see in this section that when you have three identical populations of people, see Figure <a href="deep-dive-sampling-and-anova.html#fig:sim3pop">21.4</a>, that the results are the same as when you have one population of people. We simulate the situation illustrated in the figure above. We start by creating three identical populations of people.</p>
+<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="deep-dive-sampling-and-anova.html#cb788-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
+<span id="cb788-2"><a href="deep-dive-sampling-and-anova.html#cb788-2" aria-hidden="true" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
+<span id="cb788-3"><a href="deep-dive-sampling-and-anova.html#cb788-3" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> pop1</span>
+<span id="cb788-4"><a href="deep-dive-sampling-and-anova.html#cb788-4" aria-hidden="true" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> pop1</span></code></pre></div>
+<p>Then, we obtain a sample from each population of people and calculate a sample mean. When we use Approach 1: Total variance we think of these three sample means as being a random sample (<span class="math inline">\(a = 3\)</span>) of the infinite distribution of sample means (<span class="math inline">\(K = \infty\)</span>). The variance of the three sample means is an estimate of the variance of the distribution of sample means. When we use Approach 2: CLT Shortcut we use the people from the three sample to estimate the variance of the population of people. We use our estimate of the variance of the population of people in the Approach 2: CLT Shortcut formula to estimate the variance of the distribution of sample means. Then we calculate the ratio of Approach 1: Total variance divided by Approach 2: CLT Shortcut.</p>
+<p><strong>Then we repeat this process 100,000 times to see how well this process works on average - via the R commands below.</strong></p>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="deep-dive-sampling-and-anova.html#cb789-1" aria-hidden="true" tabindex="-1"></a>data_ratios3 <span class="ot">&lt;-</span> <span class="fu">get_mean_samples_ratio</span>(pop1, pop2, pop3,</span>
+<span id="cb789-2"><a href="deep-dive-sampling-and-anova.html#cb789-2" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">n =</span> <span class="dv">5</span>,</span>
+<span id="cb789-3"><a href="deep-dive-sampling-and-anova.html#cb789-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="at">number.of.trials =</span> <span class="dv">100000</span>)</span></code></pre></div>
+<p>The results of the 100,000 simulations are placed in the data set called data_ratios3. We can see the first few rows of these data below.</p>
+<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="deep-dive-sampling-and-anova.html#cb790-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_ratios3)</span></code></pre></div>
+<pre><code>##   trial app_1_total_var_est app_2_clt_est var_ratio
+## 1     1             117.973         34.20   3.44951
+## 2     2              45.853         44.61   1.02795
+## 3     3               2.573         48.56   0.05299
+## 4     4               8.920         22.07   0.40411
+## 5     5               9.693         35.68   0.27167
+## 6     6              84.853         21.42   3.96141</code></pre>
+<p>In the first row of the above table we obtained 3 samples (one from each population) and then used that data to <strong>estimate</strong> the variance of the sampling distribution of means using Approach 1 and Approach 2. Then we create a ratio of those two values (Approach 1/Approach 2). Each additional row of table shows a case where were did this same thing with three new samples. There are a total of 100,000 rows in this table.</p>
+<p>We obtain the summary statistics with the skim command:</p>
+<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="deep-dive-sampling-and-anova.html#cb792-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb792-2"><a href="deep-dive-sampling-and-anova.html#cb792-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(data_ratios3)</span></code></pre></div>
+<p><img src="ch_deep_sampling/images/skim_screenshot_pop3.png" width="90%" /></p>
+<p>Recall that previously, we used Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarCLTxbardeep">(21.5)</a> to calculate <span class="math inline">\(\sigma_{\bar{x}}^2 = 31.26472\)</span>. Each row in table above presents two estimates (i.e., <span class="math inline">\(s_{\bar{x}}^2\)</span>) of <span class="math inline">\(\sigma_{\bar{x}}^2\)</span>. You can see that the Approach 1 approach for obtaining <span class="math inline">\(s_{\bar{x}}^2\)</span> was on average correct becase of the 31.3 value in the green box. Likewise, you can see that the Approach 2 approach for obtaining <span class="math inline">\(s_{\bar{x}}^2\)</span> was on average correct because of the 31.3 value in the green box.</p>
+<p><strong>Graphing the ratios.</strong> Although each estimate was <strong>on average correct</strong>, the two estimates were not always the same. Recall we compared the two estimates by making a ratio. Due to random sampling error on some trials the numerator of the ratio was larger and on other trials the denominator of the ratio was larger. As a result, on some trials the ratio was larger than 1.0 and on other trials the ratio was smaller than 1.0.</p>
+<p>Below I present a graph of these ratios, Figure <a href="deep-dive-sampling-and-anova.html#fig:graph3pop">21.5</a>. You can see there is a wide range of ratio that occur. Note that this is shape of the distributions when we have:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Three identical population - so sampling error is the only reason means differ</li>
+<li>Total variance estimate is based on 3 sample means (i.e., <span class="math inline">\(a-1\)</span> degrees)</li>
+<li>Sampling error variance estimate created using a population of people variance estimate dervied from 15 people (i.e., <span class="math inline">\(a(n-1)=3(5-1)=12\)</span> degrees of freedom)</li>
+</ol>
+<p>This type of graph is helpful, because it allows us to understand, when these conditions are true, the range of ratio values that can occur. Again remember, these are called <strong>F-ratios</strong>.</p>
+<div class="figure"><span style="display:block;" id="fig:graph3pop"></span>
+<img src="bookdown_files/figure-html/graph3pop-1.png" alt="Variance ratio when there are three identical populations of people" width="100%" />
+<p class="caption">
+FIGURE 21.5: Variance ratio when there are three identical populations of people
+</p>
+</div>
+<div id="extreme-ratio-values" class="section level4 hasAnchor" number="21.8.2.1">
+<h4><span class="header-section-number">21.8.2.1</span> Extreme ratio values<a href="deep-dive-sampling-and-anova.html#extreme-ratio-values" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Keep in mind that this is the range of ratios that can occur when all three populations have the same mean. In the above graph we use a vertical blue line to distinguish between the lower 95% of ratio values and the upper 5% of ratios values.</p>
+<p>How did we know where to place this line? We simply sorted the ratios from smallest to largest. Then when to the 95% percentile spot in that list. To obtain the 95% percentile in of the sorted list of 100,000 ratios we just mutiple the total number of ratios (100,000) by .95. We 95000 (i.e., <span class="math inline">\(.95*100000=95000\)</span>) which indicates that 95% of ratios are below the value in this spot. Likewise, 5% of ratios are above the value at this spot.</p>
+<p>The ratio value in the spot 95,000 of the sorted list of 100,000 ratio values is 3.88. How do you interpret this value?</p>
+<p>In the situation where:</p>
+<ol style="list-style-type: lower-alpha">
+<li>the variance estimate the numerator has 2 degrees of freedom</li>
+<li>the variance estimate the denominator has 12 degrees of freedom</li>
+<li>the population variances are the same</li>
+<li>the population means are the same</li>
+</ol>
+<p>When the above situation is the case, we will obtain an variance ratio above 3.88 only 5% of the time. We obtain this 3.88 value with the R-code below.</p>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="deep-dive-sampling-and-anova.html#cb793-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort the variance ratios smallest to largest</span></span>
+<span id="cb793-2"><a href="deep-dive-sampling-and-anova.html#cb793-2" aria-hidden="true" tabindex="-1"></a>var_ratio3_sorted <span class="ot">&lt;-</span> <span class="fu">sort</span>(data_ratios3<span class="sc">$</span>var_ratio)</span>
+<span id="cb793-3"><a href="deep-dive-sampling-and-anova.html#cb793-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb793-4"><a href="deep-dive-sampling-and-anova.html#cb793-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in order list, obtain the 95th percentile </span></span>
+<span id="cb793-5"><a href="deep-dive-sampling-and-anova.html#cb793-5" aria-hidden="true" tabindex="-1"></a><span class="co"># values beyond this point are in the upper 5% of variances ratios</span></span>
+<span id="cb793-6"><a href="deep-dive-sampling-and-anova.html#cb793-6" aria-hidden="true" tabindex="-1"></a><span class="co"># that occur when the population means are equal</span></span>
+<span id="cb793-7"><a href="deep-dive-sampling-and-anova.html#cb793-7" aria-hidden="true" tabindex="-1"></a>extreme_cut_off3 <span class="ot">&lt;-</span> var_ratio3_sorted[<span class="dv">100000</span><span class="sc">*</span>.<span class="dv">95</span>]</span>
+<span id="cb793-8"><a href="deep-dive-sampling-and-anova.html#cb793-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb793-9"><a href="deep-dive-sampling-and-anova.html#cb793-9" aria-hidden="true" tabindex="-1"></a><span class="co"># round the result and print it</span></span>
+<span id="cb793-10"><a href="deep-dive-sampling-and-anova.html#cb793-10" aria-hidden="true" tabindex="-1"></a>extreme_cut_off3 <span class="ot">&lt;-</span> <span class="fu">round</span>(extreme_cut_off3, <span class="dv">2</span>)</span>
+<span id="cb793-11"><a href="deep-dive-sampling-and-anova.html#cb793-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(extreme_cut_off3)</span></code></pre></div>
+<pre><code>## [1] 3.88</code></pre>
+</div>
+<div id="its-really-an-f-value" class="section level4 hasAnchor" number="21.8.2.2">
+<h4><span class="header-section-number">21.8.2.2</span> It’s really an <span class="math inline">\(F\)</span>-value<a href="deep-dive-sampling-and-anova.html#its-really-an-f-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Most importantly, we don’t usually refer to the ratio we have been examining as a variance ratio. We refer to it as an <span class="math inline">\(F\)</span>-ratio or <span class="math inline">\(F\)</span>-value.</p>
+<p>We used this simulation to see the range of <span class="math inline">\(F\)</span>-ratios that occur when we KNOW all the population means are equal. From the graph, you can see that this range of <span class="math inline">\(F\)</span>-ratio values is quite wide. But, we estimated that when all three populations means are equal (and n = 5) that only 5% of <span class="math inline">\(F\)</span>-ratios will fall above a value we estimated to be 3.88. This value is what we refer to as <span class="math inline">\(F_{critical}\)</span> when <span class="math inline">\(\alpha = .05\)</span>. Thus, <span class="math inline">\(F_{critical}\)</span>(2, 12) = 3.88.</p>
+<p>Compare the <span class="math inline">\(F\)</span>-ratio we obtained (3.88) to the values in <span class="math inline">\(F\)</span>-table at 2 and 12 degrees of freedom for <span class="math inline">\(\alpha=.05\)</span>. An <span class="math inline">\(F\)</span>-table is a table of <span class="math inline">\(F_{critical}\)</span> values. You can see that the value in the table is 3.89 - this is the correct value. Our estimate is 3.88 which is very close to the correct value of 3.89. Our value of 3.88 is off a bit from the 3.89 in the <span class="math inline">\(F\)</span>-table because we only use 100,000 samples and not an infinite number of samples.</p>
+<p><img src="ch_deep_sampling/images/ftable.png" width="60%" /></p>
+</div>
+<div id="making-your-own-f-table" class="section level4 hasAnchor" number="21.8.2.3">
+<h4><span class="header-section-number">21.8.2.3</span> Making your own <span class="math inline">\(F\)</span>-table<a href="deep-dive-sampling-and-anova.html#making-your-own-f-table" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Congratuations you have just learned how to create the values in the <span class="math inline">\(F\)</span>-table from scratch! To ensure you understand everything you have learned in this exercise think through how you would do the following:</p>
+<ul>
+<li><p>Obtain <span class="math inline">\(F_{critical}\)</span>(2, 12) for <span class="math inline">\(\alpha=.01\)</span></p></li>
+<li><p>Obtain <span class="math inline">\(F_{critical}\)</span>(3, 36) for <span class="math inline">\(\alpha=.05\)</span>. Look at the degrees of freedom and alpha. How many populations would you use (i.e., what would value would you use for <span class="math inline">\(a\)</span>)? How many people would you use in each sample (i.e., what value would you use for <span class="math inline">\(n\)</span>)? What position would you look at in the list of <strong>sorted</strong> variance ratios?</p></li>
+<li><p>Obtain <span class="math inline">\(F_{critical}\)</span>(3, 36) for <span class="math inline">\(\alpha=.01\)</span> Look at the degrees of freedom and alpha. How many populations would you use (i.e., what would value would you use for <span class="math inline">\(a\)</span>)? How many people would you use in each sample (i.e., what value would you use for <span class="math inline">\(n\)</span>)? What position would you look at in the list of <strong>sorted</strong> variance ratios?</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="central-f-distributions" class="section level2 hasAnchor" number="21.9">
+<h2><span class="header-section-number">21.9</span> Central <span class="math inline">\(F\)</span>-distributions<a href="deep-dive-sampling-and-anova.html#central-f-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this chapter we focused on creating an <span class="math inline">\(F\)</span>-distribution when the population means were the same. When you create an <span class="math inline">\(F\)</span>-distribution based on a scenario where the population means are all the same we refer to that as a <strong>Central <span class="math inline">\(F\)</span>-distribution</strong>.</p>
+<p>We created a Central <span class="math inline">\(F\)</span>-distribution with 2 and 12 degrees of freedom (i.e., <span class="math inline">\(a=3\)</span> and <span class="math inline">\(n=5\)</span>). But we could have used a different number of populations (i.e., a different value for <span class="math inline">\(a\)</span>) or a different sample size (i.e., a different value for <span class="math inline">\(n\)</span>). For example, if we had used 5 populations (i.e., <span class="math inline">\(a = 5\)</span>) and a sample size of 20 (i.e., <span class="math inline">\(n = 20\)</span>) then we would have created a Central <span class="math inline">\(F\)</span>-distribution with 4 and 95 degrees of freedom. Recall that <span class="math inline">\(df_{numerator}= a - 1 = 5 -1 = 4\)</span> and that <span class="math inline">\(df_{denominator} = a(n-1) = 5 (20-1) = 5(19) = 95\)</span>. Thus, because there are many possible Central <span class="math inline">\(F\)</span>-distributions, we say there is a <strong>Family of Central <span class="math inline">\(F\)</span>-distributions</strong>. For this Family of Central <span class="math inline">\(F\)</span>-distributions, the family resemblance is that they are all based on a scenario where the population means are equal.</p>
+<p>You may, or may not, have realized that <span class="math inline">\(F\)</span>-tables are just way of summarizing the <strong>Family of Central <span class="math inline">\(F\)</span>-distributions</strong>. That is, when you look up a value at 2 and 12 degrees of freedom in an <span class="math inline">\(F\)</span>-table are obtaining information about a specific Central <span class="math inline">\(F\)</span>-distribution. Specifically, you are looking up a “cut” point for extreme values in that particular Central <span class="math inline">\(F\)</span>-distribution.</p>
+<p>Also note, that when we do significance testing we use the Null Hypothesis that the population means are all equal. This is the same assumption we use when creating a Central <span class="math inline">\(F\)</span>-distribution. Consquently, some people refer to a Central <span class="math inline">\(F\)</span>distribution (or Central <span class="math inline">\(t\)</span> distribution) as the <strong>Sampling Distribution for the Null Hypothesis</strong>.</p>
+</div>
+<div id="summary-table" class="section level2 hasAnchor" number="21.10">
+<h2><span class="header-section-number">21.10</span> Summary table<a href="deep-dive-sampling-and-anova.html#summary-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Much of what we have learned is summarized in the table below.</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="13%" />
+<col width="41%" />
+<col width="38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Distribution</th>
+<th align="center">Attribute</th>
+<th align="center">Parameter Calculation</th>
+<th align="center">Estimate of Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">People</td>
+<td align="center">Mean</td>
+<td align="center"><span class="math inline">\(\mu_{people} = \frac{\sum_{i=1}^{N}{X_i}}{N}\)</span></td>
+<td align="center"><span class="math inline">\(\bar{x}_{people} = M = \frac{\sum_{i=1}^{n}{x_i}}{n}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">People</td>
+<td align="center">Variance</td>
+<td align="center"><span class="math inline">\(\sigma_{people}^2 = \frac{\sum_{i=1}^{N}{(X_i - \mu_{people})^2}}{N}\)</span></td>
+<td align="center"><span class="math inline">\(s_{people}^2 = VAR = \frac{\sum_{i=1}^{n}{(x_i - \bar{x}_{people})^2}}{n-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">People</td>
+<td align="center">Standard Deviation</td>
+<td align="center"><span class="math inline">\(\sigma_{people} = \sqrt{\frac{\sum_{i=1}^{N}{(X_i - \mu_{people})^2}}{N}}\)</span></td>
+<td align="center"><span class="math inline">\(s_{people} = SD = \sqrt{\frac{\sum_{i=1}^{n}{(x_i - \bar{x}_{people})^2}}{n-1}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Sample Means</td>
+<td align="center">Mean</td>
+<td align="center"><span class="math inline">\(\mu_{\bar{x}} = \frac{\sum_{i=1}^{K=\infty}{\bar{x}_i}}{K}\)</span></td>
+<td align="center"><span class="math inline">\(\bar{\bar{x}} = \frac{\sum_{i=1}^{a}{\bar{x}_i}}{a}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Sample Means</td>
+<td align="center">Approach 1: TotalVariance</td>
+<td align="center"><span class="math inline">\(\sigma_{\bar{x}}^2 = \frac{\sum_{i=1}^{K=\infty}{(\bar{x}_i - \mu_{\bar{x}})^2}}{K}\)</span></td>
+<td align="center"><span class="math inline">\(s_{\bar{x}}^2 = \frac{\sum_{i=1}^{a}{(\bar{x}_i - \bar{\bar{x}})^2}}{a-1}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Sample Means</td>
+<td align="center">Approach 2 CLT: Random sampling variance</td>
+<td align="center"><span class="math inline">\(\sigma_{\bar{x}}^2 = \frac{\sigma_{people}^2}{n}\)</span></td>
+<td align="center"><span class="math inline">\(s_{\bar{x}}^2 = \frac{s_{people}^2}{n}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Sample Means</td>
+<td align="center">Approach 2 CLT: Standard Error</td>
+<td align="center"><span class="math inline">\(\sigma_{\bar{x}} = \sqrt{\frac{\sigma_{people}^2}{n}}=\frac{\sigma_{people}}{\sqrt{n}}\)</span></td>
+<td align="center"><span class="math inline">\(s_{\bar{x}} = SE=\sqrt{\frac{s_{people}^2}{n}}=\frac{s_{people}}{\sqrt{n}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="walk-away-points" class="section level2 hasAnchor" number="21.11">
+<h2><span class="header-section-number">21.11</span> Walk away points<a href="deep-dive-sampling-and-anova.html#walk-away-points" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Sometimes we need to shift our thinking and conceptualize the distribution of sample means as the population to which we are trying to generalize.</p></li>
+<li><p>Think of <span class="math inline">\(s_{\bar{x}}^2 = \frac{s_{people}^2}{n}\)</span> as estimating the variability in the distribution of sample means due to random sampling. It only estimates the variability due to random sampling and not variability due to other sources.</p></li>
+<li><p>The findings that we illustrate here only hold when a) there is one population of people or b) multiple identical populations of people.</p></li>
+</ul>
+<p>We are interested in the variance of the distribution of sample means (Figure <a href="deep-dive-sampling-and-anova.html#fig:chdeepfigure1">21.1</a>B). If we were “all knowing” we would know that the variance of the distribution is 31.26472. But we are not “all knowing”, and so need to rely on sample data to estimate the variance of this distribution.</p>
+<p>We used two different approaches to estimating the variance of the distribution of sample means. With our “all knowing cap” on we can see, in the table above, that both approaches produce values that differ from the actual variance of the distribution. That’s because the best we can do with sample data is obtain an estimate of the variance of the distribution of means - we can never know the actual variance of the distribution of sample means.</p>
+<p>Each variance estimate (Approach 1 or Approach 2) will likely produce values that differ from the actual variance of sample means. The first estimate, Approach 1, differs from 31.26472 due to sampling error. That is, we used 3 sample means (<span class="math inline">\(a=3\)</span>) to estimate the variance of an infinite set of sample means (<span class="math inline">\(A = \infty\)</span>). Because we used such a small subset of sample means (3 of <span class="math inline">\(\infty\)</span>) our estimate will differ from 31.26472 due to sampling error.</p>
+<p>Likewise, the second estimate, Approach 2 CLT, used a formula that relies on knowledge of variance of the population of people (<span class="math inline">\(\sigma_{people}^2\)</span>) to determine the variance of the distribution of sample means. We had to estimate <span class="math inline">\(\sigma_{people}^2\)</span> using <span class="math inline">\(s_{people}^2\)</span>. Because we used such a small subset of people (<span class="math inline">\(n = 15\)</span>, 5 from each sample) from the distribution of people (<span class="math inline">\(N = 100000\)</span>) for our estimate, <span class="math inline">\(s_{people}^2\)</span>, it will differ from <span class="math inline">\(\sigma_{people}^2\)</span> due to sampling error. Consequently, our estimate of the variance of sample means, which relies on this value, differs fron 31.26472 due to sampling error.</p>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-hays1994statistics" class="csl-entry">
+Hays, William L. 1994. <em>Statistics (5th Edn)</em>. Holt, Rinehart &amp; Winston, New York.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>I realize that it doesn’t make sense to divide by infinity; however, in formal mathematics we would write this up in a different way describing the resulted value as an <em>expected value</em>. I use dividing by infinity simply as a way to show consistency with other formulas with the aim of increasing conceptual clarity at the expense of correct notation.<a href="deep-dive-sampling-and-anova.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>As noted previously, this notation is incorrect and I should really have expressed this as an expected value to be correct. But for conceptual clarity I divided by infinity to make the linkages to other equations clear.<a href="deep-dive-sampling-and-anova.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="cookbook.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="deeper-dive-sampling-and-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yihui/bookdown-crc/edit/master/21-deep_sampling.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
