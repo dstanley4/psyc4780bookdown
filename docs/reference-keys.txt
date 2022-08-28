@@ -181,6 +181,7 @@ avoid-color
 saving
 mac
 pc-or-mac
+custom-themes
 populations
 notation
 population-vs-samples

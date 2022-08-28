@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2022-06-27" />
+<meta name="date" content="2022-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -284,6 +284,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.12.1" data-path="graphing.html"><a href="graphing.html#mac"><i class="fa fa-check"></i><b>3.12.1</b> MAC</a></li>
 <li class="chapter" data-level="3.12.2" data-path="graphing.html"><a href="graphing.html#pc-or-mac"><i class="fa fa-check"></i><b>3.12.2</b> PC or MAC</a></li>
 </ul></li>
+<li class="chapter" data-level="3.13" data-path="graphing.html"><a href="graphing.html#custom-themes"><i class="fa fa-check"></i><b>3.13</b> Custom themes</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="populations.html"><a href="populations.html"><i class="fa fa-check"></i><b>4</b> Populations</a>
 <ul>
@@ -792,11 +793,11 @@ div.csl-indent {
 <p>You may also find the <a href="https://github.com/crsh/papaja">papaja package</a> by Frederik Aust helpful. It’s an easy way to use rmarkdown. It is a based on the rmarkdown extension called bookdown. This package is specifically designed to make it easy to use rmarkdown/bookdown to make an APA style paper. Indeed that’s the basis for the odd package name: <strong>Preparing APA Journal Articles</strong> (papaja).</p>
 <p>I suggest you read the extensive papaja (documentation)[<a href="https://crsh.github.io/papaja_man/introduction.html" class="uri">https://crsh.github.io/papaja_man/introduction.html</a>]. It will be worth your while!</p>
 <p>The only slight complication with papaja is the fact it is not on the CRAN and can’t be installed in the usual way. But it’s still straight forward. You can install papaja with the commands below - taken from the papaja website.</p>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="next-step-resources.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install devtools package if necessary</span></span>
-<span id="cb624-2"><a href="next-step-resources.html#cb624-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb624-3"><a href="next-step-resources.html#cb624-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb624-4"><a href="next-step-resources.html#cb624-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the stable development verions from GitHub</span></span>
-<span id="cb624-5"><a href="next-step-resources.html#cb624-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="next-step-resources.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install devtools package if necessary</span></span>
+<span id="cb622-2"><a href="next-step-resources.html#cb622-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb622-3"><a href="next-step-resources.html#cb622-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb622-4"><a href="next-step-resources.html#cb622-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the stable development verions from GitHub</span></span>
+<span id="cb622-5"><a href="next-step-resources.html#cb622-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</span></code></pre></div>
 <p>Indeed, once papaja is installed - you simply have to select the APA template before you enter your rmarkdown, as illustrated below:</p>
 <p><img src="ch_tools/images/papaja_template.png" width="60%" /></p>
 </div>

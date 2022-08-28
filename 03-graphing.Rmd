@@ -1,6 +1,6 @@
 # Graphing
 
-A great part of learning R is learning how to use ggplot2 which is part of the tidyverse. One way to learn ggplot2 is via the [free ggplot book](https://ggplot2-book.org/index.html) - I encourage you to check it out. You might also check out this ggplot2 [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf). As well, you might consult this [blog](https://tuowang.rbind.io/post/2021-04-25-color-in-ggplot2/) to learn more about how themes and colors are handled in ggplot2. In this chapter we merely provide a brief overview of how ggplot2 works.
+A great part of learning R is learning how to use ggplot2 which is part of the tidyverse. One way to learn ggplot2 is via the [free ggplot book](https://ggplot2-book.org/index.html) - I encourage you to check it out. You might also check out this ggplot2 [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf). As well, you might consult this [blog](https://tuowang.rbind.io/post/2021-04-25-color-in-ggplot2/) to learn more about how themes and colors are handled in ggplot2. In this chapter we merely provide a brief overview of how ggplot2 works. You can also consult this free book on [data visualization techniques](https://clauswilke.com/dataviz/).
 
 ## Required
 
@@ -1008,5 +1008,15 @@ ggsave(plot = my_graph,
        width = 6, 
        height = 6, 
        dpi = "print")
+```
+
+## Custom themes
+
+Did you want to modify a theme more extensively? Here is a cheat sheet for doing so created by [Clara Granell](https://github.com/claragranell/ggplot2/blob/main/ggplot_theme_system_cheatsheet.pdf). The PDF of the cheatsheet is available at this [link](https://github.com/claragranell/ggplot2/blob/main/ggplot_theme_system_cheatsheet.pdf).
+
+You can see the sheet here:
+
+```{r, echo = FALSE, out.width="90%"}
+knitr::include_graphics("ch_graphing/images/ggplot_theme_system_cheatsheet.png")
 ```
 
