@@ -37,13 +37,13 @@ The following GitHub package must be installed:
 
 | Required GitHub Packages |
 |--------------------------|
-|spielmanlab/introverse |
+|sjspielman/introverse |
 
 
-After the remotes package is installed, it can be used to install the introverse package from GitHub (an alternative "App Store"). If you get asked if you would like to install more recent versions of packages on your machine press "1" and Return to indicate "All" (if you are asked, you may not be).
+After the remotes package is installed, it can be used to install the introverse package from GitHub (an alternative "App Store"). If you get asked if you would like to install more recent versions of packages on your machine press "1" and Return to indicate "All" (if you are asked, you may not be). Note that if you do encounter installation problems with the *introverse* below - don't worry. The *introverse* is just additional documentation.
 
 ```{r, eval = FALSE}
-remotes::install_github("spielmanlab/introverse")
+remotes::install_github("sjspielman/introverse")
 ```
 
 ## Objective
@@ -118,6 +118,19 @@ glimpse(okcupid_profiles)
 
 The glimpse() command is useful because it quickly allows you to see all of the columns. Moreover, it allows you to see the type for each column. Types were briefly discussed in the last chapter. Notice in the output beside each column name that some columns are labeled "dbl" which is short for double -- a type of numeric column. Other columns are labeled "chr" which is short for character - meaning the columns contain characters. These designations will become important in the next chapter as we prepare data for analysis.
 
+### decimals
+
+Often the tidyverse doesn't show the desired number of digits - this means too few digits after each decimal. You can set the desired number of total digits (before/after the decimal) with the options(pillar.sigfig = 3) command. Three is the default - but probably too low for our purposes. We'll begin with this value of 3 but change it later to 6 in the summarise() section.
+
+```{r, eval=FALSE}
+#default value for digits
+options(pillar.sigfig = 3)
+
+#suggested value you set in your script at the top
+options(pillar.sigfig = 6)
+```
+
+
 ### select()
 
 The select() command allows you to obtain a subset of the columns in your data. The commands below can be used to obtain the age and height columns. You can read the command as: take the okcupid_profiles data and then select the age and height columns. The "%>%" symbol can be read as "and then". You can see that this code prints out the data with just the age and height columns. Remember, use SHIFT-ENTER or SHIFT-RETURN to move to the next line in the block of code.
@@ -172,13 +185,16 @@ okcupid_profiles %>%
             age_sd = sd(age, na.rm = TRUE))
 ```
 
-Often this process does too much rounding. We can get more exact results by adding an as.data.frame() to the end of the commands.
+Often this process does too much rounding. We can get more exact results changing the number of decimals with the options(pillar.sigfig = 6) command before our analysis. See the difference below. Now we see more digits. I encourage you to sue this command at the top of your script. The default is options(pillar.sigfig = 3) I suggest you use options(pillar.sigfig = 6) or higher. 
 
 ```{r}
+
+#NOTICE: We have increased the number of digits in the output
+options(pillar.sigfig = 6)
+
 okcupid_profiles %>% 
   summarise(age_mean = mean(age, na.rm = TRUE),
-            age_sd = sd(age, na.rm = TRUE)) %>%
-  as.data.frame()
+            age_sd = sd(age, na.rm = TRUE))
 ```
 
 
@@ -398,14 +414,13 @@ In a future chapter you will see how we can select factors using where(is.factor
 
 The summarise() command can summarise multiple columns when combined with starts_with(), ends_with(), contains(), matches(), and where(). However, to use these powerful tools for indicating columns with the summarise command we need the help of the across() command (i.e., across multiple columns).
 
-If we want to obtain the mean of all the columns that start with "t1" we use the commands below. The across command requires that we indicate the columns we want via the .cols argument and the command/function we want to run on those columns via the .fns argument. In the example below, we also add na.rm = TRUE at the end; this is something we send to the mean command to let it know how we want to handle missing data. We add as.data.frame() to get a larger number of decimals.
+If we want to obtain the mean of all the columns that start with "t1" we use the commands below. The across command requires that we indicate the columns we want via the .cols argument and the command/function we want to run on those columns via the .fns argument. In the example below, we also add na.rm = TRUE at the end; this is something we send to the mean command to let it know how we want to handle missing data. 
 
 ```{r}
 data_exp %>%
   summarise(across(.cols = starts_with("t1"), 
                    .fns = mean,
-                   na.rm = TRUE)) %>%
-  as.data.frame()
+                   na.rm = TRUE)) 
 ```
 
 If you want to get more sophisticated, you can also add this .names argument below which tells R to call label each output mean by the column name followed by "_mean".
@@ -415,8 +430,7 @@ data_exp %>%
   summarise(across(.cols = starts_with("t1"), 
                    .fns = mean,
                    na.rm = TRUE,
-                   .names = "{col}_mean"))  %>%
-  as.data.frame()
+                   .names = "{col}_mean"))  
 ```
 
 
@@ -436,8 +450,7 @@ Once you have created the list of descriptive statistics you want you can run th
 ```{r}
 data_exp %>%
   summarise(across(.cols = starts_with("t1"), 
-                   .fns = desired_descriptives)) %>%
-  as.data.frame()
+                   .fns = desired_descriptives)) 
 ```
 
 Consequently, we add the t() command (i.e., transpose command) to the end of the summarise request to get a more readable list of statistics:
@@ -451,7 +464,6 @@ desired_descriptives <- list(
 data_exp %>%
   summarise(across(.cols = starts_with("t1"), 
                    .fns = desired_descriptives)) %>%
-  as.data.frame() %>%
   t() 
 ```
 

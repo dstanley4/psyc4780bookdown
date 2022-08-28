@@ -550,3 +550,4 @@ skim
 apa.cor.table
 tidyverse
 cronbachs-alpha
+decimals
