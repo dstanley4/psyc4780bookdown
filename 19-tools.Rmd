@@ -76,6 +76,9 @@ You can learn more about rmarkdown in this [video](https://vimeo.com/178485416).
 
 Some other great resources:
 
+* [pagedreport](https://pagedreport.rfortherestofus.com). If you are writing a consulting report this package could be very useful. 
+
+* [posterdown](https://shilaan.rbind.io/post/academic-conference-posters-using-posterdown/) Instructions in case you want to make an academic poster using rmarkdown.
 
 * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by Xie, Allaire, and Grolemund. Free.
 
