@@ -88,9 +88,19 @@ Some other great resources:
 
 * Karl Broman's [website](https://kbroman.org/knitr_knutshell/) has many helpful tips. Especially this [page](https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html).
 
+### LaTex
+
+As you learn more about creating PDF document using rmarkdown - you will eventually want to learn about using LaTex. You can insert LaTex codes into your rmarkdown document to adjust the formatting (e.g., font size, etc.). Here are a few LaTex resources.
+
+* [Cheatsheet](http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf)
+
+* [Intro video](https://m.youtube.com/watch?v=NXW4cbHBthY)
+
+* [Font size commands](https://latex-tutorial.com/changing-font-size/)
+
 ### papaja
 
-You may also find the [papaja package](https://github.com/crsh/papaja) by Frederik Aust helpful. It's an easy way to use rmarkdown. It is a based on the rmarkdown extension called bookdown. This package is specifically designed to make it easy to use rmarkdown/bookdown to make an APA style paper. Indeed that's the basis for the odd package name: **Preparing APA Journal Articles** (papaja). 
+You may also find the rmarkdown template [papaja package](https://github.com/crsh/papaja) by Frederik Aust helpful. It's an easy way to use rmarkdown. It is a based on the rmarkdown extension called bookdown. This package is specifically designed to make it easy to use rmarkdown/bookdown to make an APA style paper. Indeed that's the basis for the odd package name: **Preparing APA Journal Articles** (papaja). 
 
 I suggest you read the extensive papaja (documentation)[https://crsh.github.io/papaja_man/introduction.html]. It will be worth your while!
 
@@ -109,6 +119,11 @@ Indeed, once papaja is installed - you simply have to select the APA template be
 ```{r, echo = FALSE, out.width = "60%", cap = "apaTables paper header"}
 knitr::include_graphics("ch_tools/images/papaja_template.png")
 ```
+
+### Quarto
+
+The rmarkdown language for document creation has evolved into [Quarto](https://quarto.org). Quarto is more or less the same but is cross-platform statistically (i.e., Python, Julia, etc.). It represents the next step in this approach to document creation. I suggest you check it out - but Quarto is still in the early days. There are not nearly as many blogs, posts, or YouTube videos on Quarto as there are on rmarkdown - yet. So right now, I suggest you still learn rmarkdown, but realize the future is a slightly tweaked version of rmarkdown called Quarto.
+
 
 ### apaTables
 

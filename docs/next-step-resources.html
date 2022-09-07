@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 19 Next Step Resources | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 19 Next Step Resources | Welcome!" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2022-08-28" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -628,8 +628,10 @@ div.csl-indent {
 <li class="chapter" data-level="19.7" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-with-r"><i class="fa fa-check"></i><b>19.7</b> Writing with R</a>
 <ul>
 <li class="chapter" data-level="19.7.1" data-path="next-step-resources.html"><a href="next-step-resources.html#rmarkdown-bookdown"><i class="fa fa-check"></i><b>19.7.1</b> rmarkdown / bookdown</a></li>
-<li class="chapter" data-level="19.7.2" data-path="next-step-resources.html"><a href="next-step-resources.html#papaja"><i class="fa fa-check"></i><b>19.7.2</b> papaja</a></li>
-<li class="chapter" data-level="19.7.3" data-path="next-step-resources.html"><a href="next-step-resources.html#apatables"><i class="fa fa-check"></i><b>19.7.3</b> apaTables</a></li>
+<li class="chapter" data-level="19.7.2" data-path="next-step-resources.html"><a href="next-step-resources.html#latex"><i class="fa fa-check"></i><b>19.7.2</b> LaTex</a></li>
+<li class="chapter" data-level="19.7.3" data-path="next-step-resources.html"><a href="next-step-resources.html#papaja"><i class="fa fa-check"></i><b>19.7.3</b> papaja</a></li>
+<li class="chapter" data-level="19.7.4" data-path="next-step-resources.html"><a href="next-step-resources.html#quarto"><i class="fa fa-check"></i><b>19.7.4</b> Quarto</a></li>
+<li class="chapter" data-level="19.7.5" data-path="next-step-resources.html"><a href="next-step-resources.html#apatables"><i class="fa fa-check"></i><b>19.7.5</b> apaTables</a></li>
 </ul></li>
 <li class="chapter" data-level="19.8" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-with-statcheck"><i class="fa fa-check"></i><b>19.8</b> Writing with statcheck</a>
 <ul>
@@ -912,9 +914,18 @@ div.csl-indent {
 <li><p>Karl Broman’s <a href="https://kbroman.org/knitr_knutshell/">website</a> has many helpful tips. Especially this <a href="https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html">page</a>.</p></li>
 </ul>
 </div>
-<div id="papaja" class="section level3 hasAnchor" number="19.7.2">
-<h3><span class="header-section-number">19.7.2</span> papaja<a href="next-step-resources.html#papaja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You may also find the <a href="https://github.com/crsh/papaja">papaja package</a> by Frederik Aust helpful. It’s an easy way to use rmarkdown. It is a based on the rmarkdown extension called bookdown. This package is specifically designed to make it easy to use rmarkdown/bookdown to make an APA style paper. Indeed that’s the basis for the odd package name: <strong>Preparing APA Journal Articles</strong> (papaja).</p>
+<div id="latex" class="section level3 hasAnchor" number="19.7.2">
+<h3><span class="header-section-number">19.7.2</span> LaTex<a href="next-step-resources.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As you learn more about creating PDF document using rmarkdown - you will eventually want to learn about using LaTex. You can insert LaTex codes into your rmarkdown document to adjust the formatting (e.g., font size, etc.). Here are a few LaTex resources.</p>
+<ul>
+<li><p><a href="http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf">Cheatsheet</a></p></li>
+<li><p><a href="https://m.youtube.com/watch?v=NXW4cbHBthY">Intro video</a></p></li>
+<li><p><a href="https://latex-tutorial.com/changing-font-size/">Font size commands</a></p></li>
+</ul>
+</div>
+<div id="papaja" class="section level3 hasAnchor" number="19.7.3">
+<h3><span class="header-section-number">19.7.3</span> papaja<a href="next-step-resources.html#papaja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You may also find the rmarkdown template <a href="https://github.com/crsh/papaja">papaja package</a> by Frederik Aust helpful. It’s an easy way to use rmarkdown. It is a based on the rmarkdown extension called bookdown. This package is specifically designed to make it easy to use rmarkdown/bookdown to make an APA style paper. Indeed that’s the basis for the odd package name: <strong>Preparing APA Journal Articles</strong> (papaja).</p>
 <p>I suggest you read the extensive papaja (documentation)[<a href="https://crsh.github.io/papaja_man/introduction.html" class="uri">https://crsh.github.io/papaja_man/introduction.html</a>]. It will be worth your while!</p>
 <p>The only slight complication with papaja is the fact it is not on the CRAN and can’t be installed in the usual way. But it’s still straight forward. You can install papaja with the commands below - taken from the papaja website.</p>
 <div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="next-step-resources.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install devtools package if necessary</span></span>
@@ -925,8 +936,12 @@ div.csl-indent {
 <p>Indeed, once papaja is installed - you simply have to select the APA template before you enter your rmarkdown, as illustrated below:</p>
 <p><img src="ch_tools/images/papaja_template.png" width="60%" /></p>
 </div>
-<div id="apatables" class="section level3 hasAnchor" number="19.7.3">
-<h3><span class="header-section-number">19.7.3</span> apaTables<a href="next-step-resources.html#apatables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quarto" class="section level3 hasAnchor" number="19.7.4">
+<h3><span class="header-section-number">19.7.4</span> Quarto<a href="next-step-resources.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The rmarkdown language for document creation has evolved into <a href="https://quarto.org">Quarto</a>. Quarto is more or less the same but is cross-platform statistically (i.e., Python, Julia, etc.). It represents the next step in this approach to document creation. I suggest you check it out - but Quarto is still in the early days. There are not nearly as many blogs, posts, or YouTube videos on Quarto as there are on rmarkdown - yet. So right now, I suggest you still learn rmarkdown, but realize the future is a slightly tweaked version of rmarkdown called Quarto.</p>
+</div>
+<div id="apatables" class="section level3 hasAnchor" number="19.7.5">
+<h3><span class="header-section-number">19.7.5</span> apaTables<a href="next-step-resources.html#apatables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you don’t want to learn rmarkdown you may find the <a href="https://cran.r-project.org/package=apaTables">apaTables</a> package useful - it can easily create the most commonly used APA tables formatted for Microsoft Word. The <a href="https://dstanley4.github.io/apaTables/articles/apaTables.html">documentation</a> has extensive examples. You can also see the published guide by <span class="citation">Stanley and Spence (<a href="#ref-stanley2018reproducible" role="doc-biblioref">2018</a>)</span>.</p>
 <p><img src="ch_tools/images/apaTables_paper.png" width="60%" /></p>
 </div>
@@ -1153,7 +1168,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

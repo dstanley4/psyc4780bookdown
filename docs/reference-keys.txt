@@ -513,7 +513,9 @@ avoiding-p-hacking
 writing-articles
 writing-with-r
 rmarkdown-bookdown
+latex
 papaja
+quarto
 apatables
 writing-with-statcheck
 statcheck-software

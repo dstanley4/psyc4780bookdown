@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 20 Cookbook | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 20 Cookbook | Welcome!" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2022-08-28" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -628,8 +628,10 @@ div.csl-indent {
 <li class="chapter" data-level="19.7" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-with-r"><i class="fa fa-check"></i><b>19.7</b> Writing with R</a>
 <ul>
 <li class="chapter" data-level="19.7.1" data-path="next-step-resources.html"><a href="next-step-resources.html#rmarkdown-bookdown"><i class="fa fa-check"></i><b>19.7.1</b> rmarkdown / bookdown</a></li>
-<li class="chapter" data-level="19.7.2" data-path="next-step-resources.html"><a href="next-step-resources.html#papaja"><i class="fa fa-check"></i><b>19.7.2</b> papaja</a></li>
-<li class="chapter" data-level="19.7.3" data-path="next-step-resources.html"><a href="next-step-resources.html#apatables"><i class="fa fa-check"></i><b>19.7.3</b> apaTables</a></li>
+<li class="chapter" data-level="19.7.2" data-path="next-step-resources.html"><a href="next-step-resources.html#latex"><i class="fa fa-check"></i><b>19.7.2</b> LaTex</a></li>
+<li class="chapter" data-level="19.7.3" data-path="next-step-resources.html"><a href="next-step-resources.html#papaja"><i class="fa fa-check"></i><b>19.7.3</b> papaja</a></li>
+<li class="chapter" data-level="19.7.4" data-path="next-step-resources.html"><a href="next-step-resources.html#quarto"><i class="fa fa-check"></i><b>19.7.4</b> Quarto</a></li>
+<li class="chapter" data-level="19.7.5" data-path="next-step-resources.html"><a href="next-step-resources.html#apatables"><i class="fa fa-check"></i><b>19.7.5</b> apaTables</a></li>
 </ul></li>
 <li class="chapter" data-level="19.8" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-with-statcheck"><i class="fa fa-check"></i><b>19.8</b> Writing with statcheck</a>
 <ul>
@@ -1413,8 +1415,7 @@ FIGURE 20.2: Text view of CSV data
 ## 6 6     female         9          7        7       8       8
 ## # … with 1 more variable: burger_cold &lt;dbl&gt;, and
 ## #   abbreviated variable names ¹​steak_hot, ²​steak_cold,
-## #   ³​burger_hot
-## # ℹ Use `colnames()` to see all variable names</code></pre>
+## #   ³​burger_hot</code></pre>
 <p>We need to restructure the data into the tidy data format so that we have a food_type column and a temperature column to properly represent these predictors. As well, we need a column that contains all of the taste ratings that is clearly labeled taste. Doing all of these things will ensure we have one variable per column and one observation per row - consistent with the requirements of tidy data. The pivot_longer() command below coverts our data to the tidy data format.</p>
 <p>In this command we specify the columns march, may, and july are all levels of a single variable called occasion. We specify the columns involved with the cols argument. The code pizza_hot:burger_cold after the cols argument selects the pizza_hot column, the burger_cold column, and all the columns in between. Each column contains taste ratings at a combination of the levels for the variables food_type and temperature. The names_to argument is used to indicate that two new columns should be created to represent food and temperature. Notice the order food then temperature. This is consistent with our naming convention; in the column name pizza_hot the food_type is specified before temperature. The value_to argument is used to indicate that a new column called taste should created to hold all the values from the pizza_hot, pizza_cold, steak_hot, steak_cold, burger_hot, and burger_cold columns.</p>
 <div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="cookbook.html#cb693-1" aria-hidden="true" tabindex="-1"></a>analytic_data_nway_tidy <span class="ot">&lt;-</span> analytic_data_within_nway <span class="sc">%&gt;%</span></span>
@@ -1438,8 +1439,7 @@ FIGURE 20.2: Text view of CSV data
 ##  8 2     female pizza     cold            7
 ##  9 2     female steak     hot             6
 ## 10 2     female steak     cold            3
-## # … with 26 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## # … with 26 more rows</code></pre>
 <p>Notice that the new column occasion is of the type character. We need it to be a factor. Use the code below to do so:</p>
 <div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="cookbook.html#cb696-1" aria-hidden="true" tabindex="-1"></a>analytic_data_nway_tidy <span class="ot">&lt;-</span> analytic_data_nway_tidy <span class="sc">%&gt;%</span></span>
 <span id="cb696-2"><a href="cookbook.html#cb696-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">food =</span> <span class="fu">as_factor</span>(food_type),</span>
@@ -2115,8 +2115,7 @@ Notice that a single column is not used to represent esteem, jobsat, or time. Ra
 ## 10 10       NA fema… blue        3.6     4.2    3.8     4.5 
 ## # … with 290 more rows, and abbreviated variable names
 ## #   ¹​eye_color, ²​esteem_t1, ³​esteem_t2, ⁴​jobsat_t1,
-## #   ⁵​jobsat_t2
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## #   ⁵​jobsat_t2</code></pre>
 <p>The pivot_longer() command below coverts our data to the tidy data format. In this command we specify the columns with data by using esteem_t1:jobsat_t2; this selects these two columns and all of the columns between them. Each of these columns represents a dependent variable at a particular time in the format “variable_time” (e.g., esteem_t1). The code names_to = c(“.value”, “time”) explains this format to R. It indicates that the first part of the column name (e.g., esteem) contains the name of the variable (expressed in the code as “.value”). It also indicates that the second part of the column name represents time. The line names_sep = “_” tells the R that the underscore character is used to separate the first part of the name from the second part of the name. When this code is executed it creates a tidy version of data set stored in analytic_survey_tidy.</p>
 <div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="cookbook.html#cb771-1" aria-hidden="true" tabindex="-1"></a>analytic_occasion_tidy <span class="ot">&lt;-</span> analytic_data_occasions <span class="sc">%&gt;%</span></span>
 <span id="cb771-2"><a href="cookbook.html#cb771-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(esteem_t1<span class="sc">:</span>jobsat_t2,</span>
@@ -2137,8 +2136,7 @@ Notice that a single column is not used to represent esteem, jobsat, or time. Ra
 ##  8 4        23 female blue      t2       3.6   4.2 
 ##  9 5        22 male   &lt;NA&gt;      t1       3.4   4   
 ## 10 5        22 male   &lt;NA&gt;      t2       4     3.75
-## # … with 590 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## # … with 590 more rows</code></pre>
 <p>You now have three data sets The data analytic_occasion_tidy is appropriate for conducting a repeated measures ANOVA or more complicated analyses. The data analytic_data_occasions is appropriate for calculating descriptive statistics and correlations. The data analytic_occasions_items is appropriate for calculating the reliability of the scales you constructed. These data are ready for analysis.</p>
 </div>
 </div>
@@ -2325,7 +2323,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

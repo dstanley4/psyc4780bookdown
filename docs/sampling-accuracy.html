@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Sampling Accuracy | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Sampling Accuracy | Welcome!" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2022-08-28" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -628,8 +628,10 @@ div.csl-indent {
 <li class="chapter" data-level="19.7" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-with-r"><i class="fa fa-check"></i><b>19.7</b> Writing with R</a>
 <ul>
 <li class="chapter" data-level="19.7.1" data-path="next-step-resources.html"><a href="next-step-resources.html#rmarkdown-bookdown"><i class="fa fa-check"></i><b>19.7.1</b> rmarkdown / bookdown</a></li>
-<li class="chapter" data-level="19.7.2" data-path="next-step-resources.html"><a href="next-step-resources.html#papaja"><i class="fa fa-check"></i><b>19.7.2</b> papaja</a></li>
-<li class="chapter" data-level="19.7.3" data-path="next-step-resources.html"><a href="next-step-resources.html#apatables"><i class="fa fa-check"></i><b>19.7.3</b> apaTables</a></li>
+<li class="chapter" data-level="19.7.2" data-path="next-step-resources.html"><a href="next-step-resources.html#latex"><i class="fa fa-check"></i><b>19.7.2</b> LaTex</a></li>
+<li class="chapter" data-level="19.7.3" data-path="next-step-resources.html"><a href="next-step-resources.html#papaja"><i class="fa fa-check"></i><b>19.7.3</b> papaja</a></li>
+<li class="chapter" data-level="19.7.4" data-path="next-step-resources.html"><a href="next-step-resources.html#quarto"><i class="fa fa-check"></i><b>19.7.4</b> Quarto</a></li>
+<li class="chapter" data-level="19.7.5" data-path="next-step-resources.html"><a href="next-step-resources.html#apatables"><i class="fa fa-check"></i><b>19.7.5</b> apaTables</a></li>
 </ul></li>
 <li class="chapter" data-level="19.8" data-path="next-step-resources.html"><a href="next-step-resources.html#writing-with-statcheck"><i class="fa fa-check"></i><b>19.8</b> Writing with statcheck</a>
 <ul>
@@ -918,8 +920,7 @@ div.csl-indent {
 ##  8     8 male      173
 ##  9     9 female    172
 ## 10    10 male      193
-## # … with 99,990 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## # … with 99,990 more rows</code></pre>
 </div>
 <div id="notation-1" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Notation<a href="sampling-accuracy.html#notation-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -976,8 +977,7 @@ FIGURE 5.1: Sampling accuracy and precision
 ##  8     8    10       173.5      139.446         154.94
 ##  9     9    10       177.7      167.013         185.57
 ## 10    10    10       168.5      262.647         291.83
-## # … with 49,990 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## # … with 49,990 more rows</code></pre>
 <p>Each row of many_samples represents a sample of 10 people. Each column of many_samples indicates a sample statistic. You can see that for each sample/row we indicate “n” (the sample size) and “sample_mean” (the mean of the population), and a few other statistics. Even though all the samples came from the same population you can see how the values in the sample_mean column vary across samples/rows.</p>
 <div class="figure"><span style="display:block;" id="fig:bothdist"></span>
 <img src="ch_samples/images/sampling_dist.png" alt="Sampling distribution of the mean. The population of individuals is presented at the top and filled with X's to remind you they are individuals. There are more individuals than X's. The sampling distribution of means is presented in the bottom part of the graph. The sampling distribution of means is filled with $\bar{x}$'s to remind you that it is sample means being graphed. There are more means than $\bar{x}$'s. The population mean (green line) and the mean of sample means (blue line) are in the same spot, indicating high accuracy (i.e., no bias)." width="80%" />
@@ -1251,8 +1251,7 @@ d_{unbiased}  &amp;= d \times [1 - \frac{3}{4(n_{males} + n_{females})-9}] \\
 ##  8         10 188     211.56 160.8   204.62  1.89       1.81
 ##  9         10 185.3    54.68 165.8    91.51  2.28       2.18
 ## 10         10 179.3    69.34 161.9    55.43  2.2        2.11
-## # … with 49,990 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## # … with 49,990 more rows</code></pre>
 <p>Recall the population-level standardized mean difference, <span class="math inline">\(\delta\)</span>, was 1.49. We can see the extent to which the average of the sample-level <span class="math inline">\(d\)</span> and <span class="math inline">\(d_{unbiased}\)</span> values compare to this population-level value.</p>
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="sampling-accuracy.html#cb235-1" aria-hidden="true" tabindex="-1"></a>many_samples <span class="sc">%&gt;%</span></span>
 <span id="cb235-2"><a href="sampling-accuracy.html#cb235-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_d =</span> <span class="fu">mean</span>(d),</span>
@@ -1316,8 +1315,7 @@ r =  \frac{\Sigma (x - \bar{x})(y - \bar{y})}{\sqrt{\Sigma (x - \bar{x})^2\Sigma
 ##  8  152.9  178.9
 ##  9  150.8  177.2
 ## 10  146.5  166.7
-## # … with 299,990 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## # … with 299,990 more rows</code></pre>
 <p>We can obtain the population correlation, <span class="math inline">\(\rho\)</span>, by correlating the weight and height columns:</p>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="sampling-accuracy.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(pop_data)</span></code></pre></div>
 <pre><code>##        weight height
@@ -1344,8 +1342,7 @@ r =  \frac{\Sigma (x - \bar{x})(y - \bar{y})}{\sqrt{\Sigma (x - \bar{x})^2\Sigma
 ##  8             8    75  0.4 
 ##  9             9    75  0.59
 ## 10            10    75  0.5 
-## # … with 49,990 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## # … with 49,990 more rows</code></pre>
 <p>If you examine the first row carefully you see a sample correlation of <span class="math inline">\(r = .38\)</span> based on <span class="math inline">\(n\)</span> = 75. This sample correlation is illustrated in Figure <a href="sampling-accuracy.html#fig:rdistplot">5.8</a>B and it is just one of the 50000 sample correlations. The distribution of the 50000 sample correlations is illustrated in in Figure <a href="sampling-accuracy.html#fig:rdistplot">5.8</a>C.</p>
 <p>Even though the population correlation is <span class="math inline">\(\rho = .50\)</span> there is considerable variability in the sample correlations, <span class="math inline">\(r\)</span>. Each sample correlation is based on a subset of the population data (i.e., 75 of the 300000 rows). Consequently, the sample correlations differ from the population correlation due to sampling error. The differences among the sample correlations can be quite large. Indeed, as the code below reveals, some sample correlation were as low as <span class="math inline">\(r = .06\)</span> and as high as <span class="math inline">\(r = .77\)</span> – even though the population correlation was <span class="math inline">\(\rho = .50\)</span>.</p>
 <div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="sampling-accuracy.html#cb248-1" aria-hidden="true" tabindex="-1"></a>many_samples <span class="sc">%&gt;%</span></span>
@@ -1529,7 +1526,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
