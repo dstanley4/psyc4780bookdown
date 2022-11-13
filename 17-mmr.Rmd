@@ -11,6 +11,18 @@ The following CRAN packages must be installed:
 |tidyverse          |
 |remotes            |
 
+
+| Data |
+|-------------------|
+|[data_endurance.csv](data_endurance.csv)   |
+
+
+| Required CRAN Packages |
+|-------------------|
+|tidyverse          |
+|remotes            |
+
+
 The following GitHub packages must be installed:
 
 | Required GitHub Packages |
