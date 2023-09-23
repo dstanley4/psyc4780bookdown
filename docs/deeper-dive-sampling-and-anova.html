@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 22 Deeper dive: Sampling and ANOVA | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 22 Deeper dive: Sampling and ANOVA | Welcome!" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2022-11-13" />
+<meta name="date" content="2023-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -127,6 +127,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -167,52 +171,56 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course:</a></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>1</b> Introduction to R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#a-focus-on-workflow"><i class="fa fa-check"></i><b>1.1</b> A focus on workflow</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#r-works-with-plug-ins"><i class="fa fa-check"></i><b>1.2</b> R works with plug-ins</a></li>
-<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#create-an-account-at-r-studio-cloud"><i class="fa fa-check"></i><b>1.3</b> Create an account at R Studio Cloud</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#join-the-class-workspace"><i class="fa fa-check"></i><b>1.4</b> Join the class workspace</a></li>
-<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#exploring-the-r-studio-interface"><i class="fa fa-check"></i><b>1.5</b> Exploring the R Studio Interface</a>
+<li class="chapter" data-level="1.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#a-focus-on-workflow"><i class="fa fa-check"></i><b>1.1</b> A focus on workflow</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-works-with-plug-ins"><i class="fa fa-check"></i><b>1.2</b> R works with plug-ins</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#software-choice"><i class="fa fa-check"></i><b>1.3</b> Software Choice</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="introduction.html"><a href="introduction.html#console-panel"><i class="fa fa-check"></i><b>1.5.1</b> Console panel</a></li>
-<li class="chapter" data-level="1.5.2" data-path="introduction.html"><a href="introduction.html#script-panel"><i class="fa fa-check"></i><b>1.5.2</b> Script Panel</a></li>
-<li class="chapter" data-level="1.5.3" data-path="introduction.html"><a href="introduction.html#cheatsheets"><i class="fa fa-check"></i><b>1.5.3</b> Cheatsheets</a></li>
+<li class="chapter" data-level="1.3.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#mac"><i class="fa fa-check"></i><b>1.3.1</b> Mac</a></li>
+<li class="chapter" data-level="1.3.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#pc"><i class="fa fa-check"></i><b>1.3.2</b> PC</a></li>
 </ul></li>
-<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#writing-your-first-script"><i class="fa fa-check"></i><b>1.6</b> Writing your first script</a>
+<li class="chapter" data-level="1.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#run-rstudio-not-r"><i class="fa fa-check"></i><b>1.4</b> Run RStudio not R</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rstudio-configuration-first-run-only"><i class="fa fa-check"></i><b>1.5</b> RStudio configuration, First run only</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-to-r.html"><a href="introduction-to-r.html#begin-with-an-rstudio-project"><i class="fa fa-check"></i><b>1.6</b> Begin with an RStudio Project</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction-to-r.html"><a href="introduction-to-r.html#exploring-the-r-studio-interface"><i class="fa fa-check"></i><b>1.7</b> Exploring the R Studio Interface</a>
 <ul>
-<li class="chapter" data-level="1.6.1" data-path="introduction.html"><a href="introduction.html#create-the-script-file"><i class="fa fa-check"></i><b>1.6.1</b> Create the script file</a></li>
-<li class="chapter" data-level="1.6.2" data-path="introduction.html"><a href="introduction.html#add-a-comment-to-your-script"><i class="fa fa-check"></i><b>1.6.2</b> Add a comment to your script</a></li>
-<li class="chapter" data-level="1.6.3" data-path="introduction.html"><a href="introduction.html#background-about-the-tidyverse"><i class="fa fa-check"></i><b>1.6.3</b> Background about the tidyverse</a></li>
-<li class="chapter" data-level="1.6.4" data-path="introduction.html"><a href="introduction.html#add-librarytidyverse-to-your-script"><i class="fa fa-check"></i><b>1.6.4</b> Add library(tidyverse) to your script</a></li>
-<li class="chapter" data-level="1.6.5" data-path="introduction.html"><a href="introduction.html#activate-tidyverse-auto-complete-for-your-script"><i class="fa fa-check"></i><b>1.6.5</b> Activate tidyverse auto-complete for your script</a></li>
+<li class="chapter" data-level="1.7.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#console-panel"><i class="fa fa-check"></i><b>1.7.1</b> Console panel</a></li>
+<li class="chapter" data-level="1.7.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#script-panel"><i class="fa fa-check"></i><b>1.7.2</b> Script Panel</a></li>
 </ul></li>
-<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#loading-your-data"><i class="fa fa-check"></i><b>1.7</b> Loading your data</a>
+<li class="chapter" data-level="1.8" data-path="introduction-to-r.html"><a href="introduction-to-r.html#writing-your-first-script"><i class="fa fa-check"></i><b>1.8</b> Writing your first script</a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#use-read_csv-not-read.csv-to-open-files."><i class="fa fa-check"></i><b>1.7.1</b> Use read_csv (not read.csv) to open files.</a></li>
+<li class="chapter" data-level="1.8.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#create-the-script-file"><i class="fa fa-check"></i><b>1.8.1</b> Create the script file</a></li>
+<li class="chapter" data-level="1.8.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#add-a-comment-to-your-script"><i class="fa fa-check"></i><b>1.8.2</b> Add a comment to your script</a></li>
+<li class="chapter" data-level="1.8.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#background-about-the-tidyverse"><i class="fa fa-check"></i><b>1.8.3</b> Background about the tidyverse</a></li>
+<li class="chapter" data-level="1.8.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#add-librarytidyverse-to-your-script"><i class="fa fa-check"></i><b>1.8.4</b> Add library(tidyverse) to your script</a></li>
+<li class="chapter" data-level="1.8.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#activate-tidyverse-auto-complete-for-your-script"><i class="fa fa-check"></i><b>1.8.5</b> Activate tidyverse auto-complete for your script</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#checking-out-your-data"><i class="fa fa-check"></i><b>1.8</b> Checking out your data</a>
+<li class="chapter" data-level="1.9" data-path="introduction-to-r.html"><a href="introduction-to-r.html#loading-your-data"><i class="fa fa-check"></i><b>1.9</b> Loading your data</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="introduction.html"><a href="introduction.html#view-see-a-spreadsheet-view-of-your-data"><i class="fa fa-check"></i><b>1.8.1</b> view(): See a spreadsheet view of your data</a></li>
-<li class="chapter" data-level="1.8.2" data-path="introduction.html"><a href="introduction.html#print-see-your-data-in-the-console"><i class="fa fa-check"></i><b>1.8.2</b> print(): See your data in the Console</a></li>
-<li class="chapter" data-level="1.8.3" data-path="introduction.html"><a href="introduction.html#head-check-out-the-first-few-rows-of-data"><i class="fa fa-check"></i><b>1.8.3</b> head(): Check out the first few rows of data</a></li>
-<li class="chapter" data-level="1.8.4" data-path="introduction.html"><a href="introduction.html#tail-check-out-the-last-few-rows-of-data"><i class="fa fa-check"></i><b>1.8.4</b> tail(): Check out the last few rows of data</a></li>
-<li class="chapter" data-level="1.8.5" data-path="introduction.html"><a href="introduction.html#summary-quick-summaries"><i class="fa fa-check"></i><b>1.8.5</b> summary(): Quick summaries</a></li>
+<li class="chapter" data-level="1.9.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#use-read_csv-not-read.csv-to-open-files."><i class="fa fa-check"></i><b>1.9.1</b> Use read_csv (not read.csv) to open files.</a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#run-vs.-source-with-echo-vs.-source"><i class="fa fa-check"></i><b>1.9</b> Run <em>vs.</em> Source with Echo <em>vs.</em> Source</a>
+<li class="chapter" data-level="1.10" data-path="introduction-to-r.html"><a href="introduction-to-r.html#checking-out-your-data"><i class="fa fa-check"></i><b>1.10</b> Checking out your data</a>
 <ul>
-<li class="chapter" data-level="1.9.1" data-path="introduction.html"><a href="introduction.html#run-select-text"><i class="fa fa-check"></i><b>1.9.1</b> Run select text</a></li>
-<li class="chapter" data-level="1.9.2" data-path="introduction.html"><a href="introduction.html#source-without-echo"><i class="fa fa-check"></i><b>1.9.2</b> Source (without Echo)</a></li>
-<li class="chapter" data-level="1.9.3" data-path="introduction.html"><a href="introduction.html#source-with-echo"><i class="fa fa-check"></i><b>1.9.3</b> Source with Echo</a></li>
+<li class="chapter" data-level="1.10.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#view-see-a-spreadsheet-view-of-your-data"><i class="fa fa-check"></i><b>1.10.1</b> view(): See a spreadsheet view of your data</a></li>
+<li class="chapter" data-level="1.10.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#print-see-you-data-in-the-console"><i class="fa fa-check"></i><b>1.10.2</b> print(): See you data in the Console</a></li>
+<li class="chapter" data-level="1.10.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#head-check-out-the-first-few-rows-of-data"><i class="fa fa-check"></i><b>1.10.3</b> head(): Check out the first few rows of data</a></li>
+<li class="chapter" data-level="1.10.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#tail-check-out-the-last-few-rows-of-data"><i class="fa fa-check"></i><b>1.10.4</b> tail(): Check out the last few rows of data</a></li>
+<li class="chapter" data-level="1.10.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#summary-quick-summaries"><i class="fa fa-check"></i><b>1.10.5</b> summary(): Quick summaries</a></li>
 </ul></li>
-<li class="chapter" data-level="1.10" data-path="introduction.html"><a href="introduction.html#trying-source-with-echo"><i class="fa fa-check"></i><b>1.10</b> Trying Source with Echo</a></li>
-<li class="chapter" data-level="1.11" data-path="introduction.html"><a href="introduction.html#a-few-key-points-about"><i class="fa fa-check"></i><b>1.11</b> A few key points about</a>
+<li class="chapter" data-level="1.11" data-path="introduction-to-r.html"><a href="introduction-to-r.html#run-vs.-source-with-echo-vs.-source"><i class="fa fa-check"></i><b>1.11</b> Run <em>vs.</em> Source with Echo <em>vs.</em> Source</a>
 <ul>
-<li class="chapter" data-level="1.11.1" data-path="introduction.html"><a href="introduction.html#lists"><i class="fa fa-check"></i><b>1.11.1</b> Lists</a></li>
+<li class="chapter" data-level="1.11.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#run-select-text"><i class="fa fa-check"></i><b>1.11.1</b> Run select text</a></li>
+<li class="chapter" data-level="1.11.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#source-without-echo"><i class="fa fa-check"></i><b>1.11.2</b> Source (without Echo)</a></li>
+<li class="chapter" data-level="1.11.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#source-with-echo"><i class="fa fa-check"></i><b>1.11.3</b> Source with Echo</a></li>
 </ul></li>
-<li class="chapter" data-level="1.12" data-path="introduction.html"><a href="introduction.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.12</b> Revisiting read_csv()</a></li>
-<li class="chapter" data-level="1.13" data-path="introduction.html"><a href="introduction.html#importing-to-rstudio-cloud"><i class="fa fa-check"></i><b>1.13</b> Importing to RStudio Cloud</a></li>
-<li class="chapter" data-level="1.14" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.14</b> That’s it!</a></li>
+<li class="chapter" data-level="1.12" data-path="introduction-to-r.html"><a href="introduction-to-r.html#trying-source-with-echo"><i class="fa fa-check"></i><b>1.12</b> Trying Source with Echo</a></li>
+<li class="chapter" data-level="1.13" data-path="introduction-to-r.html"><a href="introduction-to-r.html#a-few-key-points-about"><i class="fa fa-check"></i><b>1.13</b> A few key points about</a>
+<ul>
+<li class="chapter" data-level="1.13.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#lists"><i class="fa fa-check"></i><b>1.13.1</b> Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="1.14" data-path="introduction-to-r.html"><a href="introduction-to-r.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.14</b> Revisiting read_csv()</a></li>
+<li class="chapter" data-level="1.15" data-path="introduction-to-r.html"><a href="introduction-to-r.html#thats-it"><i class="fa fa-check"></i><b>1.15</b> That’s it!</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Handling Data with the Tidyverse</a>
 <ul>
@@ -282,7 +290,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3.12" data-path="graphing.html"><a href="graphing.html#saving"><i class="fa fa-check"></i><b>3.12</b> Saving</a>
 <ul>
-<li class="chapter" data-level="3.12.1" data-path="graphing.html"><a href="graphing.html#mac"><i class="fa fa-check"></i><b>3.12.1</b> MAC</a></li>
+<li class="chapter" data-level="3.12.1" data-path="graphing.html"><a href="graphing.html#mac-1"><i class="fa fa-check"></i><b>3.12.1</b> MAC</a></li>
 <li class="chapter" data-level="3.12.2" data-path="graphing.html"><a href="graphing.html#pc-or-mac"><i class="fa fa-check"></i><b>3.12.2</b> PC or MAC</a></li>
 </ul></li>
 <li class="chapter" data-level="3.13" data-path="graphing.html"><a href="graphing.html#custom-themes"><i class="fa fa-check"></i><b>3.13</b> Custom themes</a></li>
@@ -943,20 +951,20 @@ div.csl-indent {
 \]</span></p>
 <p>Thus, where there is a single population (with variance 156.3236) and the sample size is n = 5, sample means will differ only due to sampling error. The variance in the sample means will be 31.26472.</p>
 <p>We can confirm this with the R code below. We create a population and then take 9,000 sample means.</p>
-<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="deeper-dive-sampling-and-anova.html#cb790-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb790-2"><a href="deeper-dive-sampling-and-anova.html#cb790-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
-<span id="cb790-3"><a href="deeper-dive-sampling-and-anova.html#cb790-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb790-4"><a href="deeper-dive-sampling-and-anova.html#cb790-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># set random number seed</span></span>
-<span id="cb790-5"><a href="deeper-dive-sampling-and-anova.html#cb790-5" aria-hidden="true" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
-<span id="cb790-6"><a href="deeper-dive-sampling-and-anova.html#cb790-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb790-7"><a href="deeper-dive-sampling-and-anova.html#cb790-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb790-8"><a href="deeper-dive-sampling-and-anova.html#cb790-8" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">get_mean_samples</span>(pop1,</span>
-<span id="cb790-9"><a href="deeper-dive-sampling-and-anova.html#cb790-9" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">n =</span> <span class="dv">5</span>,</span>
-<span id="cb790-10"><a href="deeper-dive-sampling-and-anova.html#cb790-10" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">number.of.trials =</span> <span class="dv">9000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="deeper-dive-sampling-and-anova.html#cb789-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb789-2"><a href="deeper-dive-sampling-and-anova.html#cb789-2" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
+<span id="cb789-3"><a href="deeper-dive-sampling-and-anova.html#cb789-3" tabindex="-1"></a></span>
+<span id="cb789-4"><a href="deeper-dive-sampling-and-anova.html#cb789-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># set random number seed</span></span>
+<span id="cb789-5"><a href="deeper-dive-sampling-and-anova.html#cb789-5" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
+<span id="cb789-6"><a href="deeper-dive-sampling-and-anova.html#cb789-6" tabindex="-1"></a></span>
+<span id="cb789-7"><a href="deeper-dive-sampling-and-anova.html#cb789-7" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb789-8"><a href="deeper-dive-sampling-and-anova.html#cb789-8" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">get_mean_samples</span>(pop1,</span>
+<span id="cb789-9"><a href="deeper-dive-sampling-and-anova.html#cb789-9" tabindex="-1"></a>                                 <span class="at">n =</span> <span class="dv">5</span>,</span>
+<span id="cb789-10"><a href="deeper-dive-sampling-and-anova.html#cb789-10" tabindex="-1"></a>                                 <span class="at">number.of.trials =</span> <span class="dv">9000</span>)</span></code></pre></div>
 <pre><code>## Number of populations: 1</code></pre>
 <pre><code>## Using a = 1</code></pre>
 <p>The first few rows of the data set with 9,000 sample mean is below:</p>
-<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="deeper-dive-sampling-and-anova.html#cb793-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample_means)</span></code></pre></div>
+<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="deeper-dive-sampling-and-anova.html#cb792-1" tabindex="-1"></a><span class="fu">head</span>(sample_means)</span></code></pre></div>
 <pre><code>##   trial source_population sample_mean
 ## 1     1                 1       176.2
 ## 2     2                 1       167.4
@@ -965,8 +973,8 @@ div.csl-indent {
 ## 5     5                 1       174.0
 ## 6     6                 1       157.4</code></pre>
 <p>The trial column indicate which trial (of the 10,000) is represented in that row. The source population column indicate the population we obtain the sample from (1 since we only had 1 population). The sample mean column indicate the sample mean in that trial.</p>
-<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="deeper-dive-sampling-and-anova.html#cb795-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">%&gt;%</span></span>
-<span id="cb795-2"><a href="deeper-dive-sampling-and-anova.html#cb795-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">var_means =</span> <span class="fu">var</span>(sample_mean))</span></code></pre></div>
+<div class="sourceCode" id="cb794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb794-1"><a href="deeper-dive-sampling-and-anova.html#cb794-1" tabindex="-1"></a>sample_means <span class="sc">%&gt;%</span></span>
+<span id="cb794-2"><a href="deeper-dive-sampling-and-anova.html#cb794-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">var_means =</span> <span class="fu">var</span>(sample_mean))</span></code></pre></div>
 <pre><code>##   var_means
 ## 1      30.8</code></pre>
 <p>We take the variance of all of those sample means and get a value of 30.80005 which closely approximately the actual value of 31.26472 (which we get when using an infinite number of sample means.)</p>
@@ -1051,22 +1059,22 @@ FIGURE 22.1: Sampling from three populations with the same mean (and variance)
 \end{aligned}
 \]</span></p>
 <p>We can confirm this with the simulation below. <strong>In this simulation we still take 9000 sample means but its 3000 from each of the three populations</strong>.</p>
-<div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb797-1"><a href="deeper-dive-sampling-and-anova.html#cb797-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb797-2"><a href="deeper-dive-sampling-and-anova.html#cb797-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
-<span id="cb797-3"><a href="deeper-dive-sampling-and-anova.html#cb797-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb797-4"><a href="deeper-dive-sampling-and-anova.html#cb797-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb797-5"><a href="deeper-dive-sampling-and-anova.html#cb797-5" aria-hidden="true" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
-<span id="cb797-6"><a href="deeper-dive-sampling-and-anova.html#cb797-6" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> pop1 <span class="co"># populations are identical</span></span>
-<span id="cb797-7"><a href="deeper-dive-sampling-and-anova.html#cb797-7" aria-hidden="true" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> pop1 <span class="co"># populations are identical</span></span>
-<span id="cb797-8"><a href="deeper-dive-sampling-and-anova.html#cb797-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb797-9"><a href="deeper-dive-sampling-and-anova.html#cb797-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb797-10"><a href="deeper-dive-sampling-and-anova.html#cb797-10" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">get_mean_samples</span>(pop1, pop2, pop3,</span>
-<span id="cb797-11"><a href="deeper-dive-sampling-and-anova.html#cb797-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">n =</span> <span class="dv">5</span>,</span>
-<span id="cb797-12"><a href="deeper-dive-sampling-and-anova.html#cb797-12" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">number.of.trials =</span> <span class="dv">9000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb796-1"><a href="deeper-dive-sampling-and-anova.html#cb796-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb796-2"><a href="deeper-dive-sampling-and-anova.html#cb796-2" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
+<span id="cb796-3"><a href="deeper-dive-sampling-and-anova.html#cb796-3" tabindex="-1"></a></span>
+<span id="cb796-4"><a href="deeper-dive-sampling-and-anova.html#cb796-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb796-5"><a href="deeper-dive-sampling-and-anova.html#cb796-5" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
+<span id="cb796-6"><a href="deeper-dive-sampling-and-anova.html#cb796-6" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> pop1 <span class="co"># populations are identical</span></span>
+<span id="cb796-7"><a href="deeper-dive-sampling-and-anova.html#cb796-7" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> pop1 <span class="co"># populations are identical</span></span>
+<span id="cb796-8"><a href="deeper-dive-sampling-and-anova.html#cb796-8" tabindex="-1"></a></span>
+<span id="cb796-9"><a href="deeper-dive-sampling-and-anova.html#cb796-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb796-10"><a href="deeper-dive-sampling-and-anova.html#cb796-10" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">get_mean_samples</span>(pop1, pop2, pop3,</span>
+<span id="cb796-11"><a href="deeper-dive-sampling-and-anova.html#cb796-11" tabindex="-1"></a>                                 <span class="at">n =</span> <span class="dv">5</span>,</span>
+<span id="cb796-12"><a href="deeper-dive-sampling-and-anova.html#cb796-12" tabindex="-1"></a>                                 <span class="at">number.of.trials =</span> <span class="dv">9000</span>)</span></code></pre></div>
 <pre><code>## Number of populations: 3</code></pre>
 <pre><code>## Using a = 3</code></pre>
 <p>The first few rows of the data set with 9,000 sample mean is below:</p>
-<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="deeper-dive-sampling-and-anova.html#cb800-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample_means)</span></code></pre></div>
+<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="deeper-dive-sampling-and-anova.html#cb799-1" tabindex="-1"></a><span class="fu">head</span>(sample_means)</span></code></pre></div>
 <pre><code>##   trial source_population sample_mean
 ## 1     1                 1       176.2
 ## 2     2                 2       167.4
@@ -1075,8 +1083,8 @@ FIGURE 22.1: Sampling from three populations with the same mean (and variance)
 ## 5     5                 2       174.0
 ## 6     6                 3       157.4</code></pre>
 <p>The trial column indicate which trial (of the 9,000) is represented in that row. The source population column indicate the population we obtain the sample from (1 since we only had 1 population). The sample mean column indicate the sample mean in that trial.</p>
-<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="deeper-dive-sampling-and-anova.html#cb802-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">%&gt;%</span></span>
-<span id="cb802-2"><a href="deeper-dive-sampling-and-anova.html#cb802-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">var_means =</span> <span class="fu">var</span>(sample_mean))</span></code></pre></div>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="deeper-dive-sampling-and-anova.html#cb801-1" tabindex="-1"></a>sample_means <span class="sc">%&gt;%</span></span>
+<span id="cb801-2"><a href="deeper-dive-sampling-and-anova.html#cb801-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">var_means =</span> <span class="fu">var</span>(sample_mean))</span></code></pre></div>
 <pre><code>##   var_means
 ## 1     30.81</code></pre>
 <p>We take the variance of all of those sample means and get a value of 30.80005 which closely approximately the actual value of 31.26472 (which we get when using an infinite number of sample means.)</p>
@@ -1168,22 +1176,22 @@ FIGURE 22.2: Sampling from three populations with the same mean (and variance)
 \end{aligned}
 \]</span></p>
 <p>We can confirm this with the simulation below. <strong>In this simulation we still take 9000 sample means but its 3000 from each of the three populations</strong>.</p>
-<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="deeper-dive-sampling-and-anova.html#cb804-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb804-2"><a href="deeper-dive-sampling-and-anova.html#cb804-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
-<span id="cb804-3"><a href="deeper-dive-sampling-and-anova.html#cb804-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb804-4"><a href="deeper-dive-sampling-and-anova.html#cb804-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb804-5"><a href="deeper-dive-sampling-and-anova.html#cb804-5" aria-hidden="true" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
-<span id="cb804-6"><a href="deeper-dive-sampling-and-anova.html#cb804-6" aria-hidden="true" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">152.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
-<span id="cb804-7"><a href="deeper-dive-sampling-and-anova.html#cb804-7" aria-hidden="true" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">192.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
-<span id="cb804-8"><a href="deeper-dive-sampling-and-anova.html#cb804-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb804-9"><a href="deeper-dive-sampling-and-anova.html#cb804-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb804-10"><a href="deeper-dive-sampling-and-anova.html#cb804-10" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">get_mean_samples</span>(pop1, pop2, pop3,</span>
-<span id="cb804-11"><a href="deeper-dive-sampling-and-anova.html#cb804-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">n =</span> <span class="dv">5</span>,</span>
-<span id="cb804-12"><a href="deeper-dive-sampling-and-anova.html#cb804-12" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">number.of.trials =</span> <span class="dv">9000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="deeper-dive-sampling-and-anova.html#cb803-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb803-2"><a href="deeper-dive-sampling-and-anova.html#cb803-2" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
+<span id="cb803-3"><a href="deeper-dive-sampling-and-anova.html#cb803-3" tabindex="-1"></a></span>
+<span id="cb803-4"><a href="deeper-dive-sampling-and-anova.html#cb803-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb803-5"><a href="deeper-dive-sampling-and-anova.html#cb803-5" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
+<span id="cb803-6"><a href="deeper-dive-sampling-and-anova.html#cb803-6" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">152.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
+<span id="cb803-7"><a href="deeper-dive-sampling-and-anova.html#cb803-7" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">192.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
+<span id="cb803-8"><a href="deeper-dive-sampling-and-anova.html#cb803-8" tabindex="-1"></a></span>
+<span id="cb803-9"><a href="deeper-dive-sampling-and-anova.html#cb803-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb803-10"><a href="deeper-dive-sampling-and-anova.html#cb803-10" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">get_mean_samples</span>(pop1, pop2, pop3,</span>
+<span id="cb803-11"><a href="deeper-dive-sampling-and-anova.html#cb803-11" tabindex="-1"></a>                                 <span class="at">n =</span> <span class="dv">5</span>,</span>
+<span id="cb803-12"><a href="deeper-dive-sampling-and-anova.html#cb803-12" tabindex="-1"></a>                                 <span class="at">number.of.trials =</span> <span class="dv">9000</span>)</span></code></pre></div>
 <pre><code>## Number of populations: 3</code></pre>
 <pre><code>## Using a = 3</code></pre>
 <p>The first few rows of the data set with 9,000 sample mean is below:</p>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="deeper-dive-sampling-and-anova.html#cb807-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sample_means)</span></code></pre></div>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="deeper-dive-sampling-and-anova.html#cb806-1" tabindex="-1"></a><span class="fu">head</span>(sample_means)</span></code></pre></div>
 <pre><code>##   trial source_population sample_mean
 ## 1     1                 1       176.2
 ## 2     2                 2       147.4
@@ -1192,8 +1200,8 @@ FIGURE 22.2: Sampling from three populations with the same mean (and variance)
 ## 5     5                 2       154.0
 ## 6     6                 3       177.4</code></pre>
 <p>The trial column indicate which trial (of the 9,000) is represented in that row. The source population column indicate the population we obtain the sample from (1 since we only had 1 population). The sample mean column indicate the sample mean in that trial.</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="deeper-dive-sampling-and-anova.html#cb809-1" aria-hidden="true" tabindex="-1"></a>sample_means <span class="sc">%&gt;%</span></span>
-<span id="cb809-2"><a href="deeper-dive-sampling-and-anova.html#cb809-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">var_means =</span> <span class="fu">var</span>(sample_mean))</span></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="deeper-dive-sampling-and-anova.html#cb808-1" tabindex="-1"></a>sample_means <span class="sc">%&gt;%</span></span>
+<span id="cb808-2"><a href="deeper-dive-sampling-and-anova.html#cb808-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">var_means =</span> <span class="fu">var</span>(sample_mean))</span></code></pre></div>
 <pre><code>##   var_means
 ## 1     297.8</code></pre>
 <p>We take the variance of all of those sample means and get a value of 297.7683 which closely approximately the actual value of 297.9314 (which we get when using an infinite number of sample means.)</p>
