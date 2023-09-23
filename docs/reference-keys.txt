@@ -93,7 +93,7 @@ fig:formulamap
 fig:ftablelabeled
 fig:graph3popag
 fig:graph3popnewaxis
-introduction-to-r
+introduction
 a-focus-on-workflow
 r-works-with-plug-ins
 software-choice
