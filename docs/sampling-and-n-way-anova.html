@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 23 Sampling and N-way ANOVA | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 23 Sampling and N-way ANOVA | Welcome!" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2023-09-23" />
+<meta name="date" content="2024-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,7 @@
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
+<link href="libs/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
@@ -63,7 +64,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -135,6 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -227,28 +229,27 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#required"><i class="fa fa-check"></i><b>2.1</b> Required</a></li>
 <li class="chapter" data-level="2.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#objective"><i class="fa fa-check"></i><b>2.2</b> Objective</a></li>
 <li class="chapter" data-level="2.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#using-the-console"><i class="fa fa-check"></i><b>2.3</b> Using the Console</a></li>
-<li class="chapter" data-level="2.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#tidyverse-help-with-the-introverse"><i class="fa fa-check"></i><b>2.4</b> Tidyverse help with the Introverse</a></li>
-<li class="chapter" data-level="2.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#basic-tidyverse-commands"><i class="fa fa-check"></i><b>2.5</b> Basic tidyverse commands</a>
+<li class="chapter" data-level="2.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#basic-tidyverse-commands"><i class="fa fa-check"></i><b>2.4</b> Basic tidyverse commands</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#decimals"><i class="fa fa-check"></i><b>2.5.1</b> decimals</a></li>
-<li class="chapter" data-level="2.5.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select"><i class="fa fa-check"></i><b>2.5.2</b> select()</a></li>
-<li class="chapter" data-level="2.5.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>2.5.3</b> summarise()</a></li>
-<li class="chapter" data-level="2.5.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#filter"><i class="fa fa-check"></i><b>2.5.4</b> filter()</a></li>
-<li class="chapter" data-level="2.5.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>2.5.5</b> group_by()</a></li>
-<li class="chapter" data-level="2.5.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>2.5.6</b> mutate()</a></li>
+<li class="chapter" data-level="2.4.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#decimals"><i class="fa fa-check"></i><b>2.4.1</b> decimals</a></li>
+<li class="chapter" data-level="2.4.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select"><i class="fa fa-check"></i><b>2.4.2</b> select()</a></li>
+<li class="chapter" data-level="2.4.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>2.4.3</b> summarise()</a></li>
+<li class="chapter" data-level="2.4.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#filter"><i class="fa fa-check"></i><b>2.4.4</b> filter()</a></li>
+<li class="chapter" data-level="2.4.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>2.4.5</b> group_by()</a></li>
+<li class="chapter" data-level="2.4.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>2.4.6</b> mutate()</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#advanced-tidyverse-commands"><i class="fa fa-check"></i><b>2.6</b> Advanced tidyverse commands</a>
+<li class="chapter" data-level="2.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#advanced-tidyverse-commands"><i class="fa fa-check"></i><b>2.5</b> Advanced tidyverse commands</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select-1"><i class="fa fa-check"></i><b>2.6.1</b> select()</a></li>
-<li class="chapter" data-level="2.6.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise-1"><i class="fa fa-check"></i><b>2.6.2</b> summarise()</a></li>
-<li class="chapter" data-level="2.6.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate-1"><i class="fa fa-check"></i><b>2.6.3</b> mutate()</a></li>
+<li class="chapter" data-level="2.5.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select-1"><i class="fa fa-check"></i><b>2.5.1</b> select()</a></li>
+<li class="chapter" data-level="2.5.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise-1"><i class="fa fa-check"></i><b>2.5.2</b> summarise()</a></li>
+<li class="chapter" data-level="2.5.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate-1"><i class="fa fa-check"></i><b>2.5.3</b> mutate()</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#using-help"><i class="fa fa-check"></i><b>2.7</b> Using help</a></li>
-<li class="chapter" data-level="2.8" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#base-r-vs-tidyverse"><i class="fa fa-check"></i><b>2.8</b> Base R vs tidyverse</a>
+<li class="chapter" data-level="2.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#using-help"><i class="fa fa-check"></i><b>2.6</b> Using help</a></li>
+<li class="chapter" data-level="2.7" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#base-r-vs-tidyverse"><i class="fa fa-check"></i><b>2.7</b> Base R vs tidyverse</a>
 <ul>
-<li class="chapter" data-level="2.8.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#tibbles-vs.-data-frames"><i class="fa fa-check"></i><b>2.8.1</b> Tibbles vs. data frames</a></li>
-<li class="chapter" data-level="2.8.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read.csv-and-data-frames"><i class="fa fa-check"></i><b>2.8.2</b> read.csv() and data frames</a></li>
-<li class="chapter" data-level="2.8.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read_csv-and-tibbles"><i class="fa fa-check"></i><b>2.8.3</b> read_csv() and tibbles</a></li>
+<li class="chapter" data-level="2.7.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#tibbles-vs.-data-frames"><i class="fa fa-check"></i><b>2.7.1</b> Tibbles vs. data frames</a></li>
+<li class="chapter" data-level="2.7.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read.csv-and-data-frames"><i class="fa fa-check"></i><b>2.7.2</b> read.csv() and data frames</a></li>
+<li class="chapter" data-level="2.7.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read_csv-and-tibbles"><i class="fa fa-check"></i><b>2.7.3</b> read_csv() and tibbles</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="graphing.html"><a href="graphing.html"><i class="fa fa-check"></i><b>3</b> Graphing</a>
@@ -873,24 +874,24 @@ Chicago.</a></p>
 <div id="output" class="section level2 hasAnchor" number="23.3">
 <h2><span class="header-section-number">23.3</span> Output<a href="sampling-and-n-way-anova.html#output" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We begin by creating the output for this design in R. First we activate the required packages:</p>
-<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="sampling-and-n-way-anova.html#cb810-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb810-2"><a href="sampling-and-n-way-anova.html#cb810-2" tabindex="-1"></a><span class="fu">library</span>(apaTables)</span>
-<span id="cb810-3"><a href="sampling-and-n-way-anova.html#cb810-3" tabindex="-1"></a></span>
-<span id="cb810-4"><a href="sampling-and-n-way-anova.html#cb810-4" tabindex="-1"></a>nway_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_crf.csv&quot;</span>)</span>
-<span id="cb810-5"><a href="sampling-and-n-way-anova.html#cb810-5" tabindex="-1"></a></span>
-<span id="cb810-6"><a href="sampling-and-n-way-anova.html#cb810-6" tabindex="-1"></a><span class="co"># Turn character columns into factors</span></span>
-<span id="cb810-7"><a href="sampling-and-n-way-anova.html#cb810-7" tabindex="-1"></a>nway_data  <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb810-8"><a href="sampling-and-n-way-anova.html#cb810-8" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.character, as.factor)</span></code></pre></div>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="sampling-and-n-way-anova.html#cb800-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb800-2"><a href="sampling-and-n-way-anova.html#cb800-2" tabindex="-1"></a><span class="fu">library</span>(apaTables)</span>
+<span id="cb800-3"><a href="sampling-and-n-way-anova.html#cb800-3" tabindex="-1"></a></span>
+<span id="cb800-4"><a href="sampling-and-n-way-anova.html#cb800-4" tabindex="-1"></a>nway_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_crf.csv&quot;</span>)</span>
+<span id="cb800-5"><a href="sampling-and-n-way-anova.html#cb800-5" tabindex="-1"></a></span>
+<span id="cb800-6"><a href="sampling-and-n-way-anova.html#cb800-6" tabindex="-1"></a><span class="co"># Turn character columns into factors</span></span>
+<span id="cb800-7"><a href="sampling-and-n-way-anova.html#cb800-7" tabindex="-1"></a>nway_data  <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb800-8"><a href="sampling-and-n-way-anova.html#cb800-8" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.character, as.factor)</span></code></pre></div>
 <p>Next we conduct the analysis:</p>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="sampling-and-n-way-anova.html#cb811-1" tabindex="-1"></a><span class="co"># set contrasts to values match SPSS</span></span>
-<span id="cb811-2"><a href="sampling-and-n-way-anova.html#cb811-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">contrasts =</span> <span class="fu">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</span>
-<span id="cb811-3"><a href="sampling-and-n-way-anova.html#cb811-3" tabindex="-1"></a></span>
-<span id="cb811-4"><a href="sampling-and-n-way-anova.html#cb811-4" tabindex="-1"></a><span class="co"># Conduct analysis</span></span>
-<span id="cb811-5"><a href="sampling-and-n-way-anova.html#cb811-5" tabindex="-1"></a>lm_nway <span class="ot">&lt;-</span> <span class="fu">lm</span>(calm <span class="sc">~</span> preparation<span class="sc">*</span>juggling, </span>
-<span id="cb811-6"><a href="sampling-and-n-way-anova.html#cb811-6" tabindex="-1"></a>              <span class="at">data =</span> nway_data)</span></code></pre></div>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="sampling-and-n-way-anova.html#cb801-1" tabindex="-1"></a><span class="co"># set contrasts to values match SPSS</span></span>
+<span id="cb801-2"><a href="sampling-and-n-way-anova.html#cb801-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">contrasts =</span> <span class="fu">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</span>
+<span id="cb801-3"><a href="sampling-and-n-way-anova.html#cb801-3" tabindex="-1"></a></span>
+<span id="cb801-4"><a href="sampling-and-n-way-anova.html#cb801-4" tabindex="-1"></a><span class="co"># Conduct analysis</span></span>
+<span id="cb801-5"><a href="sampling-and-n-way-anova.html#cb801-5" tabindex="-1"></a>lm_nway <span class="ot">&lt;-</span> <span class="fu">lm</span>(calm <span class="sc">~</span> preparation<span class="sc">*</span>juggling, </span>
+<span id="cb801-6"><a href="sampling-and-n-way-anova.html#cb801-6" tabindex="-1"></a>              <span class="at">data =</span> nway_data)</span></code></pre></div>
 <p>Then we create the output using:</p>
-<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="sampling-and-n-way-anova.html#cb812-1" tabindex="-1"></a><span class="fu">apa.aov.table</span>(lm_nway, </span>
-<span id="cb812-2"><a href="sampling-and-n-way-anova.html#cb812-2" tabindex="-1"></a>              <span class="at">filename =</span> <span class="st">&quot;my_table.doc&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="sampling-and-n-way-anova.html#cb802-1" tabindex="-1"></a><span class="fu">apa.aov.table</span>(lm_nway, </span>
+<span id="cb802-2"><a href="sampling-and-n-way-anova.html#cb802-2" tabindex="-1"></a>              <span class="at">filename =</span> <span class="st">&quot;my_table.doc&quot;</span>)</span></code></pre></div>
 <p><img src="ch_deeper_nway/images/nway_table_clean.png" width="80%" /></p>
 <p>Notice the preparation, juggling, and preparation x juggling rows on this table. In particular, the <span class="math inline">\(F\)</span>-value for each of these rows. In the remainder of the chapter we will review how these values are obtained - and their conceptual meaning.</p>
 </div>
@@ -1123,7 +1124,7 @@ s_{people}^2 &amp;=\frac{s_1^2 + s_2^2 + s_3^2 + s_4^2 + s_5^2 + s_6^2}{6}\\ &am
 \]</span></p>
 <p>Thus, our best sample-based estimate of the variance of calmness scores in the population is <span class="math inline">\(s_{people}^2 = 60.00\)</span>.</p>
 <p><strong>We averaged, or took the mean of, six sample based estimates to obtain <span class="math inline">\(s_{people}^2\)</span>. Most people refer to <span class="math inline">\(s_{people}^2\)</span> as Mean Squared Error or MSE. You can think of Mean Squared Error as a synonym for <em>estimated population variance.</em> </strong></p>
-<p><span class="math inline">\(\text{Mean Squared Error} = MSE = s_{people}^2 = 60.0\)</span></p>
+<p><span class="math inline">\(\text{Mean Squared Error} = MSE = s_{people}^2  = 60.0\)</span></p>
 <p><strong>CRITICAL:</strong> Note that averaging the sample variances estimates ONLY MAKES SENSE if we assume the six population variances are all the same. It only makes sense to average the sample variance estimates if they are all estimates of a single population value. Thus, calculation of Mean Squared Error only makes sense if the homogeneity of population variances assumption is true. Also note that when the cell sizes are unequal you need to created a weighted average of the sample variance estimates - this math is not reviewed in detail for the sake of a simple narrative.</p>
 <p>We now in the following situation:</p>
 <p><img src="ch_deeper_nway/images/summary_mse.png" width="100%" /></p>
@@ -1277,7 +1278,7 @@ s_{\mu_A}^2 &amp;=  \frac{\sum (\overline{x_{A_i}}-\bar{\bar{x}})^2}{a-1} \\
 <li>Variability in sample means due differences among the population means <span class="math inline">\(\sigma_{\mu_A}^2\)</span></li>
 </ol>
 <p>In mathematical terms we say the Expected Mean Square is:</p>
-<p><span class="math inline">\(\text{Expected Mean Square} = \frac{\sigma_{people}^2}{nb} + \sigma_{\mu_A}^2\)</span></p>
+<p><span class="math inline">\(\text{Expected Mean Square} = \frac{\sigma_{people}^2}{nb} +  \sigma_{\mu_A}^2\)</span></p>
 </div>
 <div id="f-value-for-a" class="section level3 hasAnchor" number="23.12.2">
 <h3><span class="header-section-number">23.12.2</span> <span class="math inline">\(F\)</span>-value for <span class="math inline">\(A\)</span><a href="sampling-and-n-way-anova.html#f-value-for-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1336,9 +1337,9 @@ F &amp;= \frac{\text{estimated total variance}}{\text{estimated variance due to 
 <h3><span class="header-section-number">23.12.3</span> <span class="math inline">\(p\)</span>-value for <span class="math inline">\(A\)</span><a href="sampling-and-n-way-anova.html#p-value-for-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This sample <span class="math inline">\(F\)</span>-value tells us that, with these data, the <strong>estimated</strong> total variance of juggling means is 57.96 times larger than than we would <strong>estimate</strong> due to random sampling alone. This sounds like a large number - but it may not be. Notice the use of word <strong>estimate(d)</strong> in the previous sentences. We are looking at estimates that themselves may vary due to random sampling error. So we need to know how likely this is, when the population means are equal, in the context of the number of populations and the sample sizes. <a href="https://dstanley4.github.io/psyc6060bookdown/deep-dive-sampling-and-anova.html#central-f-distributions">Recall Central <span class="math inline">\(F\)</span>-distributions from a previous chapter.</a></p>
 <p>To interpret an <span class="math inline">\(F\)</span>-value for the main effect of <span class="math inline">\(A\)</span>, you need to think about all the <span class="math inline">\(F\)</span>-values that could have occurred - when the population means are equal (i.e., <span class="math inline">\(\sigma_{A}^2=0\)</span>). More specifically, we have to imagine all of the <span class="math inline">\(F\)</span>-values with 1 and 24 degrees of freedom in the Central <span class="math inline">\(F\)</span>-distribution. This distribution is illustrated below. <strong>It reflects, for this main effect, all the <span class="math inline">\(F\)</span>-values that could occur when the populations means are equal - due to the fact we are using random samples.</strong></p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-698-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-693-1.png" width="672" /></p>
 <p>To assign a <span class="math inline">\(p\)</span>-value to the <span class="math inline">\(F\)</span>-value that we obtained, <span class="math inline">\(F = 57.96\)</span> we determine the proportion of the Central <span class="math inline">\(F\)</span>-distribution (with 1 and 24 degrees of freedom) that is equal to, or more extreme, than the <span class="math inline">\(F\)</span>-value we obtained in our study. If you inspect the Central <span class="math inline">\(F\)</span>-distribution above you can see that the current <span class="math inline">\(F\)</span>-value of 57.96 doesn’t even fit on the graph - because the x-axis only goes to 10. We need a new graph with a wider range of values on the x-axis. This graph is presented below:</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-699-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-694-1.png" width="672" /></p>
 <p>In this graph you can see the <span class="math inline">\(F\)</span>-value we obtained (57.96) is completely to the right of Central <span class="math inline">\(F\)</span>-distribution. In fact, the proportion of the <span class="math inline">\(F\)</span>-distribution that is equal to, or more extreme, than 57.96 is &lt; .001. So we say the <span class="math inline">\(p\)</span>-value is <span class="math inline">\(p &lt; .001\)</span>.</p>
 <p>Consequently, under the assumption of equal population means, our data (or more extreme data) is very unlikely (<span class="math inline">\(p &lt; .001\)</span>). Therefore, we reject the assumption that the population means (i.e., the population means for yes and no juggling) are equal. We conclude those population means <strong>may</strong> be different.</p>
 <p>To assign a <span class="math inline">\(p\)</span>-value to the <span class="math inline">\(F\)</span>-value that we obtained, <span class="math inline">\(F = 57.96\)</span> we determine the proportion of the Central <span class="math inline">\(F\)</span>-distribution (with 1 and 24 degrees of freedom) that is equal to, or more extreme, than the <span class="math inline">\(F\)</span>-value we obtained in our study. If you inspect the Central <span class="math inline">\(F\)</span>-distribution above you can see that the current <span class="math inline">\(F\)</span>-value of 57.96 doesn’t even fit on the graph - because the x-axis only goes to 10. We need a new graph with a wider range of values on the x-axis. This graph is presented below:</p>
@@ -1378,8 +1379,8 @@ F &amp;= \frac{\text{estimated total variance}}{\text{estimated variance due to 
 </tr>
 <tr class="odd">
 <td align="center">Comparison using <span class="math inline">\(F\)</span>-ratio</td>
-<td align="center"><span class="math inline">\(\frac{\frac{\sum (\bar{x_i}-\bar{\bar{x}})^2}{a-1}}{ \frac{s_{people}^2}{nb}}= \frac{231.8422}{4.0}= 57.96\)</span></td>
-<td align="center"><span class="math inline">\(\frac{\frac{\sigma_{people}^2}{nb} + \sigma_{A}^2}{ \frac{\sigma_{people}^2}{nb}}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{\frac{\sum (\bar{x_i}-\bar{\bar{x}})^2}{a-1}}{                  \frac{s_{people}^2}{nb}}= \frac{231.8422}{4.0}= 57.96\)</span></td>
+<td align="center"><span class="math inline">\(\frac{\frac{\sigma_{people}^2}{nb} + \sigma_{A}^2}{    \frac{\sigma_{people}^2}{nb}}\)</span></td>
 <td align="center"><span class="math inline">\([(a-1),ab(n-1)]=[1,24]\)</span></td>
 </tr>
 </tbody>
@@ -1502,7 +1503,7 @@ s_{\mu_B}^2 &amp;=  \frac{\sum (\overline{x_{B_i}}-\bar{\bar{x}})^2}{b-1} \\
 <li>Variability in sample means due differences among the population means <span class="math inline">\(\sigma_{\mu_B}^2\)</span></li>
 </ol>
 <p>In mathematical terms we say the Expected Mean Square is:</p>
-<p><span class="math inline">\(\text{Expected Mean Square} = \frac{\sigma_{people}^2}{na} + \sigma_{\mu_B}^2\)</span></p>
+<p><span class="math inline">\(\text{Expected Mean Square} = \frac{\sigma_{people}^2}{na} +  \sigma_{\mu_B}^2\)</span></p>
 </div>
 <div id="f-value-for-b" class="section level3 hasAnchor" number="23.13.2">
 <h3><span class="header-section-number">23.13.2</span> <span class="math inline">\(F\)</span>-value for <span class="math inline">\(B\)</span><a href="sampling-and-n-way-anova.html#f-value-for-b" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1561,9 +1562,9 @@ F &amp;= \frac{\text{estimated total variance}}{\text{estimated variance due to 
 <h3><span class="header-section-number">23.13.3</span> <span class="math inline">\(p\)</span>-value for <span class="math inline">\(B\)</span><a href="sampling-and-n-way-anova.html#p-value-for-b" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This sample <span class="math inline">\(F\)</span>-value tells us that, with these data, the <strong>estimated</strong> total variance of juggling means is 3.62 times larger than than we would <strong>estimate</strong> due to random sampling alone. Is this large or small? It’s hard to tell. As well, notice the use of word <strong>estimate(d)</strong> in the previous sentences. We are looking at estimates that themselves may vary due to random sampling error. So we need to know how likely this is, when the population means are equal, in the context of the number of populations and the sample sizes. <a href="https://dstanley4.github.io/psyc6060bookdown/deep-dive-sampling-and-anova.html#central-f-distributions">Recall Central <span class="math inline">\(F\)</span>-distributions from a previous chapter.</a></p>
 <p>To interpret an <span class="math inline">\(F\)</span>-value for the main effect of <span class="math inline">\(B\)</span>, you need to think about all the <span class="math inline">\(F\)</span>-values that could have occurred - when the population means are equal (i.e., <span class="math inline">\(\sigma_{B}^2=0\)</span>). More specifically, we have to imagine all of the <span class="math inline">\(F\)</span>-values with 2 and 24 degrees of freedom in the Central <span class="math inline">\(F\)</span>-distribution. This distribution is illustrated below. <strong>It reflects, for this main effect, all the <span class="math inline">\(F\)</span>-values that could occur when the populations means are equal - due to the fact we are using random samples.</strong></p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-702-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-697-1.png" width="672" /></p>
 <p>To assign a <span class="math inline">\(p\)</span>-value to the <span class="math inline">\(F\)</span>-value that we obtained, <span class="math inline">\(F = 3.62\)</span> we determine the proportion of the Central <span class="math inline">\(F\)</span>-distribution (with 2 and 24 degrees of freedom) that is equal to, or more extreme, than the <span class="math inline">\(F\)</span>-value we obtained in our study. The <span class="math inline">\(F\)</span>-value we obtained is position in Central <span class="math inline">\(F\)</span>-distribution below.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-703-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-698-1.png" width="672" /></p>
 <p>In the graph above you can see the <span class="math inline">\(F\)</span>-value we obtained (3.62) is somewhat to the right side of the Central <span class="math inline">\(F\)</span>-distribution. In fact, the proportion of the <span class="math inline">\(F\)</span>-distribution that is equal to, or more extreme, than 3.62 is .042 (i.e. 4.2%). So we say the <span class="math inline">\(p\)</span>-value is <span class="math inline">\(p = .042\)</span>.</p>
 <p>Consequently, under the assumption of equal population means, our data (or more extreme data) is very unlikely (<span class="math inline">\(p = .042\)</span>). Therefore, we reject the assumption that the population means (i.e., the population means for low, medium, and high preparation) are equal. We conclude those population means <strong>may</strong> be different.</p>
 <p>Remember the <span class="math inline">\(p\)</span>-value is the <strong>probability of our data, or more extreme data,</strong> assuming the null hypothesis is true.</p>
@@ -1601,8 +1602,8 @@ F &amp;= \frac{\text{estimated total variance}}{\text{estimated variance due to 
 </tr>
 <tr class="odd">
 <td align="center">Comparison using <span class="math inline">\(F\)</span>-ratio</td>
-<td align="center"><span class="math inline">\(\frac{\frac{\sum (\bar{x_i}-\bar{\bar{x}})^2}{b-1}}{ \frac{s_{people}^2}{na}} = \frac{21.72333}{6.0}=3.62\)</span></td>
-<td align="center"><span class="math inline">\(\frac{\frac{\sigma_{people}^2}{na} + \sigma_{B}^2}{ \frac{\sigma_{people}^2}{na}}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{\frac{\sum (\bar{x_i}-\bar{\bar{x}})^2}{b-1}}{                  \frac{s_{people}^2}{na}} = \frac{21.72333}{6.0}=3.62\)</span></td>
+<td align="center"><span class="math inline">\(\frac{\frac{\sigma_{people}^2}{na} + \sigma_{B}^2}{    \frac{\sigma_{people}^2}{na}}\)</span></td>
 <td align="center"><span class="math inline">\([(b-1),ab(n-1)\)</span></td>
 </tr>
 </tbody>
@@ -1863,9 +1864,9 @@ F &amp;= \frac{\text{estimated total variance}}{\text{estimated variance due to 
 <h3><span class="header-section-number">23.15.3</span> <span class="math inline">\(p\)</span>-value for <span class="math inline">\(AB\)</span><a href="sampling-and-n-way-anova.html#p-value-for-ab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This sample <span class="math inline">\(F\)</span>-value tells us that, with these data, the <strong>estimated</strong> total variance of juggling means is 4.49 times larger than than we would <strong>estimate</strong> due to random sampling alone. Is this large or small? It’s hard to tell. As well, notice the use of word <strong>estimate(d)</strong> in the previous sentences. We are looking at estimates that themselves may vary due to random sampling error. So we need to know how likely this is, when the population means are equal, in the context of the number of populations and the sample sizes. <a href="https://dstanley4.github.io/psyc6060bookdown/deep-dive-sampling-and-anova.html#central-f-distributions">Recall Central <span class="math inline">\(F\)</span>-distributions from a previous chapter.</a></p>
 <p>To interpret an <span class="math inline">\(F\)</span>-value for the main effect of <span class="math inline">\(AB\)</span>, you need to think about all the <span class="math inline">\(F\)</span>-values that could have occurred - when the population means are equal (i.e., <span class="math inline">\(\sigma_{AB}^2=0\)</span>). More specifically, we have to imagine all of the <span class="math inline">\(F\)</span>-values with 2 and 24 degrees of freedom in the Central <span class="math inline">\(F\)</span>-distribution. This distribution is illustrated below:</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-707-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-702-1.png" width="672" /></p>
 <p>To assign a <span class="math inline">\(p\)</span>-value to the <span class="math inline">\(F\)</span>-value that we obtained, <span class="math inline">\(F = 4.49\)</span> we determine the proportion of the Central <span class="math inline">\(F\)</span>-distribution (with 2 and 24 degrees of freedom) that is equal to, or more extreme, than the <span class="math inline">\(F\)</span>-value we obtained in our study. The <span class="math inline">\(F\)</span>-value we obtained is positioned in Central <span class="math inline">\(F\)</span>-distribution below.</p>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-708-1.png" width="672" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-703-1.png" width="672" /></p>
 <p>In the graph above you can see the <span class="math inline">\(F\)</span>-value we obtained (4.49) is somewhat to the right side of the Central <span class="math inline">\(F\)</span>-distribution. In fact, the proportion of the <span class="math inline">\(F\)</span>-distribution that is equal to, or more extreme, than 4.49 is .022 (i.e. 2.2%). So we say the <span class="math inline">\(p\)</span>-value is <span class="math inline">\(p = .022\)</span>.</p>
 <p>Consequently, under the assumption of equal residual population means, our data (or more extreme data) is very unlikely (<span class="math inline">\(p = .022\)</span>). Therefore, we reject the assumption that the population residual means are equal. We conclude those population means <strong>may</strong> be different. Which implies there is an interaction.</p>
 <p>When there is an interaction you are concluding the two independent variables combine to influence the dependent variable. In our example study, you could say the impact of juggling on calmness before the exam depends on how much students prepared. Or you also say the impact of preparation on calmness before the exam depends on whether students juggled or not during breaks.</p>
@@ -1903,8 +1904,8 @@ F &amp;= \frac{\text{estimated total variance}}{\text{estimated variance due to 
 </tr>
 <tr class="odd">
 <td align="center">Comparison using <span class="math inline">\(F\)</span>-ratio</td>
-<td align="center"><span class="math inline">\(\frac{\frac{\sum (\overline{x_{residual_i}} )^2}{(a-1)(b-1)}}{ \frac{s_{people}^2}{n}}=\frac{53.92667}{12}=4.49\)</span></td>
-<td align="center"><span class="math inline">\(\frac{\frac{\sigma_{people}^2}{n} + \sigma_{AB}^2}{ \frac{\sigma_{people}^2}{n}}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{\frac{\sum (\overline{x_{residual_i}} )^2}{(a-1)(b-1)}}{                  \frac{s_{people}^2}{n}}=\frac{53.92667}{12}=4.49\)</span></td>
+<td align="center"><span class="math inline">\(\frac{\frac{\sigma_{people}^2}{n} + \sigma_{AB}^2}{    \frac{\sigma_{people}^2}{n}}\)</span></td>
 <td align="center"><span class="math inline">\([(a-1)(b-1),ab(n-1)]\)</span></td>
 </tr>
 </tbody>

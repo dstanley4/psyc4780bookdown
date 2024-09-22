@@ -6,7 +6,7 @@ In this chapter we focus on teaching you foundational skills for data preparatio
 
 * [R for Data Science book](https://r4ds.had.co.nz). This is an excellent free online book! But it does reflect an exploratory analysis mindset compared to the confirmatory mindset we typically use in Psychological science.
 
-* You may find a [cheatsheet](https://www.rstudio.com/resources/cheatsheets/) helpful. Specifically, the [Data Transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) cheatsheet. 
+* You may find a [cheatsheet](https://www.rstudio.com/resources/cheatsheets/) helpful. Specifically, the [Data Transformation](https://rstudio.github.io/cheatsheets/data-transformation.pdf) cheatsheet. 
 
 * [tidyverse website](https://www.tidyverse.org) 
 
@@ -31,20 +31,8 @@ The following CRAN packages must be installed:
 | Required CRAN Packages |
 |-------------------|
 |tidyverse          |
-|remotes            |
-
-The following GitHub package must be installed:
-
-| Required GitHub Packages |
-|--------------------------|
-|sjspielman/introverse |
 
 
-After the remotes package is installed, it can be used to install the introverse package from GitHub (an alternative "App Store"). If you get asked if you would like to install more recent versions of packages on your machine press "1" and Return to indicate "All" (if you are asked, you may not be). Note that if you do encounter installation problems with the *introverse* below - don't worry. The *introverse* is just additional documentation.
-
-```{r, eval = FALSE}
-remotes::install_github("sjspielman/introverse")
-```
 
 ## Objective
 
@@ -54,41 +42,6 @@ The objective of this chapter is to familiarize you with some key commands in th
 ## Using the Console
 
 All of the commands in this chapter should be typed into the Console within R. If you see a command split over multiple lines, use SHIFT-RETURN (macOS) or SHIFT-ENTER (Windows) to move the next line that is part of the same command. 
-
-## Tidyverse help with the Introverse
-
-The **introverse** package is just additional documentation that is helpful for beginners - until you learn to read the standard R documentation. The first command we will use in this chapter is the **read_csv()** command. You get the standard R help for this command using the code below in the R Console:
-
-```{r, eval = FALSE}
-library(tidyverse) # this actives the tidyverse commands
-?read_csv
-```
-
-This gives you help that looks like this:
-
-```{r, echo=FALSE, out.width="70%"}
-knitr::include_graphics("ch_tidy_intro/images/screenshot_R_help.png")
-```
-
-But you can obtain the better introverse documentation by typing the code below in the R Console:
-
-```{r, eval = FALSE}
-library(introverse) # this actives the intoverse help
-get_help("read_csv")
-```
-
-
-This gives you help that looks like this:
-
-
-```{r, echo=FALSE, out.width="70%"}
-knitr::include_graphics("ch_tidy_intro/images/screenshot_introverse_help.png")
-```
-
-
-Most importantly, when you scroll down on the introverse help pages - it gives you code examples that are easy to follow. If at any point during this course you want more information about how a command works use the introverse get_help() command. 
-
-The get_help() command is especially valuable because it tells you which package (of the many tidyverse packages) a particular command comes from. For example, you can see the read_csv() command is from the readr package when you inspect the introverse help above.
 
 ## Basic tidyverse commands
 
@@ -419,8 +372,7 @@ If we want to obtain the mean of all the columns that start with "t1" we use the
 ```{r}
 data_exp %>%
   summarise(across(.cols = starts_with("t1"), 
-                   .fns = mean,
-                   na.rm = TRUE)) 
+                   .fns = \(x) mean(x, na.rm = TRUE)))
 ```
 
 If you want to get more sophisticated, you can also add this .names argument below which tells R to call label each output mean by the column name followed by "_mean".
@@ -428,9 +380,7 @@ If you want to get more sophisticated, you can also add this .names argument bel
 ```{r}
 data_exp %>%
   summarise(across(.cols = starts_with("t1"), 
-                   .fns = mean,
-                   na.rm = TRUE,
-                   .names = "{col}_mean"))  
+                   .fns = \(x) mean(x, na.rm = TRUE))) 
 ```
 
 

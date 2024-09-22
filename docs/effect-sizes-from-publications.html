@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Effect sizes from publications | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Effect sizes from publications | Welcome!" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2023-09-23" />
+<meta name="date" content="2024-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,7 @@
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
+<link href="libs/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets/htmlwidgets.js"></script>
 <script src="libs/plotly-binding/plotly.js"></script>
 <script src="libs/typedarray/typedarray.min.js"></script>
@@ -63,7 +64,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -135,6 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -227,28 +229,27 @@ div.csl-indent {
 <li class="chapter" data-level="2.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#required"><i class="fa fa-check"></i><b>2.1</b> Required</a></li>
 <li class="chapter" data-level="2.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#objective"><i class="fa fa-check"></i><b>2.2</b> Objective</a></li>
 <li class="chapter" data-level="2.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#using-the-console"><i class="fa fa-check"></i><b>2.3</b> Using the Console</a></li>
-<li class="chapter" data-level="2.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#tidyverse-help-with-the-introverse"><i class="fa fa-check"></i><b>2.4</b> Tidyverse help with the Introverse</a></li>
-<li class="chapter" data-level="2.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#basic-tidyverse-commands"><i class="fa fa-check"></i><b>2.5</b> Basic tidyverse commands</a>
+<li class="chapter" data-level="2.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#basic-tidyverse-commands"><i class="fa fa-check"></i><b>2.4</b> Basic tidyverse commands</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#decimals"><i class="fa fa-check"></i><b>2.5.1</b> decimals</a></li>
-<li class="chapter" data-level="2.5.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select"><i class="fa fa-check"></i><b>2.5.2</b> select()</a></li>
-<li class="chapter" data-level="2.5.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>2.5.3</b> summarise()</a></li>
-<li class="chapter" data-level="2.5.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#filter"><i class="fa fa-check"></i><b>2.5.4</b> filter()</a></li>
-<li class="chapter" data-level="2.5.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>2.5.5</b> group_by()</a></li>
-<li class="chapter" data-level="2.5.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>2.5.6</b> mutate()</a></li>
+<li class="chapter" data-level="2.4.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#decimals"><i class="fa fa-check"></i><b>2.4.1</b> decimals</a></li>
+<li class="chapter" data-level="2.4.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select"><i class="fa fa-check"></i><b>2.4.2</b> select()</a></li>
+<li class="chapter" data-level="2.4.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise"><i class="fa fa-check"></i><b>2.4.3</b> summarise()</a></li>
+<li class="chapter" data-level="2.4.4" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#filter"><i class="fa fa-check"></i><b>2.4.4</b> filter()</a></li>
+<li class="chapter" data-level="2.4.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#group_by"><i class="fa fa-check"></i><b>2.4.5</b> group_by()</a></li>
+<li class="chapter" data-level="2.4.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate"><i class="fa fa-check"></i><b>2.4.6</b> mutate()</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#advanced-tidyverse-commands"><i class="fa fa-check"></i><b>2.6</b> Advanced tidyverse commands</a>
+<li class="chapter" data-level="2.5" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#advanced-tidyverse-commands"><i class="fa fa-check"></i><b>2.5</b> Advanced tidyverse commands</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select-1"><i class="fa fa-check"></i><b>2.6.1</b> select()</a></li>
-<li class="chapter" data-level="2.6.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise-1"><i class="fa fa-check"></i><b>2.6.2</b> summarise()</a></li>
-<li class="chapter" data-level="2.6.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate-1"><i class="fa fa-check"></i><b>2.6.3</b> mutate()</a></li>
+<li class="chapter" data-level="2.5.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#select-1"><i class="fa fa-check"></i><b>2.5.1</b> select()</a></li>
+<li class="chapter" data-level="2.5.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#summarise-1"><i class="fa fa-check"></i><b>2.5.2</b> summarise()</a></li>
+<li class="chapter" data-level="2.5.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#mutate-1"><i class="fa fa-check"></i><b>2.5.3</b> mutate()</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#using-help"><i class="fa fa-check"></i><b>2.7</b> Using help</a></li>
-<li class="chapter" data-level="2.8" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#base-r-vs-tidyverse"><i class="fa fa-check"></i><b>2.8</b> Base R vs tidyverse</a>
+<li class="chapter" data-level="2.6" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#using-help"><i class="fa fa-check"></i><b>2.6</b> Using help</a></li>
+<li class="chapter" data-level="2.7" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#base-r-vs-tidyverse"><i class="fa fa-check"></i><b>2.7</b> Base R vs tidyverse</a>
 <ul>
-<li class="chapter" data-level="2.8.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#tibbles-vs.-data-frames"><i class="fa fa-check"></i><b>2.8.1</b> Tibbles vs. data frames</a></li>
-<li class="chapter" data-level="2.8.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read.csv-and-data-frames"><i class="fa fa-check"></i><b>2.8.2</b> read.csv() and data frames</a></li>
-<li class="chapter" data-level="2.8.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read_csv-and-tibbles"><i class="fa fa-check"></i><b>2.8.3</b> read_csv() and tibbles</a></li>
+<li class="chapter" data-level="2.7.1" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#tibbles-vs.-data-frames"><i class="fa fa-check"></i><b>2.7.1</b> Tibbles vs. data frames</a></li>
+<li class="chapter" data-level="2.7.2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read.csv-and-data-frames"><i class="fa fa-check"></i><b>2.7.2</b> read.csv() and data frames</a></li>
+<li class="chapter" data-level="2.7.3" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html#read_csv-and-tibbles"><i class="fa fa-check"></i><b>2.7.3</b> read_csv() and tibbles</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="graphing.html"><a href="graphing.html"><i class="fa fa-check"></i><b>3</b> Graphing</a>
@@ -888,8 +889,8 @@ div.csl-indent {
 <div id="reported-d-value-no-confidence-interval" class="section level5 hasAnchor" number="9.3.1.1.1">
 <h5><span class="header-section-number">9.3.1.1.1</span> Reported <span class="math inline">\(d\)</span>-value no confidence interval<a href="effect-sizes-from-publications.html#reported-d-value-no-confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Scenario: A researcher reports a <span class="math inline">\(d\)</span>-value of 1.67 in their article and that each condition has 50 people. The researcher believed that the intervention would only influence means and not standard deviations and used a pooled-variance <span class="math inline">\(d\)</span>-value. They did not report a confidence interval. We can calculate a confidence interval for the independent groups <span class="math inline">\(d\)</span>-value (pooled variance) with the command below:</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="effect-sizes-from-publications.html#cb364-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb364-2"><a href="effect-sizes-from-publications.html#cb364-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">sm =</span> <span class="fl">1.67</span>, <span class="at">n.1 =</span> <span class="dv">50</span>, <span class="at">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="effect-sizes-from-publications.html#cb360-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb360-2"><a href="effect-sizes-from-publications.html#cb360-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">sm =</span> <span class="fl">1.67</span>, <span class="at">n.1 =</span> <span class="dv">50</span>, <span class="at">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 1.211
 ## 
@@ -903,17 +904,17 @@ div.csl-indent {
 <div id="using-cell-means-only" class="section level5 hasAnchor" number="9.3.1.1.2">
 <h5><span class="header-section-number">9.3.1.1.2</span> Using cell means only<a href="effect-sizes-from-publications.html#using-cell-means-only" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Scenario: A researcher does not report a <span class="math inline">\(d\)</span>-value but indicates the descriptive statistics for the groups. For the first group <span class="math inline">\(M\)</span> = 5.00, <span class="math inline">\(SD\)</span> = 1.20, and <span class="math inline">\(n\)</span> = 50. For the second group, <span class="math inline">\(M\)</span> = 3.00, <span class="math inline">\(SD\)</span> = 1.00, and <span class="math inline">\(n\)</span> = 50. We can calculate the standardized mean difference (i.e., independent groups <span class="math inline">\(d\)</span>-value) using the command below:</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="effect-sizes-from-publications.html#cb366-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb366-2"><a href="effect-sizes-from-publications.html#cb366-2" tabindex="-1"></a><span class="fu">smd</span>(<span class="at">Mean.1 =</span> <span class="dv">5</span>,</span>
-<span id="cb366-3"><a href="effect-sizes-from-publications.html#cb366-3" tabindex="-1"></a>    <span class="at">s.1 =</span> <span class="fl">1.2</span>, </span>
-<span id="cb366-4"><a href="effect-sizes-from-publications.html#cb366-4" tabindex="-1"></a>    <span class="at">n.1 =</span> <span class="dv">50</span>, </span>
-<span id="cb366-5"><a href="effect-sizes-from-publications.html#cb366-5" tabindex="-1"></a>    <span class="at">Mean.2 =</span> <span class="dv">3</span>, </span>
-<span id="cb366-6"><a href="effect-sizes-from-publications.html#cb366-6" tabindex="-1"></a>    <span class="at">s.2 =</span> <span class="fl">1.0</span>, </span>
-<span id="cb366-7"><a href="effect-sizes-from-publications.html#cb366-7" tabindex="-1"></a>    <span class="at">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="effect-sizes-from-publications.html#cb362-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb362-2"><a href="effect-sizes-from-publications.html#cb362-2" tabindex="-1"></a><span class="fu">smd</span>(<span class="at">Mean.1 =</span> <span class="dv">5</span>,</span>
+<span id="cb362-3"><a href="effect-sizes-from-publications.html#cb362-3" tabindex="-1"></a>    <span class="at">s.1 =</span> <span class="fl">1.2</span>, </span>
+<span id="cb362-4"><a href="effect-sizes-from-publications.html#cb362-4" tabindex="-1"></a>    <span class="at">n.1 =</span> <span class="dv">50</span>, </span>
+<span id="cb362-5"><a href="effect-sizes-from-publications.html#cb362-5" tabindex="-1"></a>    <span class="at">Mean.2 =</span> <span class="dv">3</span>, </span>
+<span id="cb362-6"><a href="effect-sizes-from-publications.html#cb362-6" tabindex="-1"></a>    <span class="at">s.2 =</span> <span class="fl">1.0</span>, </span>
+<span id="cb362-7"><a href="effect-sizes-from-publications.html#cb362-7" tabindex="-1"></a>    <span class="at">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## [1] 1.811</code></pre>
 <p>Our sample estimate of <span class="math inline">\(\delta\)</span> is <span class="math inline">\(d\)</span> = 1.81. The 95% confidence interval is obtained below:</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="effect-sizes-from-publications.html#cb368-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb368-2"><a href="effect-sizes-from-publications.html#cb368-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">sm =</span> <span class="fl">1.81</span>, <span class="at">n.1 =</span> <span class="dv">50</span>, <span class="at">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="effect-sizes-from-publications.html#cb364-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb364-2"><a href="effect-sizes-from-publications.html#cb364-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">sm =</span> <span class="fl">1.81</span>, <span class="at">n.1 =</span> <span class="dv">50</span>, <span class="at">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 1.34
 ## 
@@ -944,8 +945,8 @@ df &amp;= n_1 + n_2 - 2
 50 &amp;= n \\
 \end{aligned}
 \]</span></p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="effect-sizes-from-publications.html#cb370-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb370-2"><a href="effect-sizes-from-publications.html#cb370-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">ncp =</span> <span class="fl">8.30</span>, <span class="at">n.1 =</span> <span class="dv">50</span>, <span class="at">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="effect-sizes-from-publications.html#cb366-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb366-2"><a href="effect-sizes-from-publications.html#cb366-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">ncp =</span> <span class="fl">8.30</span>, <span class="at">n.1 =</span> <span class="dv">50</span>, <span class="at">n.2 =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 1.201
 ## 
@@ -959,8 +960,8 @@ df &amp;= n_1 + n_2 - 2
 <div id="t-unequal-group-sizes" class="section level5 hasAnchor" number="9.3.1.1.4">
 <h5><span class="header-section-number">9.3.1.1.4</span> t: Unequal group sizes<a href="effect-sizes-from-publications.html#t-unequal-group-sizes" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Scenario: A researcher does not report a <span class="math inline">\(d\)</span>-value or descriptive statistics. Fortunately, the researcher did report the <span class="math inline">\(t\)</span>-value, <span class="math inline">\(t\)</span>(98) = 9.36, and the fact that the groups had 65 and 35 people. After reading the article you believe the intervention is only likely to affect the means of the groups and not the variances - so a pooled variance term for the denominator of the <span class="math inline">\(d\)</span>-value is appropriate. We can use the information provided to calculate a <span class="math inline">\(d\)</span>-value and confidence interval.</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="effect-sizes-from-publications.html#cb372-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb372-2"><a href="effect-sizes-from-publications.html#cb372-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">ncp =</span> <span class="fl">9.36</span>, <span class="at">n.1 =</span> <span class="dv">65</span>, <span class="at">n.2 =</span> <span class="dv">35</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="effect-sizes-from-publications.html#cb368-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb368-2"><a href="effect-sizes-from-publications.html#cb368-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">ncp =</span> <span class="fl">9.36</span>, <span class="at">n.1 =</span> <span class="dv">65</span>, <span class="at">n.2 =</span> <span class="dv">35</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 1.465
 ## 
@@ -978,8 +979,8 @@ df &amp;= n_1 + n_2 - 2
 <div id="reported-d-value-no-confidence-interval-1" class="section level5 hasAnchor" number="9.3.1.2.1">
 <h5><span class="header-section-number">9.3.1.2.1</span> Reported <span class="math inline">\(d\)</span>-value no confidence interval<a href="effect-sizes-from-publications.html#reported-d-value-no-confidence-interval-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Scenario: A researcher reports a <span class="math inline">\(d\)</span>-value of 0.85 in their article and that each condition has 50 people. The researcher believed that the intervention would influence both means and standard deviations. Therefore, when they calculated the <span class="math inline">\(d\)</span>-value they used the standard deviation of a single group (the control group). We can calculate a confidence interval for the independent groups <span class="math inline">\(d\)</span>-value (control group variance) with the command below:</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="effect-sizes-from-publications.html#cb374-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb374-2"><a href="effect-sizes-from-publications.html#cb374-2" tabindex="-1"></a><span class="fu">ci.smd.c</span>(<span class="at">smd.c =</span> <span class="fl">0.85</span>, <span class="at">n.C =</span> <span class="dv">50</span>, <span class="at">n.E =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="effect-sizes-from-publications.html#cb370-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb370-2"><a href="effect-sizes-from-publications.html#cb370-2" tabindex="-1"></a><span class="fu">ci.smd.c</span>(<span class="at">smd.c =</span> <span class="fl">0.85</span>, <span class="at">n.C =</span> <span class="dv">50</span>, <span class="at">n.E =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd.c
 ## [1] 0.4199
 ## 
@@ -993,15 +994,15 @@ df &amp;= n_1 + n_2 - 2
 <div id="using-cell-means" class="section level5 hasAnchor" number="9.3.1.2.2">
 <h5><span class="header-section-number">9.3.1.2.2</span> Using cell means<a href="effect-sizes-from-publications.html#using-cell-means" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Scenario: A researcher does not report a <span class="math inline">\(d\)</span>-value but indicates the descriptive statistics for the groups. For the experimental group <span class="math inline">\(M\)</span> = 5.00, <span class="math inline">\(SD\)</span> = 1.20, and <span class="math inline">\(n\)</span> = 50. For the control group, <span class="math inline">\(M\)</span> = 3.00, <span class="math inline">\(SD\)</span> = 1.40, and <span class="math inline">\(n\)</span> = 50. After reading the article you believe that intervention might well influence both means and standard deviations. Therefore, you think a control group standard deviation should be the frame of reference for the <span class="math inline">\(d\)</span>-value. You can calculate the standardized mean difference (i.e., independent groups <span class="math inline">\(d\)</span>-value) using the command below:</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="effect-sizes-from-publications.html#cb376-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb376-2"><a href="effect-sizes-from-publications.html#cb376-2" tabindex="-1"></a><span class="fu">smd.c</span>(<span class="at">Mean.T =</span> <span class="dv">5</span>,</span>
-<span id="cb376-3"><a href="effect-sizes-from-publications.html#cb376-3" tabindex="-1"></a>    <span class="at">Mean.C =</span> <span class="dv">3</span>, </span>
-<span id="cb376-4"><a href="effect-sizes-from-publications.html#cb376-4" tabindex="-1"></a>    <span class="at">s.C =</span> <span class="fl">1.4</span>, </span>
-<span id="cb376-5"><a href="effect-sizes-from-publications.html#cb376-5" tabindex="-1"></a>    <span class="at">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="effect-sizes-from-publications.html#cb372-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb372-2"><a href="effect-sizes-from-publications.html#cb372-2" tabindex="-1"></a><span class="fu">smd.c</span>(<span class="at">Mean.T =</span> <span class="dv">5</span>,</span>
+<span id="cb372-3"><a href="effect-sizes-from-publications.html#cb372-3" tabindex="-1"></a>    <span class="at">Mean.C =</span> <span class="dv">3</span>, </span>
+<span id="cb372-4"><a href="effect-sizes-from-publications.html#cb372-4" tabindex="-1"></a>    <span class="at">s.C =</span> <span class="fl">1.4</span>, </span>
+<span id="cb372-5"><a href="effect-sizes-from-publications.html#cb372-5" tabindex="-1"></a>    <span class="at">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## [1] 1.429</code></pre>
 <p>The confidence interval can be obtained with the command:</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="effect-sizes-from-publications.html#cb378-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb378-2"><a href="effect-sizes-from-publications.html#cb378-2" tabindex="-1"></a><span class="fu">ci.smd.c</span>(<span class="at">smd.c =</span> <span class="fl">1.43</span>, <span class="at">n.E =</span> <span class="dv">50</span>, <span class="at">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="effect-sizes-from-publications.html#cb374-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb374-2"><a href="effect-sizes-from-publications.html#cb374-2" tabindex="-1"></a><span class="fu">ci.smd.c</span>(<span class="at">smd.c =</span> <span class="fl">1.43</span>, <span class="at">n.E =</span> <span class="dv">50</span>, <span class="at">n.C =</span> <span class="dv">50</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd.c
 ## [1] 0.942
 ## 
@@ -1025,8 +1026,8 @@ d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}
 <div id="reported-repeated-d-value-no-confidence-interval" class="section level4 hasAnchor" number="9.3.2.1">
 <h4><span class="header-section-number">9.3.2.1</span> Reported repeated <span class="math inline">\(d\)</span>-value, no confidence interval<a href="effect-sizes-from-publications.html#reported-repeated-d-value-no-confidence-interval" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Scenario: A researcher reports a repeated-measures <span class="math inline">\(d\)</span> = .50 and <span class="math inline">\(n\)</span> = 150. The 95% confidence interval for this <span class="math inline">\(d\)</span>-value (i.e., standardized mean difference) can be obtained with the command below.</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="effect-sizes-from-publications.html#cb380-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb380-2"><a href="effect-sizes-from-publications.html#cb380-2" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">sm =</span> .<span class="dv">50</span>, <span class="at">N =</span> <span class="dv">150</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="effect-sizes-from-publications.html#cb376-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb376-2"><a href="effect-sizes-from-publications.html#cb376-2" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">sm =</span> .<span class="dv">50</span>, <span class="at">N =</span> <span class="dv">150</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
 ## [1] 0.3295
 ## 
@@ -1050,8 +1051,8 @@ d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}\\
 \end{aligned}
 \]</span>
 We tend to always report <span class="math inline">\(d\)</span>-values as positive values so <span class="math inline">\(d\)</span> = .50. We can get a confidence interval around this value with the code below.</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="effect-sizes-from-publications.html#cb382-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb382-2"><a href="effect-sizes-from-publications.html#cb382-2" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">sm =</span> .<span class="dv">5</span>, <span class="at">N =</span><span class="dv">150</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="effect-sizes-from-publications.html#cb378-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb378-2"><a href="effect-sizes-from-publications.html#cb378-2" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">sm =</span> .<span class="dv">5</span>, <span class="at">N =</span><span class="dv">150</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
 ## [1] 0.3295
 ## 
@@ -1109,8 +1110,8 @@ d &amp; = \frac{\bar{x}_{diff}}{s_{diff}}\\
 \end{aligned}
 \]</span>
 The <span class="math inline">\(d\)</span>-value is 2.22 but we need a confidence interval:</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="effect-sizes-from-publications.html#cb384-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb384-2"><a href="effect-sizes-from-publications.html#cb384-2" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">sm =</span> <span class="fl">2.22</span>, <span class="at">N =</span><span class="dv">100</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="effect-sizes-from-publications.html#cb380-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb380-2"><a href="effect-sizes-from-publications.html#cb380-2" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">sm =</span> <span class="fl">2.22</span>, <span class="at">N =</span><span class="dv">100</span>) </span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
 ## [1] 1.852
 ## 
@@ -1133,9 +1134,9 @@ df &amp;= N - 1 \\
 \end{aligned}
 \]</span></p>
 <p>We can use the N and <span class="math inline">\(t\)</span>-value to calculate the <span class="math inline">\(d\)</span>-value and CI using the command:</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="effect-sizes-from-publications.html#cb386-1" tabindex="-1"></a><span class="co"># t-value for repeated measures if </span></span>
-<span id="cb386-2"><a href="effect-sizes-from-publications.html#cb386-2" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb386-3"><a href="effect-sizes-from-publications.html#cb386-3" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">ncp =</span> <span class="fl">6.23</span>, <span class="at">N =</span> <span class="dv">41</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="effect-sizes-from-publications.html#cb382-1" tabindex="-1"></a><span class="co"># t-value for repeated measures if </span></span>
+<span id="cb382-2"><a href="effect-sizes-from-publications.html#cb382-2" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb382-3"><a href="effect-sizes-from-publications.html#cb382-3" tabindex="-1"></a><span class="fu">ci.sm</span>(<span class="at">ncp =</span> <span class="fl">6.23</span>, <span class="at">N =</span> <span class="dv">41</span>)</span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.Standardized.Mean
 ## [1] 0.5962
 ## 
@@ -1153,8 +1154,8 @@ df &amp;= N - 1 \\
 <div id="a-single-correlation" class="section level3 hasAnchor" number="9.4.1">
 <h3><span class="header-section-number">9.4.1</span> A single correlation<a href="effect-sizes-from-publications.html#a-single-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Correlations are frequently reported in the literature. Less common, however, is the reporting of confidence intervals for those correlations. A confidence interval for a reported correlations (e.g., <span class="math inline">\(r\)</span> = .40) can be obtained if you also have the sample size (<span class="math inline">\(n\)</span> = 200) with the command below:</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="effect-sizes-from-publications.html#cb388-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb388-2"><a href="effect-sizes-from-publications.html#cb388-2" tabindex="-1"></a><span class="fu">ci.cc</span>(<span class="at">r =</span> .<span class="dv">40</span>, <span class="at">n =</span> <span class="dv">200</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="effect-sizes-from-publications.html#cb384-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb384-2"><a href="effect-sizes-from-publications.html#cb384-2" tabindex="-1"></a><span class="fu">ci.cc</span>(<span class="at">r =</span> .<span class="dv">40</span>, <span class="at">n =</span> <span class="dv">200</span>)</span></code></pre></div>
 <pre><code>## $Lower.Limit
 ## [1] 0.2766
 ## 
@@ -1177,8 +1178,8 @@ df &amp;= N - 1 \\
 \end{aligned}
 \]</span>
 You can obtain a confidence interval for this difference between correlations using the code below. Note, however, that this code applies only when the two correlations are from different samples. If the correlations are from the same sample the code is more complex but possible - see the cocor package documentation for details. The code for obtaining the confidence interval for the difference between these two correlations from different samples is below. Examine the last part of the output labeled zou2007.</p>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="effect-sizes-from-publications.html#cb390-1" tabindex="-1"></a><span class="fu">library</span>(cocor)</span>
-<span id="cb390-2"><a href="effect-sizes-from-publications.html#cb390-2" tabindex="-1"></a><span class="fu">cocor.indep.groups</span>(<span class="at">r1.jk =</span> .<span class="dv">51</span>, <span class="at">r2.hm =</span> .<span class="dv">32</span>, <span class="at">n1 =</span> <span class="dv">300</span>, <span class="at">n2 =</span> <span class="dv">400</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="effect-sizes-from-publications.html#cb386-1" tabindex="-1"></a><span class="fu">library</span>(cocor)</span>
+<span id="cb386-2"><a href="effect-sizes-from-publications.html#cb386-2" tabindex="-1"></a><span class="fu">cocor.indep.groups</span>(<span class="at">r1.jk =</span> .<span class="dv">51</span>, <span class="at">r2.hm =</span> .<span class="dv">32</span>, <span class="at">n1 =</span> <span class="dv">300</span>, <span class="at">n2 =</span> <span class="dv">400</span>)</span></code></pre></div>
 <pre><code>## 
 ##   Results of a comparison of two correlations based on independent groups
 ## 
