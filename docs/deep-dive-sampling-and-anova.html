@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2024-09-22" />
+<meta name="date" content="2024-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,7 +74,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -1224,15 +1224,15 @@ FIGURE 21.2: Sampling from one population
 </div>
 <p>The simplest scenario to understand the estimation formulas we have discussed is the one illustrated in Figure <a href="deep-dive-sampling-and-anova.html#fig:sim1pop">21.2</a> above. In this scenario, we obtain 3 samples from the population of people and then used that data to <strong>estimate</strong> the variance of the distribution of sample means using Approach 1 and Approach 2. Then we create a ratio of those two values (Approach 1/Approach 2). Each additional row of the table shows a case where we did this same thing with three new samples.</p>
 <p>We begin by creating the population in R:</p>
-<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="deep-dive-sampling-and-anova.html#cb767-1" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
-<span id="cb767-2"><a href="deep-dive-sampling-and-anova.html#cb767-2" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="deep-dive-sampling-and-anova.html#cb763-1" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
+<span id="cb763-2"><a href="deep-dive-sampling-and-anova.html#cb763-2" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span></code></pre></div>
 <p>Then we run a simulation where we estimate the variance using the distribution of sample means using the information in the three sample via Approach 1 and Approach 2. We repeat this estimation process 100,000 times to see if it is accurate in the long run.</p>
-<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="deep-dive-sampling-and-anova.html#cb768-1" tabindex="-1"></a>data_ratios <span class="ot">&lt;-</span> <span class="fu">get_mean_samples_ratio</span>(pop1,</span>
-<span id="cb768-2"><a href="deep-dive-sampling-and-anova.html#cb768-2" tabindex="-1"></a>                                      <span class="at">a =</span> <span class="dv">3</span>,</span>
-<span id="cb768-3"><a href="deep-dive-sampling-and-anova.html#cb768-3" tabindex="-1"></a>                                      <span class="at">n =</span> <span class="dv">5</span>,</span>
-<span id="cb768-4"><a href="deep-dive-sampling-and-anova.html#cb768-4" tabindex="-1"></a>                                      <span class="at">number.of.trials =</span> <span class="dv">100000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="deep-dive-sampling-and-anova.html#cb764-1" tabindex="-1"></a>data_ratios <span class="ot">&lt;-</span> <span class="fu">get_mean_samples_ratio</span>(pop1,</span>
+<span id="cb764-2"><a href="deep-dive-sampling-and-anova.html#cb764-2" tabindex="-1"></a>                                      <span class="at">a =</span> <span class="dv">3</span>,</span>
+<span id="cb764-3"><a href="deep-dive-sampling-and-anova.html#cb764-3" tabindex="-1"></a>                                      <span class="at">n =</span> <span class="dv">5</span>,</span>
+<span id="cb764-4"><a href="deep-dive-sampling-and-anova.html#cb764-4" tabindex="-1"></a>                                      <span class="at">number.of.trials =</span> <span class="dv">100000</span>)</span></code></pre></div>
 <p>The results of the 100,000 simulations are placed in the data set called data_ratios. We can see the first few rows of these data below.</p>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="deep-dive-sampling-and-anova.html#cb769-1" tabindex="-1"></a><span class="fu">head</span>(data_ratios)</span></code></pre></div>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="deep-dive-sampling-and-anova.html#cb765-1" tabindex="-1"></a><span class="fu">head</span>(data_ratios)</span></code></pre></div>
 <pre><code>##   trial app_1_total_var_est app_2_clt_est var_ratio
 ## 1     1               38.89         54.17    0.7180
 ## 2     2               20.57         18.77    1.0963
@@ -1242,8 +1242,8 @@ FIGURE 21.2: Sampling from one population
 ## 6     6               21.33         19.64    1.0862</code></pre>
 <p>When you inspect the table above, recognize that for the first row of the table we obtained 3 random samples from the population of people and then used that data to <strong>estimate</strong> the variance of the sampling distribution of means using Approach 1 and Approach 2 (approach_1_total_var_est and approach_2_clt_est, respectively). Then we created a ratio of those two values (approach_1_var_est/approach_2_clt_est) and placed that in the table (var_ratio). Each additional row of table shows a case were were did this same thing with three new samples. There are a total of 100,000 rows in this table.</p>
 <p>We obtain the summary statistics with the skim command:</p>
-<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="deep-dive-sampling-and-anova.html#cb771-1" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb771-2"><a href="deep-dive-sampling-and-anova.html#cb771-2" tabindex="-1"></a><span class="fu">skim</span>(data_ratios)</span></code></pre></div>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="deep-dive-sampling-and-anova.html#cb767-1" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb767-2"><a href="deep-dive-sampling-and-anova.html#cb767-2" tabindex="-1"></a><span class="fu">skim</span>(data_ratios)</span></code></pre></div>
 <p><img src="ch_deep_sampling/images/skim_screenshot.png" width="90%" /></p>
 <p>Recall that previously, we used Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarCLTxbardeep">(21.5)</a> to calculate <span class="math inline">\(\sigma_{\bar{x}}^2 = 31.26472\)</span>. Each row in the table above presents two estimates (i.e., <span class="math inline">\(s_{\bar{x}}^2\)</span>) of <span class="math inline">\(\sigma_{\bar{x}}^2\)</span>. You can see that the Approach 1 approach for obtaining <span class="math inline">\(s_{\bar{x}}^2\)</span> was on average correct becase of the 31.3 value in the blue box. Likewise, you can see that the Approach 2 approach for obtaining <span class="math inline">\(s_{\bar{x}}^2\)</span> was on average correct because of the 31.3 value in the blue box.</p>
 <p><strong>Graphing the ratios.</strong> Although each estimate was <strong>on average correct</strong>, the two estimates were not always the same. Recall we compared the two estimates by making a ratio. Due to random sampling error on some trials the numerator of the ratio was larger and on other trials the denominator of the ratio was larger. As a result, on some trials the ratio was larger than 1.0 and on other trials the ratio was smaller than 1.0.</p>
@@ -1303,17 +1303,17 @@ FIGURE 21.4: Sampling from three populations with the same mean (and variance)
 </table>
 <p>In this section, instead of using one population, we use three identical populations. That is, <span class="math inline">\(a = 3\)</span>. We use <span class="math inline">\(A1\)</span>, <span class="math inline">\(A2\)</span>, and <span class="math inline">\(A3\)</span> to refer to these three identical populations.</p>
 <p>You will see in this section that when you have three identical populations of people, see Figure <a href="deep-dive-sampling-and-anova.html#fig:sim3pop">21.4</a>, that the results are the same as when you have one population of people. We simulate the situation illustrated in the figure above. We start by creating three identical populations of people.</p>
-<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="deep-dive-sampling-and-anova.html#cb772-1" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
-<span id="cb772-2"><a href="deep-dive-sampling-and-anova.html#cb772-2" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
-<span id="cb772-3"><a href="deep-dive-sampling-and-anova.html#cb772-3" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> pop1</span>
-<span id="cb772-4"><a href="deep-dive-sampling-and-anova.html#cb772-4" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> pop1</span></code></pre></div>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="deep-dive-sampling-and-anova.html#cb768-1" tabindex="-1"></a><span class="fu">library</span>(learnSampling)</span>
+<span id="cb768-2"><a href="deep-dive-sampling-and-anova.html#cb768-2" tabindex="-1"></a>pop1 <span class="ot">&lt;-</span> <span class="fu">make_population</span>(<span class="at">mean =</span> <span class="fl">172.50</span>, <span class="at">variance =</span> <span class="fl">156.3236</span>)</span>
+<span id="cb768-3"><a href="deep-dive-sampling-and-anova.html#cb768-3" tabindex="-1"></a>pop2 <span class="ot">&lt;-</span> pop1</span>
+<span id="cb768-4"><a href="deep-dive-sampling-and-anova.html#cb768-4" tabindex="-1"></a>pop3 <span class="ot">&lt;-</span> pop1</span></code></pre></div>
 <p>Then, we obtain a sample from each population of people and calculate a sample mean. When we use Approach 1: Total variance we think of these three sample means as being a random sample (<span class="math inline">\(a = 3\)</span>) of the infinite distribution of sample means (<span class="math inline">\(K = \infty\)</span>). The variance of the three sample means is an estimate of the variance of the distribution of sample means. When we use Approach 2: CLT Shortcut we use the people from the three sample to estimate the variance of the population of people. We use our estimate of the variance of the population of people in the Approach 2: CLT Shortcut formula to estimate the variance of the distribution of sample means. Then we calculate the ratio of Approach 1: Total variance divided by Approach 2: CLT Shortcut.</p>
 <p><strong>Then we repeat this process 100,000 times to see how well this process works on average - via the R commands below.</strong></p>
-<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="deep-dive-sampling-and-anova.html#cb773-1" tabindex="-1"></a>data_ratios3 <span class="ot">&lt;-</span> <span class="fu">get_mean_samples_ratio</span>(pop1, pop2, pop3,</span>
-<span id="cb773-2"><a href="deep-dive-sampling-and-anova.html#cb773-2" tabindex="-1"></a>                                       <span class="at">n =</span> <span class="dv">5</span>,</span>
-<span id="cb773-3"><a href="deep-dive-sampling-and-anova.html#cb773-3" tabindex="-1"></a>                                       <span class="at">number.of.trials =</span> <span class="dv">100000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="deep-dive-sampling-and-anova.html#cb769-1" tabindex="-1"></a>data_ratios3 <span class="ot">&lt;-</span> <span class="fu">get_mean_samples_ratio</span>(pop1, pop2, pop3,</span>
+<span id="cb769-2"><a href="deep-dive-sampling-and-anova.html#cb769-2" tabindex="-1"></a>                                       <span class="at">n =</span> <span class="dv">5</span>,</span>
+<span id="cb769-3"><a href="deep-dive-sampling-and-anova.html#cb769-3" tabindex="-1"></a>                                       <span class="at">number.of.trials =</span> <span class="dv">100000</span>)</span></code></pre></div>
 <p>The results of the 100,000 simulations are placed in the data set called data_ratios3. We can see the first few rows of these data below.</p>
-<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="deep-dive-sampling-and-anova.html#cb774-1" tabindex="-1"></a><span class="fu">head</span>(data_ratios3)</span></code></pre></div>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="deep-dive-sampling-and-anova.html#cb770-1" tabindex="-1"></a><span class="fu">head</span>(data_ratios3)</span></code></pre></div>
 <pre><code>##   trial app_1_total_var_est app_2_clt_est var_ratio
 ## 1     1             117.973         34.20   3.44951
 ## 2     2              45.853         44.61   1.02795
@@ -1323,8 +1323,8 @@ FIGURE 21.4: Sampling from three populations with the same mean (and variance)
 ## 6     6              84.853         21.42   3.96141</code></pre>
 <p>In the first row of the above table we obtained 3 samples (one from each population) and then used that data to <strong>estimate</strong> the variance of the sampling distribution of means using Approach 1 and Approach 2. Then we create a ratio of those two values (Approach 1/Approach 2). Each additional row of table shows a case where were did this same thing with three new samples. There are a total of 100,000 rows in this table.</p>
 <p>We obtain the summary statistics with the skim command:</p>
-<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="deep-dive-sampling-and-anova.html#cb776-1" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb776-2"><a href="deep-dive-sampling-and-anova.html#cb776-2" tabindex="-1"></a><span class="fu">skim</span>(data_ratios3)</span></code></pre></div>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="deep-dive-sampling-and-anova.html#cb772-1" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb772-2"><a href="deep-dive-sampling-and-anova.html#cb772-2" tabindex="-1"></a><span class="fu">skim</span>(data_ratios3)</span></code></pre></div>
 <p><img src="ch_deep_sampling/images/skim_screenshot_pop3.png" width="90%" /></p>
 <p>Recall that previously, we used Equation <a href="deep-dive-sampling-and-anova.html#eq:popvarCLTxbardeep">(21.5)</a> to calculate <span class="math inline">\(\sigma_{\bar{x}}^2 = 31.26472\)</span>. Each row in table above presents two estimates (i.e., <span class="math inline">\(s_{\bar{x}}^2\)</span>) of <span class="math inline">\(\sigma_{\bar{x}}^2\)</span>. You can see that the Approach 1 approach for obtaining <span class="math inline">\(s_{\bar{x}}^2\)</span> was on average correct becase of the 31.3 value in the green box. Likewise, you can see that the Approach 2 approach for obtaining <span class="math inline">\(s_{\bar{x}}^2\)</span> was on average correct because of the 31.3 value in the green box.</p>
 <p><strong>Graphing the ratios.</strong> Although each estimate was <strong>on average correct</strong>, the two estimates were not always the same. Recall we compared the two estimates by making a ratio. Due to random sampling error on some trials the numerator of the ratio was larger and on other trials the denominator of the ratio was larger. As a result, on some trials the ratio was larger than 1.0 and on other trials the ratio was smaller than 1.0.</p>
@@ -1354,17 +1354,17 @@ FIGURE 21.5: Variance ratio when there are three identical populations of people
 <li>the population means are the same</li>
 </ol>
 <p>When the above situation is the case, we will obtain an variance ratio above 3.88 only 5% of the time. We obtain this 3.88 value with the R-code below.</p>
-<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="deep-dive-sampling-and-anova.html#cb777-1" tabindex="-1"></a><span class="co"># sort the variance ratios smallest to largest</span></span>
-<span id="cb777-2"><a href="deep-dive-sampling-and-anova.html#cb777-2" tabindex="-1"></a>var_ratio3_sorted <span class="ot">&lt;-</span> <span class="fu">sort</span>(data_ratios3<span class="sc">$</span>var_ratio)</span>
-<span id="cb777-3"><a href="deep-dive-sampling-and-anova.html#cb777-3" tabindex="-1"></a></span>
-<span id="cb777-4"><a href="deep-dive-sampling-and-anova.html#cb777-4" tabindex="-1"></a><span class="co"># in order list, obtain the 95th percentile </span></span>
-<span id="cb777-5"><a href="deep-dive-sampling-and-anova.html#cb777-5" tabindex="-1"></a><span class="co"># values beyond this point are in the upper 5% of variances ratios</span></span>
-<span id="cb777-6"><a href="deep-dive-sampling-and-anova.html#cb777-6" tabindex="-1"></a><span class="co"># that occur when the population means are equal</span></span>
-<span id="cb777-7"><a href="deep-dive-sampling-and-anova.html#cb777-7" tabindex="-1"></a>extreme_cut_off3 <span class="ot">&lt;-</span> var_ratio3_sorted[<span class="dv">100000</span><span class="sc">*</span>.<span class="dv">95</span>]</span>
-<span id="cb777-8"><a href="deep-dive-sampling-and-anova.html#cb777-8" tabindex="-1"></a></span>
-<span id="cb777-9"><a href="deep-dive-sampling-and-anova.html#cb777-9" tabindex="-1"></a><span class="co"># round the result and print it</span></span>
-<span id="cb777-10"><a href="deep-dive-sampling-and-anova.html#cb777-10" tabindex="-1"></a>extreme_cut_off3 <span class="ot">&lt;-</span> <span class="fu">round</span>(extreme_cut_off3, <span class="dv">2</span>)</span>
-<span id="cb777-11"><a href="deep-dive-sampling-and-anova.html#cb777-11" tabindex="-1"></a><span class="fu">print</span>(extreme_cut_off3)</span></code></pre></div>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="deep-dive-sampling-and-anova.html#cb773-1" tabindex="-1"></a><span class="co"># sort the variance ratios smallest to largest</span></span>
+<span id="cb773-2"><a href="deep-dive-sampling-and-anova.html#cb773-2" tabindex="-1"></a>var_ratio3_sorted <span class="ot">&lt;-</span> <span class="fu">sort</span>(data_ratios3<span class="sc">$</span>var_ratio)</span>
+<span id="cb773-3"><a href="deep-dive-sampling-and-anova.html#cb773-3" tabindex="-1"></a></span>
+<span id="cb773-4"><a href="deep-dive-sampling-and-anova.html#cb773-4" tabindex="-1"></a><span class="co"># in order list, obtain the 95th percentile </span></span>
+<span id="cb773-5"><a href="deep-dive-sampling-and-anova.html#cb773-5" tabindex="-1"></a><span class="co"># values beyond this point are in the upper 5% of variances ratios</span></span>
+<span id="cb773-6"><a href="deep-dive-sampling-and-anova.html#cb773-6" tabindex="-1"></a><span class="co"># that occur when the population means are equal</span></span>
+<span id="cb773-7"><a href="deep-dive-sampling-and-anova.html#cb773-7" tabindex="-1"></a>extreme_cut_off3 <span class="ot">&lt;-</span> var_ratio3_sorted[<span class="dv">100000</span><span class="sc">*</span>.<span class="dv">95</span>]</span>
+<span id="cb773-8"><a href="deep-dive-sampling-and-anova.html#cb773-8" tabindex="-1"></a></span>
+<span id="cb773-9"><a href="deep-dive-sampling-and-anova.html#cb773-9" tabindex="-1"></a><span class="co"># round the result and print it</span></span>
+<span id="cb773-10"><a href="deep-dive-sampling-and-anova.html#cb773-10" tabindex="-1"></a>extreme_cut_off3 <span class="ot">&lt;-</span> <span class="fu">round</span>(extreme_cut_off3, <span class="dv">2</span>)</span>
+<span id="cb773-11"><a href="deep-dive-sampling-and-anova.html#cb773-11" tabindex="-1"></a><span class="fu">print</span>(extreme_cut_off3)</span></code></pre></div>
 <pre><code>## [1] 3.88</code></pre>
 </div>
 <div id="its-really-an-f-value" class="section level4 hasAnchor" number="21.8.2.2">

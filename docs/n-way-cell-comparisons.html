@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2024-09-22" />
+<meta name="date" content="2024-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,7 +74,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -866,24 +866,24 @@ div.csl-indent {
 <li>exploratory comparisons to investigate an interaction.</li>
 </ol>
 <p>Previously we conducted an N-way ANOVA, where juggling (yes/no) and preparation (low/medium/high) were used to predict calmness scores before an exam. The analysis we conducted is repeated below:</p>
-<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="n-way-cell-comparisons.html#cb803-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb803-2"><a href="n-way-cell-comparisons.html#cb803-2" tabindex="-1"></a><span class="fu">library</span>(apaTables)</span>
-<span id="cb803-3"><a href="n-way-cell-comparisons.html#cb803-3" tabindex="-1"></a></span>
-<span id="cb803-4"><a href="n-way-cell-comparisons.html#cb803-4" tabindex="-1"></a>nway_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_crf.csv&quot;</span>)</span>
-<span id="cb803-5"><a href="n-way-cell-comparisons.html#cb803-5" tabindex="-1"></a></span>
-<span id="cb803-6"><a href="n-way-cell-comparisons.html#cb803-6" tabindex="-1"></a><span class="co"># Turn character columns into factors</span></span>
-<span id="cb803-7"><a href="n-way-cell-comparisons.html#cb803-7" tabindex="-1"></a>nway_data  <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb803-8"><a href="n-way-cell-comparisons.html#cb803-8" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.character, as.factor)</span></code></pre></div>
+<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="n-way-cell-comparisons.html#cb799-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb799-2"><a href="n-way-cell-comparisons.html#cb799-2" tabindex="-1"></a><span class="fu">library</span>(apaTables)</span>
+<span id="cb799-3"><a href="n-way-cell-comparisons.html#cb799-3" tabindex="-1"></a></span>
+<span id="cb799-4"><a href="n-way-cell-comparisons.html#cb799-4" tabindex="-1"></a>nway_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_crf.csv&quot;</span>)</span>
+<span id="cb799-5"><a href="n-way-cell-comparisons.html#cb799-5" tabindex="-1"></a></span>
+<span id="cb799-6"><a href="n-way-cell-comparisons.html#cb799-6" tabindex="-1"></a><span class="co"># Turn character columns into factors</span></span>
+<span id="cb799-7"><a href="n-way-cell-comparisons.html#cb799-7" tabindex="-1"></a>nway_data  <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb799-8"><a href="n-way-cell-comparisons.html#cb799-8" tabindex="-1"></a>  <span class="fu">mutate_if</span>(is.character, as.factor)</span></code></pre></div>
 <p>Next we conduct the analysis:</p>
-<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="n-way-cell-comparisons.html#cb804-1" tabindex="-1"></a><span class="co"># set contrasts to values match SPSS</span></span>
-<span id="cb804-2"><a href="n-way-cell-comparisons.html#cb804-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">contrasts =</span> <span class="fu">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</span>
-<span id="cb804-3"><a href="n-way-cell-comparisons.html#cb804-3" tabindex="-1"></a></span>
-<span id="cb804-4"><a href="n-way-cell-comparisons.html#cb804-4" tabindex="-1"></a><span class="co"># Conduct analysis</span></span>
-<span id="cb804-5"><a href="n-way-cell-comparisons.html#cb804-5" tabindex="-1"></a>lm_nway <span class="ot">&lt;-</span> <span class="fu">lm</span>(calm <span class="sc">~</span> preparation<span class="sc">*</span>juggling, </span>
-<span id="cb804-6"><a href="n-way-cell-comparisons.html#cb804-6" tabindex="-1"></a>              <span class="at">data =</span> nway_data)</span></code></pre></div>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="n-way-cell-comparisons.html#cb800-1" tabindex="-1"></a><span class="co"># set contrasts to values match SPSS</span></span>
+<span id="cb800-2"><a href="n-way-cell-comparisons.html#cb800-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">contrasts =</span> <span class="fu">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</span>
+<span id="cb800-3"><a href="n-way-cell-comparisons.html#cb800-3" tabindex="-1"></a></span>
+<span id="cb800-4"><a href="n-way-cell-comparisons.html#cb800-4" tabindex="-1"></a><span class="co"># Conduct analysis</span></span>
+<span id="cb800-5"><a href="n-way-cell-comparisons.html#cb800-5" tabindex="-1"></a>lm_nway <span class="ot">&lt;-</span> <span class="fu">lm</span>(calm <span class="sc">~</span> preparation<span class="sc">*</span>juggling, </span>
+<span id="cb800-6"><a href="n-way-cell-comparisons.html#cb800-6" tabindex="-1"></a>              <span class="at">data =</span> nway_data)</span></code></pre></div>
 <p>Then we create the output using:</p>
-<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="n-way-cell-comparisons.html#cb805-1" tabindex="-1"></a><span class="fu">apa.aov.table</span>(lm_nway, </span>
-<span id="cb805-2"><a href="n-way-cell-comparisons.html#cb805-2" tabindex="-1"></a>              <span class="at">filename =</span> <span class="st">&quot;my_table.doc&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="n-way-cell-comparisons.html#cb801-1" tabindex="-1"></a><span class="fu">apa.aov.table</span>(lm_nway, </span>
+<span id="cb801-2"><a href="n-way-cell-comparisons.html#cb801-2" tabindex="-1"></a>              <span class="at">filename =</span> <span class="st">&quot;my_table.doc&quot;</span>)</span></code></pre></div>
 <p><img src="ch_deeper_nway/images/nway_table_clean.png" width="80%" /></p>
 </div>
 <div id="confirmatory-comparisons" class="section level2 hasAnchor" number="24.2">
@@ -897,16 +897,16 @@ div.csl-indent {
 <h4><span class="header-section-number">24.2.1.1</span> <span class="math inline">\(t\)</span>-test statistic<a href="n-way-cell-comparisons.html#t-test-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You could proceed as follows.</p>
 <p>Obtain the data for these two cells:</p>
-<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="n-way-cell-comparisons.html#cb806-1" tabindex="-1"></a>juggling_high_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb806-2"><a href="n-way-cell-comparisons.html#cb806-2" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb806-3"><a href="n-way-cell-comparisons.html#cb806-3" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;high&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb806-4"><a href="n-way-cell-comparisons.html#cb806-4" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span>
-<span id="cb806-5"><a href="n-way-cell-comparisons.html#cb806-5" tabindex="-1"></a></span>
-<span id="cb806-6"><a href="n-way-cell-comparisons.html#cb806-6" tabindex="-1"></a></span>
-<span id="cb806-7"><a href="n-way-cell-comparisons.html#cb806-7" tabindex="-1"></a>juggling_low_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb806-8"><a href="n-way-cell-comparisons.html#cb806-8" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb806-9"><a href="n-way-cell-comparisons.html#cb806-9" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;low&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb806-10"><a href="n-way-cell-comparisons.html#cb806-10" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span></code></pre></div>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="n-way-cell-comparisons.html#cb802-1" tabindex="-1"></a>juggling_high_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb802-2"><a href="n-way-cell-comparisons.html#cb802-2" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb802-3"><a href="n-way-cell-comparisons.html#cb802-3" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;high&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb802-4"><a href="n-way-cell-comparisons.html#cb802-4" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span>
+<span id="cb802-5"><a href="n-way-cell-comparisons.html#cb802-5" tabindex="-1"></a></span>
+<span id="cb802-6"><a href="n-way-cell-comparisons.html#cb802-6" tabindex="-1"></a></span>
+<span id="cb802-7"><a href="n-way-cell-comparisons.html#cb802-7" tabindex="-1"></a>juggling_low_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb802-8"><a href="n-way-cell-comparisons.html#cb802-8" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb802-9"><a href="n-way-cell-comparisons.html#cb802-9" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;low&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb802-10"><a href="n-way-cell-comparisons.html#cb802-10" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span></code></pre></div>
 <p>Conduct a two-sided <span class="math inline">\(t\)</span>-test with the formula (equal variances assumed):</p>
 <p><span class="math display">\[
 t = \frac{\bar{x_3} - \bar{x_1}}{\sqrt{\frac{s_{people}^2}{n_1}+\frac{s_{people}^2}{n_2}}}
@@ -916,11 +916,11 @@ t = \frac{\bar{x_3} - \bar{x_1}}{\sqrt{\frac{s_{people}^2}{n_1}+\frac{s_{people}
 s_{people}^2 = \frac{s_1^2 + s_2^2}{2}
 \]</span></p>
 <p>Using the code below we make it a two-sided test to obtain the CI in format typically used in psychology. We convert it to a one-sided <span class="math inline">\(t\)</span>-test below.</p>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="n-way-cell-comparisons.html#cb807-1" tabindex="-1"></a>tout<span class="ot">&lt;-</span> <span class="fu">t.test</span>(juggling_high_preparation, juggling_low_preparation,</span>
-<span id="cb807-2"><a href="n-way-cell-comparisons.html#cb807-2" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb807-3"><a href="n-way-cell-comparisons.html#cb807-3" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
-<span id="cb807-4"><a href="n-way-cell-comparisons.html#cb807-4" tabindex="-1"></a></span>
-<span id="cb807-5"><a href="n-way-cell-comparisons.html#cb807-5" tabindex="-1"></a><span class="fu">print</span>(tout)</span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="n-way-cell-comparisons.html#cb803-1" tabindex="-1"></a>tout<span class="ot">&lt;-</span> <span class="fu">t.test</span>(juggling_high_preparation, juggling_low_preparation,</span>
+<span id="cb803-2"><a href="n-way-cell-comparisons.html#cb803-2" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb803-3"><a href="n-way-cell-comparisons.html#cb803-3" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb803-4"><a href="n-way-cell-comparisons.html#cb803-4" tabindex="-1"></a></span>
+<span id="cb803-5"><a href="n-way-cell-comparisons.html#cb803-5" tabindex="-1"></a><span class="fu">print</span>(tout)</span></code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
@@ -949,8 +949,8 @@ d = \frac{\bar{x_3} - \bar{x_1}}{s_{people}}
 \]</span></p>
 <p>Not that in this formula, <span class="math inline">\(s_{people}\)</span>, was based on the two cells only.</p>
 <p>To obtain this effect size in R, we use t-test value as the non-centralty parameter in this command:</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="n-way-cell-comparisons.html#cb809-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
-<span id="cb809-2"><a href="n-way-cell-comparisons.html#cb809-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">ncp =</span> tout<span class="sc">$</span>statistic, <span class="at">n.1 =</span> <span class="dv">5</span>, <span class="at">n.2 =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="n-way-cell-comparisons.html#cb805-1" tabindex="-1"></a><span class="fu">library</span>(MBESS)</span>
+<span id="cb805-2"><a href="n-way-cell-comparisons.html#cb805-2" tabindex="-1"></a><span class="fu">ci.smd</span>(<span class="at">ncp =</span> tout<span class="sc">$</span>statistic, <span class="at">n.1 =</span> <span class="dv">5</span>, <span class="at">n.2 =</span> <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.smd
 ## [1] 0.6578
 ## 
@@ -960,8 +960,8 @@ d = \frac{\bar{x_3} - \bar{x_1}}{s_{people}}
 ## 
 ## $Upper.Conf.Limit.smd
 ## [1] 4.038</code></pre>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="n-way-cell-comparisons.html#cb811-1" tabindex="-1"></a><span class="co"># this is the came as typing:</span></span>
-<span id="cb811-2"><a href="n-way-cell-comparisons.html#cb811-2" tabindex="-1"></a><span class="co"># ci.smd(ncp = 3.77, n.1 = 5, n.2 = 5)</span></span></code></pre></div>
+<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="n-way-cell-comparisons.html#cb807-1" tabindex="-1"></a><span class="co"># this is the came as typing:</span></span>
+<span id="cb807-2"><a href="n-way-cell-comparisons.html#cb807-2" tabindex="-1"></a><span class="co"># ci.smd(ncp = 3.77, n.1 = 5, n.2 = 5)</span></span></code></pre></div>
 </div>
 <div id="t-test-text" class="section level4 hasAnchor" number="24.2.1.4">
 <h4><span class="header-section-number">24.2.1.4</span> <span class="math inline">\(t\)</span>-test text<a href="n-way-cell-comparisons.html#t-test-text" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -998,16 +998,16 @@ d = \frac{\bar{x_3} - \bar{x_1}}{s_{people}}
 <p>Although the t-test is a popular approach for comparing two cell means in an ANOVA, a <strong>contrast</strong> is actually more consistent with the underlying ANOVA framework. The big difference between a t-test and a contrast is how they calculate the pooled variance term. In fact, that’s the only difference. With a t-test the population variance of people’s calmness scores is estimated using only the two cells involved in the comparison. The contrast, the contrast-test, takes a different approach. Even though only two cell means are being compared in a contrast, the population variance of people’s calmness scores is estimated using all the cells in the ANOVA.</p>
 <p>Let’s walk thought the calculation process below. It initially seems more different than it is because it’s an F-test. But we’ll see how this is a superficial differences as we go through the process.</p>
 <p>We begin by obtaining the sample data for these cells</p>
-<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="n-way-cell-comparisons.html#cb812-1" tabindex="-1"></a>juggling_high_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb812-2"><a href="n-way-cell-comparisons.html#cb812-2" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb812-3"><a href="n-way-cell-comparisons.html#cb812-3" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;high&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb812-4"><a href="n-way-cell-comparisons.html#cb812-4" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span>
-<span id="cb812-5"><a href="n-way-cell-comparisons.html#cb812-5" tabindex="-1"></a></span>
-<span id="cb812-6"><a href="n-way-cell-comparisons.html#cb812-6" tabindex="-1"></a></span>
-<span id="cb812-7"><a href="n-way-cell-comparisons.html#cb812-7" tabindex="-1"></a>juggling_low_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb812-8"><a href="n-way-cell-comparisons.html#cb812-8" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb812-9"><a href="n-way-cell-comparisons.html#cb812-9" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;low&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb812-10"><a href="n-way-cell-comparisons.html#cb812-10" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="n-way-cell-comparisons.html#cb808-1" tabindex="-1"></a>juggling_high_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb808-2"><a href="n-way-cell-comparisons.html#cb808-2" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb808-3"><a href="n-way-cell-comparisons.html#cb808-3" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;high&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb808-4"><a href="n-way-cell-comparisons.html#cb808-4" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span>
+<span id="cb808-5"><a href="n-way-cell-comparisons.html#cb808-5" tabindex="-1"></a></span>
+<span id="cb808-6"><a href="n-way-cell-comparisons.html#cb808-6" tabindex="-1"></a></span>
+<span id="cb808-7"><a href="n-way-cell-comparisons.html#cb808-7" tabindex="-1"></a>juggling_low_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb808-8"><a href="n-way-cell-comparisons.html#cb808-8" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb808-9"><a href="n-way-cell-comparisons.html#cb808-9" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;low&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb808-10"><a href="n-way-cell-comparisons.html#cb808-10" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span></code></pre></div>
 <div id="contrast-statistic" class="section level4 hasAnchor" number="24.2.2.1">
 <h4><span class="header-section-number">24.2.2.1</span> contrast statistic<a href="n-way-cell-comparisons.html#contrast-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As noted, a contrast differs from a t-test primarily because of how the pooled variance term is calculated.</p>
@@ -1057,30 +1057,30 @@ F = \left[ \frac{\bar{x_3} - \bar{x_1}}{\sqrt{\frac{s_{people}^2}{n_1}+\frac{s_{
 \]</span></p>
 <p>When it is rearranged, you can see the <span class="math inline">\(F = t^2\)</span>. This rearrangement only works when there are two means. The important point is though that you can see that really the <span class="math inline">\(t\)</span>-test and the contrast are the same except for the way the pooled variance term is calculated. The t-test used a pooled variance estimate based on the two cells involved in the comparison whereas the contrast used a pooled variance estimate based on all the cells in the ANOVA.</p>
 <p>In R, we can calculate the contrast with the code below.</p>
-<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="n-way-cell-comparisons.html#cb813-1" tabindex="-1"></a>mean_cell1 <span class="ot">=</span> <span class="fu">mean</span>(juggling_low_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb813-2"><a href="n-way-cell-comparisons.html#cb813-2" tabindex="-1"></a>mean_cell3 <span class="ot">=</span> <span class="fu">mean</span>(juggling_high_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb813-3"><a href="n-way-cell-comparisons.html#cb813-3" tabindex="-1"></a></span>
-<span id="cb813-4"><a href="n-way-cell-comparisons.html#cb813-4" tabindex="-1"></a>means_to_compare <span class="ot">=</span> <span class="fu">c</span>(mean_cell3, mean_cell1)</span>
-<span id="cb813-5"><a href="n-way-cell-comparisons.html#cb813-5" tabindex="-1"></a></span>
-<span id="cb813-6"><a href="n-way-cell-comparisons.html#cb813-6" tabindex="-1"></a>mse <span class="ot">=</span> (<span class="fu">summary</span>(lm_nway)<span class="sc">$</span>sigma)<span class="sc">^</span><span class="dv">2</span> <span class="co"># or just 60 for MSE</span></span>
-<span id="cb813-7"><a href="n-way-cell-comparisons.html#cb813-7" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="dv">2</span> <span class="sc">-</span><span class="dv">1</span> <span class="co"># two means - 1</span></span>
-<span id="cb813-8"><a href="n-way-cell-comparisons.html#cb813-8" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="dv">24</span> <span class="co"># degrees of freedom for MSE</span></span>
-<span id="cb813-9"><a href="n-way-cell-comparisons.html#cb813-9" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">5</span> <span class="co"># 5 per cell</span></span>
-<span id="cb813-10"><a href="n-way-cell-comparisons.html#cb813-10" tabindex="-1"></a></span>
-<span id="cb813-11"><a href="n-way-cell-comparisons.html#cb813-11" tabindex="-1"></a>Fvalue <span class="ot">=</span> <span class="fu">var</span>(means_to_compare)<span class="sc">/</span>(mse<span class="sc">/</span>n)</span>
-<span id="cb813-12"><a href="n-way-cell-comparisons.html#cb813-12" tabindex="-1"></a><span class="fu">print</span>(Fvalue)</span></code></pre></div>
+<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="n-way-cell-comparisons.html#cb809-1" tabindex="-1"></a>mean_cell1 <span class="ot">=</span> <span class="fu">mean</span>(juggling_low_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb809-2"><a href="n-way-cell-comparisons.html#cb809-2" tabindex="-1"></a>mean_cell3 <span class="ot">=</span> <span class="fu">mean</span>(juggling_high_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb809-3"><a href="n-way-cell-comparisons.html#cb809-3" tabindex="-1"></a></span>
+<span id="cb809-4"><a href="n-way-cell-comparisons.html#cb809-4" tabindex="-1"></a>means_to_compare <span class="ot">=</span> <span class="fu">c</span>(mean_cell3, mean_cell1)</span>
+<span id="cb809-5"><a href="n-way-cell-comparisons.html#cb809-5" tabindex="-1"></a></span>
+<span id="cb809-6"><a href="n-way-cell-comparisons.html#cb809-6" tabindex="-1"></a>mse <span class="ot">=</span> (<span class="fu">summary</span>(lm_nway)<span class="sc">$</span>sigma)<span class="sc">^</span><span class="dv">2</span> <span class="co"># or just 60 for MSE</span></span>
+<span id="cb809-7"><a href="n-way-cell-comparisons.html#cb809-7" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="dv">2</span> <span class="sc">-</span><span class="dv">1</span> <span class="co"># two means - 1</span></span>
+<span id="cb809-8"><a href="n-way-cell-comparisons.html#cb809-8" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="dv">24</span> <span class="co"># degrees of freedom for MSE</span></span>
+<span id="cb809-9"><a href="n-way-cell-comparisons.html#cb809-9" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">5</span> <span class="co"># 5 per cell</span></span>
+<span id="cb809-10"><a href="n-way-cell-comparisons.html#cb809-10" tabindex="-1"></a></span>
+<span id="cb809-11"><a href="n-way-cell-comparisons.html#cb809-11" tabindex="-1"></a>Fvalue <span class="ot">=</span> <span class="fu">var</span>(means_to_compare)<span class="sc">/</span>(mse<span class="sc">/</span>n)</span>
+<span id="cb809-12"><a href="n-way-cell-comparisons.html#cb809-12" tabindex="-1"></a><span class="fu">print</span>(Fvalue)</span></code></pre></div>
 <pre><code>## [1] 11.48</code></pre>
 </div>
 <div id="contrast-p-value" class="section level4 hasAnchor" number="24.2.2.2">
 <h4><span class="header-section-number">24.2.2.2</span> contrast p-value<a href="n-way-cell-comparisons.html#contrast-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="n-way-cell-comparisons.html#cb815-1" tabindex="-1"></a>pvalue_nondirectional <span class="ot">=</span> <span class="fu">pf</span>(Fvalue,</span>
-<span id="cb815-2"><a href="n-way-cell-comparisons.html#cb815-2" tabindex="-1"></a>                     <span class="at">df1 =</span> df1,</span>
-<span id="cb815-3"><a href="n-way-cell-comparisons.html#cb815-3" tabindex="-1"></a>                     <span class="at">df2 =</span> df2,</span>
-<span id="cb815-4"><a href="n-way-cell-comparisons.html#cb815-4" tabindex="-1"></a>                     <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb815-5"><a href="n-way-cell-comparisons.html#cb815-5" tabindex="-1"></a></span>
-<span id="cb815-6"><a href="n-way-cell-comparisons.html#cb815-6" tabindex="-1"></a>pvalue_directional <span class="ot">=</span> pvalue_nondirectional<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb815-7"><a href="n-way-cell-comparisons.html#cb815-7" tabindex="-1"></a></span>
-<span id="cb815-8"><a href="n-way-cell-comparisons.html#cb815-8" tabindex="-1"></a><span class="fu">print</span>(pvalue_directional)</span></code></pre></div>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="n-way-cell-comparisons.html#cb811-1" tabindex="-1"></a>pvalue_nondirectional <span class="ot">=</span> <span class="fu">pf</span>(Fvalue,</span>
+<span id="cb811-2"><a href="n-way-cell-comparisons.html#cb811-2" tabindex="-1"></a>                     <span class="at">df1 =</span> df1,</span>
+<span id="cb811-3"><a href="n-way-cell-comparisons.html#cb811-3" tabindex="-1"></a>                     <span class="at">df2 =</span> df2,</span>
+<span id="cb811-4"><a href="n-way-cell-comparisons.html#cb811-4" tabindex="-1"></a>                     <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb811-5"><a href="n-way-cell-comparisons.html#cb811-5" tabindex="-1"></a></span>
+<span id="cb811-6"><a href="n-way-cell-comparisons.html#cb811-6" tabindex="-1"></a>pvalue_directional <span class="ot">=</span> pvalue_nondirectional<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb811-7"><a href="n-way-cell-comparisons.html#cb811-7" tabindex="-1"></a></span>
+<span id="cb811-8"><a href="n-way-cell-comparisons.html#cb811-8" tabindex="-1"></a><span class="fu">print</span>(pvalue_directional)</span></code></pre></div>
 <pre><code>## [1] 0.001213</code></pre>
 <p>Your output text now stands as:</p>
 <p>Among jugglers, high preparation students (<span class="math inline">\(M = 88.00\)</span>, <span class="math inline">\(SD = 8.15\)</span>) were calmer (<span class="math inline">\(M_{\text{diff}} = 16.60\)</span>) than low preparation students,(<span class="math inline">\(M = 71.40\)</span>, <span class="math inline">\(SD = 5.50\)</span>), <span class="math inline">\(F(1, 24)= 11.482\)</span>, <span class="math inline">\(p = .001\)</span>.</p>
@@ -1106,33 +1106,33 @@ s_{people}=\sqrt{s_{people}^2}=\sqrt{MSE}=\sqrt{60}
 sc = \frac{88 - 71.4}{\sqrt{60}} = 2.14
 \]</span></p>
 <p>In R, we use the code below to obtain the effect size:</p>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="n-way-cell-comparisons.html#cb817-1" tabindex="-1"></a>n_per_cell <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb817-2"><a href="n-way-cell-comparisons.html#cb817-2" tabindex="-1"></a>mse_n <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span><span class="dv">3</span><span class="sc">*</span>n_per_cell</span>
-<span id="cb817-3"><a href="n-way-cell-comparisons.html#cb817-3" tabindex="-1"></a></span>
-<span id="cb817-4"><a href="n-way-cell-comparisons.html#cb817-4" tabindex="-1"></a>mean_cell1 <span class="ot">=</span> <span class="fu">mean</span>(juggling_low_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb817-5"><a href="n-way-cell-comparisons.html#cb817-5" tabindex="-1"></a>mean_cell3 <span class="ot">=</span> <span class="fu">mean</span>(juggling_high_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb817-6"><a href="n-way-cell-comparisons.html#cb817-6" tabindex="-1"></a></span>
-<span id="cb817-7"><a href="n-way-cell-comparisons.html#cb817-7" tabindex="-1"></a>mean_c1 <span class="ot">=</span> mean_cell1</span>
-<span id="cb817-8"><a href="n-way-cell-comparisons.html#cb817-8" tabindex="-1"></a>mean_c2 <span class="ot">=</span> mean_cell3</span>
-<span id="cb817-9"><a href="n-way-cell-comparisons.html#cb817-9" tabindex="-1"></a></span>
-<span id="cb817-10"><a href="n-way-cell-comparisons.html#cb817-10" tabindex="-1"></a>means_to_compare <span class="ot">=</span> <span class="fu">c</span>(mean_c2, mean_c1)</span>
-<span id="cb817-11"><a href="n-way-cell-comparisons.html#cb817-11" tabindex="-1"></a>n_for_means <span class="ot">=</span> <span class="fu">c</span>(n_per_cell, n_per_cell)</span>
-<span id="cb817-12"><a href="n-way-cell-comparisons.html#cb817-12" tabindex="-1"></a>comparison_weights <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb817-13"><a href="n-way-cell-comparisons.html#cb817-13" tabindex="-1"></a></span>
-<span id="cb817-14"><a href="n-way-cell-comparisons.html#cb817-14" tabindex="-1"></a><span class="co"># Approach 1 to s.anova</span></span>
-<span id="cb817-15"><a href="n-way-cell-comparisons.html#cb817-15" tabindex="-1"></a>mse <span class="ot">=</span> <span class="dv">60</span> <span class="co">#s2_people</span></span>
-<span id="cb817-16"><a href="n-way-cell-comparisons.html#cb817-16" tabindex="-1"></a>s_people <span class="ot">=</span> <span class="fu">sqrt</span>(mse)</span>
-<span id="cb817-17"><a href="n-way-cell-comparisons.html#cb817-17" tabindex="-1"></a></span>
-<span id="cb817-18"><a href="n-way-cell-comparisons.html#cb817-18" tabindex="-1"></a><span class="co"># Approach 2 to s.anova</span></span>
-<span id="cb817-19"><a href="n-way-cell-comparisons.html#cb817-19" tabindex="-1"></a><span class="co"># re-use lm_nway from initial ANOVA</span></span>
-<span id="cb817-20"><a href="n-way-cell-comparisons.html#cb817-20" tabindex="-1"></a>s_people <span class="ot">=</span> <span class="fu">summary</span>(lm_nway)<span class="sc">$</span>sigma</span>
-<span id="cb817-21"><a href="n-way-cell-comparisons.html#cb817-21" tabindex="-1"></a></span>
-<span id="cb817-22"><a href="n-way-cell-comparisons.html#cb817-22" tabindex="-1"></a><span class="co"># Calculate standardizec contrast with CI</span></span>
-<span id="cb817-23"><a href="n-way-cell-comparisons.html#cb817-23" tabindex="-1"></a><span class="fu">ci.sc</span>(<span class="at">means =</span> means_to_compare,</span>
-<span id="cb817-24"><a href="n-way-cell-comparisons.html#cb817-24" tabindex="-1"></a>      <span class="at">c.weights =</span> comparison_weights,</span>
-<span id="cb817-25"><a href="n-way-cell-comparisons.html#cb817-25" tabindex="-1"></a>      <span class="at">n =</span> <span class="fu">rep</span>(n_per_cell, <span class="dv">2</span>),</span>
-<span id="cb817-26"><a href="n-way-cell-comparisons.html#cb817-26" tabindex="-1"></a>      <span class="at">s.anova =</span> s_people,</span>
-<span id="cb817-27"><a href="n-way-cell-comparisons.html#cb817-27" tabindex="-1"></a>      <span class="at">N =</span> mse_n)</span></code></pre></div>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="n-way-cell-comparisons.html#cb813-1" tabindex="-1"></a>n_per_cell <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb813-2"><a href="n-way-cell-comparisons.html#cb813-2" tabindex="-1"></a>mse_n <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span><span class="dv">3</span><span class="sc">*</span>n_per_cell</span>
+<span id="cb813-3"><a href="n-way-cell-comparisons.html#cb813-3" tabindex="-1"></a></span>
+<span id="cb813-4"><a href="n-way-cell-comparisons.html#cb813-4" tabindex="-1"></a>mean_cell1 <span class="ot">=</span> <span class="fu">mean</span>(juggling_low_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb813-5"><a href="n-way-cell-comparisons.html#cb813-5" tabindex="-1"></a>mean_cell3 <span class="ot">=</span> <span class="fu">mean</span>(juggling_high_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb813-6"><a href="n-way-cell-comparisons.html#cb813-6" tabindex="-1"></a></span>
+<span id="cb813-7"><a href="n-way-cell-comparisons.html#cb813-7" tabindex="-1"></a>mean_c1 <span class="ot">=</span> mean_cell1</span>
+<span id="cb813-8"><a href="n-way-cell-comparisons.html#cb813-8" tabindex="-1"></a>mean_c2 <span class="ot">=</span> mean_cell3</span>
+<span id="cb813-9"><a href="n-way-cell-comparisons.html#cb813-9" tabindex="-1"></a></span>
+<span id="cb813-10"><a href="n-way-cell-comparisons.html#cb813-10" tabindex="-1"></a>means_to_compare <span class="ot">=</span> <span class="fu">c</span>(mean_c2, mean_c1)</span>
+<span id="cb813-11"><a href="n-way-cell-comparisons.html#cb813-11" tabindex="-1"></a>n_for_means <span class="ot">=</span> <span class="fu">c</span>(n_per_cell, n_per_cell)</span>
+<span id="cb813-12"><a href="n-way-cell-comparisons.html#cb813-12" tabindex="-1"></a>comparison_weights <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb813-13"><a href="n-way-cell-comparisons.html#cb813-13" tabindex="-1"></a></span>
+<span id="cb813-14"><a href="n-way-cell-comparisons.html#cb813-14" tabindex="-1"></a><span class="co"># Approach 1 to s.anova</span></span>
+<span id="cb813-15"><a href="n-way-cell-comparisons.html#cb813-15" tabindex="-1"></a>mse <span class="ot">=</span> <span class="dv">60</span> <span class="co">#s2_people</span></span>
+<span id="cb813-16"><a href="n-way-cell-comparisons.html#cb813-16" tabindex="-1"></a>s_people <span class="ot">=</span> <span class="fu">sqrt</span>(mse)</span>
+<span id="cb813-17"><a href="n-way-cell-comparisons.html#cb813-17" tabindex="-1"></a></span>
+<span id="cb813-18"><a href="n-way-cell-comparisons.html#cb813-18" tabindex="-1"></a><span class="co"># Approach 2 to s.anova</span></span>
+<span id="cb813-19"><a href="n-way-cell-comparisons.html#cb813-19" tabindex="-1"></a><span class="co"># re-use lm_nway from initial ANOVA</span></span>
+<span id="cb813-20"><a href="n-way-cell-comparisons.html#cb813-20" tabindex="-1"></a>s_people <span class="ot">=</span> <span class="fu">summary</span>(lm_nway)<span class="sc">$</span>sigma</span>
+<span id="cb813-21"><a href="n-way-cell-comparisons.html#cb813-21" tabindex="-1"></a></span>
+<span id="cb813-22"><a href="n-way-cell-comparisons.html#cb813-22" tabindex="-1"></a><span class="co"># Calculate standardizec contrast with CI</span></span>
+<span id="cb813-23"><a href="n-way-cell-comparisons.html#cb813-23" tabindex="-1"></a><span class="fu">ci.sc</span>(<span class="at">means =</span> means_to_compare,</span>
+<span id="cb813-24"><a href="n-way-cell-comparisons.html#cb813-24" tabindex="-1"></a>      <span class="at">c.weights =</span> comparison_weights,</span>
+<span id="cb813-25"><a href="n-way-cell-comparisons.html#cb813-25" tabindex="-1"></a>      <span class="at">n =</span> <span class="fu">rep</span>(n_per_cell, <span class="dv">2</span>),</span>
+<span id="cb813-26"><a href="n-way-cell-comparisons.html#cb813-26" tabindex="-1"></a>      <span class="at">s.anova =</span> s_people,</span>
+<span id="cb813-27"><a href="n-way-cell-comparisons.html#cb813-27" tabindex="-1"></a>      <span class="at">N =</span> mse_n)</span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.Standardized.Contrast
 ## [1] 0.7674
 ## 
@@ -1263,61 +1263,61 @@ F &amp;= \frac{\text{total variance}}{\text{random sampling variance}}\\
 \]</span></p>
 <p>In R, it’s easy to get these numbers.</p>
 <p>We begin by getting the cell data:</p>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="n-way-cell-comparisons.html#cb819-1" tabindex="-1"></a>juggling_high_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb819-2"><a href="n-way-cell-comparisons.html#cb819-2" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb819-3"><a href="n-way-cell-comparisons.html#cb819-3" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;high&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb819-4"><a href="n-way-cell-comparisons.html#cb819-4" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span>
-<span id="cb819-5"><a href="n-way-cell-comparisons.html#cb819-5" tabindex="-1"></a></span>
-<span id="cb819-6"><a href="n-way-cell-comparisons.html#cb819-6" tabindex="-1"></a>juggling_medium_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb819-7"><a href="n-way-cell-comparisons.html#cb819-7" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb819-8"><a href="n-way-cell-comparisons.html#cb819-8" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;medium&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb819-9"><a href="n-way-cell-comparisons.html#cb819-9" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span>
-<span id="cb819-10"><a href="n-way-cell-comparisons.html#cb819-10" tabindex="-1"></a></span>
-<span id="cb819-11"><a href="n-way-cell-comparisons.html#cb819-11" tabindex="-1"></a>juggling_low_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
-<span id="cb819-12"><a href="n-way-cell-comparisons.html#cb819-12" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb819-13"><a href="n-way-cell-comparisons.html#cb819-13" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;low&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb819-14"><a href="n-way-cell-comparisons.html#cb819-14" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span></code></pre></div>
+<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="n-way-cell-comparisons.html#cb815-1" tabindex="-1"></a>juggling_high_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb815-2"><a href="n-way-cell-comparisons.html#cb815-2" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb815-3"><a href="n-way-cell-comparisons.html#cb815-3" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;high&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb815-4"><a href="n-way-cell-comparisons.html#cb815-4" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span>
+<span id="cb815-5"><a href="n-way-cell-comparisons.html#cb815-5" tabindex="-1"></a></span>
+<span id="cb815-6"><a href="n-way-cell-comparisons.html#cb815-6" tabindex="-1"></a>juggling_medium_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb815-7"><a href="n-way-cell-comparisons.html#cb815-7" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb815-8"><a href="n-way-cell-comparisons.html#cb815-8" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;medium&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb815-9"><a href="n-way-cell-comparisons.html#cb815-9" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span>
+<span id="cb815-10"><a href="n-way-cell-comparisons.html#cb815-10" tabindex="-1"></a></span>
+<span id="cb815-11"><a href="n-way-cell-comparisons.html#cb815-11" tabindex="-1"></a>juggling_low_preparation <span class="ot">&lt;-</span> nway_data <span class="sc">%&gt;%</span></span>
+<span id="cb815-12"><a href="n-way-cell-comparisons.html#cb815-12" tabindex="-1"></a>  <span class="fu">filter</span>(juggling <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb815-13"><a href="n-way-cell-comparisons.html#cb815-13" tabindex="-1"></a>  <span class="fu">filter</span>(preparation <span class="sc">==</span> <span class="st">&quot;low&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb815-14"><a href="n-way-cell-comparisons.html#cb815-14" tabindex="-1"></a>  <span class="fu">pull</span>(calm)</span></code></pre></div>
 <p>Then calculate the cell means:</p>
-<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="n-way-cell-comparisons.html#cb820-1" tabindex="-1"></a>mean_cell1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(juggling_low_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb820-2"><a href="n-way-cell-comparisons.html#cb820-2" tabindex="-1"></a>mean_cell2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(juggling_medium_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb820-3"><a href="n-way-cell-comparisons.html#cb820-3" tabindex="-1"></a>mean_cell3 <span class="ot">&lt;-</span> <span class="fu">mean</span>(juggling_high_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb820-4"><a href="n-way-cell-comparisons.html#cb820-4" tabindex="-1"></a></span>
-<span id="cb820-5"><a href="n-way-cell-comparisons.html#cb820-5" tabindex="-1"></a></span>
-<span id="cb820-6"><a href="n-way-cell-comparisons.html#cb820-6" tabindex="-1"></a><span class="co"># estimate total variance</span></span>
-<span id="cb820-7"><a href="n-way-cell-comparisons.html#cb820-7" tabindex="-1"></a>mean_c1 <span class="ot">&lt;-</span> mean_cell1</span>
-<span id="cb820-8"><a href="n-way-cell-comparisons.html#cb820-8" tabindex="-1"></a>mean_c2 <span class="ot">&lt;-</span> <span class="fu">mean</span>( <span class="fu">c</span>(mean_cell2, mean_cell3) )</span>
-<span id="cb820-9"><a href="n-way-cell-comparisons.html#cb820-9" tabindex="-1"></a>contrast_means <span class="ot">=</span> <span class="fu">c</span>(mean_c1, mean_c2)</span>
-<span id="cb820-10"><a href="n-way-cell-comparisons.html#cb820-10" tabindex="-1"></a></span>
-<span id="cb820-11"><a href="n-way-cell-comparisons.html#cb820-11" tabindex="-1"></a>total_var <span class="ot">=</span> <span class="fu">var</span>(contrast_means)</span>
-<span id="cb820-12"><a href="n-way-cell-comparisons.html#cb820-12" tabindex="-1"></a></span>
-<span id="cb820-13"><a href="n-way-cell-comparisons.html#cb820-13" tabindex="-1"></a></span>
-<span id="cb820-14"><a href="n-way-cell-comparisons.html#cb820-14" tabindex="-1"></a><span class="co"># estimate variance due to sampling error</span></span>
-<span id="cb820-15"><a href="n-way-cell-comparisons.html#cb820-15" tabindex="-1"></a>n_per_cell <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb820-16"><a href="n-way-cell-comparisons.html#cb820-16" tabindex="-1"></a>n <span class="ot">=</span> n_per_cell</span>
-<span id="cb820-17"><a href="n-way-cell-comparisons.html#cb820-17" tabindex="-1"></a></span>
-<span id="cb820-18"><a href="n-way-cell-comparisons.html#cb820-18" tabindex="-1"></a>sampling_var_c1 <span class="ot">&lt;-</span> mse<span class="sc">/</span>n</span>
-<span id="cb820-19"><a href="n-way-cell-comparisons.html#cb820-19" tabindex="-1"></a>sampling_var_c2 <span class="ot">&lt;-</span> mse<span class="sc">/</span>(n <span class="sc">+</span> n)</span>
-<span id="cb820-20"><a href="n-way-cell-comparisons.html#cb820-20" tabindex="-1"></a>sampling_var <span class="ot">=</span> <span class="fu">mean</span>( <span class="fu">c</span>(sampling_var_c1, sampling_var_c2) )</span>
-<span id="cb820-21"><a href="n-way-cell-comparisons.html#cb820-21" tabindex="-1"></a></span>
-<span id="cb820-22"><a href="n-way-cell-comparisons.html#cb820-22" tabindex="-1"></a><span class="co"># compare the estimates with a ratio</span></span>
-<span id="cb820-23"><a href="n-way-cell-comparisons.html#cb820-23" tabindex="-1"></a>Fvalue <span class="ot">=</span> total_var <span class="sc">/</span> sampling_var</span>
-<span id="cb820-24"><a href="n-way-cell-comparisons.html#cb820-24" tabindex="-1"></a></span>
-<span id="cb820-25"><a href="n-way-cell-comparisons.html#cb820-25" tabindex="-1"></a><span class="fu">print</span>(Fvalue)</span></code></pre></div>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="n-way-cell-comparisons.html#cb816-1" tabindex="-1"></a>mean_cell1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(juggling_low_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb816-2"><a href="n-way-cell-comparisons.html#cb816-2" tabindex="-1"></a>mean_cell2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(juggling_medium_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb816-3"><a href="n-way-cell-comparisons.html#cb816-3" tabindex="-1"></a>mean_cell3 <span class="ot">&lt;-</span> <span class="fu">mean</span>(juggling_high_preparation, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb816-4"><a href="n-way-cell-comparisons.html#cb816-4" tabindex="-1"></a></span>
+<span id="cb816-5"><a href="n-way-cell-comparisons.html#cb816-5" tabindex="-1"></a></span>
+<span id="cb816-6"><a href="n-way-cell-comparisons.html#cb816-6" tabindex="-1"></a><span class="co"># estimate total variance</span></span>
+<span id="cb816-7"><a href="n-way-cell-comparisons.html#cb816-7" tabindex="-1"></a>mean_c1 <span class="ot">&lt;-</span> mean_cell1</span>
+<span id="cb816-8"><a href="n-way-cell-comparisons.html#cb816-8" tabindex="-1"></a>mean_c2 <span class="ot">&lt;-</span> <span class="fu">mean</span>( <span class="fu">c</span>(mean_cell2, mean_cell3) )</span>
+<span id="cb816-9"><a href="n-way-cell-comparisons.html#cb816-9" tabindex="-1"></a>contrast_means <span class="ot">=</span> <span class="fu">c</span>(mean_c1, mean_c2)</span>
+<span id="cb816-10"><a href="n-way-cell-comparisons.html#cb816-10" tabindex="-1"></a></span>
+<span id="cb816-11"><a href="n-way-cell-comparisons.html#cb816-11" tabindex="-1"></a>total_var <span class="ot">=</span> <span class="fu">var</span>(contrast_means)</span>
+<span id="cb816-12"><a href="n-way-cell-comparisons.html#cb816-12" tabindex="-1"></a></span>
+<span id="cb816-13"><a href="n-way-cell-comparisons.html#cb816-13" tabindex="-1"></a></span>
+<span id="cb816-14"><a href="n-way-cell-comparisons.html#cb816-14" tabindex="-1"></a><span class="co"># estimate variance due to sampling error</span></span>
+<span id="cb816-15"><a href="n-way-cell-comparisons.html#cb816-15" tabindex="-1"></a>n_per_cell <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb816-16"><a href="n-way-cell-comparisons.html#cb816-16" tabindex="-1"></a>n <span class="ot">=</span> n_per_cell</span>
+<span id="cb816-17"><a href="n-way-cell-comparisons.html#cb816-17" tabindex="-1"></a></span>
+<span id="cb816-18"><a href="n-way-cell-comparisons.html#cb816-18" tabindex="-1"></a>sampling_var_c1 <span class="ot">&lt;-</span> mse<span class="sc">/</span>n</span>
+<span id="cb816-19"><a href="n-way-cell-comparisons.html#cb816-19" tabindex="-1"></a>sampling_var_c2 <span class="ot">&lt;-</span> mse<span class="sc">/</span>(n <span class="sc">+</span> n)</span>
+<span id="cb816-20"><a href="n-way-cell-comparisons.html#cb816-20" tabindex="-1"></a>sampling_var <span class="ot">=</span> <span class="fu">mean</span>( <span class="fu">c</span>(sampling_var_c1, sampling_var_c2) )</span>
+<span id="cb816-21"><a href="n-way-cell-comparisons.html#cb816-21" tabindex="-1"></a></span>
+<span id="cb816-22"><a href="n-way-cell-comparisons.html#cb816-22" tabindex="-1"></a><span class="co"># compare the estimates with a ratio</span></span>
+<span id="cb816-23"><a href="n-way-cell-comparisons.html#cb816-23" tabindex="-1"></a>Fvalue <span class="ot">=</span> total_var <span class="sc">/</span> sampling_var</span>
+<span id="cb816-24"><a href="n-way-cell-comparisons.html#cb816-24" tabindex="-1"></a></span>
+<span id="cb816-25"><a href="n-way-cell-comparisons.html#cb816-25" tabindex="-1"></a><span class="fu">print</span>(Fvalue)</span></code></pre></div>
 <pre><code>## [1] 4.401</code></pre>
 </div>
 <div id="contrast-mult-p-value" class="section level4 hasAnchor" number="24.2.3.2">
 <h4><span class="header-section-number">24.2.3.2</span> contrast (mult) p-value<a href="n-way-cell-comparisons.html#contrast-mult-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="n-way-cell-comparisons.html#cb822-1" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="dv">1</span>   <span class="co"># two means being compared so: 2 - 1 df</span></span>
-<span id="cb822-2"><a href="n-way-cell-comparisons.html#cb822-2" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="dv">24</span> <span class="co">#recall 24 df for MSE:  ab(n-1)</span></span>
-<span id="cb822-3"><a href="n-way-cell-comparisons.html#cb822-3" tabindex="-1"></a></span>
-<span id="cb822-4"><a href="n-way-cell-comparisons.html#cb822-4" tabindex="-1"></a>pvalue_nondirectional <span class="ot">=</span> <span class="fu">pf</span>(Fvalue,</span>
-<span id="cb822-5"><a href="n-way-cell-comparisons.html#cb822-5" tabindex="-1"></a>                     <span class="at">df1 =</span> df1,</span>
-<span id="cb822-6"><a href="n-way-cell-comparisons.html#cb822-6" tabindex="-1"></a>                     <span class="at">df2 =</span> df2,</span>
-<span id="cb822-7"><a href="n-way-cell-comparisons.html#cb822-7" tabindex="-1"></a>                     <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb822-8"><a href="n-way-cell-comparisons.html#cb822-8" tabindex="-1"></a></span>
-<span id="cb822-9"><a href="n-way-cell-comparisons.html#cb822-9" tabindex="-1"></a>pvalue_directional <span class="ot">=</span> pvalue_nondirectional<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb822-10"><a href="n-way-cell-comparisons.html#cb822-10" tabindex="-1"></a></span>
-<span id="cb822-11"><a href="n-way-cell-comparisons.html#cb822-11" tabindex="-1"></a><span class="fu">print</span>(pvalue_directional)</span></code></pre></div>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="n-way-cell-comparisons.html#cb818-1" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="dv">1</span>   <span class="co"># two means being compared so: 2 - 1 df</span></span>
+<span id="cb818-2"><a href="n-way-cell-comparisons.html#cb818-2" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="dv">24</span> <span class="co">#recall 24 df for MSE:  ab(n-1)</span></span>
+<span id="cb818-3"><a href="n-way-cell-comparisons.html#cb818-3" tabindex="-1"></a></span>
+<span id="cb818-4"><a href="n-way-cell-comparisons.html#cb818-4" tabindex="-1"></a>pvalue_nondirectional <span class="ot">=</span> <span class="fu">pf</span>(Fvalue,</span>
+<span id="cb818-5"><a href="n-way-cell-comparisons.html#cb818-5" tabindex="-1"></a>                     <span class="at">df1 =</span> df1,</span>
+<span id="cb818-6"><a href="n-way-cell-comparisons.html#cb818-6" tabindex="-1"></a>                     <span class="at">df2 =</span> df2,</span>
+<span id="cb818-7"><a href="n-way-cell-comparisons.html#cb818-7" tabindex="-1"></a>                     <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb818-8"><a href="n-way-cell-comparisons.html#cb818-8" tabindex="-1"></a></span>
+<span id="cb818-9"><a href="n-way-cell-comparisons.html#cb818-9" tabindex="-1"></a>pvalue_directional <span class="ot">=</span> pvalue_nondirectional<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb818-10"><a href="n-way-cell-comparisons.html#cb818-10" tabindex="-1"></a></span>
+<span id="cb818-11"><a href="n-way-cell-comparisons.html#cb818-11" tabindex="-1"></a><span class="fu">print</span>(pvalue_directional)</span></code></pre></div>
 <pre><code>## [1] 0.02332</code></pre>
 <p>Among jugglers, the combined mean of calmness for high and medium preparation students (<span class="math inline">\(M = 80.30\)</span>) was higher than the mean (<span class="math inline">\(M_{\text{diff}} = 8.90\)</span>) for low preparation students,(<span class="math inline">\(M = 71.40\)</span>), <span class="math inline">\(F(1,24) = 4.40, p = .023\)</span>.</p>
 <p>But we would still like to put an effect size in this sentence.</p>
@@ -1343,22 +1343,22 @@ F &amp;= \frac{\text{total variance}}{\text{random sampling variance}}\\
 <p><span class="math display">\[
 \frac{\bar{x_2} + \bar{x_3}}{2} - \bar{x_1}
 \]</span></p>
-<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="n-way-cell-comparisons.html#cb824-1" tabindex="-1"></a>n_per_cell <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb824-2"><a href="n-way-cell-comparisons.html#cb824-2" tabindex="-1"></a>mse_n <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span><span class="dv">3</span><span class="sc">*</span>n_per_cell</span>
-<span id="cb824-3"><a href="n-way-cell-comparisons.html#cb824-3" tabindex="-1"></a></span>
-<span id="cb824-4"><a href="n-way-cell-comparisons.html#cb824-4" tabindex="-1"></a>means_to_compare <span class="ot">=</span> <span class="fu">c</span>(mean_cell1, mean_cell2, mean_cell3)</span>
-<span id="cb824-5"><a href="n-way-cell-comparisons.html#cb824-5" tabindex="-1"></a>n_for_means <span class="ot">=</span> <span class="fu">c</span>(n_per_cell, n_per_cell, n_per_cell)</span>
-<span id="cb824-6"><a href="n-way-cell-comparisons.html#cb824-6" tabindex="-1"></a>comparison_weights <span class="ot">=</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, .<span class="dv">5</span>, .<span class="dv">5</span>)</span>
-<span id="cb824-7"><a href="n-way-cell-comparisons.html#cb824-7" tabindex="-1"></a></span>
-<span id="cb824-8"><a href="n-way-cell-comparisons.html#cb824-8" tabindex="-1"></a><span class="co"># re-use lm_nway from initial ANOVA</span></span>
-<span id="cb824-9"><a href="n-way-cell-comparisons.html#cb824-9" tabindex="-1"></a>s_people <span class="ot">=</span> <span class="fu">summary</span>(lm_nway)<span class="sc">$</span>sigma</span>
-<span id="cb824-10"><a href="n-way-cell-comparisons.html#cb824-10" tabindex="-1"></a></span>
-<span id="cb824-11"><a href="n-way-cell-comparisons.html#cb824-11" tabindex="-1"></a><span class="co"># Calculate standardizec contrast with CI</span></span>
-<span id="cb824-12"><a href="n-way-cell-comparisons.html#cb824-12" tabindex="-1"></a><span class="fu">ci.sc</span>(<span class="at">means =</span> means_to_compare,</span>
-<span id="cb824-13"><a href="n-way-cell-comparisons.html#cb824-13" tabindex="-1"></a>      <span class="at">c.weights =</span> comparison_weights,</span>
-<span id="cb824-14"><a href="n-way-cell-comparisons.html#cb824-14" tabindex="-1"></a>      <span class="at">n =</span> n_for_means,</span>
-<span id="cb824-15"><a href="n-way-cell-comparisons.html#cb824-15" tabindex="-1"></a>      <span class="at">s.anova =</span> s_people,</span>
-<span id="cb824-16"><a href="n-way-cell-comparisons.html#cb824-16" tabindex="-1"></a>      <span class="at">N =</span> mse_n)</span></code></pre></div>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="n-way-cell-comparisons.html#cb820-1" tabindex="-1"></a>n_per_cell <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb820-2"><a href="n-way-cell-comparisons.html#cb820-2" tabindex="-1"></a>mse_n <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span><span class="dv">3</span><span class="sc">*</span>n_per_cell</span>
+<span id="cb820-3"><a href="n-way-cell-comparisons.html#cb820-3" tabindex="-1"></a></span>
+<span id="cb820-4"><a href="n-way-cell-comparisons.html#cb820-4" tabindex="-1"></a>means_to_compare <span class="ot">=</span> <span class="fu">c</span>(mean_cell1, mean_cell2, mean_cell3)</span>
+<span id="cb820-5"><a href="n-way-cell-comparisons.html#cb820-5" tabindex="-1"></a>n_for_means <span class="ot">=</span> <span class="fu">c</span>(n_per_cell, n_per_cell, n_per_cell)</span>
+<span id="cb820-6"><a href="n-way-cell-comparisons.html#cb820-6" tabindex="-1"></a>comparison_weights <span class="ot">=</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, .<span class="dv">5</span>, .<span class="dv">5</span>)</span>
+<span id="cb820-7"><a href="n-way-cell-comparisons.html#cb820-7" tabindex="-1"></a></span>
+<span id="cb820-8"><a href="n-way-cell-comparisons.html#cb820-8" tabindex="-1"></a><span class="co"># re-use lm_nway from initial ANOVA</span></span>
+<span id="cb820-9"><a href="n-way-cell-comparisons.html#cb820-9" tabindex="-1"></a>s_people <span class="ot">=</span> <span class="fu">summary</span>(lm_nway)<span class="sc">$</span>sigma</span>
+<span id="cb820-10"><a href="n-way-cell-comparisons.html#cb820-10" tabindex="-1"></a></span>
+<span id="cb820-11"><a href="n-way-cell-comparisons.html#cb820-11" tabindex="-1"></a><span class="co"># Calculate standardizec contrast with CI</span></span>
+<span id="cb820-12"><a href="n-way-cell-comparisons.html#cb820-12" tabindex="-1"></a><span class="fu">ci.sc</span>(<span class="at">means =</span> means_to_compare,</span>
+<span id="cb820-13"><a href="n-way-cell-comparisons.html#cb820-13" tabindex="-1"></a>      <span class="at">c.weights =</span> comparison_weights,</span>
+<span id="cb820-14"><a href="n-way-cell-comparisons.html#cb820-14" tabindex="-1"></a>      <span class="at">n =</span> n_for_means,</span>
+<span id="cb820-15"><a href="n-way-cell-comparisons.html#cb820-15" tabindex="-1"></a>      <span class="at">s.anova =</span> s_people,</span>
+<span id="cb820-16"><a href="n-way-cell-comparisons.html#cb820-16" tabindex="-1"></a>      <span class="at">N =</span> mse_n)</span></code></pre></div>
 <pre><code>## $Lower.Conf.Limit.Standardized.Contrast
 ## [1] 0.02316
 ## 

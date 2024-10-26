@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2024-09-22" />
+<meta name="date" content="2024-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,7 +74,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -1266,7 +1266,7 @@ FIGURE 7.2: Data science pipeline by Roger Peng
 <span id="cb267-10"><a href="an-emphasis-on-workflow.html#cb267-10" tabindex="-1"></a>raw_data_survey <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_item_scoring.csv&quot;</span>,</span>
 <span id="cb267-11"><a href="an-emphasis-on-workflow.html#cb267-11" tabindex="-1"></a>                     <span class="at">na =</span> my_missing_value_codes)</span></code></pre></div>
 <pre><code>## Rows: 300 Columns: 14
-## ── Column specification ────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (2): sex, eye_color
 ## dbl (12): id, age, esteem1_likert5, esteem2_likert5, est...

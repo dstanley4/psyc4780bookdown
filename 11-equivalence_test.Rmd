@@ -82,35 +82,21 @@ After you collect your data (*N* = 50) you have ratings for old Shreddies (*M* =
 
 
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 library(TOSTER)
 
-TOSTpaired.raw(m1 = 12.1,
-        sd1 = 2.5,
-        m2 = 11.9,
-        sd2 = 2.5,
-        r12 = .8,
-        n = 50,
-        low_eqbound = -1,
-        high_eqbound = 1,
-        plot = FALSE)
+tsum_TOST(m1=12.1, sd1=2.5,
+          m2=11.9,sd2=2.5,
+          n1=50, n2=50,
+          r12=.8,
+          low_eqbound=-1,
+          high_eqbound=1,
+          eqbound_type = "raw",
+          paired = TRUE)
+
 ```
 
 
-
-```{r, eval = FALSE}
-Equivalence Test Result:
-The equivalence test was significant, t(49) = -3.578, p = 0.000396, 
-given equivalence bounds of -1.000 and 1.000 (on a raw scale) and an alpha of 0.05.
-
-Null Hypothesis Test Result:
-The null hypothesis test was non-significant, 
-t(49) = 0.894, p = 0.375, given an alpha of 0.05.
-
-Based on the equivalence test and the null-hypothesis test combined, 
-we can conclude that the observed effect is statistically not different
-from zero and statistically equivalent to zero.
-```
 
 
 We can then report that:
@@ -125,18 +111,19 @@ Note that the $d$-value with 95% CI was obtained with the MBESS command: ci.sm(n
 
 You could also have run this test by indicating the smallest effect size of interest using standardized effect size (i.e., a repeated measures $d$-value). The code below produces a result identical to the above code. We simply indicate the range of values that count as practically equivalent to zero using $d$-values.
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 library(TOSTER)
 
-TOSTpaired(m1 = 12.1,
-        sd1 = 2.5,
-        m2 = 11.9,
-        sd2 = 2.5,
-        r12 = .8,
-        n = 50,
-        low_eqbound_dz = -0.6325,
-        high_eqbound_dz = 0.6325,
-        plot = FALSE)
+tsum_TOST(m1=12.1, sd1=2.5,
+          m2=11.9,sd2=2.5,
+          n1=50, n2=50,
+          r12=.8,
+          low_eqbound=-.6325,
+          high_eqbound=.6325,
+          eqbound_type = "SMD",
+          bias_correction = TRUE,
+          paired = TRUE)
+
 ```
 
 
@@ -149,53 +136,36 @@ TOSTpaired(m1 = 12.1,
 You could also have run this study as an independent groups $t$-test where different people received each type of cereal. In this case, the R-code would be as below. Note the output in this case provides an ambiguous outcome: "the observed effect is statistically not different from zero and statistically not equivalent to zero" due to our small sample size. Thus, the primary finding from this study is that we should have used a larger number of participants.
 
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 library(TOSTER)
 
+tsum_TOST(m1=12.1, sd1=2.5,
+          m2=11.9,sd2=2.5,
+          n1=50, n2=50,
+          low_eqbound=-1,
+          high_eqbound=1,
+          eqbound_type = "raw",
+          paired = FALSE)
 
-TOSTtwo.raw(m1 = 12.1,
-        sd1 = 2.5,
-        m2 = 11.9,
-        sd2 = 2.5,
-        n1 = 50,
-        n2 = 50,
-        low_eqbound = -1,
-        high_eqbound = 1,
-        plot = FALSE)
 ```
 
-```{r, eval=FALSE}
-Equivalence Test Result:
-The equivalence test was non-significant, t(98) = -1.600, p = 0.0564, 
-given equivalence bounds of -1.000 and 1.000 (on a raw scale) and an alpha of 0.05.
-
-Null Hypothesis Test Result:
-The null hypothesis test was non-significant, 
-t(98) = 0.400, p = 0.690, given an alpha of 0.05.
-
-Based on the equivalence test and the null-hypothesis test combined,
-we can conclude that the observed effect is statistically not different
-from zero and statistically not equivalent to zero.
-```
 
 
 ### Standardized units
 The R-code again for using standardized effect sizes:
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 library(TOSTER)
 
-TOSTtwo(m1 = 12.1,
-        sd1 = 2.5,
-        m2 = 11.9,
-        sd2 = 2.5,
-        n1 = 50,
-        n2 = 50,
-        low_eqbound_d = -0.4,
-        high_eqbound_d = 0.4,
-        plot = FALSE)
-```
+tsum_TOST(m1=12.1, sd1=2.5,
+          m2=11.9,sd2=2.5,
+          n1=50, n2=50,
+          low_eqbound=-.4,
+          high_eqbound=.4,
+          eqbound_type = "SMD",
+          paired = FALSE)
 
+```
 
 
 ## Equivalence Correlation
@@ -204,26 +174,19 @@ Imagine we are interested in conducting a study to prove our theory that there i
 
 Our study found $r$ = .09, $p$ = 0.071 (one-tailed). This non-significant difference means there is little to conclude from this study. We can't say there is a relation due to the non-significance. But, we also can't say there is no relation. Fortunately, because we established our smallest effect size of interest prior to looking at our data we can run an equivalence test with the code below.
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 library(TOSTER)
-TOSTr(n = 267,
-      r = .09,
-      low_eqbound_r = -.20,
-      high_eqbound_r = .20, 
-      plot = FALSE)
-```
 
-```{r, eval = FALSE}
-Equivalence Test Result:
-The equivalence test was significant, p = 0.0338, 
-given equivalence bounds of -0.200 and 0.200 and an alpha of 0.05.
+# regular NHST test
+# two-sided so divide p-value by 2 to get one-sided if needed
+corsum_test(r = .09,
+            n = 267)
 
-Null Hypothesis Test Result:
-The null hypothesis test was non-significant, p = 0.142, given an alpha of 0.05.
-
-Based on the equivalence test and the null-hypothesis test combined, 
-we can conclude that the observed effect is statistically not different
-from zero and statistically equivalent to zero.
+# Equivalence test
+corsum_test(r = .09,
+            n = 267,
+            alternative = "e",
+            null = .2)
 
 ```
 
@@ -243,10 +206,11 @@ Notice how much clearer and stronger this results section is with the inclusion 
 ```{r}
 library(TOSTER)
 
-powerTOSTtwo(alpha = 0.05,
-             statistical_power = 0.90,
-             low_eqbound_d = -0.40,
-             high_eqbound_d = 0.40)
+power_t_TOST(alpha = .05,
+             power = .90,
+             eqb = .4,
+             type = "two.sample")
+
 ```
 
 #### Raw units
@@ -254,11 +218,12 @@ powerTOSTtwo(alpha = 0.05,
 ```{r}
 library(TOSTER)
 
-powerTOSTtwo.raw(alpha = 0.05,
-                 statistical_power = 0.90,
-                 sdpooled = 2.50,
-                 low_eqbound = -1,
-                 high_eqbound = 1)
+power_t_TOST(alpha = .05,
+             power = .90,
+             sd = 2.50,
+             eqb = 1,
+             type = "two.sample")
+
             
 ```
 
@@ -270,10 +235,12 @@ powerTOSTtwo.raw(alpha = 0.05,
 ```{r}
 library(TOSTER)
 
-powerTOSTpaired(alpha = 0.05,
-                statistical_power = 0.90,
-                low_eqbound_dz = -0.6325,
-                high_eqbound_dz = 0.6325)
+
+power_t_TOST(alpha = .05,
+             power = .90,
+             eqb = .6325,
+             type = "paired")
+
             
 ```
 
@@ -282,12 +249,12 @@ powerTOSTpaired(alpha = 0.05,
 ```{r}
 library(TOSTER)
 
-powerTOSTpaired.raw(alpha = 0.05,
-                    statistical_power = 0.90,
-                    sdif = 1.581,
-                    low_eqbound = -1,
-                    high_eqbound = 1)
-            
+power_t_TOST(alpha = .05,
+             power = .90,
+             sd = 1.581,
+             eqb = 1,
+             type = "paired")
+  
 ```
 
 
@@ -298,10 +265,11 @@ powerTOSTpaired.raw(alpha = 0.05,
 ```{r}
 library(TOSTER)
 
-powerTOSTr(alpha = .05,
-           statistical_power = .90,
-           low_eqbound_r = -.20, 
-           high_eqbound_r = .20)
+power_z_cor(alternative = "equivalence",
+            alpha = .05,
+            null = .2, 
+            power = .9, 
+            rho = 0)
             
 ```
 

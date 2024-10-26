@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2024-09-22" />
+<meta name="date" content="2024-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,7 +74,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -937,11 +937,11 @@ div.csl-indent {
 <p>You may also find the rmarkdown template <a href="https://github.com/crsh/papaja">papaja package</a> by Frederik Aust helpful. It’s an easy way to use rmarkdown. It is a based on the rmarkdown extension called bookdown. This package is specifically designed to make it easy to use rmarkdown/bookdown to make an APA style paper. Indeed that’s the basis for the odd package name: <strong>Preparing APA Journal Articles</strong> (papaja).</p>
 <p>I suggest you read the extensive papaja (documentation)[<a href="https://crsh.github.io/papaja_man/introduction.html" class="uri">https://crsh.github.io/papaja_man/introduction.html</a>]. It will be worth your while!</p>
 <p>The only slight complication with papaja is the fact it is not on the CRAN and can’t be installed in the usual way. But it’s still straight forward. You can install papaja with the commands below - taken from the papaja website.</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="next-step-resources.html#cb607-1" tabindex="-1"></a><span class="co"># Install devtools package if necessary</span></span>
-<span id="cb607-2"><a href="next-step-resources.html#cb607-2" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb607-3"><a href="next-step-resources.html#cb607-3" tabindex="-1"></a></span>
-<span id="cb607-4"><a href="next-step-resources.html#cb607-4" tabindex="-1"></a><span class="co"># Install the stable development verions from GitHub</span></span>
-<span id="cb607-5"><a href="next-step-resources.html#cb607-5" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="next-step-resources.html#cb603-1" tabindex="-1"></a><span class="co"># Install devtools package if necessary</span></span>
+<span id="cb603-2"><a href="next-step-resources.html#cb603-2" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb603-3"><a href="next-step-resources.html#cb603-3" tabindex="-1"></a></span>
+<span id="cb603-4"><a href="next-step-resources.html#cb603-4" tabindex="-1"></a><span class="co"># Install the stable development verions from GitHub</span></span>
+<span id="cb603-5"><a href="next-step-resources.html#cb603-5" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</span></code></pre></div>
 <p>Indeed, once papaja is installed - you simply have to select the APA template before you enter your rmarkdown, as illustrated below:</p>
 <p><img src="ch_tools/images/papaja_template.png" width="60%" /></p>
 </div>
