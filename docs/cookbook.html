@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2024-10-26" />
+<meta name="date" content="2024-10-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1106,7 +1106,7 @@ FIGURE 20.2: Text view of CSV data
 <span id="cb623-10"><a href="cookbook.html#cb623-10" tabindex="-1"></a>raw_data_within <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_ex_within.csv&quot;</span>,</span>
 <span id="cb623-11"><a href="cookbook.html#cb623-11" tabindex="-1"></a>                     <span class="at">na =</span> my_missing_value_codes)</span></code></pre></div>
 <pre><code>## Rows: 6 Columns: 5
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): sex
 ## dbl (4): id, march, may, july
@@ -1484,7 +1484,7 @@ FIGURE 20.2: Text view of CSV data
 <span id="cb679-10"><a href="cookbook.html#cb679-10" tabindex="-1"></a>raw_data_survey <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_item_scoring.csv&quot;</span>,</span>
 <span id="cb679-11"><a href="cookbook.html#cb679-11" tabindex="-1"></a>                     <span class="at">na =</span> my_missing_value_codes)</span></code></pre></div>
 <pre><code>## Rows: 300 Columns: 14
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (2): sex, eye_color
 ## dbl (12): id, age, esteem1_likert5, esteem2_likert5, est...
@@ -1834,7 +1834,7 @@ mutate(4 - across(.cols = ends_with(“_likert5rev”)) )
 <span id="cb716-10"><a href="cookbook.html#cb716-10" tabindex="-1"></a>raw_data_occasions <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_item_time.csv&quot;</span>,</span>
 <span id="cb716-11"><a href="cookbook.html#cb716-11" tabindex="-1"></a>                               <span class="at">na =</span> my_missing_value_codes)</span></code></pre></div>
 <pre><code>## Rows: 300 Columns: 24
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (2): sex, eye_color
 ## dbl (22): id, age, t1_esteem1_likert5, t1_esteem2_likert...
