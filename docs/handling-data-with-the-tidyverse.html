@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Handling Data with the Tidyverse | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Handling Data with the Tidyverse | Welcome!" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2024-10-29" />
+<meta name="date" content="2025-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -223,6 +223,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.14" data-path="introduction.html"><a href="introduction.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.14</b> Revisiting read_csv()</a></li>
 <li class="chapter" data-level="1.15" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.15</b> That’s it!</a></li>
+<li class="chapter" data-level="1.16" data-path="introduction.html"><a href="introduction.html#epilogue"><i class="fa fa-check"></i><b>1.16</b> Epilogue</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Handling Data with the Tidyverse</a>
 <ul>
@@ -1076,8 +1077,8 @@ div.csl-indent {
 <span id="cb86-2"><a href="handling-data-with-the-tidyverse.html#cb86-2" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, status) <span class="sc">%&gt;%</span></span>
 <span id="cb86-3"><a href="handling-data-with-the-tidyverse.html#cb86-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">age_mean =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb86-4"><a href="handling-data-with-the-tidyverse.html#cb86-4" tabindex="-1"></a>            <span class="at">age_sd =</span> <span class="fu">sd</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) </span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;sex&#39;. You can override
-## using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;sex&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 10 × 4
 ## # Groups:   sex [2]
 ##    sex   status         age_mean   age_sd
@@ -1120,7 +1121,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="handling-data-with-the-tidyverse.html#cb92-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb92-2"><a href="handling-data-with-the-tidyverse.html#cb92-2" tabindex="-1"></a>data_exp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_experiment.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 6 Columns: 6
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): sex
 ## dbl (5): id, t1_vomit, t1_aggression, t2_vomit, t2_aggre...
@@ -1453,7 +1454,7 @@ div.csl-indent {
 <p>When you read data into R using the command read_csv() (with an underscore) you load the data into a tibble (tidyverse).</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="handling-data-with-the-tidyverse.html#cb148-1" tabindex="-1"></a>my_tibble <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 59946 Columns: 6
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (4): diet, pets, sex, status
 ## dbl (2): age, height
@@ -1503,42 +1504,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/02-tidy_intro.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["bookdown.pdf", "bookdown.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "none"
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/yihui/bookdown-crc/edit/master/02-tidy_intro.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["bookdown.pdf", "bookdown.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "none"
+  }
 });
 });
 </script>

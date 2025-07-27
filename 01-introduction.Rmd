@@ -540,3 +540,7 @@ okcupid_profiles <- read_csv(file = "data_okcupid.csv",
 ## That's it!
 
 Congratulations! You've reached the end of the introduction to R. Take a break, have a cookie, and read some more about R tomorrow!
+
+## Epilogue
+
+If you are an SPSS user and want a quick reference for SPSS/R Code that produces the same numbers check out https://fromspsstor.weebly.com/

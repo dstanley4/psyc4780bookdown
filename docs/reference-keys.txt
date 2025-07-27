@@ -135,6 +135,7 @@ vector-of-characters
 lists
 revisiting-read_csv
 thats-it
+epilogue
 handling-data-with-the-tidyverse
 required
 objective

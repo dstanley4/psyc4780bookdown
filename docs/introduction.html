@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introduction | Welcome!</title>
   <meta name="description" content="Course notes for PSYC 4780" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introduction | Welcome!" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="David J. Stanley" />
 
 
-<meta name="date" content="2024-10-29" />
+<meta name="date" content="2025-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -223,6 +223,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1.14" data-path="introduction.html"><a href="introduction.html#revisiting-read_csv"><i class="fa fa-check"></i><b>1.14</b> Revisiting read_csv()</a></li>
 <li class="chapter" data-level="1.15" data-path="introduction.html"><a href="introduction.html#thats-it"><i class="fa fa-check"></i><b>1.15</b> That’s it!</a></li>
+<li class="chapter" data-level="1.16" data-path="introduction.html"><a href="introduction.html#epilogue"><i class="fa fa-check"></i><b>1.16</b> Epilogue</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="handling-data-with-the-tidyverse.html"><a href="handling-data-with-the-tidyverse.html"><i class="fa fa-check"></i><b>2</b> Handling Data with the Tidyverse</a>
 <ul>
@@ -1092,13 +1093,13 @@ the results of an analysis, or anything else.</p>
 <div id="activate-tidyverse-auto-complete-for-your-script" class="section level3 hasAnchor" number="1.8.5">
 <h3><span class="header-section-number">1.8.5</span> Activate tidyverse auto-complete for your script<a href="introduction.html#activate-tidyverse-auto-complete-for-your-script" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Select the library(tidyverse) text with your mouse/track-pad so that it is highlighted. Then click the Run button in the upper right of the Script panel. Doing this “runs” the selected text. After you click the Run button you should see text like the following the Console panel:</p>
-<pre><code>## ── Attaching core tidyverse packages ────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+<pre><code>## ── Attaching core tidyverse packages ────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.2     
-## ── Conflicts ──────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+## ✔ purrr     1.1.0     
+## ── Conflicts ──────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
@@ -1115,7 +1116,7 @@ the results of an analysis, or anything else.</p>
 <p>Once your command looks like the one below select the text and click on the “Run” button.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introduction.html#cb12-1" tabindex="-1"></a>okcupid_profiles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 59946 Columns: 6
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (4): diet, pets, sex, status
 ## dbl (2): age, height
@@ -1288,7 +1289,7 @@ Using Restart R before you run a script, or R code in general, is a critical wor
 <span id="cb28-4"><a href="introduction.html#cb28-4" tabindex="-1"></a></span>
 <span id="cb28-5"><a href="introduction.html#cb28-5" tabindex="-1"></a>okcupid_profiles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_okcupid.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 59946 Columns: 6
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (4): diet, pets, sex, status
 ## dbl (2): age, height
@@ -1397,6 +1398,10 @@ Using Restart R before you run a script, or R code in general, is a critical wor
 <div id="thats-it" class="section level2 hasAnchor" number="1.15">
 <h2><span class="header-section-number">1.15</span> That’s it!<a href="introduction.html#thats-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Congratulations! You’ve reached the end of the introduction to R. Take a break, have a cookie, and read some more about R tomorrow!</p>
+</div>
+<div id="epilogue" class="section level2 hasAnchor" number="1.16">
+<h2><span class="header-section-number">1.16</span> Epilogue<a href="introduction.html#epilogue" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you are an SPSS user and want a quick reference for SPSS/R Code that produces the same numbers check out <a href="https://fromspsstor.weebly.com/" class="uri">https://fromspsstor.weebly.com/</a></p>
 
 </div>
 </div>
@@ -1420,42 +1425,42 @@ Using Restart R before you run a script, or R code in general, is a critical wor
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/yihui/bookdown-crc/edit/master/01-introduction.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["bookdown.pdf", "bookdown.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "none"
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/yihui/bookdown-crc/edit/master/01-introduction.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["bookdown.pdf", "bookdown.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "none"
+  }
 });
 });
 </script>
