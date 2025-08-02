@@ -29,6 +29,12 @@ After the remotes package is installed, it can be used to install a package from
 remotes::install_github("dstanley4/fastInteraction")
 ```
 
+
+| Required Data |
+|-------------------|
+|[data_mr_ex.csv](data_mr_ex.csv)   |
+
+
 ## Overview
 
 Multiple regression is a means relating multiple predictor variables to a single criterion variable. We can determine the amount of variance in the criterion accounted for by the set of predictors ($R^2$), a single predictor on it's own ($r^2$), or the extent to which a single predictor accounts for unique variance account for in the criterion that is not accounted for by any of the other predictors ($sr^2$).
@@ -41,7 +47,7 @@ We are interested in using both IQ and age to predict video game scores so we re
 
 You can think of the multiple regression problem using a venn diagram:
 
-```{r. echo = FALSE}
+```{r echo = FALSE}
 knitr::include_graphics("ch_multiple_regression/images/mr_venn.png")
 ```
 
@@ -480,7 +486,7 @@ lm_object <- lm(video_game ~ age + iq,
 
 The lm_object has the three data point for each person (age, iq, video_game) embedded inside it. So we can use the lm_object to create the scatter plot with regression plane. We do so using the fastInteraction package. More specifically,  we use the fast.plot command as illustrated below.Note:  The fast.plot command uses the argument "moderator" which is not appropriate in our context. When you see moderator in the command below just think of it as another predictor. 
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, echo = TRUE, eval = knitr::is_html_output()}
 library(fastInteraction)
 
 surface_plot <- fast.plot(lm_object,
@@ -489,6 +495,7 @@ surface_plot <- fast.plot(lm_object,
                           moderator = age)
 
 ```
+
 
 Then just type:
 
@@ -507,7 +514,16 @@ All of the predicted scores fall on the regression surface. You can think of the
 Try the interactive version of the graph below. Caveat, sometimes it doesn't appear correctly on the web. If the graph appears incorrectly (e.g., no data points or no surface) try using the Chrome browser. Safari sometimes has problems with this web object. You can rotate the graph to see a better view of the surface. The graph illustrates that predicted video game scores (i.e., the surface) change as a function of both age and iq.
 
 
-```{r, eval= TRUE}
+```{r, include=knitr::is_html_output(), eval = knitr::is_html_output() }
 surface_plot
 ```
+
+## Control variables
+
+Many people use "control" variables in their multiple regression. Before using this type of analysis I urge you to read:
+
+
+[Wysocki, A. C., Lawson, K. M., & Rhemtulla, M. (2022). Statistical control requires causal justification. Advances in Methods and Practices in Psychological Science, 5(2), 25152459221095823.](https://doi.org/10.1177%2F25152459221095823)
+
+
 

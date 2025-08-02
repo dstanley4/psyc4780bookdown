@@ -44,11 +44,12 @@ We can calculate the descriptive parameters for the population with the code bel
 
 
 ```{r}
+options(pillar.sigfig = 6)
+
 pop_data %>%
   summarise(pop_mean = mean(height),
             pop_var = var.pop(height),
-            pop_sd = sd.pop(height)) %>%
-  as.data.frame()
+            pop_sd = sd.pop(height)) 
 ```
 
 We see the mean of the population of heights is 172.5 ($\mu = 172.5$) and the variance is 157.5 ($\sigma^2 = 157.5$). Correspondingly, the standard deviation of the population of heights is 12.5 ($\sigma = 12.5$); simply the square root of the variance. 
@@ -123,9 +124,10 @@ If the variance of sample means is large, it indicates sample means differ consi
 We can calculate the variance of sample means below:
 
 ```{r}
+options(pillar.sigfig = 6)
+
 many_samples %>% 
-   summarise(var_of_means = var.pop(sample_mean)) %>%
-   as.data.frame()
+   summarise(var_of_means = var.pop(sample_mean))
 
 ```
 
@@ -133,10 +135,10 @@ many_samples %>%
 The standard error of sample mean is just the square root of this value:
 
 ```{r}
-many_samples %>% 
-   summarise(sd_of_means = sqrt(var.pop(sample_mean))) %>%
-   as.data.frame()
+options(pillar.sigfig = 6)
 
+many_samples %>% 
+   summarise(sd_of_means = sqrt(var.pop(sample_mean))) 
 ```
 
 Thus, we can indicate the precision with which sample means ($\bar{x}$) estimate the population mean ($\mu$) using the notation below. We use $\sigma_{\bar{x}}^2$ to refer to the variance of sample means and $\sigma_{\bar{x}}$ to refer to the standard error of sample means. Again notice in the notation that for both of these symbols there is a subscript with an $\bar{x}$ to remind us we are talking about the variability of sample means (and not people).
@@ -295,7 +297,7 @@ We see that the average of the 50000 estimates of the variance of sample means (
 
 So where are we? We've learned that sample means may overestimate, or underestimate, the population mean. Over many studies, on average, sample means will approximate the population mean. In other words, on average, sample means are accurate. As well, we've learned that the variability in estimates of the population mean is referred to as **precision**. We can index the precision of sample means, for a given sample size, using two indices: variance of sample means and standard error of sample means (i.e., standard deviation of sample means). Both of these formulas require knowledge of the population variance - something we never have.
 
-When we conduct a single study, we get a sample mean. We cannot estimate how precise that sample mean is; we can however, estimate how precise sample means are in general -- via the variance of sample means (or standard error). There is a formula for calculating the variance of sample means, Formula \@ref(eq:samplevar2chnext), but it requires knowledge of the (unknown) population variance. Consequently, we use an estimate of the population variance in these formulas rather than the actual population variance, see Formula \@ref(eq:samplevar2estchnext). As a result, when we calculate variance of sample means (or standard error) using an estimate of the population variance (from our sample) we only obtain an estimates of the variance of sample means. Moreover, this estimate of the variance of sample means is itself influenced by sampling error - but accurate when averaged over many studies.
+When we conduct a single study, we get a sample mean. We cannot estimate how precise that sample mean is; we can however, estimate how precise sample means are in general -- via the variance of sample means (or standard error). There is a formula for calculating the variance of sample means, Formula \@ref(eq:samplevar2chnext), but it requires knowledge of the (unknown) population variance. Consequently, we use an estimate of the population variance in these formulas rather than the actual population variance, see Formula \@ref(eq:samplevar2estchnext). As a result, when we calculate variance of sample means (or standard error) using an estimate of the population variance (from our sample) we only obtain an estimate of the variance of sample means. Moreover, this estimate of the variance of sample means is itself influenced by sampling error - but accurate when averaged over many studies.
 
 
 ## Precision for means: Causes
@@ -365,7 +367,7 @@ Additionally, a larger sample size makes the sample estimate ($s^2$) of the popu
 
 ## Precision for $d$-values: Causes
 
-Whenever we use a statistic (e.g., $\bar{x}$) to estimate a population-level parameter (e.g., $\mu$) the statistic will differ from the parameter due to sampling error. This is true of all statistics. Therefore, it is possible to generate a sampling distribution for all statistics. In this section we will focus on the factors that influence the precision with which $d$-value estimate the population-level standardized mean difference ($\delta$). More specifically, we focus on how the sample size and the size of the population-level effect influence width of the sampling distribution.
+Whenever we use a statistic (e.g., $\bar{x}$) to estimate a population-level parameter (e.g., $\mu$) the statistic will differ from the parameter due to sampling error. This is true of all statistics. Therefore, it is possible to generate a sampling distribution for all statistics. In this section we will focus on the factors that influence the precision with which a sample $d$-value estimates the population-level standardized mean difference ($\delta$). More specifically, we focus on how the sample size and the size of the population-level effect influence width of the sampling distribution.
 
 ### Sample size
 

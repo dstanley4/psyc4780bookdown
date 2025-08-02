@@ -356,7 +356,7 @@ Among jugglers, high preparation students ($M = 88.00$, $SD = 8.15$) were calmer
 
 Notably, we are missing a standardized effect size, with confidence interval, for the above.
 
-#### contrast effect size
+#### contrast standardized effect size
 
 We can calculate an effect size with a CI for this comparison using the formula below.
 
@@ -416,13 +416,44 @@ ci.sc(means = means_to_compare,
       N = mse_n)
 ```
 
+
+#### contrast raw effect size
+
+A contrast can also be expressed as an effect size in original units. This type of effect size is often referenced by many names:
+
+* original unit effect size
+* raw effect size
+* unstandardized effect size
+
+Let's revisit our example data. Previously, we had two sample means: `r mean_c1` and `r mean_c2`. The undstandardized effect size (i.e., original unit effect size) is simply the difference between these two means.
+
+$$
+\begin{aligned}
+\text{original unit effect size} &= M_{diff}\\
+&= \bar{c_2} - \bar{c_1}\\
+&= `r mean_c2` - `r mean_c1`\\
+&= `r mean_c2 - mean_c1`
+\end{aligned}
+$$
+We also want a confidence interval around this unstandardized effect size. We can obtain that interval with the code below.
+
+```{r}
+ci.c(means = means_to_compare,
+      c.weights = comparison_weights,
+      n = rep(n_per_cell, 2),
+      s.anova = s_people,
+      N = mse_n)
+```
+
+
+
 #### contrast text
 
-Among jugglers, high preparation students ($M = 88.00$, $SD = 8.15$) were calmer ($M_{\text{diff}} = 16.60$, $sc = 2.14$, 95% $CI[0.77, 3.49$]) than low preparation students,($M = 71.40$, $SD = 5.50$), $F(1, 24)= 11.482$, $p = .001$.
+Among jugglers, high preparation students ($M = 88.00$, $SD = 8.15$) were calmer ($M_{\text{diff}} = 16.60$, 95% $CI[6.56, 26.64]$, $sc = 2.14$, 95% $CI[0.77, 3.49$]) than low preparation students,($M = 71.40$, $SD = 5.50$), $F(1, 24)= 11.482$, $p = .001$.
 
 But, as noted, some people might just write this up calling the effect size a $d$-value:
 
-Among jugglers, high preparation students ($M = 88.00$, $SD = 8.15$) were calmer ($M_{\text{diff}} = 16.60$, $d = 2.14$, 95% $CI[0.77, 3.49$]) than low preparation students,($M = 71.40$, $SD = 5.50$), $F(1, 24)= 11.482$, $p = .001$.
+Among jugglers, high preparation students ($M = 88.00$, $SD = 8.15$) were calmer ($M_{\text{diff}} = 16.60$, 95% $CI[6.56, 26.64]$, $d = 2.14$, 95% $CI[0.77, 3.49$]) than low preparation students,($M = 71.40$, $SD = 5.50$), $F(1, 24)= 11.482$, $p = .001$.
 
 The fact that you could calculate a $d$-value in two different ways (using difference variance calculations) illustrates why it is **extremely** important that you indicate in your paper (even in a footnote) the formula you used to calculate the $d$-value and pooled variance terms.
 
@@ -440,7 +471,7 @@ You can see from the above table that when you are comparing two means the contr
 In case you wanted to understand how and F-value and t-value can be the same with two groups here is the proof:
 
 $$
-\begin{align}
+\begin{aligned}
 F &= \frac{\frac{\sum (\bar{x_i} - \bar{\bar{x}})^2}{2-1}}{\frac{s_{people}^2}{n}}\\
 &= \frac{\frac{(\bar{x_1} - \bar{\bar{x}})^2 + (\bar{x_2} - \bar{\bar{x}})^2}{1}}{\frac{s_{people}^2}{n}}\\
 &= \frac{(\bar{x_1} - \bar{\bar{x}})^2 + (\bar{x_2} - \bar{\bar{x}})^2}{\frac{s_{people}^2}{n}}; \text{With only two means they are equidistant from the grand mean}\\
@@ -450,7 +481,7 @@ F &= \frac{\frac{\sum (\bar{x_i} - \bar{\bar{x}})^2}{2-1}}{\frac{s_{people}^2}{n
 &= \frac{(\bar{x_1} - \bar{x_2})^2}{2 \times \frac{s_{people}^2}{n}}\\
 &= \frac{(\bar{x_1} - \bar{x_2})^2}{ \frac{s_{people}^2}{n} + \frac{s_{people}^2}{n}}\\
 &= t^2
-\end{align}
+\end{aligned}
 $$
 
 
@@ -478,6 +509,7 @@ psi<-sum(my.weights*cond.means) # Calculate psi
 Fvalue_psi<-(psi^2)/(sum((my.weights^2)/n.pergroup))/MS.w # Use MSw from omnibus ANOVA
 
 xcm1 = xbar1
+xcm2 = xbar2
 xcm2 = mean(c(xbar2, xbar3))
 xcm = c(xcm1, xcm2)
 xvar = var(xcm)
@@ -502,7 +534,7 @@ $$
 For the second mean, it's the average of two means. Note for this combined mean $n = 10$; because it was based on two cell means, each $n=5$.
 
 $$
-\bar{c_2} = \frac{\bar{x_2} + \bar{x_3}}{2} = \frac{ `r (xbar1 + xbar2)`}{2} = `r xcm2`
+\bar{c_2} = \frac{\bar{x_2} + \bar{x_3}}{2} = \frac{ `r (xbar2 + xbar3)`}{2} = `r xcm2`
 $$
 
 
@@ -556,13 +588,13 @@ $$
 The $F$-value is:
 
 $$
-\begin{align}
+\begin{aligned}
 F &= \frac{\text{total variance}}{\text{random sampling variance}}\\
 &= \frac{\frac{\sum (\bar{c_{i}}-\bar{\bar{c}})^2}{2-1}}{\left[ \frac{\frac{s_{people}^2}{5} + \frac{s_{people}^2}{10}}{2} \right]}\\
 &= \frac{\frac{(`r xcm1`- `r mean(c(xcm1, xcm2))`)^2 + (`r xcm2` - `r mean(c(xcm1, xcm2))`)^2}{2-1}}{\left[ \frac{12 + 6}{2} \right]}\\
 &= \frac{`r var(c(xcm1, xcm2))`}{\left[ 9 \right]}\\
 &= 4.40
-\end{align}
+\end{aligned}
 $$
 
 In R, it's easy to get these numbers.
@@ -636,9 +668,9 @@ print(pvalue_directional)
 
 Among jugglers, the combined mean of calmness for high and medium preparation students ($M = 80.30$) was higher than the mean ($M_{\text{diff}} = 8.90$) for low preparation students,($M = 71.40$), $F(1,24) = 4.40, p = .023$.
 
-But we would still like to put an effect size in this sentence.
+But we would still like to put an effect size in this sentence. Below we calculate the standardized and unstandardized effect sizes.
 
-#### contrast (mult) effect size
+#### contrast (mult) standardized effect size
 
 Now the effect size. To calculate the effect size we need to use a rather odd notation. But this odd notation is commonly used with contrasts. We assign weights to the contrasts using a few rules.
 
@@ -688,9 +720,34 @@ ci.sc(means = means_to_compare,
       N = mse_n)
 ```
 
+
+
+#### contrast (multi) raw effect size
+
+A contrast can also be expressed as an effect size in original units. Let's revisit our example data. Previously, we had two sample means: `r xcm2` and `r xcm1`. The undstandardized effect size (i.e., original unit effect size) is simply the difference between these two means.
+
+$$
+\begin{aligned}
+\text{original unit effect size} = M_{diff} &= \bar{c_2} - \bar{c_1}\\
+&= `r xcm2` - `r xcm1`\\
+&= `r xcm2 - xcm1`
+\end{aligned}
+$$
+We also want a confidence interval around this unstandardized effect size. We can obtain that interval with the code below.
+
+```{r}
+ci.c(means = means_to_compare,
+      c.weights = comparison_weights,
+      n = n_for_means,
+      s.anova = s_people,
+      N = mse_n)
+```
+
+
+
 #### contrast (mult) text
 
-Among jugglers, the combined mean of calmness for high and medium preparation students ($M = 80.30$) was higher than the mean ($M_{\text{diff}} = 8.90$, $sc = 1.15$, 95% $CI[.02, 2.26]$) for low preparation students,($M = 71.40$), $F(1,24) = 4.40, p = .023$.
+Among jugglers, the combined mean of calmness for high and medium preparation students ($M = 80.30$) was higher than the mean ($M_{\text{diff}} = 8.90$, 95% $CI[0.19, 17.61]$, $sc = 1.15$, 95% $CI[.02, 2.26]$) for low preparation students,($M = 71.40$), $F(1,24) = 4.40, p = .023$.
 
 #### contrasts in practice
 

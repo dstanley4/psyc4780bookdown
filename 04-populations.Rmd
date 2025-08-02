@@ -84,11 +84,25 @@ $$
 \end{aligned} 
 $$
 
+**Why do we use squared differences instead of just differences?** Well, there are many reasons and it's too early to discuss them in detail. However, one easy to understand reason for using squared differences is that the if we were to just use differences (not squared) we would end up with a value of zero, as illustrated below. Which might be interpreted (incorrectly) as suggesting there is no variability in the numbers - when clearly there is variability. However, the full reasons for using squared differences are more complex than this simple example illustrates.
+
+$$
+\begin{aligned} 
+\sum{(X - \bar{X})} &= (X_1-\bar{X}) + (X_2-\bar{X}) + (X_3-\bar{X})\\ 
+&= (110-110) + (120-110) + (100-110)\\
+&= (0) + (10) + (-10) \\
+&= 0 \\
+\end{aligned} 
+$$
+
+
 ## Population vs samples
 
-As we move closer to conducting our own research it is critical to make a distinction between populations and samples. A population is the complete set of people/animals about which we want to make conclusions. A sample is a randomly selected subset of the population. In most scenarios it is impractical to work with an entire population and, for practical reasons, we study a subset of the population called a sample.
+As we move closer to conducting our own research it is critical to make a distinction between populations and samples. A population is the complete set of people/animals about which we want to make conclusions. A sample is a randomly selected subset of the population.
 
-Researchers, and consumers of research, typically have little interest in making conclusions at the sample level. In general, we care about conclusions that generalize to the population but not conclusions that only apply to specific individuals in the sample. Consider the case of COVID-19. Imagine a research team creates a vaccine that they hope generates immunity to COVID-19. We care very little if the immunity only works for the specific individuals in the study. However, we care a great deal if the immunity works, or is likely to work, for all Canadians or all humans. We study samples but typically wish to make conclusions that apply to the population. Thus, even if you are an experimental researcher it's critical that you think in terms of populations and not samples. Indeed, statistical tests (such as the *t*-test) are a means of helping researchers use sample data to make conclusions at the population level.
+In most scenarios it is impractical to work with an entire population. When you want to obtain data from an entire population, you need a census which is extraordinarily expensive. Even the Canadian government only does a census every 5 years due to the cost. Consequently, for practical reasons, researchers typically study a subset of the population called a sample. We use the sample to estimate what is true at the population level.
+
+Researchers, and consumers of research, typically have little interest in making conclusions at the sample level. In general, we care about conclusions that generalize to the population but not conclusions that only apply to only the individuals in the sample. Consider the case of COVID-19. Imagine a research team creates a vaccine that they hope generates immunity to COVID-19. We care very little if the immunity only works for the specific individuals in the study. However, we care a great deal if the immunity works, or is likely to work, for all Canadians (a possible population) or all humans (a larger possible population). We study samples but typically wish to make conclusions that apply to a population. Thus, even if you are an experimental researcher it is critical that you think in terms of populations and not samples. Indeed, statistical tests (such as the *t*-test) are a means of helping researchers use sample data to make conclusions at the population level.
 
 In this chapter, our focus is on describing populations. When we calculate a number that summarises an attribute of all of the people/animals in the population we refer to it as a **parameter**.
 

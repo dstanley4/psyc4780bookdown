@@ -10,6 +10,11 @@ The following CRAN packages must be installed:
 |MBESS              |
 |pwr              |
 
+## Sequential Analysis and Optional Stopping
+
+The focus of this chapter is traditional power analysis with respect to Null Hypothesis Significance Testing (NHST). A common problem with NHST is that some reseachers like to peek at their data before the desired sample size is obtained. Or worse, they using peeking at the data as basis for stopping data collection - an approach called optional stopping. The optional stopping approach is commonly considered p-hacking.
+
+Importantly, there are ways to ethically peek at your data during data collection. These approaches force you to pay a price with respect to error rates - a process call Sequential Analysis. A discussion of Sequential Analysis is beyond the scope of this chapter but I encourage you to check out the Laken's website chapter on [Sequential Analysis](https://lakens.github.io/statistical_inferences/10-sequential.html).
 
 ## Overview
 
@@ -20,6 +25,7 @@ Unfortunately, many researchers only focus on statistical power with respect to 
 The two points above indicate that low statistical power is associated with untrustworthy research findings. When statistical power is low findings are not credible - regardless of whether they are significant or not. Unfortunately, power levels are typically quite low in psychology and related disciplines. Indeed, [@button2013power] noted in their *Nature Reviews Neuroscience* article that the "median statistical power of studies in the neuroscience field is optimistically estimated to be between ~8% and ~31%" (p. 8). This may seem surprising given the large effects sometimes observed in neuroscience, however, "the larger reported effect sizes in cognitive neuroscience may well be the consequence of effect size exaggeration due to having smaller sample sizes (as shown above) and consequential low power" [p. 8, @szucs2017empirical]. Biomedical research, more generally, appears to have a low power problem [@dumas2017low]. That said, the power levels in the rest of psychology are only marginally higher - so the entire field has substantial problem - it is not a problem limited to neuroscience or biomedical research. 
 
 Interesting, it is possible to calculate the average statistical power for a journal. Doing so allows us to examine many journals and, in particular, the relation between journal impact factor (how often they are cited) and journal statistical power. It turns out there is a negative relation between journal statistical power and journal impact factor [@szucs2017empirical]. This indicates that as the journal impact factor increases there is a corresponding decrease in statistical power -- which means means that journals with high impact factors (those that are most cited) tend to have the most untrustworthy findings. This conclusion is perhaps not as counter intuitive as it might seem. High impact journals often have policies that require published findings to be surprising. The most surprising finding is one that is wrong and inconsistent with previous research -- the exact type of finding you will get with low statistical power.
+
 
 ## Goals
 

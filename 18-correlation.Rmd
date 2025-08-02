@@ -5,6 +5,8 @@ output:
 ---
 # Regression and correlation
 
+
+
 The following CRAN packages must be installed:
 
 | Required CRAN Packages |
@@ -14,6 +16,10 @@ The following CRAN packages must be installed:
 |cocor              |
 |janitor            |
 |psych              |
+
+| Required Data |
+|-------------------|
+|[data_cor_sample_video_game.csv](data_cor_sample_video_game.csv)   |
 
 
 ```{r, echo=FALSE, message=FALSE}
@@ -37,6 +43,9 @@ sample_data <- sample_n(population_data, n)
 sample_data <- sample_data %>% arrange(iq)
 name_str <- c("Jane", "Rick", "John", "Sam", "Olivia", "Roger", "Hasaan", "Adele", "Lane")
 sample_data$name_str <- name_str
+
+#write_csv(sample_data, file = "data_cor_sample_video_game.csv")
+
   
 library(broom)
 

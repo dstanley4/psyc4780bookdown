@@ -11,17 +11,9 @@ The following CRAN packages must be installed:
 |tidyverse          |
 |remotes            |
 
-
 | Data |
 |-------------------|
 |[data_endurance.csv](data_endurance.csv)   |
-
-
-| Required CRAN Packages |
-|-------------------|
-|tidyverse          |
-|remotes            |
-
 
 The following GitHub packages must be installed:
 
@@ -147,7 +139,7 @@ You simply use the fast.int() command in the fastInteraction package does the fo
 To run the analysis you use the code below:
 
 
-```{r}
+```{r,include=knitr::is_html_output(),eval=knitr::is_html_output()}
 library(fastInteraction)
 
 new_axis_labels <- list(criterion = "Endurance",
@@ -168,7 +160,7 @@ mmr_output <- fast.int(data = cohen_exercise,
 You can obtain the 3D graph (which can be rotated) using the code:
 
 
-```{r}
+```{r, include=knitr::is_html_output(),eval=knitr::is_html_output()}
 mmr_output$graph3D
 ```
 
@@ -177,7 +169,7 @@ mmr_output$graph3D
 
 You can obtain the 2D graph (cross-section of the 3D surface) with the code below. We need to adjust the graph a bit before it's presentable. But to do so we first need to inspect tables created by the fast.int() command.
 
-```{r}
+```{r,include=knitr::is_html_output(),eval=knitr::is_html_output()}
 unformatted_ggplot_graph <- mmr_output$graph2D.unformatted
 
 print(unformatted_ggplot_graph)
@@ -197,7 +189,7 @@ knitr::include_graphics("ch_mmr/images/tables_apa.png")
 
 We inspect the Table output and find the value for -1/+1 SD of the moderator (age) in Table 2. In this case, we find the value is 4.775. So we use this to set the *x*-axis ticks That way the ticks on the *x*-axis correspond to standard deviations.
 
-```{r}
+```{r,include=knitr::is_html_output(),eval=knitr::is_html_output()}
 
 custom_formatted_ggplot_graph <- unformatted_ggplot_graph +
   coord_cartesian(ylim = c(10, 40)) +

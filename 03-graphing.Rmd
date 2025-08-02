@@ -1,6 +1,6 @@
 # Graphing
 
-A great part of learning R is learning how to use ggplot2 which is part of the tidyverse. One way to learn ggplot2 is via the [free ggplot book](https://ggplot2-book.org/index.html) - I encourage you to check it out. You might also check out this ggplot2 [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf). As well, you might consult this [blog](https://tuowang.rbind.io/post/2021-04-25-color-in-ggplot2/) to learn more about how themes and colors are handled in ggplot2. In this chapter we merely provide a brief overview of how ggplot2 works. You can also consult this free book on [data visualization techniques](https://clauswilke.com/dataviz/).
+A great part of learning R is learning how to use ggplot2 which is part of the tidyverse. One way to learn ggplot2 is via the [free ggplot book](https://ggplot2-book.org/index.html) - I encourage you to check it out. You might also check out this ggplot2 [cheatsheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf). As well, you might consult this [blog](https://tuowang.rbind.io/post/2021-04-25-color-in-ggplot2/) to learn more about how themes and colors are handled in ggplot2. In this chapter we merely provide a brief overview of how ggplot2 works. You can also consult this free book on [data visualization techniques](https://clauswilke.com/dataviz/).
 
 ## Required
 
@@ -66,7 +66,7 @@ glimpse(movie_data)
 
 The title and short_title columns provide the full title and short title for each movie. Additionally, the IMDB rating, the Rotten Tomatoes Audience rating, and the Box Office Mojo revenue numbers are provided in the imdb, tomatoes_aud, and boxoffice columns, respectively. Finally, the last column, studio,  indicates the studio that made the movie (Marvel or DC).
 
-It is extremely important for graphing and analyses that you tell R which columns are composed of categorical variables. We do that using the as_factor command. The as_factor command turns a column into a categorical column. We use the mutate command to replace the original column with the column that has been defined as a categorical variables using as_factor. 
+It is extremely important for graphing and analyses that you tell R which columns are composed of categorical variables. We do that using the as_factor command. The as_factor command turns a column into a categorical column. We use the mutate command to replace the original column with the column that has been defined as a categorical variable using as_factor. 
 
 ```{r}
 movie_data <- movie_data %>% 
@@ -382,7 +382,7 @@ print(my_graph)
 
 #### Method 2: Longer label columns 
 
-With our movie data we don't need to use scale_x_discrete() because we have a column in the data with the full titles. Consequently, to use full length titles we just have to change the *mapping*for x from short_title to title. Notice that we still have the problem with overlapping labels on the x-axis!
+With our movie data we don't need to use scale_x_discrete() because we have a column in the data with the full titles. Consequently, to use full length titles we just have to change the *mapping* for x from short_title to title. Notice that we still have the problem with overlapping labels on the x-axis!
 
 ```{r, out.width="65%"}
 my_graph <- ggplot(data = movie_data,
@@ -745,7 +745,7 @@ knitr::include_graphics("ch_graphing/images/emoji_graph.png")
 
 The current version of the graph is much improved from where we started at the begining of the chapter. One notable improvement was the use of the "proper" colors for the Marvel and DC studios. Although using these colors was aethetically pleasing, a major consideration is ensuring your graphs are accessible to a wide audience.
 
-Color blindness is an issue that affects approximately five percent of the population. A nuanced discussion of the different types of color blindness is beyond the scope of this chapter. We can, however, take a momement to think about every graph as being composed of two parts that work together to create the colors overall image. We can think of there being a lightness (i.e., light vs. dark) component and a hue component (e.g., magenta, yellow, etc.). Together these two components work together to create colors that we see. This distinction between lightness and hue is relevant to all images not just graphs [see @margulis2005photoshop].  
+Color blindness is an issue that affects approximately five percent of the population. A nuanced discussion of the different types of color blindness is beyond the scope of this chapter. We can, however, take a moment to think about every graph as being composed of two parts that work together to create the colors overall image. We can think of there being a lightness (i.e., light vs. dark) component and a hue component (e.g., magenta, yellow, etc.). Together these two components work together to create colors that we see. This distinction between lightness and hue is relevant to all images not just graphs [see @margulis2005photoshop].  
 
 ```{r colorcomparison, out.width= "75%", echo = FALSE, fig.cap = "Hue removed from current graph"}
 knitr::include_graphics("ch_graphing/images/nocolorcomparison.png")

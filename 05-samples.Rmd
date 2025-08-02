@@ -28,7 +28,7 @@ remotes::install_github("dstanley4/learnSampling")
 
 Researchers are usually interested in describing the attributes of a population; numbers that describe the population are called parameters. Two parameters that are frequently of interest are the mean and variance of the population. Unfortunately, it’s rarely possible to obtain information from every member of a population to calculate a parameter. Consequently, researchers use subsets of the population called samples to estimate parameters. Numbers calculated from sample data are called statistics. Typically, sample statistics are used to estimate population parameters.
 
-Sample statistics, however, often differ from population parameters. The difference between a sample statistic and the population parameter occurs because the sample data is random subset of the population data — with correspondingly fewer observations. This difference is typically refered to as **sampling error**.
+Sample statistics, however, often differ from population parameters. The difference between a sample statistic and the population parameter occurs because the sample data is a random subset of the population data — with correspondingly fewer observations. This difference is typically refered to as **sampling error**.
 
 Sometimes a sample statistic will be higher than the population parameter; other times the sample statistic will be lower than the population parameter. Because random sampling is used to select the sample data the direction and magnitude of the difference between the sample statistic and the population parameter will vary randomly. 
 
@@ -80,17 +80,21 @@ We are interested in the sample mean ($\bar{x}$) to the extent that it provides 
 
 
 ```{r, echo = FALSE}
+options(pillar.sigfig = 6)
+
 pop_mean <- pop_data %>%
-  summarise(pop_mean = mean(height)) %>%
-  as.data.frame() %>% pull()
+  summarise(pop_mean = mean(height)) %>% 
+  pull()
 ```
 
 We can calculate the population mean for the height column of pop_data using the summarise() and mean() commands. The mean() command uses Formula \@ref(eq:popmeanch5). We see in the output that the population mean is 172.50 ($\mu = 172.50$).
 
 ```{r}
+options(pillar.sigfig = 6)
+
 pop_data %>%
-  summarise(pop_mean = mean(height)) %>%
-  as.data.frame()
+  summarise(pop_mean = mean(height)) 
+
 ```
 
 
@@ -178,12 +182,15 @@ Above, in Figure \@ref(fig:bothdist), we present a graph comparing the distribut
 Statisticians, recognizing the limitations of a single study, are not particularly concerned if a single sample mean deviates from the population mean. That said, statisticians are very concerned as to whether or not the results of a large number of studies are correct -- on average. That is, does the average of many sample means correspond to the population mean? If, on average, the sample mean does corresponds to the population mean, it is accurate and we refer to it as an unbiased estimator. Visually, this appears to be the case. But in the code below we confirm it numerically.
 
 ```{r}
+options(pillar.sigfig = 6)
+
 many_samples %>%
-  summarise(mean_of_sample_mean = mean(sample_mean)) %>%
-  as.data.frame()
+  summarise(mean_of_sample_mean = mean(sample_mean)) 
 ```
 
-We find that the average of the 50000 sample means is 172.47 which is very close to the population mean of 172.48. Note that when we did this, we used the same formula to calculate the sample mean (Formula \@ref(eq:samplemeanch5)) as we did the population mean (Formula \@ref(eq:popmeanch5)), although the notations differed. The average of the sample means was not identical to the population mean but it was very close - it would have been exactly the same with many more samples (i.e., an infinite number of samples). Therefore, we conclude the sample mean provides an unbiased estimate of the population mean. In other words, it makes sense to use the sample mean as an estimate of the population mean. If we try to estimate the population mean with a sample mean we will, on average, be correct; although any given sample/study mean might be "wrong".
+The value you obtain may be somewhat different than 172.47 due the fact your random samples were likely different.
+
+We find that the average of the 50000 sample means is 172.47 which is very close to the population mean of 172.50. Note that when we did this, we used the same formula to calculate the sample mean (Formula \@ref(eq:samplemeanch5)) as we did the population mean (Formula \@ref(eq:popmeanch5)), although the notations differed. The average of the sample means was not identical to the population mean but it was very close - it would have been exactly the same with many more samples (i.e., an infinite number of samples). Therefore, we conclude the sample mean provides an unbiased estimate of the population mean. In other words, it makes sense to use the sample mean as an estimate of the population mean. If we try to estimate the population mean with a sample mean we will, on average, be correct; although any given sample/study mean might be "wrong".
 
 
 ## Estimating $\sigma^2$
@@ -198,9 +205,11 @@ We are interested in the sample variance ($s^2$) to the extent that it provides 
 We can calculate the population variance for the height column of pop_data using the summarise() and var.pop() commands. The var.pop() command uses Formula \@ref(eq:popvarch5). We see in the output that the population variance is 157.5 ($\sigma^2 = 157.5$).
 
 ```{r}
+options(pillar.sigfig = 6)
+
 pop_data %>%
-  summarise(pop_var = var.pop(height)) %>%
-  as.data.frame()
+  summarise(pop_var = var.pop(height)) 
+
 ```
 
 ### Assessing bias  
@@ -218,9 +227,10 @@ $$
 Estimates of the population variance are systematically too low when you use a sample variance formula with an $n$ in the denominator. We can see that this is true by examining the many_samples data. In these data, the column sample_var_n contains the variance for the sample calculated with the above formula. Below we use code to obtain the average of the sample_var_n column over the 50000 samples. If this average equals the population variance of 157.5 then variance, using $n$ in the denominator, is an unbiased estimator of the population variance.
 
 ```{r}
+options(pillar.sigfig = 6)
+
 many_samples %>%
-  summarise(mean_of_var_n = mean(sample_var_n)) %>%
-  as.data.frame()
+  summarise(mean_of_var_n = mean(sample_var_n)) 
 ```
 
 You can see the average of sample_var_n column (141.54) is much smaller than the population variance (157.5). That is, the average of the sample variances, using $n$ in the denominator, was smaller than the population variance. Consequently, sample variance (using $n$ in the denominator) provides a biased estimate of the population variance. If we try to estimate the population variance with sample variance (using $n$ in the denominator) we will, on average, be wrong.
@@ -235,9 +245,10 @@ s^2 = \frac{\sum{(x - \bar{x})^2}}{n-1}
 In the many_samples data, the column sample_var_n_1 was generated using Formula \@ref(eq:samplevarn1ch5). We can evaluate the quality of Formula \@ref(eq:samplevarn1ch5), using $n-1$, by averaging the values in the sample_var_n_1 column.
 
 ```{r}
+options(pillar.sigfig = 6)
+
 many_samples %>%
-  summarise(mean_of_var_n_1 = mean(sample_var_n_1)) %>%
-  as.data.frame()
+  summarise(mean_of_var_n_1 = mean(sample_var_n_1)) 
 ```
 
 We see that the average of the 50000 values using $n-1$ in the denominator is 157.27 which is very close to the population variance of 157.46. These numbers would have been identical with an infinite number of samples. Consequently, when we use $n-1$ in the denominator we have an unbiased estimate of the population variance. If we try to estimate the population variance with a sample variance, using $n-1$ in the denominator, we will, on average, be right.
@@ -408,7 +419,7 @@ If we try to apply either $d$-value formula (\@ref(eq:samplesmdch5) or \@ref(eq:
 
 ### Pooled standard deviation
 
-When we calculated the population-level standardized mean difference we knew the population variances where the same. Consequently, there was only one standard deviation (i.e., only one variance). More specifically, the male and female populations both had a standard deviation but it was the same for both populations. The population-level formula for the standardized mean difference, Formula \@ref(eq:popsmdch5), has only one standard deviation in it. This is because calculation of the standardized mean difference explicitly depends on the fact that  both populations have the same standard deviation.
+When we calculated the population-level standardized mean difference we knew the population variances were the same. Consequently, there was only one standard deviation (i.e., only one variance). More specifically, the male and female populations both had a standard deviation but it was the same for both populations. The population-level formula for the standardized mean difference, Formula \@ref(eq:popsmdch5), has only one standard deviation in it. This is because calculation of the standardized mean difference explicitly depends on the fact that  both populations have the same standard deviation.
 
 Let's consider hypothetical sample data to make the situation clear. More specifically, we will examine the sample-level statistics below for males and females. Notice that we have two standard deviations -- one for males and one for females. Moreover, these two sample-level standard deviations (using $n$-1) are not the same - they are different from each other. This initially seems problematic - calculation of standardized mean difference requires that population standard deviations are identical. 
 

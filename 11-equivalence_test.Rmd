@@ -80,8 +80,6 @@ An incorrect approach to determining if the two types of cereal taste the same w
 
 After you collect your data (*N* = 50) you have ratings for old Shreddies (*M* = 12.1, *SD* = 2.50) and new Diamond Shreddies  (*M* = 11.9, *SD* = 2.50). Because the same people taste both cereals you also have a correlation between the two taste ratings of $r$ = .80. You run the R-code below to conduct the equivalence test.
 
-
-
 ```{r, eval=TRUE}
 library(TOSTER)
 
@@ -95,8 +93,6 @@ tsum_TOST(m1=12.1, sd1=2.5,
           paired = TRUE)
 
 ```
-
-
 
 
 We can then report that:
@@ -150,7 +146,6 @@ tsum_TOST(m1=12.1, sd1=2.5,
 ```
 
 
-
 ### Standardized units
 The R-code again for using standardized effect sizes:
 
@@ -168,11 +163,14 @@ tsum_TOST(m1=12.1, sd1=2.5,
 ```
 
 
+
+
 ## Equivalence Correlation
 
 Imagine we are interested in conducting a study to prove our theory that there is a strong positive relation between academic performance and self-esteem. Prior to conducing the study we determined our smallest effect size of interest was .20. A traditional sample size analysis (with a desire for 90% power) indicated we should use a sample size of 210 (for a one-sided test). However, we also conducted a sample size analysis for an equivalence test, in case the correlation was non-significant, which suggested a larger sample size of 267. Consequently, we collected data from 267 students.
 
 Our study found $r$ = .09, $p$ = 0.071 (one-tailed). This non-significant difference means there is little to conclude from this study. We can't say there is a relation due to the non-significance. But, we also can't say there is no relation. Fortunately, because we established our smallest effect size of interest prior to looking at our data we can run an equivalence test with the code below.
+
 
 ```{r, eval = TRUE}
 library(TOSTER)
@@ -189,6 +187,7 @@ corsum_test(r = .09,
             null = .2)
 
 ```
+
 
 
 Because we conducted the equivalence test we can write a clear results section.
@@ -246,6 +245,7 @@ power_t_TOST(alpha = .05,
 
 #### Raw units
 
+
 ```{r}
 library(TOSTER)
 
@@ -272,5 +272,4 @@ power_z_cor(alternative = "equivalence",
             rho = 0)
             
 ```
-
 

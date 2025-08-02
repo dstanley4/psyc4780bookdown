@@ -350,7 +350,9 @@ We use the formula below to average the cell variances **when the sample sizes f
 
 $$
 \begin{aligned}
-s_{people}^2 &=\frac{s_1^2 + s_2^2 + s_3^2 + s_4^2 + s_5^2 + s_6^2}{6}\\ &= \frac{`r var1` + `r var2` +`r var3` +`r var4` +`r var5` +`r var6` }{6} \\ &= `r mean(var_all)`
+s_{people}^2 =\frac{s_1^2 + s_2^2 + s_3^2 + s_4^2 + s_5^2 + s_6^2}{6}\\ 
+&= \frac{`r var1` + `r var2` +`r var3` +`r var4` +`r var5` +`r var6` }{6} \\ 
+&= `r mean(var_all)`
 \end{aligned}
 $$
 
@@ -395,10 +397,10 @@ $$
 \end{aligned}
 $$
 
-The formula above, for the variability due to sampling error alone, is based on the Central Limit Theorem (CLT) and is reviewed extensively in past chapters.
+The formula above, for the variability due to sampling error alone, is called Expected Variance, and is reviewed extensively in past chapters.
 
 
-### CLT $A$: Juggling
+### Expect Variance $A$: Juggling
 
 In the context of the juggling main effect means, each juggle mean is based on $nb=(5)(3)=15$ people. 
 Therefore, for these juggling main effect means the general formula for the variance due to sampling error is below:
@@ -432,7 +434,7 @@ knitr::include_graphics("ch_deeper_nway/images/pop_equal_means_a.png")
 
 
 
-### CLT $B$: Preparation
+### Expected Variance $B$: Preparation
 
 In the context of the preparation main effect means, each preparation mean is based on $na=(5)(2)=10$ people. 
 Therefore, for these preparation main effect means the general formula for the variance due to sampling error is below:
@@ -464,14 +466,14 @@ Thus, when we have three preparation populations from which we obtained samples 
 knitr::include_graphics("ch_deeper_nway/images/pop_equal_means_b.png")
 ```
 
-### CLT Cells
+### Expected Variance Cells
 
 In the context of the cell means, each cell mean is based on $n=5$ people. 
 Therefore, for these cell means the general formula for the variance due to sampling error is below:
 
 $$
 \begin{aligned}
-\text{Sampling error variance for cell means} = \sigma_{\bar{x}}^2 &= \frac{\sigma_{people}^2}{\text{sample size}}\\
+\text{Sampling error variance for cell means} &= \sigma_{\bar{x}}^2 &= \frac{\sigma_{people}^2}{\text{sample size}}\\
 &= \frac{\sigma_{people}^2}{n}\\
 \end{aligned}
 $$
@@ -488,7 +490,7 @@ $$
 I omit the diagram for cells populations and sample mean distributions. This is done because there are so many different ways cells might be examined. There would be too many diagrams - and it would be misleading to present just one diagram. But don't worry we will return to this issue, with diagrams, when we start talking about interactions in more detail.
 
 
-### CLT Summary
+### Expected Variance Summary
 
 ```{r, eval = F, echo = F}
 #   Calculation | A = Juggling | B = Preparation | Cells |
@@ -509,7 +511,7 @@ Notice that the degrees of freedom for the sampling error variance is the same f
 
 ## Main Effect $A$: Juggling
 
-### Total variance $A$
+### Observed Variance $A$ (total variance)
 
 We might wonder if there is an effect of juggling on calmness scores ignoring the effect of preparation. Said another way, we might wonder if the mean of the **yes** juggling population ($\mu_{A1}$) is different from the mean of the **no** juggling population ($\mu_{A2}$). We examine this question by looking the **variance** in the population means. 
 
@@ -520,7 +522,8 @@ If we knew the **population means** we could:
 
 $$
 \begin{aligned}
-\text{Grand mean} = \mu_A &= \frac{\sum\mu_{A_i}}{a} \\
+\text{Grand mean} &= \mu_A \\
+&= \frac{\sum\mu_{A_i}}{a} \\
 &= \frac{\mu_{A_1}+\mu_{A_2}}{2}\\
 &= \frac{? + ?}{2}
 \end{aligned}
@@ -552,7 +555,8 @@ knitr::include_graphics("ch_deeper_nway/images/nway_design_A_sample.png")
 
 $$
 \begin{aligned}
-\text{Grand mean estimate} = \bar{\bar{x}} &= \frac{\sum \overline{x_{A_i}}}{a} \\
+\text{Grand mean estimate} &= \bar{\bar{x}} \\
+&= \frac{\sum \overline{x_{A_i}}}{a} \\
 &= \frac{\overline{x_{A_1}}+\overline{x_{A_2}}}{2}\\
 &= \frac{77.33333 + 55.8}{2} \\
 &= 66.56667\\
@@ -714,7 +718,7 @@ Comparison using $F$-ratio | $\frac{\frac{nb\sum(\bar{x_i}-\bar{\bar{x}})^2}{a-1
 
 ## Main Effect $B$: Preparation 
 
-### Total variance $B$
+### Observed Variance $B$ [total variance]
 
 Let's look at the other independent variable: preparation. As before, we might wonder if there is an effect of preparation on calmness scores ignoring the effect of juggling. Said another way, we might wonder if the means of the three preparation populations (low [$\mu_{B1}$], medium [$\mu_{B2}$], high [$\mu_{B3}$]) are different from each other. We examine this question by looking the **variance** in the population means. 
 
@@ -724,7 +728,8 @@ If we knew the **population** means we could:
 
 $$
 \begin{aligned}
-\text{Grand mean} = \mu_B &= \frac{\sum\mu_{B_i}}{b} \\
+\text{Grand mean} &= \mu_B \\
+&= \frac{\sum\mu_{B_i}}{b} \\
 &= \frac{\mu_{B_1}+\mu_{B_2}+\mu_{B_3}}{3}\\
 &= \frac{? + ? + ?}{3}
 \end{aligned}
@@ -755,7 +760,8 @@ knitr::include_graphics("ch_deeper_nway/images/nway_design_B_sample.png")
 
 $$
 \begin{aligned}
-\text{Grand mean estimate} = \bar{\bar{x}} &= \frac{\sum \bar{x}_{B_i}}{b} \\
+\text{Grand mean estimate} &= \bar{\bar{x}} \\
+&= \frac{\sum \bar{x}_{B_i}}{b} \\
 &= \frac{\overline{x_{B_1}}+\overline{x_{B_2}} +\overline{x_{B_3}} }{3}\\
 &= \frac{65.4 + 62.6 + 71.7}{3} \\
 &= 66.56667\\
@@ -940,7 +946,7 @@ no_juggle| $`r xbar4` - `r mean_a2` = `r round(ra4,2)`$ | $`r xbar5` - `r mean_a
 
 #### Subtract $B$ marginal means
 
-Next, we take the residual. means from the previous step and remove the main effect of $B$. Recall the marginal means for low, medium, and high preparation were `r round(mean_a2,2)`, `r round(mean_b2,2)`, and `r round(mean_b3,2)`, respectively. We subtract these main effect means from the residual. means from the previous step.
+Next, we take the residual. means from the previous step and remove the main effect of $B$. Recall the marginal means for low, medium, and high preparation were `r round(mean_b1,2)`, `r round(mean_b2,2)`, and `r round(mean_b3,2)`, respectively. We subtract these main effect means from the residual. means from the previous step.
 
  Effect  | low_prep  | medium_prep| high_prep| 
 :-------:|---------|----------|-----|
@@ -969,7 +975,7 @@ no_juggle | $`r round(rg4,2)`$ |  $`r round(rg5,2)`$ | $`r round(rg6,2)`$ |
 
 ## Interaction ($AB$)
 
-### Total variance $AB$
+### Observed Variance $AB$ [total variance]
 
 The residual cell means calculated in the previous section are presented below -- as a starting point for the interaction calculations.
 
@@ -1091,8 +1097,8 @@ Remember the $p$-value is the **probability of our data, or more extreme data,**
 
 Preparation| Formula | Expected value | degrees of freedom |
 :--------------:|:--------------:|:------------------:|:---------------:|
-Estimated total variance | $\frac{\sum (\overline{x_{residual_i}})^2}{(a-1)(b-1)} = 53.92667$ |$\frac{\sigma_{people}^2}{n} + \sigma_{AB}^2$ | $(a-1)(b-1)$
-Estimated variance sampling error | $\frac{s_{people}^2}{n}=\frac{60}{5}=12$ |$\frac{\sigma_{people}^2}{n}$ | $ab(n-1)$
+Estimated observed variance [total]| $\frac{\sum (\overline{x_{residual_i}})^2}{(a-1)(b-1)} = 53.92667$ |$\frac{\sigma_{people}^2}{n} + \sigma_{AB}^2$ | $(a-1)(b-1)$
+Estimated expected variance [sampling error] | $\frac{s_{people}^2}{n}=\frac{60}{5}=12$ |$\frac{\sigma_{people}^2}{n}$ | $ab(n-1)$
 Comparison using $F$-ratio |$\frac{\frac{\sum (\overline{x_{residual_i}} )^2}{(a-1)(b-1)}}{                  \frac{s_{people}^2}{n}}=\frac{53.92667}{12}=4.49$  |  $\frac{\frac{\sigma_{people}^2}{n} + \sigma_{AB}^2}{    \frac{\sigma_{people}^2}{n}}$ | $[(a-1)(b-1),ab(n-1)]$
 
 ### $AB$ typical (interaction)

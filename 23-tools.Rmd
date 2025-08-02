@@ -21,6 +21,8 @@ Also don't forget to pre-register any analyses involving control variables. Cont
 
 Be sure to check out the [Transparency checklist](http://www.shinyapps.org/apps/TransparencyChecklist/). This is a great tool to help you ensure your process is transparent.
 
+Also see [Open Science: A Practical Guide for Early-Career Researchers](https://zenodo.org/record/7716153).
+
 ## Helpful web apps
 
 Daniel Lakens has a number of very helpful web apps to help you with sample size planning and other issues. I encourage you to check them out [here](https://lakens.github.io/shiny_apps/).
@@ -124,6 +126,12 @@ knitr::include_graphics("ch_tools/images/papaja_template.png")
 
 The rmarkdown language for document creation has evolved into [Quarto](https://quarto.org). Quarto is more or less the same but is cross-platform statistically (i.e., Python, Julia, etc.). It represents the next step in this approach to document creation. I suggest you check it out - but Quarto is still in the early days. There are not nearly as many blogs, posts, or YouTube videos on Quarto as there are on rmarkdown - yet. So right now, I suggest you still learn rmarkdown, but realize the future is a slightly tweaked version of rmarkdown called Quarto.
 
+Check out Mine Çetinkaya-Rundel's video [Get started with Quarto](https://www.youtube.com/watch?v=_f3latmOhew).
+
+Also see [Create & Publish a Quarto Blog on Quarto Pub in 100 Seconds](https://www.youtube.com/watch?v=t8qtcDyCRFA).
+
+You might also want to check a package for [Quarto APA 7 papers](https://github.com/wjschne/apaquarto).
+
 
 ### apaTables
 
@@ -193,6 +201,9 @@ If you want to learn more about statistics I suggest [@maxwell2017designing], [@
 * [Baguley, T. (2012). Serious stats: A guide to advanced statistics for the behavioral sciences. Macmillan International Higher Education.](https://www.amazon.ca/Serious-Stats-advanced-statistics-behavioral/dp/0230577180/ref=sr_1_1?dchild=1&keywords=serious+stats&qid=1629126084&sr=8-1) by Baguley. The book title tells you everything you need to know about this one.
 
 * [Hayes, A. F. (2017). Introduction to mediation, moderation, and conditional process analysis: A regression-based approach. Guilford publications.](https://www.amazon.ca/Introduction-Mediation-Moderation-Conditional-Analysis/dp/1609182308/ref=sr_1_3?dchild=1&keywords=Introduction+to+mediation%2C+moderation%2C+and+conditional+process+analysis%3A+A+regression-based+approach.+Guilford+publications.&qid=1629717582&sr=8-3). Many people use the approach in this book when they have multiple mediators and moderators. The PROCESS [website]((https://processmacro.org/index.html) has the R-script for the PROCESS macro.
+
+* Check out Daniel Lakens great free book [Improving Your Statistical Inferences](https://lakens.github.io/statistical_inferences/).
+
 
 ## General R books
 

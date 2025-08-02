@@ -360,7 +360,7 @@ You can see the new data contains only the character columns:
 glimpse(data_character_columns)
 ```
 
-In a future chapter you will see how we can select factors using where(is.factor).
+In a future chapter you will see how we can select factors using the where() command.
 
 
 ### summarise()
